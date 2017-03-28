@@ -1,0 +1,127 @@
+"subject","version","assignmentId","question","question_ind","all_values","question_order","comp_check","comp_check_pass","choice","scratch","rt","stamp","id"
+"AITOOWS61SPF6","cs_wg_v1_pilot2","3NPI0JQDAO6B1PAO1XMHIOT8W2NPT8","Number of letters before word's second letter in alphabet","5","[2,20,7,0,2,17,20,0,14,19,8,11,20,8,11,14,14,17,7,0,7,7,14,11,11,8,13,11,4,20,14,0,20]","0","5","0","GLUNDLE",,"11590","2017-02-06 16:26:43","98"
+"AITOOWS61SPF6","cs_wg_v1_pilot2","3NPI0JQDAO6B1PAO1XMHIOT8W2NPT8","Number of letters in alphabet between word's 4th and 5th letters","6","[0,14,5,20,2,11,5,1,1,21,6,8,2,7,11,6,2,9,1,8,19,8,5,10,0,2,17,0,2,7,5,1,17]","1","8","0","POUTA",,"10399","2017-02-06 16:27:13","99"
+"AITOOWS61SPF6","cs_wg_v1_pilot2","3NPI0JQDAO6B1PAO1XMHIOT8W2NPT8","Give us a word where the most letters come after the word's third letter in the alphabet.","4","[9,9,12,15,9,12,13,7,26,22,24,18,20,11,22,12,26,12,22,9,26,12,9,6,22,13,26,18,22,23,7,23,9]","2","20","0","SLEAP",,"7740","2017-02-06 16:27:40","100"
+"AITOOWS61SPF6","cs_wg_v1_pilot2","3NPI0JQDAO6B1PAO1XMHIOT8W2NPT8","Give us a word with the most letters in the set: U, A, D, W, Y, R, M, J, Z.","2","[4,12,0,12,8,8,12,8,4,4,12,0,12,0,4,8,8,12,4,16,8,4,8,8,12,4,4,8,4,16,4,28,24]","3","8","0","GLUNDLE",,"4412","2017-02-06 16:28:02","101"
+"AITOOWS61SPF6","cs_wg_v1_pilot2","3NPI0JQDAO6B1PAO1XMHIOT8W2NPT8","Give us a word with the most letters in the set: T, P, O, K, I, C, V, H.","1","[8,0,24,0,8,8,8,8,12,8,12,16,0,16,8,12,12,8,8,0,8,20,8,0,4,8,4,8,8,0,28,0,0]","4","16","1","GLUNDLE",,"4213","2017-02-06 16:28:16","102"
+"AITOOWS61SPF6","cs_wg_v1_pilot2","3NPI0JQDAO6B1PAO1XMHIOT8W2NPT8","Number of pairs which are adjacent in alphabet","7","[4,12,0,4,12,12,16,4,8,8,12,8,4,4,4,4,4,8,16,0,8,0,4,4,28,0,0,8,4,8,0,24,8]","5","5","0","SLEEM",,"7389","2017-02-06 16:28:45","103"
+"AITOOWS61SPF6","cs_wg_v1_pilot2","3NPI0JQDAO6B1PAO1XMHIOT8W2NPT8","Vertical lines","8","[6,6,10,6,8,10,14,6,4,6,16,12,4,14,12,6,10,10,14,12,8,10,8,12,24,12,6,18,16,12,12,12,10]","6","8","1","GLUNDLE",,"4049","2017-02-06 16:29:10","104"
+"AITOOWS61SPF6","cs_wg_v1_pilot2","3NPI0JQDAO6B1PAO1XMHIOT8W2NPT8","Give us a word with the most letters that are earlier in the alphabet than the letter right after it.","3","[8,8,12,8,4,8,8,4,4,12,8,12,0,12,16,0,8,8,8,12,8,12,8,12,16,8,4,8,8,12,20,12,12]","7","16","0","GLUNDLE",,"3696","2017-02-06 16:29:22","105"
+"AITOOWS61SPF6","cs_wg_v1_pilot2","3NPI0JQDAO6B1PAO1XMHIOT8W2NPT8","Give us a word with the most letters in the set: S, G, E, F, B, N, or L.","0","[12,12,0,8,16,8,8,4,4,16,8,12,12,12,20,4,8,8,16,8,4,0,8,20,24,12,12,20,12,8,0,8,4]","8","8","0","GLUNDLE",,"4760","2017-02-06 16:29:40","106"
+"A15V8K8M4TXT9Y","cs_wg_v1_pilot2","3FTYUGLFSUM0RQW8VSDOFE652GYD5R","Number of letters before word's second letter in alphabet","5","[2,20,7,0,2,17,20,0,14,19,8,11,20,8,11,14,14,17,7,0,7,7,14,11,11,8,13,11,4,20,14,0,20]","0","5","0","plibbering","plib
+thocky
+hatchak
+","47300","2017-02-06 16:36:19","107"
+"A15V8K8M4TXT9Y","cs_wg_v1_pilot2","3FTYUGLFSUM0RQW8VSDOFE652GYD5R","Give us a word where the most letters come after the word's third letter in the alphabet.","4","[9,9,12,15,9,12,13,7,26,22,24,18,20,11,22,12,26,12,22,9,26,12,9,6,22,13,26,18,22,23,7,23,9]","1","20","0","gnarly","plib
+thocky
+hatchack
+gnarly","24535","2017-02-06 16:36:56","108"
+"A15V8K8M4TXT9Y","cs_wg_v1_pilot2","3FTYUGLFSUM0RQW8VSDOFE652GYD5R","Number of letters in alphabet between word's 4th and 5th letters","6","[0,14,5,20,2,11,5,1,1,21,6,8,2,7,11,6,2,9,1,8,19,8,5,10,0,2,17,0,2,7,5,1,17]","2","5","1","thocky","plibbering
+thocky
+hatchack
+gnarly
+","46123","2017-02-06 16:38:24","109"
+"A15V8K8M4TXT9Y","cs_wg_v1_pilot2","3FTYUGLFSUM0RQW8VSDOFE652GYD5R","Give us a word with the most letters in the set: U, A, D, W, Y, R, M, J, Z.","2","[4,12,0,12,8,8,12,8,4,4,12,0,12,0,4,8,8,12,4,16,8,4,8,8,12,4,4,8,4,16,4,28,24]","3","20","0","gnarly","thocky
+plibbering
+hatchack
+gnarly
+","58150","2017-02-06 16:39:50","110"
+"A15V8K8M4TXT9Y","cs_wg_v1_pilot2","3FTYUGLFSUM0RQW8VSDOFE652GYD5R","Give us a word with the most letters that are earlier in the alphabet than the letter right after it.","3","[8,8,12,8,4,8,8,4,4,12,8,12,0,12,16,0,8,8,8,12,8,12,8,12,16,8,4,8,8,12,20,12,12]","4","20","1","hatchack","plimmering
+hatchack
+thocky
+gnarly","36003","2017-02-06 16:41:05","111"
+"A15V8K8M4TXT9Y","cs_wg_v1_pilot2","3FTYUGLFSUM0RQW8VSDOFE652GYD5R","Give us a word with the most letters in the set: T, P, O, K, I, C, V, H.","1","[8,0,24,0,8,8,8,8,12,8,12,16,0,16,8,12,12,8,8,0,8,20,8,0,4,8,4,8,8,0,28,0,0]","5","20","0","hatchack","plimmering
+thocky
+hatchack
+gnarly","19341","2017-02-06 16:41:43","112"
+"A15V8K8M4TXT9Y","cs_wg_v1_pilot2","3FTYUGLFSUM0RQW8VSDOFE652GYD5R","Vertical lines","8","[6,6,10,6,8,10,14,6,4,6,16,12,4,14,12,6,10,10,14,12,8,10,8,12,24,12,6,18,16,12,12,12,10]","6","8","1","GLIMMERING","GLIMMERING
+HATCHACK
+THOCKY
+GNARLY","38545","2017-02-06 16:42:43","113"
+"AEFZE7BIGDAS2","cs_wg_v1_pilot2","3OB0CAO74HQF5UBUSQ1BHWJWPDVHYK","Give us a word with the most letters in the set: U, A, D, W, Y, R, M, J, Z.","2","[4,12,0,12,8,8,12,8,4,4,12,0,12,0,4,8,8,12,4,16,8,4,8,8,12,4,4,8,4,16,4,28,24]","0","8","0","HOTCHACK",,"65770","2017-02-06 16:43:05","114"
+"AEFZE7BIGDAS2","cs_wg_v1_pilot2","3OB0CAO74HQF5UBUSQ1BHWJWPDVHYK","Give us a word with the most letters that are earlier in the alphabet than the letter right after it.","3","[8,8,12,8,4,8,8,4,4,12,8,12,0,12,16,0,8,8,8,12,8,12,8,12,16,8,4,8,8,12,20,12,12]","1","8","0","FLEMMING",,"31333","2017-02-06 16:43:42","115"
+"A15V8K8M4TXT9Y","cs_wg_v1_pilot2","3FTYUGLFSUM0RQW8VSDOFE652GYD5R","Number of pairs which are adjacent in alphabet","7","[4,12,0,4,12,12,16,4,8,8,12,8,4,4,4,4,4,8,16,0,8,0,4,4,28,0,0,8,4,8,0,24,8]","7","20","0","GLIMMERING","GLIMMERING
+HATCHACK
+THCOKY
+GNARLY","27667","2017-02-06 16:43:45","116"
+"AEFZE7BIGDAS2","cs_wg_v1_pilot2","3OB0CAO74HQF5UBUSQ1BHWJWPDVHYK","Number of pairs which are adjacent in alphabet","7","[4,12,0,4,12,12,16,4,8,8,12,8,4,4,4,4,4,8,16,0,8,0,4,4,28,0,0,8,4,8,0,24,8]","2","5","0",,,"34750","2017-02-06 16:44:22","117"
+"AEFZE7BIGDAS2","cs_wg_v1_pilot2","3OB0CAO74HQF5UBUSQ1BHWJWPDVHYK","Vertical lines","8","[6,6,10,6,8,10,14,6,4,6,16,12,4,14,12,6,10,10,14,12,8,10,8,12,24,12,6,18,16,12,12,12,10]","3","4","0",,"N/A","9320","2017-02-06 16:44:37","118"
+"A15V8K8M4TXT9Y","cs_wg_v1_pilot2","3FTYUGLFSUM0RQW8VSDOFE652GYD5R","Give us a word with the most letters in the set: S, G, E, F, B, N, or L.","0","[12,12,0,8,16,8,8,4,4,16,8,12,12,12,20,4,8,8,16,8,4,0,8,20,24,12,12,20,12,8,0,8,4]","8","20","0","GLIMMERING",,"46301","2017-02-06 16:44:47","119"
+"AEFZE7BIGDAS2","cs_wg_v1_pilot2","3OB0CAO74HQF5UBUSQ1BHWJWPDVHYK","Give us a word with the most letters in the set: S, G, E, F, B, N, or L.","0","[12,12,0,8,16,8,8,4,4,16,8,12,12,12,20,4,8,8,16,8,4,0,8,20,24,12,12,20,12,8,0,8,4]","4","4","0","HOTCRACK","HOTCRACK","18587","2017-02-06 16:45:08","120"
+"AEFZE7BIGDAS2","cs_wg_v1_pilot2","3OB0CAO74HQF5UBUSQ1BHWJWPDVHYK","Number of letters in alphabet between word's 4th and 5th letters","6","[0,14,5,20,2,11,5,1,1,21,6,8,2,7,11,6,2,9,1,8,19,8,5,10,0,2,17,0,2,7,5,1,17]","5","5","1","FLEMMING","FLEMMING","21358","2017-02-06 16:45:35","121"
+"AEFZE7BIGDAS2","cs_wg_v1_pilot2","3OB0CAO74HQF5UBUSQ1BHWJWPDVHYK","Give us a word where the most letters come after the word's third letter in the alphabet.","4","[9,9,12,15,9,12,13,7,26,22,24,18,20,11,22,12,26,12,22,9,26,12,9,6,22,13,26,18,22,23,7,23,9]","6","4","0",,,"12141","2017-02-06 16:45:52","122"
+"AEFZE7BIGDAS2","cs_wg_v1_pilot2","3OB0CAO74HQF5UBUSQ1BHWJWPDVHYK","Give us a word with the most letters in the set: T, P, O, K, I, C, V, H.","1","[8,0,24,0,8,8,8,8,12,8,12,16,0,16,8,12,12,8,8,0,8,20,8,0,4,8,4,8,8,0,28,0,0]","7","5","0",,,"4491","2017-02-06 16:46:04","123"
+"AEFZE7BIGDAS2","cs_wg_v1_pilot2","3OB0CAO74HQF5UBUSQ1BHWJWPDVHYK","Number of letters before word's second letter in alphabet","5","[2,20,7,0,2,17,20,0,14,19,8,11,20,8,11,14,14,17,7,0,7,7,14,11,11,8,13,11,4,20,14,0,20]","8","8","0",,,"21093","2017-02-06 16:46:35","124"
+"AR1IWBDA7MC86","cs_wg_v1_pilot2","3RRCEFRB7MDPGAUO3R38FWCRZZRB4D","Give us a word with the most letters that are earlier in the alphabet than the letter right after it.","3","[8,8,12,8,4,8,8,4,4,12,8,12,0,12,16,0,8,8,8,12,8,12,8,12,16,8,4,8,8,12,20,12,12]","0","20","1","hotchack","flemmering 5 5 5 5
+hotchack 5 5 5 5 5
+jaddeared 5 5 5 5","167208","2017-02-06 16:59:13","125"
+"A1945USNZHTROX","cs_wg_v1_pilot2","3JWH6J9I9SEB2I4ULWI4E5IRQGMNBK","Number of pairs which are adjacent in alphabet","7","[4,12,0,4,12,12,16,4,8,8,12,8,4,4,4,4,4,8,16,0,8,0,4,4,28,0,0,8,4,8,0,24,8]","0","5","0","fippery",,"31761","2017-02-06 16:59:33","126"
+"A1945USNZHTROX","cs_wg_v1_pilot2","3JWH6J9I9SEB2I4ULWI4E5IRQGMNBK","Number of letters before word's second letter in alphabet","5","[2,20,7,0,2,17,20,0,14,19,8,11,20,8,11,14,14,17,7,0,7,7,14,11,11,8,13,11,4,20,14,0,20]","1","20","0","fipper","fippery","11174","2017-02-06 17:00:24","127"
+"A1945USNZHTROX","cs_wg_v1_pilot2","3JWH6J9I9SEB2I4ULWI4E5IRQGMNBK","Give us a word with the most letters in the set: T, P, O, K, I, C, V, H.","1","[8,0,24,0,8,8,8,8,12,8,12,16,0,16,8,12,12,8,8,0,8,20,8,0,4,8,4,8,8,0,28,0,0]","2","16","1","wookey",,"9573","2017-02-06 17:01:03","128"
+"A1945USNZHTROX","cs_wg_v1_pilot2","3JWH6J9I9SEB2I4ULWI4E5IRQGMNBK","Give us a word with the most letters in the set: S, G, E, F, B, N, or L.","0","[12,12,0,8,16,8,8,4,4,16,8,12,12,12,20,4,8,8,16,8,4,0,8,20,24,12,12,20,12,8,0,8,4]","3","24","1","fipper",,"3676","2017-02-06 17:01:26","129"
+"AR1IWBDA7MC86","cs_wg_v1_pilot2","3RRCEFRB7MDPGAUO3R38FWCRZZRB4D","Number of letters in alphabet between word's 4th and 5th letters","6","[0,14,5,20,2,11,5,1,1,21,6,8,2,7,11,6,2,9,1,8,19,8,5,10,0,2,17,0,2,7,5,1,17]","1","5","1","chaxed","chaxed 
+thocky","66246","2017-02-06 17:01:43","130"
+"A1945USNZHTROX","cs_wg_v1_pilot2","3JWH6J9I9SEB2I4ULWI4E5IRQGMNBK","Give us a word with the most letters in the set: U, A, D, W, Y, R, M, J, Z.","2","[4,12,0,12,8,8,12,8,4,4,12,0,12,0,4,8,8,12,4,16,8,4,8,8,12,4,4,8,4,16,4,28,24]","4","16","1","fipper",,"8605","2017-02-06 17:01:49","131"
+"A1945USNZHTROX","cs_wg_v1_pilot2","3JWH6J9I9SEB2I4ULWI4E5IRQGMNBK","Vertical lines","8","[6,6,10,6,8,10,14,6,4,6,16,12,4,14,12,6,10,10,14,12,8,10,8,12,24,12,6,18,16,12,12,12,10]","5","12","0","fipper",,"13471","2017-02-06 17:02:52","132"
+"A1945USNZHTROX","cs_wg_v1_pilot2","3JWH6J9I9SEB2I4ULWI4E5IRQGMNBK","Give us a word with the most letters that are earlier in the alphabet than the letter right after it.","3","[8,8,12,8,4,8,8,4,4,12,8,12,0,12,16,0,8,8,8,12,8,12,8,12,16,8,4,8,8,12,20,12,12]","6","5","0","wookey",,"5427","2017-02-06 17:03:39","133"
+"A1945USNZHTROX","cs_wg_v1_pilot2","3JWH6J9I9SEB2I4ULWI4E5IRQGMNBK","Number of letters in alphabet between word's 4th and 5th letters","6","[0,14,5,20,2,11,5,1,1,21,6,8,2,7,11,6,2,9,1,8,19,8,5,10,0,2,17,0,2,7,5,1,17]","7","5","1","fipper",,"4613","2017-02-06 17:03:59","134"
+"AR1IWBDA7MC86","cs_wg_v1_pilot2","3RRCEFRB7MDPGAUO3R38FWCRZZRB4D","Give us a word with the most letters in the set: T, P, O, K, I, C, V, H.","1","[8,0,24,0,8,8,8,8,12,8,12,16,0,16,8,12,12,8,8,0,8,20,8,0,4,8,4,8,8,0,28,0,0]","2","16","1","thocky ","plibbered 8
+mickered 12
+blicket 16
+thocky ","125919","2017-02-06 17:04:22","135"
+"A1945USNZHTROX","cs_wg_v1_pilot2","3JWH6J9I9SEB2I4ULWI4E5IRQGMNBK","Give us a word where the most letters come after the word's third letter in the alphabet.","4","[9,9,12,15,9,12,13,7,26,22,24,18,20,11,22,12,26,12,22,9,26,12,9,6,22,13,26,18,22,23,7,23,9]","8","5","1","fipper",,"3861","2017-02-06 17:04:28","136"
+"AR1IWBDA7MC86","cs_wg_v1_pilot2","3RRCEFRB7MDPGAUO3R38FWCRZZRB4D","Give us a word where the most letters come after the word's third letter in the alphabet.","4","[9,9,12,15,9,12,13,7,26,22,24,18,20,11,22,12,26,12,22,9,26,12,9,6,22,13,26,18,22,23,7,23,9]","3","5","1","chaxed",,"33118","2017-02-06 17:05:35","137"
+"AR1IWBDA7MC86","cs_wg_v1_pilot2","3RRCEFRB7MDPGAUO3R38FWCRZZRB4D","Vertical lines","8","[6,6,10,6,8,10,14,6,4,6,16,12,4,14,12,6,10,10,14,12,8,10,8,12,24,12,6,18,16,12,12,12,10]","4","12","0","FLEMMERING","plibbered 4
+flemmering 1
+cheedle 
+PLIBBERED 9
+FLEMMERING 12
+CHEEDLE 7","92477","2017-02-06 17:07:37","138"
+"AR1IWBDA7MC86","cs_wg_v1_pilot2","3RRCEFRB7MDPGAUO3R38FWCRZZRB4D","Give us a word with the most letters in the set: S, G, E, F, B, N, or L.","0","[12,12,0,8,16,8,8,4,4,16,8,12,12,12,20,4,8,8,16,8,4,0,8,20,24,12,12,20,12,8,0,8,4]","5","24","1","FLEMMERING","PLIBBERED 4
+FLEMMERING 5","60431","2017-02-06 17:09:01","139"
+"AR1IWBDA7MC86","cs_wg_v1_pilot2","3RRCEFRB7MDPGAUO3R38FWCRZZRB4D","Give us a word with the most letters in the set: U, A, D, W, Y, R, M, J, Z.","2","[4,12,0,12,8,8,12,8,4,4,12,0,12,0,4,8,8,12,4,16,8,4,8,8,12,4,4,8,4,16,4,28,24]","6","16","1","NARDLY",,"40931","2017-02-06 17:10:06","140"
+"AR1IWBDA7MC86","cs_wg_v1_pilot2","3RRCEFRB7MDPGAUO3R38FWCRZZRB4D","Number of letters before word's second letter in alphabet","5","[2,20,7,0,2,17,20,0,14,19,8,11,20,8,11,14,14,17,7,0,7,7,14,11,11,8,13,11,4,20,14,0,20]","7","4","1","DUNCHED",,"30784","2017-02-06 17:11:01","141"
+"ANJJYKB47APL5","cs_wg_v1_pilot2","36TFCYNS44BQ5PLKNUF9YICNN71HXE","Give us a word with the most letters in the set: T, P, O, K, I, C, V, H.","1","[8,0,24,0,8,8,8,8,12,8,12,16,0,16,8,12,12,8,8,0,8,20,8,0,4,8,4,8,8,0,28,0,0]","0","4","0","wooked","8","27741","2017-02-06 17:12:25","142"
+"AR1IWBDA7MC86","cs_wg_v1_pilot2","3RRCEFRB7MDPGAUO3R38FWCRZZRB4D","Number of pairs which are adjacent in alphabet","7","[4,12,0,4,12,12,16,4,8,8,12,8,4,4,4,4,4,8,16,0,8,0,4,4,28,0,0,8,4,8,0,24,8]","8","16","1","FLEMMERING",,"30214","2017-02-06 17:13:11","143"
+"ANJJYKB47APL5","cs_wg_v1_pilot2","36TFCYNS44BQ5PLKNUF9YICNN71HXE","Give us a word with the most letters in the set: U, A, D, W, Y, R, M, J, Z.","2","[4,12,0,12,8,8,12,8,4,4,12,0,12,0,4,8,8,12,4,16,8,4,8,8,12,4,4,8,4,16,4,28,24]","1","8","0","16","jaddeared","36803","2017-02-06 17:13:27","144"
+"ANJJYKB47APL5","cs_wg_v1_pilot2","36TFCYNS44BQ5PLKNUF9YICNN71HXE","Give us a word with the most letters in the set: S, G, E, F, B, N, or L.","0","[12,12,0,8,16,8,8,4,4,16,8,12,12,12,20,4,8,8,16,8,4,0,8,20,24,12,12,20,12,8,0,8,4]","2","24","1",,,"11587","2017-02-06 17:14:48","145"
+"ANJJYKB47APL5","cs_wg_v1_pilot2","36TFCYNS44BQ5PLKNUF9YICNN71HXE","Give us a word with the most letters that are earlier in the alphabet than the letter right after it.","3","[8,8,12,8,4,8,8,4,4,12,8,12,0,12,16,0,8,8,8,12,8,12,8,12,16,8,4,8,8,12,20,12,12]","3","20","1",,,"5219","2017-02-06 17:15:45","146"
+"ANJJYKB47APL5","cs_wg_v1_pilot2","36TFCYNS44BQ5PLKNUF9YICNN71HXE","Vertical lines","8","[6,6,10,6,8,10,14,6,4,6,16,12,4,14,12,6,10,10,14,12,8,10,8,12,24,12,6,18,16,12,12,12,10]","4","12","0","WOOKED","WOOKED","21027","2017-02-06 17:17:04","147"
+"ANJJYKB47APL5","cs_wg_v1_pilot2","36TFCYNS44BQ5PLKNUF9YICNN71HXE","Number of pairs which are adjacent in alphabet","7","[4,12,0,4,12,12,16,4,8,8,12,8,4,4,4,4,4,8,16,0,8,0,4,4,28,0,0,8,4,8,0,24,8]","5","4","0","JADDEARED",,"23949","2017-02-06 17:18:07","148"
+"ANJJYKB47APL5","cs_wg_v1_pilot2","36TFCYNS44BQ5PLKNUF9YICNN71HXE","Give us a word where the most letters come after the word's third letter in the alphabet.","4","[9,9,12,15,9,12,13,7,26,22,24,18,20,11,22,12,26,12,22,9,26,12,9,6,22,13,26,18,22,23,7,23,9]","6","5","1","MURRAD","MURRAD","17143","2017-02-06 17:19:01","149"
+"ANJJYKB47APL5","cs_wg_v1_pilot2","36TFCYNS44BQ5PLKNUF9YICNN71HXE","Number of letters before word's second letter in alphabet","5","[2,20,7,0,2,17,20,0,14,19,8,11,20,8,11,14,14,17,7,0,7,7,14,11,11,8,13,11,4,20,14,0,20]","7","20","0","MURRAD",,"30952","2017-02-06 17:20:12","150"
+"ANJJYKB47APL5","cs_wg_v1_pilot2","36TFCYNS44BQ5PLKNUF9YICNN71HXE","Number of letters in alphabet between word's 4th and 5th letters","6","[0,14,5,20,2,11,5,1,1,21,6,8,2,7,11,6,2,9,1,8,19,8,5,10,0,2,17,0,2,7,5,1,17]","8","4","0","MURRAD",,"7729","2017-02-06 17:20:53","151"
+"A3G00Q5JV2BE5G","cs_wg_v1_pilot2","3S06PH7KSR5138VPU5BCCOTOQ0TD19","Give us a word with the most letters in the set: T, P, O, K, I, C, V, H.","1","[8,0,24,0,8,8,8,8,12,8,12,16,0,16,8,12,12,8,8,0,8,20,8,0,4,8,4,8,8,0,28,0,0]","0","16","1","roaking",,"33483","2017-02-06 17:24:40","152"
+"A3G00Q5JV2BE5G","cs_wg_v1_pilot2","3S06PH7KSR5138VPU5BCCOTOQ0TD19","Give us a word with the most letters in the set: S, G, E, F, B, N, or L.","0","[12,12,0,8,16,8,8,4,4,16,8,12,12,12,20,4,8,8,16,8,4,0,8,20,24,12,12,20,12,8,0,8,4]","1","20","0","cheedle",,"7964","2017-02-06 17:25:02","153"
+"A3G00Q5JV2BE5G","cs_wg_v1_pilot2","3S06PH7KSR5138VPU5BCCOTOQ0TD19","Number of letters in alphabet between word's 4th and 5th letters","6","[0,14,5,20,2,11,5,1,1,21,6,8,2,7,11,6,2,9,1,8,19,8,5,10,0,2,17,0,2,7,5,1,17]","2","5","1","murrads",,"9542","2017-02-06 17:25:29","154"
+"A3G00Q5JV2BE5G","cs_wg_v1_pilot2","3S06PH7KSR5138VPU5BCCOTOQ0TD19","Vertical lines","8","[6,6,10,6,8,10,14,6,4,6,16,12,4,14,12,6,10,10,14,12,8,10,8,12,24,12,6,18,16,12,12,12,10]","3","8","1",,"valer","11876","2017-02-06 17:26:06","155"
+"A3G00Q5JV2BE5G","cs_wg_v1_pilot2","3S06PH7KSR5138VPU5BCCOTOQ0TD19","Give us a word with the most letters in the set: U, A, D, W, Y, R, M, J, Z.","2","[4,12,0,12,8,8,12,8,4,4,12,0,12,0,4,8,8,12,4,16,8,4,8,8,12,4,4,8,4,16,4,28,24]","4","12","0","murrads",,"10247","2017-02-06 17:26:28","156"
+"A3G00Q5JV2BE5G","cs_wg_v1_pilot2","3S06PH7KSR5138VPU5BCCOTOQ0TD19","Number of pairs which are adjacent in alphabet","7","[4,12,0,4,12,12,16,4,8,8,12,8,4,4,4,4,4,8,16,0,8,0,4,4,28,0,0,8,4,8,0,24,8]","5","4","0","cheedle",,"9749","2017-02-06 17:27:03","157"
+"A3G00Q5JV2BE5G","cs_wg_v1_pilot2","3S06PH7KSR5138VPU5BCCOTOQ0TD19","Number of letters before word's second letter in alphabet","5","[2,20,7,0,2,17,20,0,14,19,8,11,20,8,11,14,14,17,7,0,7,7,14,11,11,8,13,11,4,20,14,0,20]","6","4","1","murrads",,"4148","2017-02-06 17:27:27","158"
+"A3G00Q5JV2BE5G","cs_wg_v1_pilot2","3S06PH7KSR5138VPU5BCCOTOQ0TD19","Give us a word where the most letters come after the word's third letter in the alphabet.","4","[9,9,12,15,9,12,13,7,26,22,24,18,20,11,22,12,26,12,22,9,26,12,9,6,22,13,26,18,22,23,7,23,9]","7","4","0","roaking",,"8070","2017-02-06 17:27:48","159"
+"A3G00Q5JV2BE5G","cs_wg_v1_pilot2","3S06PH7KSR5138VPU5BCCOTOQ0TD19","Give us a word with the most letters that are earlier in the alphabet than the letter right after it.","3","[8,8,12,8,4,8,8,4,4,12,8,12,0,12,16,0,8,8,8,12,8,12,8,12,16,8,4,8,8,12,20,12,12]","8","12","0","roaking",,"4949","2017-02-06 17:28:09","160"
+"AXJ1PE87PD0KK","cs_wg_v1_pilot2","30X31N5D63R3ZLR7NEZUIO8RVX9SA6","Vertical lines","8","[6,6,10,6,8,10,14,6,4,6,16,12,4,14,12,6,10,10,14,12,8,10,8,12,24,12,6,18,16,12,12,12,10]","0","8","1","MICKERED","wooked jaddeared hotchack mickered roaking HOTCHACK JADDEARED MICKERED","117151","2017-02-06 17:56:37","161"
+"AXJ1PE87PD0KK","cs_wg_v1_pilot2","30X31N5D63R3ZLR7NEZUIO8RVX9SA6","Number of letters in alphabet between word's 4th and 5th letters","6","[0,14,5,20,2,11,5,1,1,21,6,8,2,7,11,6,2,9,1,8,19,8,5,10,0,2,17,0,2,7,5,1,17]","1","12","0","MURRADS","Wooked 6 Screep blicket 8 Vated flemmering murrads","232455","2017-02-06 18:00:59","162"
+"AXJ1PE87PD0KK","cs_wg_v1_pilot2","30X31N5D63R3ZLR7NEZUIO8RVX9SA6","Give us a word with the most letters in the set: T, P, O, K, I, C, V, H.","1","[8,0,24,0,8,8,8,8,12,8,12,16,0,16,8,12,12,8,8,0,8,20,8,0,4,8,4,8,8,0,28,0,0]","2","16","1","HOTCHACK","WOOKED-3 SCREEP-1 VATED-2 POATS-3 HOTCHACK-5","103853","2017-02-06 18:03:23","163"
+"AXJ1PE87PD0KK","cs_wg_v1_pilot2","30X31N5D63R3ZLR7NEZUIO8RVX9SA6","Number of pairs which are adjacent in alphabet","7","[4,12,0,4,12,12,16,4,8,8,12,8,4,4,4,4,4,8,16,0,8,0,4,4,28,0,0,8,4,8,0,24,8]","3","4","0","VATED","SCREEP VATED POATS HOTCHACK FLEMMERING MICKERED","209494","2017-02-06 18:07:42","164"
+"AXJ1PE87PD0KK","cs_wg_v1_pilot2","30X31N5D63R3ZLR7NEZUIO8RVX9SA6","Give us a word with the most letters that are earlier in the alphabet than the letter right after it.","3","[8,8,12,8,4,8,8,4,4,12,8,12,0,12,16,0,8,8,8,12,8,12,8,12,16,8,4,8,8,12,20,12,12]","4","20","1","HOTCHACK","JADDEARED 3 BLICKET 3 MICKERED2 HOTCHACK 5","147544","2017-02-06 18:11:16","165"
+"AXJ1PE87PD0KK","cs_wg_v1_pilot2","30X31N5D63R3ZLR7NEZUIO8RVX9SA6","Give us a word with the most letters in the set: S, G, E, F, B, N, or L.","0","[12,12,0,8,16,8,8,4,4,16,8,12,12,12,20,4,8,8,16,8,4,0,8,20,24,12,12,20,12,8,0,8,4]","5","24","1","FLEMMERING","HOTCHACK JADDEARED FLEMMERING 6 SCREEP-3 ","84025","2017-02-06 18:13:36","166"
+"AXJ1PE87PD0KK","cs_wg_v1_pilot2","30X31N5D63R3ZLR7NEZUIO8RVX9SA6","Number of letters before word's second letter in alphabet","5","[2,20,7,0,2,17,20,0,14,19,8,11,20,8,11,14,14,17,7,0,7,7,14,11,11,8,13,11,4,20,14,0,20]","6","4","1","Dunched","Wooked Flemming DUNCHED HOT SC MICK","58423","2017-02-06 18:15:00","167"
+"AXJ1PE87PD0KK","cs_wg_v1_pilot2","30X31N5D63R3ZLR7NEZUIO8RVX9SA6","Give us a word where the most letters come after the word's third letter in the alphabet.","4","[9,9,12,15,9,12,13,7,26,22,24,18,20,11,22,12,26,12,22,9,26,12,9,6,22,13,26,18,22,23,7,23,9]","7","5","1","Roaking","WOOK SCREE ROAKING","24491","2017-02-06 18:15:49","168"
+"AXJ1PE87PD0KK","cs_wg_v1_pilot2","30X31N5D63R3ZLR7NEZUIO8RVX9SA6","Give us a word with the most letters in the set: U, A, D, W, Y, R, M, J, Z.","2","[4,12,0,12,8,8,12,8,4,4,12,0,12,0,4,8,8,12,4,16,8,4,8,8,12,4,4,8,4,16,4,28,24]","8","16","1","JADDEARED","VATED ROAKING DUNCHED JADDEARED 7 VATED 2FLEMMERING","83284","2017-02-06 18:17:46","169"
+"A1IFIK8J49WBER","cs_wg_v1_pilot2","3Y9N9SS8LYCXDB94H9PV0H8LOK7D31","Give us a word with the most letters that are earlier in the alphabet than the letter right after it.","3","[8,8,12,8,4,8,8,4,4,12,8,12,0,12,16,0,8,8,8,12,8,12,8,12,16,8,4,8,8,12,20,12,12]","0","4","0","CLEEPERS","ABCDEFGHIJKLMNOPQRSTUVWXYZ
+123
+1234 CLEEPERS
+
+","245368","2017-02-06 18:33:16","170"
+"A1IFIK8J49WBER","cs_wg_v1_pilot2","3Y9N9SS8LYCXDB94H9PV0H8LOK7D31","Number of letters before word's second letter in alphabet","5","[2,20,7,0,2,17,20,0,14,19,8,11,20,8,11,14,14,17,7,0,7,7,14,11,11,8,13,11,4,20,14,0,20]","1","4","1","DUNCHED",,"17090","2017-02-06 18:34:53","171"
+"A1IFIK8J49WBER","cs_wg_v1_pilot2","3Y9N9SS8LYCXDB94H9PV0H8LOK7D31","Give us a word with the most letters in the set: T, P, O, K, I, C, V, H.","1","[8,0,24,0,8,8,8,8,12,8,12,16,0,16,8,12,12,8,8,0,8,20,8,0,4,8,4,8,8,0,28,0,0]","2","4","0","THOCKY"," ","96949","2017-02-06 18:37:05","172"
+"A1IFIK8J49WBER","cs_wg_v1_pilot2","3Y9N9SS8LYCXDB94H9PV0H8LOK7D31","Vertical lines","8","[6,6,10,6,8,10,14,6,4,6,16,12,4,14,12,6,10,10,14,12,8,10,8,12,24,12,6,18,16,12,12,12,10]","3","8","1","FLEMMERING","
+","151035","2017-02-06 18:40:26","173"
+"A1IFIK8J49WBER","cs_wg_v1_pilot2","3Y9N9SS8LYCXDB94H9PV0H8LOK7D31","Number of letters in alphabet between word's 4th and 5th letters","6","[0,14,5,20,2,11,5,1,1,21,6,8,2,7,11,6,2,9,1,8,19,8,5,10,0,2,17,0,2,7,5,1,17]","4","5","1","CHAXED","7 DL
+
+","68490","2017-02-06 18:42:14","174"
+"A1IFIK8J49WBER","cs_wg_v1_pilot2","3Y9N9SS8LYCXDB94H9PV0H8LOK7D31","Number of pairs which are adjacent in alphabet","7","[4,12,0,4,12,12,16,4,8,8,12,8,4,4,4,4,4,8,16,0,8,0,4,4,28,0,0,8,4,8,0,24,8]","5","4","0","FLEMMERING",,"134874","2017-02-06 18:45:52","175"
+"A1IFIK8J49WBER","cs_wg_v1_pilot2","3Y9N9SS8LYCXDB94H9PV0H8LOK7D31","Give us a word with the most letters in the set: U, A, D, W, Y, R, M, J, Z.","2","[4,12,0,12,8,8,12,8,4,4,12,0,12,0,4,8,8,12,4,16,8,4,8,8,12,4,4,8,4,16,4,28,24]","6","16","1","JADDEARED",,"28199","2017-02-06 18:46:51","176"
+"A1IFIK8J49WBER","cs_wg_v1_pilot2","3Y9N9SS8LYCXDB94H9PV0H8LOK7D31","Give us a word with the most letters in the set: S, G, E, F, B, N, or L.","0","[12,12,0,8,16,8,8,4,4,16,8,12,12,12,20,4,8,8,16,8,4,0,8,20,24,12,12,20,12,8,0,8,4]","7","24","1","PLIBBERED",,"74926","2017-02-06 18:48:27","177"
+"A1IFIK8J49WBER","cs_wg_v1_pilot2","3Y9N9SS8LYCXDB94H9PV0H8LOK7D31","Give us a word where the most letters come after the word's third letter in the alphabet.","4","[9,9,12,15,9,12,13,7,26,22,24,18,20,11,22,12,26,12,22,9,26,12,9,6,22,13,26,18,22,23,7,23,9]","8","5","1","ROAKING",,"39856","2017-02-06 18:49:47","178"

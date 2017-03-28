@@ -1,0 +1,407 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Imagine you have 
+\begin_inset Formula $N$
+\end_inset
+
+ options, each with weight 
+\begin_inset Formula $w_{i}$
+\end_inset
+
+, and you select 
+\begin_inset Formula $K<N$
+\end_inset
+
+ of those options randomly (according to the non-uniform weights) without
+ replacement.
+ (There are several ways to do this efficiently: see 
+\begin_inset Quotes eld
+\end_inset
+
+Accelerating weighted random sampling without replacement
+\begin_inset Quotes erd
+\end_inset
+
+, Muller 2016.) What is the probability that any given set of (unordered)
+ options is chosen?
+\end_layout
+
+\begin_layout Standard
+This is a special case of the following 
+\begin_inset Quotes eld
+\end_inset
+
+urn problem
+\begin_inset Quotes erd
+\end_inset
+
+: Imagine there's an urn with balls of 
+\begin_inset Formula $N$
+\end_inset
+
+ different colors.
+ There are 
+\begin_inset Formula $m_{c}$
+\end_inset
+
+ balls of each color 
+\begin_inset Formula $c$
+\end_inset
+
+, all with weight 
+\begin_inset Formula $w_{c}$
+\end_inset
+
+.
+ You choose 
+\begin_inset Formula $K<N$
+\end_inset
+
+ balls without replacement.
+ Let 
+\begin_inset Formula $x_{c}$
+\end_inset
+
+ be a random variable indicating how many of color 
+\begin_inset Formula $c$
+\end_inset
+
+ is chosen, and thus let 
+\begin_inset Formula $X=\{x_{1},\ldots,x_{N}\}$
+\end_inset
+
+ describe the outcome of the draw.
+ 
+\begin_inset Formula $X$
+\end_inset
+
+ follows a Wallenius noncentral hypergeometric distribution:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(X=\{x_{1},\dots,x_{N}\})=(\stackrel[c=1]{N}{\prod}{m_{c} \choose x_{c}})(\intop_{t=0}^{1}\prod_{c=1}^{N}(1-t^{w_{c}/d_{X}})^{x_{c}}dt)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $d_{X}=\sum_{c=1}^{N}w_{c}(m_{c}-x_{c})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We consider the special case with only one ball of each color (i.e.
+ only one option), and thus 
+\begin_inset Formula $m_{c}=1$
+\end_inset
+
+ for all 
+\begin_inset Formula $c$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{c}$
+\end_inset
+
+ is either 1 or 0 (i.e.
+ either the option is present in the choice set or not).
+ In this case, the distribution can be dramatically simplified.
+ Let 
+\begin_inset Formula $\mathbf{P}_{i}(S)$
+\end_inset
+
+ denote the set of all subsets of 
+\begin_inset Formula $S$
+\end_inset
+
+ of size 
+\begin_inset Formula $i$
+\end_inset
+
+ (i.e.
+ 
+\begin_inset Formula $\mathbf{P}_{i}(S)=\{s\subset S:|s|=i\}$
+\end_inset
+
+), let 
+\begin_inset Formula $W=\{w_{1},\dots,w_{N}\}$
+\end_inset
+
+ be the weight vector, and let 
+\begin_inset Formula $C_{X}=\{c\in[1,N]:x_{c=1}\}$
+\end_inset
+
+ be the set of color indices in the selection.
+ Then:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{multline*}
+P(X=\{x_{1},\dots,x_{N}\})=\intop_{t=0}^{1}\prod_{c\in C_{X}}(1-t^{w_{c}/d_{X}})dt\\
+=\intop_{t=0}^{1}\sum_{i=0}^{K}\sum_{A\in\mathbf{\mathbf{P_{\mathbf{i}}}}(W_{C_{X}})}(-1)^{i}t^{\frac{\underset{a\in A}{\sum}a}{d_{X}}}dt\\
+=\sum_{i=0}^{K}\sum_{A\in\mathbf{\mathbf{\mathbf{P_{\mathbf{i}}}}}(W_{C_{X}})}(-1)^{i}\frac{d_{X}}{d_{X}+\underset{a\in A}{\sum}a}
+\end{multline*}
+
+\end_inset
+
+Note that, here, 
+\begin_inset Formula $d_{X}=\sum_{c\in C_{X}^{\complement}}w_{c}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+Computing likelihood for preferred model
+\end_layout
+
+\begin_layout Standard
+The goal of this is to compute the probability of choosing option 
+\begin_inset Formula $q$
+\end_inset
+
+, given our preferred model (WRS w/o R to construct option set of size 
+\begin_inset Formula $K$
+\end_inset
+
+ based on softmaxed MF values with temperature 
+\begin_inset Formula $\beta$
+\end_inset
+
+, followed by deterministic selection of option in set with highest MB value).
+ To find this, you sum up the probabilities of all choice sets where option
+ 
+\begin_inset Formula $q$
+\end_inset
+
+ is the highest.
+ Let 
+\begin_inset Formula $G_{q}$
+\end_inset
+
+ be the set of choice sets where option 
+\begin_inset Formula $q$
+\end_inset
+
+ has the greatest MB value.
+ Then 
+\begin_inset Formula $P(choice=q\mid K,\beta)=\sum_{g\in G_{q}}P(g)$
+\end_inset
+
+.
+ To do this practically, you construct all choice sets of size 
+\begin_inset Formula $K-1$
+\end_inset
+
+ out of options with MB value less than that of 
+\begin_inset Formula $q$
+\end_inset
+
+; call it 
+\begin_inset Formula $L_{o}$
+\end_inset
+
+.
+ Then, you sum the probabilities of the choice sets 
+\begin_inset Formula $G_{q}=q\times L_{i}$
+\end_inset
+
+.
+ (If we 
+\emph on
+really 
+\emph default
+want to optimize, we can either do this OR construct all choice sets where
+ 
+\begin_inset Formula $q$
+\end_inset
+
+ is 
+\emph on
+not 
+\emph default
+the top, and then do 1 minus the summed probabilities at the end, depending
+ on whether 
+\begin_inset Formula $q$
+\end_inset
+
+'s MB value is above or below the median.)
+\end_layout
+
+\begin_layout Standard
+It's a bit more complex than this, because options can have the same MB
+ value.
+ In that case, the agent is assumed to pick randomly.
+ Let 
+\begin_inset Formula $H_{q}^{j}$
+\end_inset
+
+ be the set of choice sets of size 
+\begin_inset Formula $K$
+\end_inset
+
+ where option 
+\begin_inset Formula $q$
+\end_inset
+
+ is tied with 
+\begin_inset Formula $j$
+\end_inset
+
+ other options, and greater than the rest.
+ (Note that 
+\begin_inset Formula $H_{q}^{0}=G_{q}$
+\end_inset
+
+, and the 
+\begin_inset Formula $H$
+\end_inset
+
+'s can be constructed in a similar way as 
+\begin_inset Formula $G$
+\end_inset
+
+.) Then:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{multline*}
+P(choice=q\mid K,\beta)=\sum_{j=0}^{K}\frac{1}{j+1}\sum_{h\in H_{q}^{j}}P(h)\\
+=\sum_{j=0}^{K}\frac{1}{j+1}\sum_{h\in H_{q}^{j}}\sum_{i=0}^{K}\sum_{A\in\mathbf{\mathbf{\mathbf{P_{\mathbf{i}}}}}(W_{C_{X}})}(-1)^{i}\frac{\sum_{c\in C_{X}^{\complement}}w_{c}}{\sum_{c\in C_{X}^{\complement}}w_{c}+\underset{a\in A}{\sum}a}
+\end{multline*}
+
+\end_inset
+
+(Note that if you do the optimization trick, you'll have to switch the 
+\begin_inset Formula $\frac{1}{j+1}$
+\end_inset
+
+ to 
+\begin_inset Formula $\frac{j}{j+1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+What's the complexity of this calculation? 
+\begin_inset Formula $\mid H_{q}^{j}\mid$
+\end_inset
+
+ is approximately some multiple of 
+\begin_inset Formula ${N/2 \choose K-1}$
+\end_inset
+
+ (the 
+\begin_inset Formula $N/2$
+\end_inset
+
+ is because, on average, only half the options will have MB value less than
+ 
+\begin_inset Formula $q$
+\end_inset
+
+).
+ 
+\begin_inset Formula $\mid\mathbf{\mathbf{\mathbf{P_{\mathbf{i}}}}}(W_{C_{X}})\mid$
+\end_inset
+
+ never gets higher than 
+\begin_inset Formula ${K \choose K/2}$
+\end_inset
+
+.
+ So the calculation is approximately 
+\begin_inset Formula $O(K^{2}{N/2 \choose K-1}{K \choose K/2})$
+\end_inset
+
+.
+ With 
+\begin_inset Formula $N=30$
+\end_inset
+
+ and 
+\begin_inset Formula $K=7$
+\end_inset
+
+, this is about ~11 million ops.
+\end_layout
+
+\end_body
+\end_document

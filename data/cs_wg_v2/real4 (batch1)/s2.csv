@@ -1,0 +1,171 @@
+"subject","version","assignmentId","cond","question","question_ind","all_values","question_order","comp_check","comp_check_pass","choice","scratch","rt","stamp","id"
+"A1RSJ45RXTREWN
+","cs_wg_v2_real4","34MAJL3QP4OKDFQBOYO2XDEFESW436","test","Most letters in alphabet between word's 5th and 6th letters","5","[75,35,15,65,95,25,15,95,110,10,55,85,25,70,35,60,10,35,5,35]","0","25","1","military","keyboard, football, doorknob, ladder, military","127218","2017-02-23 19:09:34","527"
+"A3JP7DIFRS0ZBY","cs_wg_v2_real4","3NAPMVF0ZWGSBKCBMW84HFTXZGM72I","test","Most letters in the set: S, G, E, F, B, N, L.","0","[30,10,20,20,10,20,20,20,0,40,50,20,30,20,30,30,10,40,40,40]","0","60","1","football",,"110076","2017-02-23 19:09:53","528"
+"A1RSJ45RXTREWN
+","cs_wg_v2_real4","34MAJL3QP4OKDFQBOYO2XDEFESW436","test","Most letters in alphabet between word's 4th and 5th letters","4","[30,40,60,5,55,5,0,30,25,15,40,90,25,65,5,30,60,40,90,65]","1","15","1","football","military, keyboard, ladder, football, umbrella, basket, fortune, marriage, ","95835","2017-02-23 19:11:45","529"
+"A3GEL5PWFIK05S","cs_wg_v2_real4","34YB12FSQYP1BHR5PHVI21KO4OMGML","test","Most horizontal lines","7","[50,30,70,50,70,70,80,40,10,60,70,50,60,40,60,110,30,100,60,60]","0","70","1","HELICOPTER","ELEPHANT - 10 (100)
+HELICOPTER - 11 (110)
+KEYBOARD - 4
+WEDDING
+MOUNTAIN
+CHOCOLATE
+","91958","2017-02-23 19:13:42","530"
+"A3JP7DIFRS0ZBY","cs_wg_v2_real4","3NAPMVF0ZWGSBKCBMW84HFTXZGM72I","test","Most horizontal lines","7","[50,30,70,50,70,70,80,40,10,60,70,50,60,40,60,110,30,100,60,60]","1","70","1","HELICOPTER","HELICOPTER
+","149808","2017-02-23 19:14:02","531"
+"A1RSJ45RXTREWN
+","cs_wg_v2_real4","34MAJL3QP4OKDFQBOYO2XDEFESW436","test","Most letters in the set: T, P, O, K, I, C, H.","1","[20,40,60,0,30,30,30,30,20,30,40,30,10,20,20,60,40,30,30,0]","2","30","1","bookshelf",,"132180","2017-02-23 19:14:21","532"
+"A1RSJ45RXTREWN
+","cs_wg_v2_real4","34MAJL3QP4OKDFQBOYO2XDEFESW436","test","Most letters come after the word's third letter in the alphabet.","2","[40,70,60,115,75,120,130,30,60,65,60,45,115,10,45,75,60,110,60,125]","3","25","1","umbrella",,"56000","2017-02-23 19:15:48","533"
+"A3GEL5PWFIK05S","cs_wg_v2_real4","34YB12FSQYP1BHR5PHVI21KO4OMGML","test","Most letters in the set: S, G, E, F, B, N, L.","0","[30,10,20,20,10,20,20,20,0,40,50,20,30,20,30,30,10,40,40,40]","1","60","1","elephant","helicopter - 3
+elephant - 4
+mountain - 2
+keyboard - 2
+community - 1
+wedding - 3
+chocolate - 2","123215","2017-02-23 19:16:07","534"
+"A3JP7DIFRS0ZBY","cs_wg_v2_real4","3NAPMVF0ZWGSBKCBMW84HFTXZGM72I","test","Most letters in alphabet between word's 4th and 5th letters","4","[30,40,60,5,55,5,0,30,25,15,40,90,25,65,5,30,60,40,90,65]","2","15","1","football","Choco
+footb
+struc
+mount
+weddi","71364","2017-02-23 19:16:08","535"
+"A3GEL5PWFIK05S","cs_wg_v2_real4","34YB12FSQYP1BHR5PHVI21KO4OMGML","test","Most letters in the set: T, P, O, K, I, C, H.","1","[20,40,60,0,30,30,30,30,20,30,40,30,10,20,20,60,40,30,30,0]","2","30","1","helicopter","elephant - NA
+helicopter - 60
+keyboard - 20
+wedding - 10
+military - 30
+","75130","2017-02-23 19:17:48","536"
+"A3JP7DIFRS0ZBY","cs_wg_v2_real4","3NAPMVF0ZWGSBKCBMW84HFTXZGM72I","test","Most letters come after the word's third letter in the alphabet.","2","[40,70,60,115,75,120,130,30,60,65,60,45,115,10,45,75,60,110,60,125]","3","25","1","wedding","wedding
+","56649","2017-02-23 19:17:52","537"
+"A1RSJ45RXTREWN
+","cs_wg_v2_real4","34MAJL3QP4OKDFQBOYO2XDEFESW436","test","Most letters in the set: S, G, E, F, B, N, L.","0","[30,10,20,20,10,20,20,20,0,40,50,20,30,20,30,30,10,40,40,40]","4","60","1","bookshelf",,"127041","2017-02-23 19:18:21","538"
+"A3GEL5PWFIK05S","cs_wg_v2_real4","34YB12FSQYP1BHR5PHVI21KO4OMGML","test","Most vertical lines","6","[40,90,50,50,80,80,50,80,30,70,70,50,60,60,60,90,50,90,50,80]","3","40","1","ELEPHANT","helicopter - NA
+ELEPHANT - 90
+MILITARY - 70
+KEYBOARD - 50
+WEDDING - 60
+COMMUNITY - 80","68664","2017-02-23 19:19:29","539"
+"A1RSJ45RXTREWN
+","cs_wg_v2_real4","34MAJL3QP4OKDFQBOYO2XDEFESW436","test","Most vertical lines","6","[40,90,50,50,80,80,50,80,30,70,70,50,60,60,60,90,50,90,50,80]","5","40","1","ELEPHANT","UMBRELLA,KEYBOARD, ELEPHANT, BASKET","56473","2017-02-23 19:19:50","540"
+"A3JP7DIFRS0ZBY","cs_wg_v2_real4","3NAPMVF0ZWGSBKCBMW84HFTXZGM72I","test","Most vertical lines","6","[40,90,50,50,80,80,50,80,30,70,70,50,60,60,60,90,50,90,50,80]","4","40","1","ELEPHANT","HELICOPTER
+ELEPHANT
+CHOCOLATE
+STRUCTURE
+MOUNTAIN
+MACHINE
+MILITARY","133187","2017-02-23 19:20:49","541"
+"A1RSJ45RXTREWN
+","cs_wg_v2_real4","34MAJL3QP4OKDFQBOYO2XDEFESW436","test","Most letters before word's second letter in alphabet","3","[0,70,35,0,40,0,85,70,70,100,70,95,20,20,70,20,95,55,70,60]","6","20","1","fortune","umbrella, keyboard, football, ele, for,mar, door, ba, ","115395","2017-02-23 19:22:03","542"
+"A3GEL5PWFIK05S","cs_wg_v2_real4","34YB12FSQYP1BHR5PHVI21KO4OMGML","test","Most letters in alphabet between word's 5th and 6th letters","5","[75,35,15,65,95,25,15,95,110,10,55,85,25,70,35,60,10,35,5,35]","4","25","1","mountain","elephant - NA
+helico - 11 (55)
+milita - 18 (90)
+keyboa - 13
+mounta - 18 (90)
+traffi - 2
+weddin","154135","2017-02-23 19:22:54","543"
+"A3JP7DIFRS0ZBY","cs_wg_v2_real4","3NAPMVF0ZWGSBKCBMW84HFTXZGM72I","test","Most letters in alphabet between word's 5th and 6th letters","5","[75,35,15,65,95,25,15,95,110,10,55,85,25,70,35,60,10,35,5,35]","5","25","1","MILITARY","STRUCT
+HELICO
+WEDDIN
+STOMAC
+MILITA","94838","2017-02-23 19:22:58","544"
+"A1RSJ45RXTREWN
+","cs_wg_v2_real4","34MAJL3QP4OKDFQBOYO2XDEFESW436","test","Most horizontal lines","7","[50,30,70,50,70,70,80,40,10,60,70,50,60,40,60,110,30,100,60,60]","7","60","0","ELEPHANT","ELEPHANT, FOOTBALL, UMBRELLA, MARRIAGE, MILITARY, ","69035","2017-02-23 19:23:57","545"
+"A3JP7DIFRS0ZBY","cs_wg_v2_real4","3NAPMVF0ZWGSBKCBMW84HFTXZGM72I","test","Most letters before word's second letter in alphabet","3","[0,70,35,0,40,0,85,70,70,100,70,95,20,20,70,20,95,55,70,60]","6","20","1","stomach","str
+","52099","2017-02-23 19:24:20","546"
+"A3GEL5PWFIK05S","cs_wg_v2_real4","34YB12FSQYP1BHR5PHVI21KO4OMGML","test","Most letters come after the word's third letter in the alphabet.","2","[40,70,60,115,75,120,130,30,60,65,60,45,115,10,45,75,60,110,60,125]","5","30","0","ELEPHANT","mountain - NA
+mil - 
+key - 
+ele - 
+wed
+hel
+","47038","2017-02-23 19:25:09","547"
+"A2XLTGDI5Q0VD","cs_wg_v2_real4","3DI28L7YXAF6VE9PQ0MWI6B9TXC1EH","test","Most letters in alphabet between word's 5th and 6th letters","5","[75,35,15,65,95,25,15,95,110,10,55,85,25,70,35,60,10,35,5,35]","0","20","0","rat ran ear",,"51624","2017-02-23 19:25:43","548"
+"A3JP7DIFRS0ZBY","cs_wg_v2_real4","3NAPMVF0ZWGSBKCBMW84HFTXZGM72I","test","Most letters in the set: T, P, O, K, I, C, H.","1","[20,40,60,0,30,30,30,30,20,30,40,30,10,20,20,60,40,30,30,0]","7","30","1","helicopter","helicopter
+elephant
+stomach
+structure
+","80462","2017-02-23 19:26:08","549"
+"A1RSJ45RXTREWN
+","cs_wg_v2_real4","34MAJL3QP4OKDFQBOYO2XDEFESW436","test","Memory","8","[0]","8","100","1",NULL,"elephant, doorknob, basket, football, umbrella, ladder, military, marriage, fortune, chocolate, helicopter, bookshelf, mountain, ","129582","2017-02-23 19:26:15","550"
+"A3F6SDO4GYBE4Y","cs_wg_v2_real4","3JV9LGBJWTFPBKCH2XAVU59TZO1GO0","test","Most letters in alphabet between word's 5th and 6th letters","5","[75,35,15,65,95,25,15,95,110,10,55,85,25,70,35,60,10,35,5,35]","0","100","0","structure","military-7 umbrella-7 structure-17 fortune-1 ","143556","2017-02-23 19:26:20","551"
+"A5EU1AQJNC7F2","cs_wg_v2_real4","31LVTDXBL7B8UPIY5GOF1SJ66S7LRK","test","Most letters in alphabet between word's 4th and 5th letters","4","[30,40,60,5,55,5,0,30,25,15,40,90,25,65,5,30,60,40,90,65]","0","20","0","bookshelf",,"56456","2017-02-23 19:26:21","552"
+"A2XLTGDI5Q0VD","cs_wg_v2_real4","3DI28L7YXAF6VE9PQ0MWI6B9TXC1EH","test","Most horizontal lines","7","[50,30,70,50,70,70,80,40,10,60,70,50,60,40,60,110,30,100,60,60]","1","70","1","pain ",,"46268","2017-02-23 19:26:49","553"
+"A3GEL5PWFIK05S","cs_wg_v2_real4","34YB12FSQYP1BHR5PHVI21KO4OMGML","test","Most letters in alphabet between word's 4th and 5th letters","4","[30,40,60,5,55,5,0,30,25,15,40,90,25,65,5,30,60,40,90,65]","6","15","1","KEYBOARD","elephant - NA
+helic - 5 (25)
+mount - 5 (25)
+milit - 10 (50)
+keybo - 12 (60)
+","75074","2017-02-23 19:26:50","554"
+"A5EU1AQJNC7F2","cs_wg_v2_real4","31LVTDXBL7B8UPIY5GOF1SJ66S7LRK","test","Most letters come after the word's third letter in the alphabet.","2","[40,70,60,115,75,120,130,30,60,65,60,45,115,10,45,75,60,110,60,125]","1","25","1","wedding","elephant
+military
+bookshelf
+wedding
+sunshine","45545","2017-02-23 19:27:39","555"
+"A2XLTGDI5Q0VD","cs_wg_v2_real4","3DI28L7YXAF6VE9PQ0MWI6B9TXC1EH","test","Most vertical lines","6","[40,90,50,50,80,80,50,80,30,70,70,50,60,60,60,90,50,90,50,80]","2","25","0","pain parallel pair pal pale pill",,"48941","2017-02-23 19:28:02","556"
+"A3F6SDO4GYBE4Y","cs_wg_v2_real4","3JV9LGBJWTFPBKCH2XAVU59TZO1GO0","test","Most letters come after the word's third letter in the alphabet.","2","[40,70,60,115,75,120,130,30,60,65,60,45,115,10,45,75,60,110,60,125]","1","15","0","umbrella","military umbrella structure fortune ","55442","2017-02-23 19:28:12","557"
+"A3GEL5PWFIK05S","cs_wg_v2_real4","34YB12FSQYP1BHR5PHVI21KO4OMGML","test","Most letters before word's second letter in alphabet","3","[0,70,35,0,40,0,85,70,70,100,70,95,20,20,70,20,95,55,70,60]","7","25","0","Mountain","keyboard - NA
+el - 11 (55)
+he - 5 (25)
+mo - 14 (70)
+","70704","2017-02-23 19:28:22","558"
+"A5EU1AQJNC7F2","cs_wg_v2_real4","31LVTDXBL7B8UPIY5GOF1SJ66S7LRK","test","Most letters in the set: S, G, E, F, B, N, L.","0","[30,10,20,20,10,20,20,20,0,40,50,20,30,20,30,30,10,40,40,40]","2","60","1","SUNLIGHT","ELEPHANT
+WEDDING
+SUNLIGHT
+BOOKSHELF","50680","2017-02-23 19:28:52","559"
+"A3F6SDO4GYBE4Y","cs_wg_v2_real4","3JV9LGBJWTFPBKCH2XAVU59TZO1GO0","test","Most vertical lines","6","[40,90,50,50,80,80,50,80,30,70,70,50,60,60,60,90,50,90,50,80]","2","40","1","MILITARY","UMBRELLA-7 STRUCTURE-5 MILITARY-7 FORTUNE-6","63746","2017-02-23 19:29:51","560"
+"A5EU1AQJNC7F2","cs_wg_v2_real4","31LVTDXBL7B8UPIY5GOF1SJ66S7LRK","test","Most letters in alphabet between word's 5th and 6th letters","5","[75,35,15,65,95,25,15,95,110,10,55,85,25,70,35,60,10,35,5,35]","3","30","0","wedding","military
+elephant
+wedding
+","46056","2017-02-23 19:29:59","561"
+"A3JP7DIFRS0ZBY","cs_wg_v2_real4","3NAPMVF0ZWGSBKCBMW84HFTXZGM72I","test","Memory","8","[0]","8","100","1",NULL,"elephant, helicopter, stomach, structure, mountain, wedding, chocolate, military, machine, doorway, football, fortune, umbrella, ladder, basket, ","264905","2017-02-23 19:30:44","562"
+"A5EU1AQJNC7F2","cs_wg_v2_real4","31LVTDXBL7B8UPIY5GOF1SJ66S7LRK","test","Most letters before word's second letter in alphabet","3","[0,70,35,0,40,0,85,70,70,100,70,95,20,20,70,20,95,55,70,60]","4","20","1","football","football
+","47686","2017-02-23 19:31:01","563"
+"A3GEL5PWFIK05S","cs_wg_v2_real4","34YB12FSQYP1BHR5PHVI21KO4OMGML","test","Memory","8","[0]","8","100","1",NULL,"mountain, helicopter, military, umbrella, structure, doorway, elephant, keyboard, traffic, wedding, community, chocolate, sunlight, ","147040","2017-02-23 19:31:02","564"
+"A3F6SDO4GYBE4Y","cs_wg_v2_real4","3JV9LGBJWTFPBKCH2XAVU59TZO1GO0","test","Most letters in the set: T, P, O, K, I, C, H.","1","[20,40,60,0,30,30,30,30,20,30,40,30,10,20,20,60,40,30,30,0]","3","30","1","community","structure 30  military30  umbrella  0fortune20 community","78432","2017-02-23 19:31:30","565"
+"A2XLTGDI5Q0VD","cs_wg_v2_real4","3DI28L7YXAF6VE9PQ0MWI6B9TXC1EH","test","Most letters before word's second letter in alphabet","3","[0,70,35,0,40,0,85,70,70,100,70,95,20,20,70,20,95,55,70,60]","3","100","0","ear elephant earn ",,"165455","2017-02-23 19:31:32","566"
+"A5EU1AQJNC7F2","cs_wg_v2_real4","31LVTDXBL7B8UPIY5GOF1SJ66S7LRK","test","Most letters in the set: T, P, O, K, I, C, H.","1","[20,40,60,0,30,30,30,30,20,30,40,30,10,20,20,60,40,30,30,0]","5","30","1","COMMUNITY","COMMUNITY
+","54701","2017-02-23 19:32:09","567"
+"A3NS22CC45PE4P","cs_wg_v2_real4","3YDTZAI2WXHO3CCW1UAJ9KZIG8I41E","test","Most letters in the set: S, G, E, F, B, N, L.","0","[30,10,20,20,10,20,20,20,0,40,50,20,30,20,30,30,10,40,40,40]","0","30","0","elephant","ladder
+elephant
+community
+wedding
+machine
+military
+keyboard
+football","180964","2017-02-23 19:32:23","568"
+"A3F6SDO4GYBE4Y","cs_wg_v2_real4","3JV9LGBJWTFPBKCH2XAVU59TZO1GO0","test","Most letters in alphabet between word's 4th and 5th letters","4","[30,40,60,5,55,5,0,30,25,15,40,90,25,65,5,30,60,40,90,65]","4","100","0","umbrella","structure7   military 10  fortune 0 community7  umbrella12","93981","2017-02-23 19:34:00","569"
+"A3NS22CC45PE4P","cs_wg_v2_real4","3YDTZAI2WXHO3CCW1UAJ9KZIG8I41E","test","Most horizontal lines","7","[50,30,70,50,70,70,80,40,10,60,70,50,60,40,60,110,30,100,60,60]","1","40","0","machine",,"78727","2017-02-23 19:34:03","570"
+"A5EU1AQJNC7F2","cs_wg_v2_real4","31LVTDXBL7B8UPIY5GOF1SJ66S7LRK","test","Most vertical lines","6","[40,90,50,50,80,80,50,80,30,70,70,50,60,60,60,90,50,90,50,80]","6","30","0","football","football","59156","2017-02-23 19:34:18","571"
+"A3NS22CC45PE4P","cs_wg_v2_real4","3YDTZAI2WXHO3CCW1UAJ9KZIG8I41E","test","Most letters in alphabet between word's 4th and 5th letters","4","[30,40,60,5,55,5,0,30,25,15,40,90,25,65,5,30,60,40,90,65]","2","40","0","football",,"45764","2017-02-23 19:35:03","572"
+"A2XLTGDI5Q0VD","cs_wg_v2_real4","3DI28L7YXAF6VE9PQ0MWI6B9TXC1EH","test","Most letters come after the word's third letter in the alphabet.","2","[40,70,60,115,75,120,130,30,60,65,60,45,115,10,45,75,60,110,60,125]","4","30","0","umberlla",,"207607","2017-02-23 19:35:10","573"
+"A3F6SDO4GYBE4Y","cs_wg_v2_real4","3JV9LGBJWTFPBKCH2XAVU59TZO1GO0","test","Most letters before word's second letter in alphabet","3","[0,70,35,0,40,0,85,70,70,100,70,95,20,20,70,20,95,55,70,60]","5","20","1","structure","umbrella  structure  community  fortune military","49386","2017-02-23 19:35:30","574"
+"A3NS22CC45PE4P","cs_wg_v2_real4","3YDTZAI2WXHO3CCW1UAJ9KZIG8I41E","test","Most vertical lines","6","[40,90,50,50,80,80,50,80,30,70,70,50,60,60,60,90,50,90,50,80]","3","25","0","machine",,"46256","2017-02-23 19:35:53","575"
+"A5EU1AQJNC7F2","cs_wg_v2_real4","31LVTDXBL7B8UPIY5GOF1SJ66S7LRK","test","Most horizontal lines","7","[50,30,70,50,70,70,80,40,10,60,70,50,60,40,60,110,30,100,60,60]","7","30","0","ELEPHANT","ELEPHANT
+COMMUNITY
+WEDDING
+SUNLIGHT
+","101661","2017-02-23 19:36:34","576"
+"A2XLTGDI5Q0VD","cs_wg_v2_real4","3DI28L7YXAF6VE9PQ0MWI6B9TXC1EH","test","Most letters in alphabet between word's 4th and 5th letters","4","[30,40,60,5,55,5,0,30,25,15,40,90,25,65,5,30,60,40,90,65]","5","100","0","helicopter",,"73124","2017-02-23 19:36:44","577"
+"A3F6SDO4GYBE4Y","cs_wg_v2_real4","3JV9LGBJWTFPBKCH2XAVU59TZO1GO0","test","Most letters in the set: S, G, E, F, B, N, L.","0","[30,10,20,20,10,20,20,20,0,40,50,20,30,20,30,30,10,40,40,40]","6","60","1","fortune","community 10 fortune 30  military  10umbrella 30 structure","74094","2017-02-23 19:37:01","578"
+"A3NS22CC45PE4P","cs_wg_v2_real4","3YDTZAI2WXHO3CCW1UAJ9KZIG8I41E","test","Most letters in the set: T, P, O, K, I, C, H.","1","[20,40,60,0,30,30,30,30,20,30,40,30,10,20,20,60,40,30,30,0]","4","25","0","machine",,"67861","2017-02-23 19:37:05","579"
+"A3NS22CC45PE4P","cs_wg_v2_real4","3YDTZAI2WXHO3CCW1UAJ9KZIG8I41E","test","Most letters before word's second letter in alphabet","3","[0,70,35,0,40,0,85,70,70,100,70,95,20,20,70,20,95,55,70,60]","5","25","0","sunlight","elephant
+community","46492","2017-02-23 19:37:56","580"
+"A3NS22CC45PE4P","cs_wg_v2_real4","3YDTZAI2WXHO3CCW1UAJ9KZIG8I41E","test","Most letters come after the word's third letter in the alphabet.","2","[40,70,60,115,75,120,130,30,60,65,60,45,115,10,45,75,60,110,60,125]","6","20","0","wedding","we","45724","2017-02-23 19:38:52","581"
+"A5EU1AQJNC7F2","cs_wg_v2_real4","31LVTDXBL7B8UPIY5GOF1SJ66S7LRK","test","Memory","8","[0]","8","100","1",NULL,"elephant, wedding, sunlight, football, community, bookshelf, ","137475","2017-02-23 19:39:00","582"
+"A2XLTGDI5Q0VD","cs_wg_v2_real4","3DI28L7YXAF6VE9PQ0MWI6B9TXC1EH","test","Most letters in the set: S, G, E, F, B, N, L.","0","[30,10,20,20,10,20,20,20,0,40,50,20,30,20,30,30,10,40,40,40]","6","40","0","sunlight bookshelves",,"107280","2017-02-23 19:39:07","583"
+"A3NS22CC45PE4P","cs_wg_v2_real4","3YDTZAI2WXHO3CCW1UAJ9KZIG8I41E","test","Most letters in alphabet between word's 5th and 6th letters","5","[75,35,15,65,95,25,15,95,110,10,55,85,25,70,35,60,10,35,5,35]","7","20","0","military",,"45676","2017-02-23 19:39:43","584"
+"A2XLTGDI5Q0VD","cs_wg_v2_real4","3DI28L7YXAF6VE9PQ0MWI6B9TXC1EH","test","Most letters in the set: T, P, O, K, I, C, H.","1","[20,40,60,0,30,30,30,30,20,30,40,30,10,20,20,60,40,30,30,0]","7","30","1","orphan",,"70596","2017-02-23 19:40:32","585"
+"A3NS22CC45PE4P","cs_wg_v2_real4","3YDTZAI2WXHO3CCW1UAJ9KZIG8I41E","test","Memory","8","[0]","8","100","1",NULL,"sunlight,community,football,military,elephant,wedding,ladder,machine,fortune,mountain,keyboard,chocolate,structure","123620","2017-02-23 19:41:58","586"
+"A2XLTGDI5Q0VD","cs_wg_v2_real4","3DI28L7YXAF6VE9PQ0MWI6B9TXC1EH","test","Memory","8","[0]","8","100","1",NULL,"helicopter,military,umberlla,bookshelf,mountain,elephant,doorway,sunlight
+","201853","2017-02-23 19:44:12","587"
+"A3F6SDO4GYBE4Y","cs_wg_v2_real4","3JV9LGBJWTFPBKCH2XAVU59TZO1GO0","test","Most horizontal lines","7","[50,30,70,50,70,70,80,40,10,60,70,50,60,40,60,110,30,100,60,60]","7","40","0","UMBRELLA","FORTUNE6 STRUCTURE5 COMMUNITY3 UMBRELLA6","47034","2017-02-23 19:44:42","588"
+"A3F6SDO4GYBE4Y","cs_wg_v2_real4","3JV9LGBJWTFPBKCH2XAVU59TZO1GO0","test","Memory","8","[0]","8","100","1",NULL,"umbrella, community, fortune, military, basket, ladder, bookshelf","121234","2017-02-23 19:46:55","589"
+"A1VZSFHTU51JP0","cs_wg_v2_real4","31T4R4OBOSH5924DJPXATS2JB7ZC7W","test","Most letters come after the word's third letter in the alphabet.","2","[40,70,60,115,75,120,130,30,60,65,60,45,115,10,45,75,60,110,60,125]","0","25","1","umbrella",,"52290","2017-02-23 19:55:18","590"
+"A1VZSFHTU51JP0","cs_wg_v2_real4","31T4R4OBOSH5924DJPXATS2JB7ZC7W","test","Most letters in the set: T, P, O, K, I, C, H.","1","[20,40,60,0,30,30,30,30,20,30,40,30,10,20,20,60,40,30,30,0]","1","30","1","structure",,"62777","2017-02-23 19:57:05","591"
+"A1VZSFHTU51JP0","cs_wg_v2_real4","31T4R4OBOSH5924DJPXATS2JB7ZC7W","test","Most horizontal lines","7","[50,30,70,50,70,70,80,40,10,60,70,50,60,40,60,110,30,100,60,60]","2","70","1","military",,"83223","2017-02-23 20:01:00","592"
+"A1VZSFHTU51JP0","cs_wg_v2_real4","31T4R4OBOSH5924DJPXATS2JB7ZC7W","test","Most letters in alphabet between word's 4th and 5th letters","4","[30,40,60,5,55,5,0,30,25,15,40,90,25,65,5,30,60,40,90,65]","3","15","1","umbrella",,"77568","2017-02-23 20:02:53","593"
+"A1VZSFHTU51JP0","cs_wg_v2_real4","31T4R4OBOSH5924DJPXATS2JB7ZC7W","test","Most letters in the set: S, G, E, F, B, N, L.","0","[30,10,20,20,10,20,20,20,0,40,50,20,30,20,30,30,10,40,40,40]","4","60","1","traffic",,"120073","2017-02-23 20:06:05","594"
+"A1VZSFHTU51JP0","cs_wg_v2_real4","31T4R4OBOSH5924DJPXATS2JB7ZC7W","test","Most letters in alphabet between word's 5th and 6th letters","5","[75,35,15,65,95,25,15,95,110,10,55,85,25,70,35,60,10,35,5,35]","5","25","1","basket",,"123559","2017-02-23 20:08:46","595"
+"A1VZSFHTU51JP0","cs_wg_v2_real4","31T4R4OBOSH5924DJPXATS2JB7ZC7W","test","Most letters before word's second letter in alphabet","3","[0,70,35,0,40,0,85,70,70,100,70,95,20,20,70,20,95,55,70,60]","6","20","1","traffic",,"62810","2017-02-23 20:10:29","596"
+"A1VZSFHTU51JP0","cs_wg_v2_real4","31T4R4OBOSH5924DJPXATS2JB7ZC7W","test","Most vertical lines","6","[40,90,50,50,80,80,50,80,30,70,70,50,60,60,60,90,50,90,50,80]","7","40","1","helicopter",,"56028","2017-02-23 20:12:20","597"
+"A1VZSFHTU51JP0","cs_wg_v2_real4","31T4R4OBOSH5924DJPXATS2JB7ZC7W","test","Memory","8","[0]","8","100","1",NULL,"ladder, umbrella, traffic, helicopter, community, wedding, military, keyboard, machine, basket ","157575","2017-02-23 20:15:45","598"

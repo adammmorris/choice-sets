@@ -1,0 +1,131 @@
+"subject","version","assignmentId","cond","question","question_ind","all_values","question_order","comp_check","comp_check_pass","choice","scratch","rt","stamp","id"
+"A1BEBN58T1E0TH","cs_wg_v2_real1","3K9FOBBF2HKNFRQ6C97YS8EW4ZFNL2","test","Give us a word with the most letters in the set: T, P, O, K, I, C, V, H.","0","[20,40,60,0,30,30,30,30,20,30,60,30,10,20,20,20,40,20,30,0]","0","40","1","community","community 40, ladder, partner 20, wedding, basket 20, evening, summer, mountain, machine, stomach 40, military, research, question","148839","2017-02-15 18:17:11","283"
+"A1BEBN58T1E0TH","cs_wg_v2_real1","3K9FOBBF2HKNFRQ6C97YS8EW4ZFNL2","test","Vertical lines","6","[40,90,50,50,80,80,50,80,70,50,60,50,60,70,60,60,50,40,50,60]","1","40","1","machine","MACHINE 8, LADDER 5, COMMUNITY 8, RESEARCH 6, QUESTION 5, BASKET, EVENING, SUMMER, MOUNTAIN, STOMACH, MILITARY, WEDDING, PARTNER","133043","2017-02-15 18:19:55","284"
+"A1BEBN58T1E0TH","cs_wg_v2_real1","3K9FOBBF2HKNFRQ6C97YS8EW4ZFNL2","test","Number of pairs which are adjacent in alphabet","5","[20,40,0,20,10,20,0,50,0,30,50,80,20,0,30,20,10,10,10,10]","2","10","0","machine","MACHINE 1, LADDER 1, COMMUNITY, RESEARCH, QUESTION 1, BASKET 1, EVENING, SUMMER, MOUNTAIN, STOMACH 1, MILITARY, WEDDING, PARTNER","62062","2017-02-15 18:21:23","285"
+"A1BEBN58T1E0TH","cs_wg_v2_real1","3K9FOBBF2HKNFRQ6C97YS8EW4ZFNL2","test","Number of letters before word's second letter in alphabet","3","[0,70,35,0,40,0,85,70,0,100,70,95,20,105,70,20,95,40,70,100]","3","20","1","question","MACHINE, LADDER, COMMUNITY, RESEARCH, QUESTION, BASKET, EVENING, SUMMER, MOUNTAIN, STOMACH, MILITARY, WEDDING, PARTNER","37965","2017-02-15 18:22:24","286"
+"A1BEBN58T1E0TH","cs_wg_v2_real1","3K9FOBBF2HKNFRQ6C97YS8EW4ZFNL2","test","Give us a word with the most letters in the set: U, A, D, W, Y, R, M, J, Z.","1","[10,40,10,40,40,20,20,30,30,10,0,40,30,0,20,30,20,30,10,40]","4","40","1","summer","MACHINE 2, LADDER 4, COMMUNITY 4, RESEARCH, QUESTION, BASKET, EVENING, SUMMER 4, MOUNTAIN, STOMACH, MILITARY, WEDDING, PARTNER","69193","2017-02-15 18:23:48","287"
+"A1BEBN58T1E0TH","cs_wg_v2_real1","3K9FOBBF2HKNFRQ6C97YS8EW4ZFNL2","test","Number of letters in alphabet between word's 4th and 5th letters","4","[75,35,15,65,95,25,15,95,45,55,55,85,25,25,35,85,10,40,5,65]","5","25","1","mountain",,"98480","2017-02-15 18:25:47","288"
+"A1BEBN58T1E0TH","cs_wg_v2_real1","3K9FOBBF2HKNFRQ6C97YS8EW4ZFNL2","test","Give us a word where the most letters come after the word's third letter in the alphabet.","2","[40,70,60,115,75,120,130,30,45,110,40,45,115,110,45,40,60,65,60,70]","6","25","1","machine",,"16261","2017-02-15 18:26:47","289"
+"A1BEBN58T1E0TH","cs_wg_v2_real1","3K9FOBBF2HKNFRQ6C97YS8EW4ZFNL2","test","Memory","7","[0]","7","100","1",NULL,"machine, ladder, mountain, question, partner, wedding, research, basket, evening, summer, community, stomach, military","70120","2017-02-15 18:28:05","290"
+"A1L2VPVPD5Q73","cs_wg_v2_real1","3M81GAB8A0KW5FHM1OALIZDWXGOQB5","test","Give us a word with the most letters in the set: U, A, D, W, Y, R, M, J, Z.","1","[10,40,10,40,40,20,20,30,30,10,0,40,30,0,20,30,20,30,10,40]","0","10","0","Chocolate",,"54140","2017-02-15 18:42:24","291"
+"A1L2VPVPD5Q73","cs_wg_v2_real1","3M81GAB8A0KW5FHM1OALIZDWXGOQB5","test","Number of letters in alphabet between word's 4th and 5th letters","4","[75,35,15,65,95,25,15,95,45,55,55,85,25,25,35,85,10,40,5,65]","1","60","0","chocolate",,"11929","2017-02-15 18:43:46","292"
+"A1L2VPVPD5Q73","cs_wg_v2_real1","3M81GAB8A0KW5FHM1OALIZDWXGOQB5","test","Number of pairs which are adjacent in alphabet","5","[20,40,0,20,10,20,0,50,0,30,50,80,20,0,30,20,10,10,10,10]","2","5","0","structure",,"34312","2017-02-15 18:44:59","293"
+"A1L2VPVPD5Q73","cs_wg_v2_real1","3M81GAB8A0KW5FHM1OALIZDWXGOQB5","test","Number of letters before word's second letter in alphabet","3","[0,70,35,0,40,0,85,70,0,100,70,95,20,105,70,20,95,40,70,100]","3","60","0","evening",,"23640","2017-02-15 18:45:55","294"
+"A1L2VPVPD5Q73","cs_wg_v2_real1","3M81GAB8A0KW5FHM1OALIZDWXGOQB5","test","Give us a word with the most letters in the set: T, P, O, K, I, C, V, H.","0","[20,40,60,0,30,30,30,30,20,30,60,30,10,20,20,20,40,20,30,0]","4","20","0","chocolate",,"5344","2017-02-15 18:46:31","295"
+"A1L2VPVPD5Q73","cs_wg_v2_real1","3M81GAB8A0KW5FHM1OALIZDWXGOQB5","test","Vertical lines","6","[40,90,50,50,80,80,50,80,70,50,60,50,60,70,60,60,50,40,50,60]","5","40","1","military",,"9751","2017-02-15 18:47:22","296"
+"A1L2VPVPD5Q73","cs_wg_v2_real1","3M81GAB8A0KW5FHM1OALIZDWXGOQB5","test","Give us a word where the most letters come after the word's third letter in the alphabet.","2","[40,70,60,115,75,120,130,30,45,110,40,45,115,110,45,40,60,65,60,70]","6","25","1","partner",,"12207","2017-02-15 18:48:12","297"
+"A1L2VPVPD5Q73","cs_wg_v2_real1","3M81GAB8A0KW5FHM1OALIZDWXGOQB5","test","Memory","7","[0]","7","100","1",NULL,"chocolate, evening, window, basket, military, mountain, fortune, football, community, partner","35075","2017-02-15 18:48:58","298"
+"A1LUKFJY0WXO7F","cs_wg_v2_real1","39OWYR0EPKSVRYKOX0DBEB7JBNXFYF","test","Give us a word with the most letters in the set: U, A, D, W, Y, R, M, J, Z.","1","[10,40,10,40,40,20,20,30,30,10,0,40,30,0,20,30,20,30,10,40]","0","40","1","SUMMER","LADDER
+RESEARCH
+SUMMER
+STRUCTURE","130063","2017-02-15 18:50:02","299"
+"A3963FCT1PKKOH","cs_wg_v2_real1","3X31TUMD7XNK1KJH7M90V11T1YAL1S","test","Vertical lines","6","[40,90,50,50,80,80,50,80,70,50,60,50,60,70,60,60,50,40,50,60]","0","20","0","chocolate ","chocolate ","38102","2017-02-15 18:51:00","300"
+"A3963FCT1PKKOH","cs_wg_v2_real1","3X31TUMD7XNK1KJH7M90V11T1YAL1S","test","Give us a word where the most letters come after the word's third letter in the alphabet.","2","[40,70,60,115,75,120,130,30,45,110,40,45,115,110,45,40,60,65,60,70]","1","40","0","military ","mil","16774","2017-02-15 18:51:24","301"
+"A3963FCT1PKKOH","cs_wg_v2_real1","3X31TUMD7XNK1KJH7M90V11T1YAL1S","test","Number of pairs which are adjacent in alphabet","5","[20,40,0,20,10,20,0,50,0,30,50,80,20,0,30,20,10,10,10,10]","2","40","1","chocolate","chocolate ","35581","2017-02-15 18:52:04","302"
+"A1LUKFJY0WXO7F","cs_wg_v2_real1","39OWYR0EPKSVRYKOX0DBEB7JBNXFYF","test","Give us a word with the most letters in the set: T, P, O, K, I, C, V, H.","0","[20,40,60,0,30,30,30,30,20,30,60,30,10,20,20,20,40,20,30,0]","1","40","1","STOMACH","RESEARCH 20
+STOMACH 30
+BASKET 20
+FOOTBALL 30
+","104503","2017-02-15 18:52:15","303"
+"A133QG754CGS3I","cs_wg_v2_real1","3R6BYFZZP7D6RTUES4R9VX0A9H3FX9","test","Number of pairs which are adjacent in alphabet","5","[20,40,0,20,10,20,0,50,0,30,50,80,20,0,30,20,10,10,10,10]","0","5","0","window ",,"13342","2017-02-15 18:52:16","304"
+"A3963FCT1PKKOH","cs_wg_v2_real1","3X31TUMD7XNK1KJH7M90V11T1YAL1S","test","Number of letters before word's second letter in alphabet","3","[0,70,35,0,40,0,85,70,0,100,70,95,20,105,70,20,95,40,70,100]","3","25","0","military","mi","21157","2017-02-15 18:52:32","305"
+"A133QG754CGS3I","cs_wg_v2_real1","3R6BYFZZP7D6RTUES4R9VX0A9H3FX9","test","Give us a word where the most letters come after the word's third letter in the alphabet.","2","[40,70,60,115,75,120,130,30,45,110,40,45,115,110,45,40,60,65,60,70]","1","40","0","floor",,"9770","2017-02-15 18:52:35","306"
+"A3963FCT1PKKOH","cs_wg_v2_real1","3X31TUMD7XNK1KJH7M90V11T1YAL1S","test","Give us a word with the most letters in the set: T, P, O, K, I, C, V, H.","0","[20,40,60,0,30,30,30,30,20,30,60,30,10,20,20,20,40,20,30,0]","4","25","0","military ","military ","17052","2017-02-15 18:52:52","307"
+"A133QG754CGS3I","cs_wg_v2_real1","3R6BYFZZP7D6RTUES4R9VX0A9H3FX9","test","Give us a word with the most letters in the set: T, P, O, K, I, C, V, H.","0","[20,40,60,0,30,30,30,30,20,30,60,30,10,20,20,20,40,20,30,0]","2","20","0",,,"7540","2017-02-15 18:52:53","308"
+"A133QG754CGS3I","cs_wg_v2_real1","3R6BYFZZP7D6RTUES4R9VX0A9H3FX9","test","Give us a word with the most letters in the set: U, A, D, W, Y, R, M, J, Z.","1","[10,40,10,40,40,20,20,30,30,10,0,40,30,0,20,30,20,30,10,40]","3","10","0","window ",,"5626","2017-02-15 18:53:04","309"
+"A1LUKFJY0WXO7F","cs_wg_v2_real1","39OWYR0EPKSVRYKOX0DBEB7JBNXFYF","test","Number of letters before word's second letter in alphabet","3","[0,70,35,0,40,0,85,70,0,100,70,95,20,105,70,20,95,40,70,100]","2","20","1","STRUCTURE","STOMACH
+STRUCTURE
+","35575","2017-02-15 18:53:09","310"
+"A3963FCT1PKKOH","cs_wg_v2_real1","3X31TUMD7XNK1KJH7M90V11T1YAL1S","test","Give us a word with the most letters in the set: U, A, D, W, Y, R, M, J, Z.","1","[10,40,10,40,40,20,20,30,30,10,0,40,30,0,20,30,20,30,10,40]","5","25","0","military ","military ","14447","2017-02-15 18:53:10","311"
+"A133QG754CGS3I","cs_wg_v2_real1","3R6BYFZZP7D6RTUES4R9VX0A9H3FX9","test","Number of letters in alphabet between word's 4th and 5th letters","4","[75,35,15,65,95,25,15,95,45,55,55,85,25,25,35,85,10,40,5,65]","4","10","0","military ",,"13203","2017-02-15 18:53:22","312"
+"A3963FCT1PKKOH","cs_wg_v2_real1","3X31TUMD7XNK1KJH7M90V11T1YAL1S","test","Number of letters in alphabet between word's 4th and 5th letters","4","[75,35,15,65,95,25,15,95,45,55,55,85,25,25,35,85,10,40,5,65]","6","25","1","chocoloate ","chocoloate ","8663","2017-02-15 18:53:22","313"
+"A133QG754CGS3I","cs_wg_v2_real1","3R6BYFZZP7D6RTUES4R9VX0A9H3FX9","test","Number of letters before word's second letter in alphabet","3","[0,70,35,0,40,0,85,70,0,100,70,95,20,105,70,20,95,40,70,100]","5","10","0","gear ",,"9139","2017-02-15 18:53:36","314"
+"A3963FCT1PKKOH","cs_wg_v2_real1","3X31TUMD7XNK1KJH7M90V11T1YAL1S","test","Memory","7","[0]","7","25","0",NULL,"chocolate, military, school, teacher ","17205","2017-02-15 18:53:43","315"
+"A133QG754CGS3I","cs_wg_v2_real1","3R6BYFZZP7D6RTUES4R9VX0A9H3FX9","test","Vertical lines","6","[40,90,50,50,80,80,50,80,70,50,60,50,60,70,60,60,50,40,50,60]","6","5","0","standard ",,"20466","2017-02-15 18:54:01","316"
+"A1LUKFJY0WXO7F","cs_wg_v2_real1","39OWYR0EPKSVRYKOX0DBEB7JBNXFYF","test","Give us a word where the most letters come after the word's third letter in the alphabet.","2","[40,70,60,115,75,120,130,30,45,110,40,45,115,110,45,40,60,65,60,70]","3","25","1","LADDER","LADDER
+","28094","2017-02-15 18:54:02","317"
+"A133QG754CGS3I","cs_wg_v2_real1","3R6BYFZZP7D6RTUES4R9VX0A9H3FX9","test","Memory","7","[0]","7","10","0",NULL,"window, military, ","24674","2017-02-15 18:54:31","318"
+"A1LUKFJY0WXO7F","cs_wg_v2_real1","39OWYR0EPKSVRYKOX0DBEB7JBNXFYF","test","Number of letters in alphabet between word's 4th and 5th letters","4","[75,35,15,65,95,25,15,95,45,55,55,85,25,25,35,85,10,40,5,65]","4","25","1","RESEARCH","LADDER 60
+BASKET 70
+STOMACH
+RESEARCH 80
+FOOTBALL
+STRUCTURE
+POSITION
+MOUNTAIN
+WINDOW
+PARTNER","176781","2017-02-15 18:57:38","319"
+"A1LUKFJY0WXO7F","cs_wg_v2_real1","39OWYR0EPKSVRYKOX0DBEB7JBNXFYF","test","Vertical lines","6","[40,90,50,50,80,80,50,80,70,50,60,50,60,70,60,60,50,40,50,60]","5","40","1","MOUNTAIN","WINDOW 4
+LADDER 5
+STRUCTURE 5
+RESEARCH 6
+POSITION 6
+MOUNTAIN 8
+STOMACH 5
+FOOTBALL 5
+FORTUNE 6
+QUESTION 5","116226","2017-02-15 19:00:01","320"
+"A1LUKFJY0WXO7F","cs_wg_v2_real1","39OWYR0EPKSVRYKOX0DBEB7JBNXFYF","test","Number of pairs which are adjacent in alphabet","5","[20,40,0,20,10,20,0,50,0,30,50,80,20,0,30,20,10,10,10,10]","6","50","0","STRUCTURE","LADDER
+BASKET
+MOUNTAIN
+FOOTBALL
+FORTUNE 3
+STOMACH 1
+QUESTION 2
+POSITION 5
+STRUCTURE 8","181993","2017-02-15 19:04:13","321"
+"A1LUKFJY0WXO7F","cs_wg_v2_real1","39OWYR0EPKSVRYKOX0DBEB7JBNXFYF","test","Memory","7","[0]","7","100","1",NULL,"PARTNER, MOUNTAIN, LADDER, WINDOW, QUESTION, STOMACH, TRAFFIC, LADDER, STRUCTURE, POSITION, FOOTBALL, FORTUNE, WEDDING, RESEARCH, SUMMER, COMMUNITY","94077","2017-02-15 19:06:02","322"
+"A1CA46R2A6TV9W","cs_wg_v2_real1","3FQ5JJ512LPCVL8OR9VXD81HFZANKZ","test","Give us a word with the most letters in the set: T, P, O, K, I, C, V, H.","0","[20,40,60,0,30,30,30,30,20,30,60,30,10,20,20,20,40,20,30,0]","0","40","1","chocolate","research
+chocolate","40410","2017-02-15 19:22:56","323"
+"A1CA46R2A6TV9W","cs_wg_v2_real1","3FQ5JJ512LPCVL8OR9VXD81HFZANKZ","test","Number of letters before word's second letter in alphabet","3","[0,70,35,0,40,0,85,70,0,100,70,95,20,105,70,20,95,40,70,100]","1","25","0","evening","community
+mountain
+football
+evening","16777","2017-02-15 19:23:36","324"
+"A1CA46R2A6TV9W","cs_wg_v2_real1","3FQ5JJ512LPCVL8OR9VXD81HFZANKZ","test","Give us a word with the most letters in the set: U, A, D, W, Y, R, M, J, Z.","1","[10,40,10,40,40,20,20,30,30,10,0,40,30,0,20,30,20,30,10,40]","2","40","1","military","mountain military","32738","2017-02-15 19:24:22","325"
+"AQJRB9V4BVIJ9","cs_wg_v2_real1","3M1CVSFP606RM5CUVAAPNOTQFY3QAA","test","Give us a word where the most letters come after the word's third letter in the alphabet.","2","[40,70,60,115,75,120,130,30,45,110,40,45,115,110,45,40,60,65,60,70]","0","25","1","wedding","choclate window football wedding ","73233","2017-02-15 19:24:42","326"
+"A1CA46R2A6TV9W","cs_wg_v2_real1","3FQ5JJ512LPCVL8OR9VXD81HFZANKZ","test","Number of letters in alphabet between word's 4th and 5th letters","4","[75,35,15,65,95,25,15,95,45,55,55,85,25,25,35,85,10,40,5,65]","3","40","0","mountain",,"16077","2017-02-15 19:24:58","327"
+"A1CA46R2A6TV9W","cs_wg_v2_real1","3FQ5JJ512LPCVL8OR9VXD81HFZANKZ","test","Number of pairs which are adjacent in alphabet","5","[20,40,0,20,10,20,0,50,0,30,50,80,20,0,30,20,10,10,10,10]","4","10","0","structure",,"48425","2017-02-15 19:26:21","328"
+"AQJRB9V4BVIJ9","cs_wg_v2_real1","3M1CVSFP606RM5CUVAAPNOTQFY3QAA","test","Give us a word with the most letters in the set: T, P, O, K, I, C, V, H.","0","[20,40,60,0,30,30,30,30,20,30,60,30,10,20,20,20,40,20,30,0]","1","20","0","structure","football window wedding structure","43395","2017-02-15 19:26:39","329"
+"A1CA46R2A6TV9W","cs_wg_v2_real1","3FQ5JJ512LPCVL8OR9VXD81HFZANKZ","test","Give us a word where the most letters come after the word's third letter in the alphabet.","2","[40,70,60,115,75,120,130,30,45,110,40,45,115,110,45,40,60,65,60,70]","5","40","0","machine","miltary
+machine
+","49155","2017-02-15 19:27:35","330"
+"A1CA46R2A6TV9W","cs_wg_v2_real1","3FQ5JJ512LPCVL8OR9VXD81HFZANKZ","test","Vertical lines","6","[40,90,50,50,80,80,50,80,70,50,60,50,60,70,60,60,50,40,50,60]","6","40","1","community","community
+traffic","10923","2017-02-15 19:28:12","331"
+"AQJRB9V4BVIJ9","cs_wg_v2_real1","3M1CVSFP606RM5CUVAAPNOTQFY3QAA","test","Number of letters in alphabet between word's 4th and 5th letters","4","[75,35,15,65,95,25,15,95,45,55,55,85,25,25,35,85,10,40,5,65]","2","25","1","structure","structure","35627","2017-02-15 19:28:15","332"
+"A1CA46R2A6TV9W","cs_wg_v2_real1","3FQ5JJ512LPCVL8OR9VXD81HFZANKZ","test","Memory","7","[0]","7","50","0",NULL,"community, chocolate, evening, structure, summer, ladder, football, machine, partner, wedding, military, question, mountain, basket","34578","2017-02-15 19:28:54","333"
+"AQJRB9V4BVIJ9","cs_wg_v2_real1","3M1CVSFP606RM5CUVAAPNOTQFY3QAA","test","Number of pairs which are adjacent in alphabet","5","[20,40,0,20,10,20,0,50,0,30,50,80,20,0,30,20,10,10,10,10]","3","10","0","football","wedding window football","32363","2017-02-15 19:30:07","334"
+"AQJRB9V4BVIJ9","cs_wg_v2_real1","3M1CVSFP606RM5CUVAAPNOTQFY3QAA","test","Vertical lines","6","[40,90,50,50,80,80,50,80,70,50,60,50,60,70,60,60,50,40,50,60]","4","40","1","FOOTBALL","STRUCTURE FOOTBALL WEDDING SUMMER ","60948","2017-02-15 19:32:21","335"
+"AQJRB9V4BVIJ9","cs_wg_v2_real1","3M1CVSFP606RM5CUVAAPNOTQFY3QAA","test","Number of letters before word's second letter in alphabet","3","[0,70,35,0,40,0,85,70,0,100,70,95,20,105,70,20,95,40,70,100]","5","20","1","Structure",,"24748","2017-02-15 19:33:35","336"
+"AQJRB9V4BVIJ9","cs_wg_v2_real1","3M1CVSFP606RM5CUVAAPNOTQFY3QAA","test","Give us a word with the most letters in the set: U, A, D, W, Y, R, M, J, Z.","1","[10,40,10,40,40,20,20,30,30,10,0,40,30,0,20,30,20,30,10,40]","6","40","1","Summer","structure summer ","29994","2017-02-15 19:35:01","337"
+"AQJRB9V4BVIJ9","cs_wg_v2_real1","3M1CVSFP606RM5CUVAAPNOTQFY3QAA","test","Memory","7","[0]","7","100","1",NULL,"Chocolate, Summer, Wedding, Football, Window, Structure, Partner","65668","2017-02-15 19:36:22","338"
+"A1XPUUD0HLD6HB","cs_wg_v2_real1","33JKGHPFYCV7L98RCL8DSLTL445NM4","test","Vertical lines","6","[40,90,50,50,80,80,50,80,70,50,60,50,60,70,60,60,50,40,50,60]","0","20","0","MOUNTAIN","
+","203046","2017-02-15 19:43:08","339"
+"A1XPUUD0HLD6HB","cs_wg_v2_real1","33JKGHPFYCV7L98RCL8DSLTL445NM4","test","Give us a word with the most letters in the set: U, A, D, W, Y, R, M, J, Z.","1","[10,40,10,40,40,20,20,30,30,10,0,40,30,0,20,30,20,30,10,40]","1","40","1","TRAFFIC",,"39714","2017-02-15 19:44:35","340"
+"A1XPUUD0HLD6HB","cs_wg_v2_real1","33JKGHPFYCV7L98RCL8DSLTL445NM4","test","Give us a word where the most letters come after the word's third letter in the alphabet.","2","[40,70,60,115,75,120,130,30,45,110,40,45,115,110,45,40,60,65,60,70]","2","25","1","TRAFFIC",,"19780","2017-02-15 19:45:28","341"
+"A1XPUUD0HLD6HB","cs_wg_v2_real1","33JKGHPFYCV7L98RCL8DSLTL445NM4","test","Number of letters before word's second letter in alphabet","3","[0,70,35,0,40,0,85,70,0,100,70,95,20,105,70,20,95,40,70,100]","3","20","1","STRUCTURE",,"23558","2017-02-15 19:46:10","342"
+"AEB8O1VX9TE5J","cs_wg_v2_real1","3OVHNO1VE62YY4GX2GK44ID054LDZT","test","Give us a word with the most letters in the set: T, P, O, K, I, C, V, H.","0","[20,40,60,0,30,30,30,30,20,30,60,30,10,20,20,20,40,20,30,0]","0","40","1","structure","mountain
+military
+structure
+","66631","2017-02-15 19:46:11","343"
+"AEB8O1VX9TE5J","cs_wg_v2_real1","3OVHNO1VE62YY4GX2GK44ID054LDZT","test","Number of pairs which are adjacent in alphabet","5","[20,40,0,20,10,20,0,50,0,30,50,80,20,0,30,20,10,10,10,10]","1","10","0","football",,"18671","2017-02-15 19:46:52","344"
+"A1XPUUD0HLD6HB","cs_wg_v2_real1","33JKGHPFYCV7L98RCL8DSLTL445NM4","test","Number of letters in alphabet between word's 4th and 5th letters","4","[75,35,15,65,95,25,15,95,45,55,55,85,25,25,35,85,10,40,5,65]","4","25","1","STRUCTURE",,"28530","2017-02-15 19:47:12","345"
+"AEB8O1VX9TE5J","cs_wg_v2_real1","3OVHNO1VE62YY4GX2GK44ID054LDZT","test","Number of letters in alphabet between word's 4th and 5th letters","4","[75,35,15,65,95,25,15,95,45,55,55,85,25,25,35,85,10,40,5,65]","2","40","0","military","military","12781","2017-02-15 19:47:29","346"
+"AEB8O1VX9TE5J","cs_wg_v2_real1","3OVHNO1VE62YY4GX2GK44ID054LDZT","test","Vertical lines","6","[40,90,50,50,80,80,50,80,70,50,60,50,60,70,60,60,50,40,50,60]","3","40","1","football",,"4877","2017-02-15 19:47:44","347"
+"AEB8O1VX9TE5J","cs_wg_v2_real1","3OVHNO1VE62YY4GX2GK44ID054LDZT","test","Give us a word with the most letters in the set: U, A, D, W, Y, R, M, J, Z.","1","[10,40,10,40,40,20,20,30,30,10,0,40,30,0,20,30,20,30,10,40]","4","40","1","mountain",,"5144","2017-02-15 19:48:10","348"
+"A1XPUUD0HLD6HB","cs_wg_v2_real1","33JKGHPFYCV7L98RCL8DSLTL445NM4","test","Number of pairs which are adjacent in alphabet","5","[20,40,0,20,10,20,0,50,0,30,50,80,20,0,30,20,10,10,10,10]","5","10","0","FORTUNE",,"40521","2017-02-15 19:48:29","349"
+"AEB8O1VX9TE5J","cs_wg_v2_real1","3OVHNO1VE62YY4GX2GK44ID054LDZT","test","Number of letters before word's second letter in alphabet","3","[0,70,35,0,40,0,85,70,0,100,70,95,20,105,70,20,95,40,70,100]","5","5","0","structure",,"5139","2017-02-15 19:48:41","350"
+"A1XPUUD0HLD6HB","cs_wg_v2_real1","33JKGHPFYCV7L98RCL8DSLTL445NM4","test","Give us a word with the most letters in the set: T, P, O, K, I, C, V, H.","0","[20,40,60,0,30,30,30,30,20,30,60,30,10,20,20,20,40,20,30,0]","6","20","0","cOMMUNITY",,"28660","2017-02-15 19:49:26","351"
+"AEB8O1VX9TE5J","cs_wg_v2_real1","3OVHNO1VE62YY4GX2GK44ID054LDZT","test","Give us a word where the most letters come after the word's third letter in the alphabet.","2","[40,70,60,115,75,120,130,30,45,110,40,45,115,110,45,40,60,65,60,70]","6","100","0","machine",,"23526","2017-02-15 19:49:31","352"
+"A1XPUUD0HLD6HB","cs_wg_v2_real1","33JKGHPFYCV7L98RCL8DSLTL445NM4","test","Memory","7","[0]","7","100","1",NULL,"FOOTBALL,
+LADDER,
+WEDDING,
+TRAFFIC,
+MOUNTAIN,
+MILITARY,
+FORTUNE,
+COMMUNITY,
+CHOCOLATE,
+MACHINE,
+STRUCTURE,
+WINDOW,","17543","2017-02-15 19:49:52","353"
+"AEB8O1VX9TE5J","cs_wg_v2_real1","3OVHNO1VE62YY4GX2GK44ID054LDZT","test","Memory","7","[0]","7","100","1",NULL,"machine, structure, football, chocolate, military, ","53001","2017-02-15 19:50:32","354"
