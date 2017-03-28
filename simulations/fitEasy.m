@@ -4,20 +4,23 @@ simsName = 'real2';
 
 numStarts = 24;
 numSubjects = 114;
-numFnEvals = 3000;
+numFnEvals = 100;
 
 priorPDFs = {@(x) log(1/4), @(x) log(gampdf(x, 4.82, .88)), ...
     @(x) log(unifpdf(x, 0, 1)), @(x) log(unifpdf(x, 0, 1)), @(x) log(unifpdf(x, 0, 1)), @(x) log(unifpdf(x, 0, 1)), ...
     @(x) log(unifpdf(x, 0, 1))};
 
 main = ['fitting/' envName '/' simsName];
-modelNames_all = {'cs-rand', 'mixture-all', 'mixture-expose-mb', 'mixture-mf-mb', 'mixture-mb-av', 'mixture-mb-chosen', 'mixture-mb', 'mixture-mf', 'random'};
+modelNames_all = {'cs-rand', 'mixture-all', 'mixture-expose-mb', 'mixture-mf-mb', 'mixture-mb-av', 'mixture-mb-chosen', 'mixture-mb', 'mixture-mf', 'random',...
+    'cs-mf-mb', 'cs-mf', 'cs-mb'};
 modelParams_all = {[-1 0 0 0 0 0 0], [1 -1 -1 -1 -1 0 0], ...
     [1 -1 -1 0 -1 0 0], [1 -1 0 -1 -1 0 0], [1 -1 0 0 -1 -1 0], [1 -1 0 0 -1 0 -1], ...
-    [1 -1 0 0 1 0 0], [1 -1 0 1 0 0 0], [1 0 0 0 0 0 0]};
+    [1 -1 0 0 1 0 0], [1 -1 0 1 0 0 0], [1 0 0 0 0 0 0], ...
+    [-1 -1 0 -1 -1 0 0], [-1 -1 0 1 0 0 0], [-1 -1 0 0 1 0 0]};
 
-whichModels = [1 4 7 8 9];
+%whichModels = [1 4 7 8 9];
 %whichModels = 1;
+whichModels = [10 11 12];
 
 modelNames = modelNames_all(whichModels);
 modelParams = modelParams_all(whichModels);
