@@ -2,7 +2,7 @@ envName = 'wg_v3';
 whichEnv = ['env/' envName '.mat'];
 simsName = 'real2';
 
-numStarts = 24;
+numStarts = 6;
 numSubjects = 114;
 numFnEvals = 100;
 

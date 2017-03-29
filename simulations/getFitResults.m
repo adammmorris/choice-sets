@@ -45,7 +45,7 @@ for j = 1:length(modelParams_all)
 end
 %whichParams_all = {1:3, 1:2, 1:2, 1:2, 1, 2:4, 2:3, [2 4], 2, []};
 
-whichModels = [7 10 13 14 15];
+whichModels = [3 5 6 7 10 13 14 15];
 
 modelNames = modelNames_all(whichModels);
 whichParams = whichParams_all(whichModels);
