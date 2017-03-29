@@ -33,15 +33,11 @@ params(fixedParams == -1) = freeParams;
 params(fixedParams ~= -1) = fixedParams(fixedParams ~= -1);
 nToEval = params(1);
 beta = params(2);
-w_NE = params(3);
-w_MF = params(4); % num exposures
+epsilon = params(3);
+w_MF = params(4);
 w_MB = params(5);
-w_AV = params(6);
-w_CH = params(7);
-epsilon = .05;
 
-wSum = w_NE + w_MF + w_MB + w_AV + w_CH;
-%disp(sprintf('%d %d %d', w_NE, w_MF, w_MB));
+wSum = w_MF + w_MB;
 if beta > 0 && abs(wSum - 1) > .01
     error('Weights do not sum to 1.');
 end
@@ -59,10 +55,7 @@ if nToEval == 1 % any non-choice-set
         
         probs_num = exp(beta * ...
                 (rewards_te(trial, availWords) * w_MB / maxRe_te + ...
-                exposures_tr(availWords) * w_NE / maxExposures_tr + ...
-                rewards_tr(availWords) * w_MF / maxRe_tr + ...
-                abs(rewards_tr(availWords) - 5) * w_AV / (maxRe_tr / 2) + ...
-                chosen_tr(availWords) * w_CH / maxChosen_tr));
+                rewards_tr(availWords) * w_MF / maxRe_tr));
         probs = probs_num / sum(probs_num);
         
         probs = (1 - epsilon) * probs + epsilon * (1 / numAvailWords);
@@ -74,7 +67,6 @@ elseif beta == 0 % randcs
     numAvailWords = length(availWords);
     
     for trial = 1:numTrials
-        %word = choices(trial);
         word = find(availWords == choices(trial));
         
         lq = sum(rewards_te(trial, availWords) < rewards_te(trial, availWords(word))); % # of MB values < q
@@ -90,15 +82,6 @@ elseif beta == 0 % randcs
         
         prob = prob + epsilon * (1 / numAvailWords) * (1 - sets_prob);
         
-        % get how many are tied for lowest
-        %numLowest = sum(rewards_te(trial, availWords) == min(rewards_te(trial, availWords)));
-        % these are only impossible if they can't all fit into one choice
-        % set together
-        %numLowest = numLowest * (numLowest < nToEval);
-        
-        %if prob == 0, prob = eps; end
-        %prob = (prob + epsilon) / (1 + epsilon * length(availWords));
-        
         likelihood(trial) = log(prob);
     end
 else
@@ -108,15 +91,11 @@ else
             availWords = find(recalled);
             numAvailWords = length(availWords);
             
-            %word = choices(trial);
             word = find(availWords == choices(trial));
             
             weights_num = exp(beta * ...
                 (rewards_te(trial, availWords) * w_MB / maxRe_te + ...
-                exposures_tr(availWords) * w_NE / maxExposures_tr + ...
-                rewards_tr(availWords) * w_MF / maxRe_tr + ...
-                abs(rewards_tr(availWords) - 5) * w_AV / (maxRe_tr / 2) + ...
-                chosen_tr(availWords) * w_CH / maxChosen_tr));
+                rewards_tr(availWords) * w_MF / maxRe_tr));
             weights = weights_num / sum(weights_num);
             
             prob = 0;
@@ -145,16 +124,7 @@ else
                     prob = prob + ((1 - epsilon) * (1 / (numTies + 1)) + epsilon * (1 / numAvailWords)) * cur_set_prob;
                 end
             end
-            
-            %if prob < 0 && prob > -1e-10, prob = eps; end % roundoff error
-            %if prob == 0, prob = eps; end % impossible choice
-            
-            % get how many are tied for lowest
-            %numLowest = sum(rewards_te(trial, availWords) == min(rewards_te(trial, availWords)));
-            % these are only impossible if they can't all fit into one choice
-            % set together
-            %numLowest = numLowest * (numLowest < nToEval);
-
+           
             prob = prob + epsilon * (1 / numAvailWords) * (1 - set_prob);
             
             likelihood(trial) = log(prob);

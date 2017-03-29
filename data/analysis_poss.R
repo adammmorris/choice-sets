@@ -34,17 +34,15 @@ as.numeric.vector = function(x) {
   return(as.numeric(strsplit(substr(x,2,nchar(x)-1), split=",")[[1]]))
 }
 
-numWords = 14;
-numQuestions = 9; # including memory
+numWords = 15;
 pointsPerCent = 10;
-pointsPerWord = 10; # for memory condition
-path = 'data/cs_wg_v3/real2/'
+path = 'data/cs_wg_v3_poss/pilot1/'
 
 # Load data
 df.demo = read.csv(paste0(path, 'demo.csv'), stringsAsFactors = F) %>% arrange(subject) %>% mutate(total_time_real = total_time / 60000)
 df.words.raw = read.csv(paste0(path, 'words.csv'), stringsAsFactors = F) %>% arrange(subject, word_ind)
 df.s1.raw = read.csv(paste0(path, 's1.csv'), stringsAsFactors = F) %>% arrange(subject)
-df.s2.raw = read.csv(paste0(path, 's2.csv'), stringsAsFactors = F) %>% arrange(subject, question_order)
+df.s2.raw = read.csv(paste0(path, 's2.csv'), stringsAsFactors = F) %>% arrange(subject)
 
 subjlist = df.demo$subject
 
@@ -342,6 +340,7 @@ df.demo = df.demo %>% mutate(s2_bonus = I(df.s2.subj$s2_bonus), mem_bonus = I(df
 write.table(df.demo %>% filter(id >= 150) %>% select(WorkerID = subject, Bonus = bonus),
             paste0(path, 'Bonuses - cs_wg_v3_real2.csv'), row.names = FALSE, col.names = FALSE, sep = ",")
 
+save.image(paste0(path, 'analysis.rdata'))
 
 ### SIMULATIONS
 

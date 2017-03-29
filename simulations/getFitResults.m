@@ -32,12 +32,10 @@ end
 %numChoices = repmat(numTrials, numSubjects, 1);
 %LLs_chance = log((1 / numWords)) * numChoices;
 
-modelNames_all = {'cs-expose-mb', 'cs-expose-mf', 'cs-mf-mb', 'cs-expose', 'cs-mf', 'cs-mb', 'cs-rand', ...
-    'mixture-all', 'mixture-expose-mb', 'mixture-mf-mb', 'mixture-mb-av', 'mixture-mb-chosen', 'mixture-mb', 'mixture-mf', 'random'};
-modelParams_all = {[-1 -1 -1 0 -1 0 0], [-1 -1 -1 -1 0 0 0], [-1 -1 0 -1 -1 0 0], ...
-    [-1 -1 1 0 0 0 0], [-1 -1 0 1 0 0 0], [-1 -1 0 0 1 0 0], [-1 0 0 0 0 0 0], ...
-    [1 -1 -1 -1 -1 0 0], [1 -1 -1 0 -1 0 0], [1 -1 0 -1 -1 0 0], [1 -1 0 0 -1 -1 0], [1 -1 0 0 -1 0 -1], ...
-    [1 -1 0 0 1 0 0], [1 -1 0 1 0 0 0], [1 0 0 0 0 0 0]};
+modelNames_all = {'cs-rand', 'mixture-mf-mb', 'mixture-mb', 'mixture-mf', 'random', ...
+    'cs-mf-mb', 'cs-mf', 'cs-mb'};
+modelParams_all = {[-1 0 .1 0 0], [1 -1 .1 -1 -1], [1 -1 .1 0 1], [1 -1 .1 1 0], [1 0 .1 0 0], ...
+    [-1 -1 .1 -1 -1], [-1 -1 .1 1 0], [-1 -1 .1 0 1]};
 
 whichParams_all = cell(length(modelParams_all), 1);
 for j = 1:length(modelParams_all)
@@ -45,7 +43,7 @@ for j = 1:length(modelParams_all)
 end
 %whichParams_all = {1:3, 1:2, 1:2, 1:2, 1, 2:4, 2:3, [2 4], 2, []};
 
-whichModels = [3 5 6 7 10 13 14 15];
+whichModels = 1:5;
 
 modelNames = modelNames_all(whichModels);
 whichParams = whichParams_all(whichModels);
@@ -64,8 +62,6 @@ for i = 1:numModels
         parseFitOutput(savePath, numSubjects, whichParams{i}, numExtraVars, datapath, realData);
     goodSubjects = goodSubjects & goodSubjects_cur; % drop any subjects we didn't get
 end
-
-%goodSubjects([1 54]) = false;
 
 for i = 1:numModels
     paramEstimates{i}(~goodSubjects, :) = [];
