@@ -19,8 +19,7 @@ modelParams_all = {[-1 0 0 0 0 0 0], [1 -1 -1 -1 -1 0 0], ...
     [-1 -1 0 -1 -1 0 0], [-1 -1 0 1 0 0 0], [-1 -1 0 0 1 0 0]};
 
 %whichModels = [1 4 7 8 9];
-%whichModels = 1;
-whichModels = [10 11 12];
+whichModels = 1;
 
 modelNames = modelNames_all(whichModels);
 modelParams = modelParams_all(whichModels);

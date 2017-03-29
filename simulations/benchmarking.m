@@ -8,10 +8,10 @@
 % %temp = getLikeArray(results, nToEval, betaInfo, rewards_tr, rewards_te, 0);
 % temp = likelihood_cont(envInfo, results, rewards_tr, .5, [5 -1 0]);
 
-priorPDFs = {@(x) log(1/5), @(x) log(gampdf(x, 4.82, .88)), ...
+priorPDFs = {@(x) log(1/4), @(x) log(gampdf(x, 4.82, .88)), ...
     @(x) log(unifpdf(x, 0, 1)), @(x) log(unifpdf(x, 0, 1)), @(x) log(unifpdf(x, 0, 1)), @(x) log(unifpdf(x, 0, 1)), @(x) log(unifpdf(x, 0, 1))};
 fitModel('fitting/wg_v3/pilot2/sims.mat', 'env/wg_v3.mat', ...
-     '', [-1 -1 0 0 1 0 0], priorPDFs, 1, 3, 100, 0, false);
+     '', [-1 -1 0 -1 -1 0 0], priorPDFs, 3, 6, 100, 0, false);
 
 % index = subjMarkers(1):(subjMarkers(2)-1);
 % curchoice = choice(index);

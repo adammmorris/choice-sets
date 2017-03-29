@@ -19,7 +19,7 @@ words_all = np.array(['basket', 'community', 'chocolate', 'ladder', 'military', 
  
 np.random.seed(124)
 #words_ind = np.random.choice(np.arange(np.size(words_all)), 15, False)
-words_ind = np.array([12, 16,  3,  1, 10, 19, 18,  8, 15,  6, 11,  5, 13, 0])
+words_ind = np.array([12, 16,  3,  1, 10, 19, 18,  8, 15,  6, 11,  5, 13, 0, 9])
 words = words_all[words_ind]
 
 # (1) - bad
