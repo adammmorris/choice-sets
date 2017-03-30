@@ -15,17 +15,18 @@ modelNames_all = {'cs-rand', 'mixture-mf-mb', 'mixture-mb', 'mixture-mf', 'rando
 modelParams_all = {[-1 0 .1 0 0], [1 -1 .1 -1 -1], [1 -1 .1 0 1], [1 -1 .1 1 0], [1 0 .1 0 0], ...
     [-1 -1 .1 -1 -1], [-1 -1 .1 1 0], [-1 -1 .1 0 1]};
 
-whichModels = 1:5;
+whichModels =6:8;
 
 modelNames = modelNames_all(whichModels);
 modelParams = modelParams_all(whichModels);
 numModels = length(whichModels);
 
 for model = 1:numModels
-    disp(model)
+    disp(['model ' num2str(model)]);
     params = modelParams{model};
     name = modelNames{model};
     for i = 1:numSubjects
+        disp(['subject ' num2str(i)]);
         fitModel([main '/sims.mat'], whichEnv, [main '/fit_' name '/'], ...
             params, priorPDFs, i, numStarts, numFnEvals, 0, false);
     end
