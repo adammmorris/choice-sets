@@ -161,6 +161,7 @@ for (i in 1:nrow(df.mem)) {
     df.words$recall[df.words$subject == subj.name & df.words$word == wordlist[j]] = recalled[i,j]
     
     recalled_ever[i,j] = recalled[i,j] | any(na.omit(df.s2.temp$choice_real_ind) == j)
+    df.words$recall.ever[df.words$subject == subj.name & df.words$word == wordlist[j]] = recalled_ever[i,j]
   }
 }
 
@@ -227,14 +228,14 @@ for (subj in 1:nrow(df.demo)) {
   df.words.temp = df.words %>% filter(subject == subj.name)
   df.s2.temp = df.s2 %>% filter(subject == subj.name) %>% arrange(question_order)
   
-  nAnswered = sum(!is.na(df.s2.temp$choice_real_ind) & df.s2.temp$rank_value == 14)
+  nAnswered = sum(!is.na(df.s2.temp$choice_real_ind)) #& df.s2.temp$rank_value == 14)
 
   if (nAnswered > 0 & subj.name %in% include_names) {
     Subj.col = rep(subj, num.recalled.temp * nAnswered)
     
     MFval.col = rep(df.words.temp$high_val[recalled.temp] * 1, nAnswered)
     nExposures.col = rep(df.words.temp$exposures[recalled.temp], nAnswered)
-    Recalled.col = rep(df.words.temp$recall[recalled.temp] * 1, nAnswered)
+    Recalled.col = rep(df.words.temp$recall.ever[recalled.temp] * 1, nAnswered)
     numChosen.col = rep(df.words.temp$numChosen[recalled.temp], nAnswered)
     OptionID.col = rep(which(recalled.temp), nAnswered)
     Trial.col = rep(1:nAnswered, each = num.recalled.temp)
@@ -243,7 +244,7 @@ for (subj in 1:nrow(df.demo)) {
     temp.choice = matrix(0, nrow = nAnswered, ncol = num.recalled.temp)
     ind = 1
     for (q in 1:numRealQuestions) {
-      if (!is.na(df.s2.temp$choice_real_ind[q]) && df.s2.temp$rank_value[q] == 14) {
+      if (!is.na(df.s2.temp$choice_real_ind[q])) { #&& df.s2.temp$rank_value[q] == 14) {
         all_vals = as.numeric.vector(df.s2.temp$all_values[q])
         #all_vals = rewards_te[qvec[df.s2.temp$question_ind[q] + 1], ]
         mbvals = rank(all_vals, ties.method = 'max')
@@ -268,6 +269,9 @@ for (subj in 1:nrow(df.demo)) {
   }
 }
 
+mean.mb = mean(df.logit$MBval)
+df.logit = df.logit %>% mutate(MFval = ifelse(Recall, MFval, 0.5), MBval = ifelse(Recall, MBval, mean.mb))
+
 # Do logit
 runLogit = function(df) {
   df$Choice = as.logical(df$Choice)
@@ -279,13 +283,38 @@ runLogit = function(df) {
   df = df %>% mutate(MFcent = MFval - mean(MFval), MBcent = MBval - mean(MBval), Int = MFcent * MBcent)
   df.m = mlogit.data(df, choice = "Choice", shape = "long", id.var = "Subj", alt.var = "OptionID", chid.var = "Trial_unique")
   
-  m = mlogit(Choice ~ MFcent + Recall | -1, df.m, panel = T,
-             rpar = c(MFcent = "n", Recall = "n"), correlation = F, halton = NA, R = 1000, tol = .001)
+  m = mlogit(Choice ~ MFcent + MBcent + Int | -1, df.m, panel = T,
+             rpar = c(MFcent = "n", MBcent = "n", Int = "n"), correlation = F, halton = NA, R = 1000, tol = .001)
   return(m)
 }
 
 m.real = runLogit(df.logit)
 summary(m.real)
+
+runLogit_nr = function(df) {
+  df$Choice = as.logical(df$Choice)
+  df$OptionID = factor(df$OptionID)
+  df = df %>% mutate(Trial_unique = paste(Subj, Trial, sep="_"))
+  df$Trial = factor(df$Trial)
+  df$Trial_unique = factor(df$Trial_unique)
+  df$Subj = factor(df$Subj)
+  df = df %>% mutate(MFcent = MFval - mean(MFval), MBcent = MBval - mean(MBval), Int = MFcent * MBcent)
+  df.m = mlogit.data(df, choice = "Choice", shape = "long", alt.var = "OptionID", chid.var = "Trial_unique")
+  
+  m = mlogit(Choice ~ MFcent + MBcent + Int | -1, df.m, halton = NA, R = 1000, tol = .001)
+  return(m)
+}
+
+m.betas = NULL
+subjlist.logit = unique(df.logit$Subj)
+for (subj_ind in 1:length(subjlist.logit)) {
+  subj = subjlist.logit[subj_ind]
+  df.logit.temp = df.logit %>% filter(Subj == subj)
+  m.real.temp = runLogit_nr(df.logit.temp)
+  m.betas[subj_ind] = m.real.temp$coefficients[3]
+}
+
+t.test(m.betas)
 
 ## Save for modeling
 
