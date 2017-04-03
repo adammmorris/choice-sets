@@ -27,15 +27,15 @@ for subj = 1:numSubjects
     end
     
     numChoices(subj) = length(index);
-    LLs_chance(subj) = log(1 / numWords) * length(index);
+    LLs_chance(subj) = log(1 / sum(recalled(subj, :))) * length(index);
 end
 %numChoices = repmat(numTrials, numSubjects, 1);
 %LLs_chance = log((1 / numWords)) * numChoices;
 
 modelNames_all = {'cs-rand', 'mixture-mf-mb', 'mixture-mb', 'mixture-mf', 'random', ...
-    'cs-mf-mb', 'cs-mf', 'cs-mb'};
-modelParams_all = {[-1 0 .1 0 0], [1 -1 .1 -1 -1], [1 -1 .1 0 1], [1 -1 .1 1 0], [1 0 .1 0 0], ...
-    [-1 -1 .1 -1 -1], [-1 -1 .1 1 0], [-1 -1 .1 0 1]};
+    'cs-mf-mb', 'cs-mf', 'cs-mb', 'cs-mf-mb-noK', 'cs-mf-noK', 'cs-mb-noK', 'cs-rand-noK'};
+modelParams_all = {[-1 0 -1 0 0], [1 -1 .1 -1 -1], [1 -1 .1 0 1], [1 -1 .1 1 0], [1 0 .1 0 0], ...
+    [-1 -1 .1 -1 -1], [-1 -1 .1 1 0], [-1 -1 .1 0 1], [2 -1 .1 -1 -1], [2 -1 .1 1 0], [2 -1 .1 0 1], [2 0 .1 0 0]};
 
 whichParams_all = cell(length(modelParams_all), 1);
 for j = 1:length(modelParams_all)
@@ -43,7 +43,7 @@ for j = 1:length(modelParams_all)
 end
 %whichParams_all = {1:3, 1:2, 1:2, 1:2, 1, 2:4, 2:3, [2 4], 2, []};
 
-whichModels = 1:5;
+whichModels = 1:2;
 
 modelNames = modelNames_all(whichModels);
 whichParams = whichParams_all(whichModels);

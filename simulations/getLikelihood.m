@@ -37,6 +37,8 @@ epsilon = params(3);
 w_MF = params(4);
 w_MB = params(5);
 
+doSoftmax = true;
+
 wSum = w_MF + w_MB;
 if beta > 0 && abs(wSum - 1) > .01
     error('Weights do not sum to 1.');
@@ -68,19 +70,38 @@ elseif beta == 0 % randcs
     
     for trial = 1:numTrials
         word = find(availWords == choices(trial));
-        
-        lq = sum(rewards_te(trial, availWords) < rewards_te(trial, availWords(word))); % # of MB values < q
-        tq = sum(rewards_te(trial, availWords) == rewards_te(trial, availWords(word))) - 1; % # of MB values == q
+        maxRe_te = max(rewards_te(trial, :));
         
         prob = 0;
-        sets_prob = 0;
-        for numTies = 0:(nToEval - 1)
-            cur_sets_prob = binCoef(lq, nToEval - numTies - 1) * binCoef(tq, numTies) / binCoef(numAvailWords, nToEval);
-            sets_prob = sets_prob + cur_sets_prob;
-            prob = prob + ((1 - epsilon) * (1 / (numTies + 1)) + epsilon * (1 / numAvailWords)) * cur_sets_prob;
-        end
+        if doSoftmax
+            sets = [];
+            otherAvailWords = setdiff(availWords, availWords(word));
+            possible_others = combnk_fast(otherAvailWords, nToEval - 1);
+            
+            for other_ind = 1:size(possible_others, 1)
+                sets(end+1, :) = [word possible_others(other_ind, :)];
+            end
+            
+            for set_ind = 1:size(sets, 1)
+                cur_set_prob = 1 / binCoef(numAvailWords, nToEval);
+                choice_prob_num = exp(epsilon * rewards_te(trial, sets(set_ind, :)) / maxRe_te);
+                choice_prob = choice_prob_num / sum(choice_prob_num);
+                
+                prob = prob + choice_prob(1) * cur_set_prob; % word they chose is always 1st
+            end
+        else
+            lq = sum(rewards_te(trial, availWords) < rewards_te(trial, availWords(word))); % # of MB values < q
+            tq = sum(rewards_te(trial, availWords) == rewards_te(trial, availWords(word))) - 1; % # of MB values == q
         
-        prob = prob + epsilon * (1 / numAvailWords) * (1 - sets_prob);
+            sets_prob = 0;
+            for numTies = 0:(nToEval - 1)
+                cur_sets_prob = binCoef(lq, nToEval - numTies - 1) * binCoef(tq, numTies) / binCoef(numAvailWords, nToEval);
+                sets_prob = sets_prob + cur_sets_prob;
+                prob = prob + ((1 - epsilon) * (1 / (numTies + 1)) + epsilon * (1 / numAvailWords)) * cur_sets_prob;
+            end
+
+            prob = prob + epsilon * (1 / numAvailWords) * (1 - sets_prob);
+        end
         
         likelihood(trial) = log(prob);
     end
@@ -99,33 +120,66 @@ else
             weights = weights_num / sum(weights_num);
             
             prob = 0;
-            set_prob = 0;
             %disp(sprintf('%d %d', whichSubj, trial));
-            for numTies = 0:(nToEval-1)
-                sets = getSets(word, numTies, nToEval, rewards_te(trial, availWords));
+            if doSoftmax
+                sets = [];
+                otherAvailWords = setdiff(availWords, availWords(word));
+                possible_others = combnk_fast(otherAvailWords, nToEval - 1);
+                
+                for other_ind = 1:size(possible_others, 1)
+                    sets(end+1, :) = [word possible_others(other_ind, :)];
+                end
                 
                 for set_ind = 1:size(sets, 1)
                     set = sets(set_ind, :);
-                    
+
                     pset = getPowerSet_reduced(set);
                     temp_prob = zeros(length(pset), 1);
-                    
+
                     d = sum(weights(setdiff_fast(1:numAvailWords, set))); % get complement weight sum
-                    
+
                     for subset_ind = 1:length(pset) % loop through power set
                         subset = pset{subset_ind};
-                        
+
                         % store each iteration
                         temp_prob(subset_ind) = (-1) ^ numel(subset) / (1 + sum(weights(subset)) / d);
                     end
-                    
+
                     cur_set_prob = sum(temp_prob) + 1 + d * ((-1)^numel(set));
-                    set_prob = set_prob + cur_set_prob;
-                    prob = prob + ((1 - epsilon) * (1 / (numTies + 1)) + epsilon * (1 / numAvailWords)) * cur_set_prob;
+                    choice_prob_num = exp(epsilon * rewards_te(trial, set) / maxRe_te);
+                    choice_prob = choice_prob_num / sum(choice_prob_num);
+                    
+                    prob = prob + choice_prob(1) * cur_set_prob;
                 end
+            else
+                set_prob = 0;
+
+                for numTies = 0:(nToEval-1)
+                    sets = getSets(word, numTies, nToEval, rewards_te(trial, availWords));
+
+                    for set_ind = 1:size(sets, 1)
+                        set = sets(set_ind, :);
+
+                        pset = getPowerSet_reduced(set);
+                        temp_prob = zeros(length(pset), 1);
+
+                        d = sum(weights(setdiff_fast(1:numAvailWords, set))); % get complement weight sum
+
+                        for subset_ind = 1:length(pset) % loop through power set
+                            subset = pset{subset_ind};
+
+                            % store each iteration
+                            temp_prob(subset_ind) = (-1) ^ numel(subset) / (1 + sum(weights(subset)) / d);
+                        end
+
+                        cur_set_prob = sum(temp_prob) + 1 + d * ((-1)^numel(set));
+                        set_prob = set_prob + cur_set_prob;
+                        prob = prob + ((1 - epsilon) * (1 / (numTies + 1)) + epsilon * (1 / numAvailWords)) * cur_set_prob;
+                    end
+                end
+
+                prob = prob + epsilon * (1 / numAvailWords) * (1 - set_prob);
             end
-           
-            prob = prob + epsilon * (1 / numAvailWords) * (1 - set_prob);
             
             likelihood(trial) = log(prob);
         end

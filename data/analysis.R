@@ -34,6 +34,9 @@ as.numeric.vector = function(x) {
   return(as.numeric(strsplit(substr(x,2,nchar(x)-1), split=",")[[1]]))
 }
 
+se = function(x) {return(sd(x) / sqrt(length(x)))}
+dodge <- position_dodge(width=0.9)
+
 numWords = 14;
 numQuestions = 9; # including memory
 pointsPerCent = 10;
@@ -172,7 +175,7 @@ for (subj in 1:nrow(df.demo)) {
   df.s2.subj.temp = df.s2.subj %>% filter(subject == subj.name)
   df.cors.temp = df.cors %>% filter(subject == subj.name)
   
-  if (df.s1.subj.temp$pctCorrect_words < .75 || df.s1.subj.temp$pctCorrect_val < .75 || df.s2.subj.temp$comp_check_pass < .5 || df.s2.subj.temp$numNAs > 3 ||
+  if (df.s1.subj.temp$pctCorrect_words < .75 || df.s1.subj.temp$pctCorrect_val < .75 || df.s2.subj.temp$comp_check_pass < .5 ||
       df.s2.subj.temp$numRepeats > 2 || df.cors.temp$cors < .75 || sum(recalled[subj,]) < 5 || df.s1.subj.temp$numTrials != 112) {
     include_rows[subj] = FALSE
   } else {
@@ -186,6 +189,13 @@ nrecall = rowSums(recalled[include_rows,])
 nrecall_val = rowSums(recalled[include_rows,])
 mean(nrecall)
 mean(nrecall_val)
+
+df.words.coll = df.words %>% group_by(high_val, subject) %>% summarize(recall = mean(recall)) %>%
+  group_by(high_val) %>% summarize(recall.mean = mean(recall), recall.se = se(recall))
+ggplot(df.words.coll, aes(x = high_val, y = recall.mean)) +
+  geom_bar(stat = "identity", position = dodge) +
+  geom_errorbar(aes(ymax = recall.mean + recall.se, ymin = recall.mean - recall.se), width = .5, position = dodge) +
+  xlab('') + ylab('') + guides(fill = F)
 
 # Test what affected recall
 m.recall = glmer(recall ~ value + (0 + value | subject) + (1 | subject) + (1 | word),
@@ -217,7 +227,7 @@ for (subj in 1:nrow(df.demo)) {
   df.words.temp = df.words %>% filter(subject == subj.name)
   df.s2.temp = df.s2 %>% filter(subject == subj.name) %>% arrange(question_order)
   
-  nAnswered = sum(!is.na(df.s2.temp$choice_real_ind))
+  nAnswered = sum(!is.na(df.s2.temp$choice_real_ind) & df.s2.temp$rank_value == 14)
 
   if (nAnswered > 0 & subj.name %in% include_names) {
     Subj.col = rep(subj, num.recalled.temp * nAnswered)
@@ -233,7 +243,7 @@ for (subj in 1:nrow(df.demo)) {
     temp.choice = matrix(0, nrow = nAnswered, ncol = num.recalled.temp)
     ind = 1
     for (q in 1:numRealQuestions) {
-      if (!is.na(df.s2.temp$choice_real_ind[q])) {
+      if (!is.na(df.s2.temp$choice_real_ind[q]) && df.s2.temp$rank_value[q] == 14) {
         all_vals = as.numeric.vector(df.s2.temp$all_values[q])
         #all_vals = rewards_te[qvec[df.s2.temp$question_ind[q] + 1], ]
         mbvals = rank(all_vals, ties.method = 'max')
@@ -269,8 +279,8 @@ runLogit = function(df) {
   df = df %>% mutate(MFcent = MFval - mean(MFval), MBcent = MBval - mean(MBval), Int = MFcent * MBcent)
   df.m = mlogit.data(df, choice = "Choice", shape = "long", id.var = "Subj", alt.var = "OptionID", chid.var = "Trial_unique")
   
-  m = mlogit(Choice ~ MFcent + MBcent + Int + Recall | -1, df.m, panel = T,
-             rpar = c(MFcent = "n", MBcent = "n", Int = "n"), correlation = F, halton = NA, R = 1000, tol = .001)
+  m = mlogit(Choice ~ MFcent + Recall | -1, df.m, panel = T,
+             rpar = c(MFcent = "n", Recall = "n"), correlation = F, halton = NA, R = 1000, tol = .001)
   return(m)
 }
 
@@ -310,17 +320,19 @@ write.table(df.modeling, paste0(path, 'choices.csv'), row.names = F, col.names =
 df.rank = df.s2 %>% filter(subject %in% include_names & !is.na(rank_value))
 nrows = nrow(df.rank)
 df.rank = df.rank %>%
-  mutate(pos = s1_value > 5) %>%
-  group_by(rank_value, pos) %>%
+  mutate(Stage1_value = factor(s1_value > 5, c(F,T), c('Low', 'High'))) %>%
+  group_by(rank_value, Stage1_value) %>%
   summarize(numChosen_S2 = n(), numOpps_S2 = mean(num_ties), prob_rank = numChosen_S2 / numOpps_S2 / nrows) %>%
   mutate(log_prob_rank = log(prob_rank))
 #df.rank$prob_rank[df.rank$five == FALSE] = df.rank$prob_rank[df.rank$five == FALSE] / 4
 
-base = ggplot(data = df.rank, aes(x = rank_value, y = prob_rank, group = pos, colour = pos)) +
-  geom_point()
-base
+base = ggplot(data = df.rank, aes(x = rank_value, y = prob_rank, group = Stage1_value, colour = Stage1_value)) +
+  geom_point(aes(size = 2))
+base + guides(colour = F, size = F) + ylab('') +
+  xlab('')
+
 base + geom_smooth(method = 'lm', formula = y ~ exp(1 * x))
-base + geom_smooth(method = 'lm', formula = y ~ choose(x - 1, 5))
+base + geom_smooth(method = 'lm', formula = y ~ choose(x - 1, 6))
 #base + geom_smooth(method = 'lm', formula = y ~ x)
 #base + stat_function(fun = function(x) {.0091 * exp(.1 * x) - .0266}) +
 #  stat_function(fun = function(x) {7.22e-06 * choose(x - 1, 4) - 6.447e-04})
