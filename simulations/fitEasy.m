@@ -6,7 +6,7 @@ numStarts = 6;
 numSubjects = 114;
 numFnEvals = 100;
 
-priorPDFs = {@(x) log(1/3), @(x) log(gampdf(x, 4.82, .88)), @(x) log(betapdf(x, 2, 10)), ...
+priorPDFs = {@(x) log(1/2), @(x) log(gampdf(x, 4.82, .88)), @(x) log(gampdf(x, 4.82, .88)), ... %@(x) log(betapdf(x, 2, 10)), ...
     @(x) log(unifpdf(x, 0, 1)), @(x) log(unifpdf(x, 0, 1))};
 
 main = ['fitting/' envName '/' simsName];
@@ -15,7 +15,7 @@ modelNames_all = {'mixture-mf-mb', 'mixture-mb', 'mixture-mf', 'random', ...
 modelParams_all = {[1 -1 .1 -1 -1], [1 -1 .1 0 1], [1 -1 .1 1 0], [1 0 .1 0 0], ...
     [-1 0 -1 0 0], [-1 -1 -1 -1 -1], [-1 -1 -1 1 0], [-1 -1 -1 0 1], [2 -1 .1 -1 -1], [2 -1 .1 1 0], [2 -1 .1 0 1], [2 0 .1 0 0]};
 
-whichModels = 5:8;
+whichModels = 6;
 
 modelNames = modelNames_all(whichModels);
 modelParams = modelParams_all(whichModels);

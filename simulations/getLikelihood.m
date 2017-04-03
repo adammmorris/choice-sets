@@ -75,8 +75,7 @@ elseif beta == 0 % randcs
         prob = 0;
         if doSoftmax
             sets = [];
-            otherAvailWords = setdiff(availWords, availWords(word));
-            possible_others = combnk_fast(otherAvailWords, nToEval - 1);
+            possible_others = combnk_fast(setdiff_fast(1:numAvailWords, word), nToEval - 1);
             
             for other_ind = 1:size(possible_others, 1)
                 sets(end+1, :) = [word possible_others(other_ind, :)];
@@ -84,7 +83,7 @@ elseif beta == 0 % randcs
             
             for set_ind = 1:size(sets, 1)
                 cur_set_prob = 1 / binCoef(numAvailWords, nToEval);
-                choice_prob_num = exp(epsilon * rewards_te(trial, sets(set_ind, :)) / maxRe_te);
+                choice_prob_num = exp(epsilon * rewards_te(trial, availWords(sets(set_ind, :))) / maxRe_te);
                 choice_prob = choice_prob_num / sum(choice_prob_num);
                 
                 prob = prob + choice_prob(1) * cur_set_prob; % word they chose is always 1st
@@ -123,8 +122,7 @@ else
             %disp(sprintf('%d %d', whichSubj, trial));
             if doSoftmax
                 sets = [];
-                otherAvailWords = setdiff(availWords, availWords(word));
-                possible_others = combnk_fast(otherAvailWords, nToEval - 1);
+                possible_others = combnk_fast(setdiff_fast(1:numAvailWords, word), nToEval - 1);
                 
                 for other_ind = 1:size(possible_others, 1)
                     sets(end+1, :) = [word possible_others(other_ind, :)];
@@ -146,7 +144,7 @@ else
                     end
 
                     cur_set_prob = sum(temp_prob) + 1 + d * ((-1)^numel(set));
-                    choice_prob_num = exp(epsilon * rewards_te(trial, set) / maxRe_te);
+                    choice_prob_num = exp(epsilon * rewards_te(trial, availWords(set)) / maxRe_te);
                     choice_prob = choice_prob_num / sum(choice_prob_num);
                     
                     prob = prob + choice_prob(1) * cur_set_prob;
