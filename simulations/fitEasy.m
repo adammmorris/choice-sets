@@ -15,7 +15,7 @@ modelNames_all = {'mixture-mf-mb', 'mixture-mb', 'mixture-mf', 'random', ...
 modelParams_all = {[1 -1 .1 -1 -1], [1 -1 .1 0 1], [1 -1 .1 1 0], [1 0 .1 0 0], ...
     [-1 0 -1 0 0], [-1 -1 -1 -1 -1], [-1 -1 -1 1 0], [-1 -1 -1 0 1], [2 -1 .1 -1 -1], [2 -1 .1 1 0], [2 -1 .1 0 1], [2 0 .1 0 0]};
 
-whichModels = 6;
+whichModels = 6:8;
 
 modelNames = modelNames_all(whichModels);
 modelParams = modelParams_all(whichModels);
@@ -25,7 +25,7 @@ for model = 1:numModels
     disp(['model ' num2str(model)]);
     params = modelParams{model};
     name = modelNames{model};
-    for i = 1:numSubjects
+    parfor i = 1:numSubjects
         disp(['subject ' num2str(i)]);
         fitModel([main '/sims.mat'], whichEnv, [main '/fit_' name '/'], ...
             params, priorPDFs, i, numStarts, numFnEvals, 0, false);
