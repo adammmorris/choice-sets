@@ -2,11 +2,11 @@ envName = 'wg_v3';
 whichEnv = ['env/' envName '.mat'];
 simsName = 'real2';
 
-numStarts = 6;
+numStarts = 12;
 numSubjects = 114;
-numFnEvals = 100;
+numFnEvals = 200;
 
-priorPDFs = {@(x) log(1/3), @(x) log(gampdf(x, 4.82, .88)), @(x) log(gampdf(x, 4.82, .88)), ... %@(x) log(betapdf(x, 2, 10)), ...
+priorPDFs = {@(x) log(1/3), @(x) log(gampdf(x, 4.5, 1)), @(x) log(gampdf(x, 4.5, 1)), ... %@(x) log(betapdf(x, 2, 10)), ...
     @(x) log(unifpdf(x, 0, 1)), @(x) log(unifpdf(x, 0, 1))};
 
 main = ['fitting/' envName '/' simsName];
