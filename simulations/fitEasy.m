@@ -15,7 +15,7 @@ modelNames_all = {'mixture-mf-mb', 'mixture-mb', 'mixture-mf', 'random', ...
 modelParams_all = {[1 -1 .1 -1 -1], [1 -1 .1 0 1], [1 -1 .1 1 0], [1 0 .1 0 0], ...
     [-1 0 -1 0 0], [-1 -1 -1 -1 -1], [-1 -1 -1 1 0], [-1 -1 -1 0 1], [2 -1 .1 -1 -1], [2 -1 .1 1 0], [2 -1 .1 0 1], [2 0 .1 0 0]};
 
-whichModels = 9:12;
+whichModels = 5:8;
 
 modelNames = modelNames_all(whichModels);
 modelParams = modelParams_all(whichModels);
