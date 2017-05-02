@@ -1,9 +1,9 @@
 nAgents = 10000;
-nWords = 1000;
+nWords = 50;
 
-r = [0 .25 .5 .75 1];
+r = .75;
 nEnvs = length(r);
-variance = 100 ^ 2;
+variance = 2;
 mu = [0 0];
 
 mfearnings = zeros(nEnvs, nAgents);
@@ -16,12 +16,12 @@ parfor env = 1:nEnvs
 
     for agent = 1:nAgents
         temp = mvnrnd(mu, sigma, nWords);
-        s1re = temp(:, 1);
-        s2re = temp(:, 2);
-        %s1re = exp(temp(:, 1));
-        %s2re = exp(temp(:, 2));
+        %s1re = temp(:, 1);
+        %s2re = temp(:, 2);
+        s1re = exp(temp(:, 1));
+        s2re = exp(temp(:, 2));
         
-        beta = gamrnd(4.8, .88) * 10;
+        beta = gamrnd(4.5, 1) * 10;
         %nToEval = fastrandsample([1/4 1/4 1/4 1/4], 1) + 1;
         nToEval = 10;
         

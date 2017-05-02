@@ -177,7 +177,7 @@ for (subj in 1:nrow(df.demo)) {
   df.cors.temp = df.cors %>% filter(subject == subj.name)
   
   if (df.s1.subj.temp$pctCorrect_words < .75 || df.s1.subj.temp$pctCorrect_val < .75 || df.s2.subj.temp$comp_check_pass < .5 ||
-      df.s2.subj.temp$numRepeats > 2 || df.cors.temp$cors < .75 || sum(recalled[subj,]) < 5 || df.s1.subj.temp$numTrials != 112) {
+      df.s2.subj.temp$numRepeats > 2 || df.cors.temp$cors < .75 || sum(recalled[subj,]) < 5 || df.s1.subj.temp$numTrials != 112 || df.s2.subj.temp$numNAs > 4) {
     include_rows[subj] = FALSE
   } else {
     include_rows[subj] = TRUE
@@ -228,16 +228,18 @@ for (subj in 1:nrow(df.demo)) {
   df.words.temp = df.words %>% filter(subject == subj.name)
   df.s2.temp = df.s2 %>% filter(subject == subj.name) %>% arrange(question_order)
   
-  nAnswered = sum(!is.na(df.s2.temp$choice_real_ind)) #& df.s2.temp$rank_value == 14)
+  nAnswered = sum(!is.na(df.s2.temp$choice_real_ind)) #& df.s2.temp$rank_value > 7)
 
   if (nAnswered > 0 & subj.name %in% include_names) {
     Subj.col = rep(subj, num.recalled.temp * nAnswered)
     
-    MFval.col = rep(df.words.temp$high_val[recalled.temp] * 1, nAnswered)
+    MFval.col = rep(df.words.temp$value[recalled.temp], nAnswered)
+    #MFval.col = rep(df.words.temp$high_val[recalled.temp] * 1, nAnswered)
     nExposures.col = rep(df.words.temp$exposures[recalled.temp], nAnswered)
     Recalled.col = rep(df.words.temp$recall.ever[recalled.temp] * 1, nAnswered)
     numChosen.col = rep(df.words.temp$numChosen[recalled.temp], nAnswered)
-    OptionID.col = rep(which(recalled.temp), nAnswered)
+    #OptionID.col = rep(which(recalled.temp), nAnswered)
+    OptionID.col = rep(1:num.recalled.temp, nAnswered)
     Trial.col = rep(1:nAnswered, each = num.recalled.temp)
     
     temp.mbval = matrix(0, nrow = nAnswered, ncol = num.recalled.temp)
@@ -245,7 +247,7 @@ for (subj in 1:nrow(df.demo)) {
     temp.choice2 = matrix(0, nrow = nAnswered, ncol = num.recalled.temp)
     ind = 1
     for (q in 1:numRealQuestions) {
-      if (!is.na(df.s2.temp$choice_real_ind[q])) { #&& df.s2.temp$rank_value[q] == 14) {
+      if (!is.na(df.s2.temp$choice_real_ind[q])) { #&& df.s2.temp$rank_value[q] > 7) {
         all_vals = as.numeric.vector(df.s2.temp$all_values[q])
         #all_vals = rewards_te[qvec[df.s2.temp$question_ind[q] + 1], ]
         mbvals = rank(all_vals, ties.method = 'max')
@@ -256,7 +258,8 @@ for (subj in 1:nrow(df.demo)) {
         temp.choice[ind,] = choice
         
         choice2 = vector(mode = 'numeric', num.recalled.temp)
-        choice2[1] = which(df.s2.temp$choice_real_ind[q] == which(recalled.temp))
+        #choice2[1] = which(df.s2.temp$choice_real_ind[q] == which(recalled.temp))
+        choice2[1] = OptionID.col[1:num.recalled.temp][choice]
         temp.choice2[ind,] = choice2
         
         ind = ind + 1
@@ -274,9 +277,6 @@ for (subj in 1:nrow(df.demo)) {
 
   }
 }
-
-#mean.mb = mean(df.logit$MBval)
-#df.logit = df.logit %>% mutate(MFval = ifelse(Recall, MFval, 0.5), MBval = ifelse(Recall, MBval, mean.mb))
 
 df.logit = df.logit %>% mutate(MFcent = MFval - mean(MFval), MBcent = MBval - mean(MBval), Int = MFcent * MBcent)
 
@@ -298,44 +298,81 @@ runLogit = function(df) {
 m.real = runLogit(df.logit)
 summary(m.real)
 
-runLogit_nr = function(df) {
+runLogit_short = function(df) {
   df$Choice = as.logical(df$Choice)
   df$OptionID = factor(df$OptionID)
   df = df %>% mutate(Trial_unique = paste(Subj, Trial, sep="_"))
   df$Trial = factor(df$Trial)
   df$Trial_unique = factor(df$Trial_unique)
   df$Subj = factor(df$Subj)
-  df = df %>% mutate(MFcent = MFval - mean(MFval), MBcent = MBval - mean(MBval), Int = MFcent * MBcent)
-  df.m = mlogit.data(df, choice = "Choice", shape = "long", alt.var = "OptionID", chid.var = "Trial_unique")
+  df.m = mlogit.data(df, choice = "Choice", shape = "long", id.var = "Subj", alt.var = "OptionID", chid.var = "Trial_unique")
   
-  m = mlogit(Choice ~ MFcent + MBcent + Int | -1, df.m, halton = NA, R = 1000, tol = .001)
+  m = mlogit(Choice ~ MFcent | -1, df.m, panel = T,
+             rpar = c(MFcent = "n"), correlation = F, halton = NA, R = 1000, tol = .001)
   return(m)
 }
 
-m.betas = NULL
-subjlist.logit = unique(df.logit$Subj)
-for (subj_ind in 1:length(subjlist.logit)) {
-  subj = subjlist.logit[subj_ind]
-  df.logit.temp = df.logit %>% filter(Subj == subj)
-  m.real.temp = runLogit_nr(df.logit.temp)
-  m.betas[subj_ind] = m.real.temp$coefficients[3]
-}
-
-t.test(m.betas)
+m.short = runLogit_short(df.logit)
+summary(m.short)
 
 runLogit_b = function(df) {
-  #df$OptionID = factor(df$OptionID)
-  #df = df %>% mutate(Trial_unique = paste(Subj, Trial, sep="_"))
-  #df$Trial = factor(df$Trial)
-  #df$Trial_unique = factor(df$Trial_unique)
-  #df$Subj = factor(df$Subj)
   df = df %>% dplyr::select(Subj, Trial, OptionID, MFcent, MBcent, Int, Choice2)
-  out = choicemodelr(as.matrix(df), c(1, 1, 1), mcmc = list(R = 5000, use = 4000), options = list(save = TRUE))
-
+  out = choicemodelr(as.matrix(df), c(1, 1, 1), mcmc = list(R = 2000, use = 1000), options = list(save = TRUE))
+  
   return(out)
 }
 
+out = runLogit_b(df.logit)
 estbetas = apply(out$betadraw, c(1,2), mean)
+hist(estbetas[,3])
+t.test(estbetas[,3])
+
+# w/ recall, t(123) = 1.72, p = .09, mean = .0375
+# w/o recall, t(123) = 2.16, p = .03, mean = .043
+
+df.bayes = data.frame(run = NULL, beta1 = NULL, beta2 = NULL, beta3 = NULL)
+
+n = 1000
+m = 3
+for (k in 1:m) {
+  out.temp = runLogit_b(df.logit)
+  estbetas = apply(out.temp$betadraw, c(1,2), mean)
+  run.col = rep(k, dim(estbetas)[1])
+  df.bayes = rbind(df.bayes, data.frame(run = run.col, beta1 = estbetas[, 1], beta2 = estbetas[, 2], beta3 = estbetas[, 3]))
+}
+
+r.conv = NULL
+for (ind in 1:m) {
+  betas = df.bayes[, ind + 1]
+  betas.split = cbind(betas[df.bayes$run == 1], betas[df.bayes$run == 2], betas[df.bayes$run == 3])
+  t.hat = mean(betas)
+  t.hats = colMeans(betas.split)
+  v.hats = colSums((betas.split - colMeans(betas.split))^2)/(dim(betas.split)[1] - 1)
+  
+  B = sum((t.hats - t.hat)^2) * n / (m - 1)
+  W = sum(v.hats) / m
+  v.hat = (n - 1) / n * W + (m + 1) / (m*n) * B
+  r.conv[ind] = sqrt(v.hat / W)
+}
+
+m.conv = lm(beta.1 ~ run, data = df.bayes)
+m.conv.anov = anova(m.conv)
+W = m.conv.anov["Residuals", "Mean Sq"]
+B = m.conv.anov["run", "Mean Sq"]
+
+
+t.hat = mean(df.bayes$beta.1)
+t.hat.1 = mean(df.bayes$beta.1[df.bayes$run == 1])
+t.hat.2 = mean(df.bayes$beta.1[df.bayes$run == 2])
+t.hat.3 = mean(df.bayes$beta.1[df.bayes$run == 3])
+v.hat.1 = var(df.bayes$beta.1[df.bayes$run == 1])
+v.hat.2 = var(df.bayes$beta.1[df.bayes$run == 2])
+v.hat.3 = var(df.bayes$beta.1[df.bayes$run == 3])
+B = sum((c(t.hat.1, t.hat.2, t.hat.3) - t.hat)^2) * n / (m - 1)
+W = sum(c(v.hat.1, v.hat.2, v.hat.3)) / m
+v.hat = (n - 1) / n * W + (m + 1) / (m*n) * B
+#d = 2 * (v.hat) ^ 2 / 
+r.conv = v.hat / W
 
 ## Save for modeling
 
@@ -370,31 +407,15 @@ write.table(df.modeling, paste0(path, 'choices.csv'), row.names = F, col.names =
 df.rank = df.s2 %>% filter(subject %in% include_names & !is.na(rank_value))
 nrows = nrow(df.rank)
 df.rank = df.rank %>%
-  mutate(Stage1_value = factor(s1_value > 5, c(F,T), c('Low', 'High'))) %>%
-  group_by(rank_value, Stage1_value) %>%
+  mutate(Stage1_value = factor(s1_value > 5, c(F,T), c('Low', 'High')), Stage2_value = factor(rank_value > 7, c(F,T), c('Low', 'High'))) %>%
+  group_by(Stage2_value, Stage1_value) %>%
   summarize(numChosen_S2 = n(), numOpps_S2 = mean(num_ties), prob_rank = numChosen_S2 / numOpps_S2 / nrows) %>%
   mutate(log_prob_rank = log(prob_rank))
-#df.rank$prob_rank[df.rank$five == FALSE] = df.rank$prob_rank[df.rank$five == FALSE] / 4
 
-base = ggplot(data = df.rank, aes(x = rank_value, y = prob_rank, group = Stage1_value, colour = Stage1_value)) +
+base = ggplot(data = df.rank, aes(x = Stage2_value, y = prob_rank, group = Stage1_value, colour = Stage1_value)) +
   geom_point(aes(size = 2))
 base + guides(colour = F, size = F) + ylab('') +
-  xlab('')
-
-base + geom_smooth(method = 'lm', formula = y ~ exp(1 * x))
-base + geom_smooth(method = 'lm', formula = y ~ choose(x - 1, 6))
-#base + geom_smooth(method = 'lm', formula = y ~ x)
-#base + stat_function(fun = function(x) {.0091 * exp(.1 * x) - .0266}) +
-#  stat_function(fun = function(x) {7.22e-06 * choose(x - 1, 4) - 6.447e-04})
-
-#for (j in 1:nrow(df.demo)) {
-#  subj = df.demo$subject[j]
-#  vals = df.s1$pos[as.character(df.s1$subject) == as.character(subj)]
-#  choices = as.numeric.vector(as.character(df.demo$tr_choices[j]))
-#  words = as.string.vector(as.character(df.demo$tr_resp_correct[j]))
-#  word_vals = vals[amatch(toupper(words), wordlist, maxDist = 2)]
-#  choices[word_vals]
-#}
+  xlab('') + geom_smooth(method='lm',formula=y~x)
 
 ## Get bonuses
 nrecall_bonus = rowSums(recalled & recalled_val)
