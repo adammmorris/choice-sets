@@ -41,7 +41,7 @@ numWords = 14;
 numQuestions = 9; # including memory
 pointsPerCent = 10;
 pointsPerWord = 10; # for memory condition
-path = 'data/cs_wg_v3/real2/'
+path = 'data/cs_wg_v3/real3/'
 
 # Load data
 df.demo = read.csv(paste0(path, 'demo.csv'), stringsAsFactors = F) %>% arrange(subject) %>% mutate(total_time_real = total_time / 60000)
@@ -139,6 +139,8 @@ recalled = matrix(F, nrow = nrow(df.mem), ncol = numWords)
 recalled_ever = matrix(F, nrow = nrow(df.mem), ncol = numWords)
 recalled_val = matrix(F, nrow = nrow(df.mem), ncol = numWords)
 df.words$recall = NULL
+df.words$recall.ever = NULL
+df.words$order = NULL
 
 for (i in 1:nrow(df.mem)) {
   subj.name = df.mem$subject[i]
@@ -162,6 +164,8 @@ for (i in 1:nrow(df.mem)) {
     
     recalled_ever[i,j] = recalled[i,j] | any(na.omit(df.s2.temp$choice_real_ind) == j)
     df.words$recall.ever[df.words$subject == subj.name & df.words$word == wordlist[j]] = recalled_ever[i,j]
+    
+    df.words$order[df.words$subject == subj.name & df.words$word == wordlist[j]] = which_word
   }
 }
 
@@ -199,7 +203,7 @@ ggplot(df.words.coll, aes(x = high_val, y = recall.mean)) +
   xlab('') + ylab('') + guides(fill = F)
 
 # Test what affected recall
-m.recall = glmer(recall ~ value + (0 + value | subject) + (1 | subject) + (1 | word),
+m.recall = glmer(recall ~ high_val + (0 + high_val | subject) + (1 | subject) + (1 | word),
                  data = df.words[df.words$subject %in% include_names, ], family = binomial)
 summary(m.recall)
 
@@ -209,6 +213,12 @@ mean(df.s2[df.s2$subject %in% include_names, ]$rank_value, na.rm = T)
 
 hist(df.s2[df.s2$subject %in% include_names, ]$s1_value, breaks = 15, main = "S1 values of words chosen in S2", xlab = "S1 value")
 mean(df.s2[df.s2$subject %in% include_names, ]$s1_value, na.rm = T)
+
+# Test order
+histogram(~ order | high_val, df.words[df.words$subject %in% include_names & df.words$recall == T, ])
+m.order = lmer(order ~ high_val + (high_val | subject) + (high_val | word),
+                 data = df.words[df.words$subject %in% include_names & df.words$recall == T, ])
+summary(m.order)
 
 #hist(df.s1[df.s1$subject %in% include_names, ]$numChosen, breaks = 15)
 #mean(df.s1[df.s1$subject %in% include_names, ]$numChosen, na.rm = T)
@@ -307,7 +317,7 @@ runLogit_short = function(df) {
   df$Subj = factor(df$Subj)
   df.m = mlogit.data(df, choice = "Choice", shape = "long", id.var = "Subj", alt.var = "OptionID", chid.var = "Trial_unique")
   
-  m = mlogit(Choice ~ MFcent | -1, df.m, panel = T,
+  m = mlogit(Choice ~ MFcent | -1, , panel = T,
              rpar = c(MFcent = "n"), correlation = F, halton = NA, R = 1000, tol = .001)
   return(m)
 }
@@ -423,20 +433,30 @@ df.s2.subj = df.s2.subj %>% mutate(mem_bonus = nrecall_bonus[df.mem$subject == s
 df.demo = df.demo %>% mutate(s2_bonus = I(df.s2.subj$s2_bonus), mem_bonus = I(df.s2.subj$mem_bonus),
                              bonus = round((s1_bonus + s2_bonus + mem_bonus) / (pointsPerCent * 100), 2))
 write.table(df.demo %>% filter(id >= 150) %>% select(WorkerID = subject, Bonus = bonus),
-            paste0(path, 'Bonuses - cs_wg_v3_real2.csv'), row.names = FALSE, col.names = FALSE, sep = ",")
+            paste0(path, 'Bonuses - cs_wg_v3_real3.csv'), row.names = FALSE, col.names = FALSE, sep = ",")
 
 save.image(paste0(path, 'analysis.rdata'))
 
-### SIMULATIONS
+## Bootstrapping power analysis
+nBS = 100
+nSubj = 150
+subjlist.logit = unique(df.logit$Subj)
 
-df.sim = read.csv('simulations/results/wg_v2/mixture-mf-mb.csv')
-m.sim = runLogit(df.sim)
-summary(m.sim)
-
-
-
-
-
+ps = numeric(nBS)
+for (bs in 33:100) {
+  df.bs = data.frame(Subj = NULL, Trial = NULL, OptionID = NULL, Choice = NULL, MFval = NULL, MBval = NULL, nExposures = NULL, Recalled = NULL)
+  
+  set.seed(Sys.time())
+  for (i in 1:nSubj) {
+    # choose random
+    subj = sample(subjlist.logit, 1)
+    df.bs = rbind(df.bs, df.logit %>% filter(Subj == subj) %>% mutate(Subj = i))
+  }
+  
+  df.bs = df.bs %>% mutate(MFcent = MFval - mean(MFval), MBcent = MBval - mean(MBval), Int = MFcent * MBcent)
+  m.bs = runLogit(df.bs)
+  ps[bs] = summary(m.bs)$CoefTable[3,4]
+}
 
 
 
