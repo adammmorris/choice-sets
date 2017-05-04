@@ -4,6 +4,7 @@ require(lme4)
 require(lmerTest)
 require(mlogit)
 require(stringdist)
+require(ChoiceModelR)
 
 theme_update(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour = "black"),
              axis.text=element_text(size=20, colour = "black"), axis.title=element_text(size=18, face = "bold"), axis.title.x = element_text(vjust = 0),
@@ -327,7 +328,7 @@ summary(m.short)
 
 runLogit_b = function(df) {
   df = df %>% dplyr::select(Subj, Trial, OptionID, MFcent, MBcent, Int, Choice2)
-  out = choicemodelr(as.matrix(df), c(1, 1, 1), mcmc = list(R = 2000, use = 1000), options = list(save = TRUE))
+  out = choicemodelr(as.matrix(df), c(1, 1, 1), mcmc = list(R = 20000, use = 10000), options = list(save = TRUE))
   
   return(out)
 }
@@ -438,12 +439,12 @@ write.table(df.demo %>% filter(id >= 150) %>% select(WorkerID = subject, Bonus =
 save.image(paste0(path, 'analysis.rdata'))
 
 ## Bootstrapping power analysis
-nBS = 100
-nSubj = 150
+nBS = 50
+nSubj = 200
 subjlist.logit = unique(df.logit$Subj)
 
 ps = numeric(nBS)
-for (bs in 33:100) {
+for (bs in 1:nBS) {
   df.bs = data.frame(Subj = NULL, Trial = NULL, OptionID = NULL, Choice = NULL, MFval = NULL, MBval = NULL, nExposures = NULL, Recalled = NULL)
   
   set.seed(Sys.time())
@@ -458,6 +459,17 @@ for (bs in 33:100) {
   ps[bs] = summary(m.bs)$CoefTable[3,4]
 }
 
+mean(ps < .1)
 
+## Simulations
+df.sim.cs = read.csv('simulations/results/wg_v3/cs-mf-mb.csv') %>% mutate(MFcent = MFval - mean(MFval), MBcent = MBval - mean(MBval), Int = MFcent * MBcent)
+m.sim.cs = runLogit_b(df.sim.cs)
+summary(m.sim.cs)
+estbetas = apply(m.sim.cs$betadraw, c(1,2), mean)
+hist(estbetas[,3])
+t.test(estbetas[,3])
 
+df.sim.null = read.csv('simulations/results/wg_v3/mixture-mf-mb.csv') %>% mutate(MFcent = MFval - mean(MFval), MBcent = MBval - mean(MBval), Int = MFcent * MBcent)
+m.sim.null = runLogit(df.sim.null)
+summary(m.sim.null)
 

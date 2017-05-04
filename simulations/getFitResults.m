@@ -32,10 +32,10 @@ end
 %numChoices = repmat(numTrials, numSubjects, 1);
 %LLs_chance = log((1 / numWords)) * numChoices;
 
-modelNames_all = {'mixture-mf-mb', 'mixture-mb', 'mixture-mf', 'random', ...
-    'cs-rand', 'cs-mf-mb', 'cs-mf', 'cs-mb', 'cs-mf-mb-noK', 'cs-mf-noK', 'cs-mb-noK', 'cs-rand-noK'};
-modelParams_all = {[1 -1 .1 -1 -1], [1 -1 .1 0 1], [1 -1 .1 1 0], [1 0 .1 0 0], ...
-    [-1 0 -1 0 0], [-1 -1 -1 -1 -1], [-1 -1 -1 1 0], [-1 -1 -1 0 1], [2 -1 .1 -1 -1], [2 -1 .1 1 0], [2 -1 .1 0 1], [2 0 .1 0 0]};
+modelNames_all = {'mixture-mf-mb', 'mixture-mf', 'mixture-mb', 'random', ...
+    'cs-mf-mb', 'cs-mf', 'cs-mb', 'cs-rand'};
+modelParams_all = {[1 -1 0 -1 -1], [1 -1 0 1 0], [1 -1 0 0 1], [1 0 0 0 0], ...
+    [-1 -1 -1 -1 -1], [-1 -1 -1 1 0], [-1 -1 -1 0 1], [-1 0 -1 0 0]};
 
 whichParams_all = cell(length(modelParams_all), 1);
 for j = 1:length(modelParams_all)
@@ -72,4 +72,4 @@ end
 [params, details] = generateParamsCell(paramEstimates{:});
 
 %% Model comparison
-compareModels_bayes(params, details, 6, numChoices, LLs_chance(goodSubjects));
+compareModels_bayes(params, details, 5, numChoices, LLs_chance(goodSubjects));

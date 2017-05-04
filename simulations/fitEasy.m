@@ -11,11 +11,13 @@ priorPDFs = {@(x) log(1/3), @(x) log(gampdf(x, 4.5, 1)), @(x) log(gampdf(x, 4.5,
 
 main = ['fitting/' envName '/' simsName];
 modelNames_all = {'mixture-mf-mb', 'mixture-mf', 'mixture-mb', 'random', ...
-    'cs-mf-mb', 'cs-mf', 'cs-mb', 'cs-rand'};
+    'cs-mf-mb', 'cs-mf', 'cs-mb', 'cs-rand', ...
+    'cs-mf-mb-eps', 'cs-mf-eps'};
 modelParams_all = {[1 -1 0 -1 -1], [1 -1 0 1 0], [1 -1 0 0 1], [1 0 0 0 0], ...
-    [-1 -1 -1 -1 -1], [-1 -1 -1 1 0], [-1 -1 -1 0 1], [-1 0 -1 0 0]};
+    [-1 -1 -1 -1 -1], [-1 -1 -1 1 0], [-1 -1 -1 0 1], [-1 0 -1 0 0], ...
+    [-1 -1 -1 -1 -1], [-1 -1 -1 1 0]};
 
-whichModels = 5:8;
+whichModels = 9:10;
 
 modelNames = modelNames_all(whichModels);
 modelParams = modelParams_all(whichModels);

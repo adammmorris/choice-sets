@@ -25,7 +25,10 @@ end
 %% Load data & env
 load(dataPath);
 load(whichEnv);
-envInfo{3} = rewards_tr;
+envInfo{5} = rewards_tr;
+envInfo{7} = rewards_tr;
+envInfo{9} = rewards_tr;
+%envInfo{9} = chosen_tr;
 
 %% Set up
 numSubjects = length(subjMarkers);

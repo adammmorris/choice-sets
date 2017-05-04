@@ -2,17 +2,17 @@ function [results, results_long] = runModel(envInfo, params)
 %% Get parameters
 numWords = envInfo{1};
 numTrials = envInfo{2};
-rewards_tr = envInfo{3};
-maxRe_tr = envInfo{4};
-rewards_te = envInfo{5};
-maxRe_te = envInfo{6};
+rewards_tr = envInfo{4};
+maxRe_tr = envInfo{5};
+rewards_te = envInfo{6};
+maxRe_te = envInfo{7};
 
 numAgents = size(params, 1);
 
 %% Run model
 results = zeros(numAgents * numTrials, 5);
 results_ind = 1;
-results_long = zeros(numAgents * numTrials * numWords, 7);
+results_long = zeros(numAgents * numTrials * numWords, 6);
 results_long_ind = 1;
 
 for agent = 1:numAgents
@@ -26,6 +26,8 @@ for agent = 1:numAgents
     if beta > 0 && abs(wSum - 1) > .01
         error('Weights do not sum to 1.');
     end
+    
+    %chosen = false(numWords, 1);
     
     for trial = 1:numTrials        
         availWords = 1:numWords;
@@ -50,14 +52,17 @@ for agent = 1:numAgents
             choice = availWords(toEval(choice_ind));
         end
         
+        %chosen(1:end) = false; % they just can't repeat words twice in a row
+        %chosen(choice) = true;
+
         results(results_ind, :) = [agent trial choice ...
             rewards_tr(agent, choice) rewards_te(trial, choice)];
         results_ind = results_ind + 1;
 
+        rewards_te_rank = tiedrank(rewards_te(trial, :));
         for j = 1:numWords
             results_long(results_long_ind, :) = [agent trial j (choice == j) ...
-                rewards_tr(agent, j) > 5 rewards_te(trial, j) 0];
-            if j == 1, results_long(results_long_ind, 7) = choice; end
+                rewards_tr(agent, j) > 5 rewards_te_rank(j)];
             results_long_ind = results_long_ind + 1;
         end
     end

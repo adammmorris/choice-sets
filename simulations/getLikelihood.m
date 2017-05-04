@@ -17,12 +17,8 @@ function LL = getLikelihood(envInfo, choices, rewards_te, recalled, whichSubj, f
 
 %% Load env info
 numWords = envInfo{1};
-exposures_tr = envInfo{5}(whichSubj, :);
-maxExposures_tr = envInfo{6};
-rewards_tr = envInfo{7}(whichSubj, :);
-maxRe_tr = envInfo{8};
-chosen_tr = envInfo{9}(whichSubj, :);
-maxChosen_tr = maxExposures_tr;
+rewards_tr = envInfo{3}(whichSubj, :);
+maxRe_tr = envInfo{4};
 
 recalled = recalled(whichSubj, :);
 numTrials = length(choices);
@@ -37,7 +33,7 @@ epsilon = params(3);
 w_MF = params(4);
 w_MB = params(5);
 
-doSoftmax = true;
+doSoftmax = false;
 
 wSum = w_MF + w_MB;
 if beta > 0 && abs(wSum - 1) > .01

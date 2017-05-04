@@ -43,7 +43,7 @@ for agent = 1:numAgents
             toEval = options(1:nToEval);
             
             %[~, choice_ind] = max(rewards_te(trial, availWords(toEval)));
-            probs2_num = exp(beta2 * rewards_te(trial, availWords(toEval)) / maxRe_te);
+            %probs2_num = exp(beta2 * rewards_te(trial, availWords(toEval)) / maxRe_te);
             probs2 = probs2_num / sum(probs2_num);
             choice_ind = fastrandsample(probs2, 1);
             
