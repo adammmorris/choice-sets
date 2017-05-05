@@ -50,7 +50,7 @@ freeParams_noK(K_PARAM_IND) = false;
 nFreeParams = sum(freeParams);
 nContFreeParams = sum(freeParams_noK);
 
-bounds = [2 0 0 0 0; 4 10 10 1 1];
+bounds = [2 0 0 0 0; 4 10 1 1 1];
 
 A_all = zeros(1, length(fixedParams));
 A_all(WEIGHT_INDS) = 1;
