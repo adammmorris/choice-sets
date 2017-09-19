@@ -29,11 +29,11 @@ params(fixedParams == -1) = freeParams;
 params(fixedParams ~= -1) = fixedParams(fixedParams ~= -1);
 nToEval = params(1);
 beta = params(2);
-epsilon = params(3);
+epsilon = params(3); % if doSoftmax, this is beta2
 w_MF = params(4);
 w_MB = params(5);
 
-doSoftmax = false;
+doSoftmax = true;
 
 wSum = w_MF + w_MB;
 if beta > 0 && abs(wSum - 1) > .01

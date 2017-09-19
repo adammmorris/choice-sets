@@ -22,7 +22,7 @@ np.random.seed(124)
 words_ind = np.array([12, 16,  3,  1, 10, 19, 18,  8, 15,  6, 11,  5, 13, 0, 9])
 words = words_all[words_ind]
 
-# (1) - bad
+# (1) - good
 lset = ['s','g','e','f','b','n','l']
 r1 = [sum([1 if c in lset else 0 for c in word]) for word in words]
 #plt.hist(4 * r1)
@@ -32,7 +32,7 @@ lset = ['t','p','o','k','i','c','h']
 r2 = [sum([1 if c in lset else 0 for c in word]) for word in words]
 #plt.hist(4 * r2)
 
-# (3) - good
+# (3) - bad
 lset = ['u','a','w','d','r','m','y']
 r3 = [sum([1 if c in lset else 0 for c in word]) for word in words]
 #plt.hist(6 * r3)
@@ -57,12 +57,12 @@ r6 = [string.ascii_lowercase.index(word[1]) for word in words]
 r7 = [abs(string.ascii_lowercase.index(word[4]) - string.ascii_lowercase.index(word[3])) for word in words]
 #plt.hist(r7)
 
-# (8) - bad, skipped
+# (8) - good
 # num of letters in alphabet which come in between 5th and 6th letters of word
 r8 = [abs(string.ascii_lowercase.index(word[5]) - string.ascii_lowercase.index(word[4])) for word in words]
 #plt.hist(r8)
 
-# (9) - good
+# (9) - bad
 # num of pairs of letters in word that are only one apart in alphabet
 r9 = [sum(
         [
@@ -79,13 +79,15 @@ r10 = np.array([4, 9, 5, 5, 8, 8, 5, 8, 3, 7, 7, 5, 6, 6, 6, 9, 5, 9, 5, 8])
 r10 = r10[words_ind]
 #plt.hist(3 * 10)
 
-# (11)
+# (11) - good
 # number of horizontal lines
 r11 = np.array([5, 3, 7, 5, 7, 7, 8, 4, 1, 6, 7, 5, 6, 4, 6, 11, 3, 10, 6, 6])
 r11 = r11[words_ind]
 
+wordlen = [len(word) for word in words]
+
 # range: 0-27
-full = (r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11)
+full = (r1, r3, r5, r8, r11)
 k = len(full)
 cors = np.zeros((k, k))
 ps = np.zeros((k, k))
