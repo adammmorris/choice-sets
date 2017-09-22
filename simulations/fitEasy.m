@@ -1,9 +1,9 @@
-envName = 'wg_v3';
+envName = 'wg_v5';
 whichEnv = ['env/' envName '.mat'];
-simsName = 'real2';
+simsName = 'real1';
 
-numStarts = 12;
-numSubjects = 120;
+numStarts = 6;
+numSubjects = 258;
 numFnEvals = 200;
 
 priorPDFs = {@(x) log(1/3), @(x) log(gampdf(x, 4.5, 1)), @(x) log(betapdf(x, 2, 8)), ...%@(x) log(gampdf(x, 4.5, 1)), ...
@@ -17,7 +17,7 @@ modelParams_all = {[1 -1 0 -1 -1], [1 -1 0 1 0], [1 -1 0 0 1], [1 0 0 0 0], ...
     [-1 -1 -1 -1 -1], [-1 -1 -1 1 0], [-1 -1 -1 0 1], [-1 0 -1 0 0], ...
     [-1 -1 -1 -1 -1], [-1 -1 -1 1 0], [-1 -1 .2 -1 -1], [-1 -1 .2 1 0]};
 
-whichModels = 9:12;
+whichModels = 1:8;
 
 modelNames = modelNames_all(whichModels);
 modelParams = modelParams_all(whichModels);
