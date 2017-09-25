@@ -6,7 +6,7 @@ numStarts = 10;
 numSubjects = 258;
 numFnEvals = 200;
 
-priorPDFs = {@(x) log(1/3), @(x) log(gampdf(x, 4.5, 1)), @(x) log(betapdf(x, 2, 8)), ...%@(x) log(gampdf(x, 4.5, 1)), ...
+priorPDFs = {@(x) log(1/3), @(x) log(gampdf(x, 4.5, 1)), @(x), @(x) log(gampdf(x, 4.5, 1)), ...
     @(x) log(unifpdf(x, 0, 1)), @(x) log(unifpdf(x, 0, 1))};
 
 main = ['fitting/' envName '/' simsName];
