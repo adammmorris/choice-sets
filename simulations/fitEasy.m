@@ -2,7 +2,7 @@ envName = 'wg_v5';
 whichEnv = ['env/' envName '.mat'];
 simsName = 'real1';
 
-numStarts = 6;
+numStarts = 10;
 numSubjects = 258;
 numFnEvals = 200;
 
@@ -17,7 +17,7 @@ modelParams_all = {[1 -1 0 -1 -1], [1 -1 0 1 0], [1 -1 0 0 1], [1 0 0 0 0], ...
     [-1 -1 -1 -1 -1], [-1 -1 -1 1 0], [-1 -1 -1 0 1], [-1 0 -1 0 0], ...
     [-1 -1 -1 -1 -1], [-1 -1 -1 1 0], [-1 -1 .2 -1 -1], [-1 -1 .2 1 0]};
 
-whichModels = 1:8;
+whichModels = 5:8;
 
 modelNames = modelNames_all(whichModels);
 modelParams = modelParams_all(whichModels);

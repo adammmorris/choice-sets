@@ -107,7 +107,7 @@ if nFreeParams > 0 % Are there free parameters?
                 logposts_starts = zeros(numStarts, 1);
                 params_starts = zeros(numStarts, nContFreeParams);
                      
-                parfor thisStart = 1:numStarts
+                for thisStart = 1:numStarts
                     [params_starts(thisStart, :), logposts_starts(thisStart), ~, ~, ~, ~] = ...
                         fmincon(f, starts(thisStart, :), [], [], A, b, ...
                         bounds(1, freeParams_noK), bounds(2, freeParams_noK), [], options);
