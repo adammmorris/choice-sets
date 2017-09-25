@@ -2,8 +2,8 @@
 % For a given dataset, get all the model fitting results, and compare
 % models.
 
-envName = 'wg_v3';
-simsName = 'real2';
+envName = 'wg_v5';
+simsName = 'real1';
 realData = true;
 
 whichEnv = ['env/' envName '.mat'];
