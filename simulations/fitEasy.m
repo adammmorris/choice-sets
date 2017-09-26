@@ -6,7 +6,7 @@ numStarts = 10;
 numSubjects = 258;
 numFnEvals = 200;
 
-priorPDFs = {@(x) log(1/3), @(x) log(gampdf(x, 4.5, 1)), @(x), @(x) log(gampdf(x, 4.5, 1)), ...
+priorPDFs = {@(x) log(1/3), @(x) log(gampdf(x, 4.5, 1)), @(x) log(gampdf(x, 4.5, 1)), ...
     @(x) log(unifpdf(x, 0, 1)), @(x) log(unifpdf(x, 0, 1))};
 
 main = ['fitting/' envName '/' simsName];
@@ -17,7 +17,7 @@ modelParams_all = {[1 -1 0 -1 -1], [1 -1 0 1 0], [1 -1 0 0 1], [1 0 0 0 0], ...
     [-1 -1 -1 -1 -1], [-1 -1 -1 1 0], [-1 -1 -1 0 1], [-1 0 -1 0 0], ...
     [-1 -1 -1 -1 -1], [-1 -1 -1 1 0], [-1 -1 .2 -1 -1], [-1 -1 .2 1 0]};
 
-whichModels = 5:8;
+whichModels = 1:8;
 
 modelNames = modelNames_all(whichModels);
 modelParams = modelParams_all(whichModels);
