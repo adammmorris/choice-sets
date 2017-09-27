@@ -75,3 +75,6 @@ end
 
 %% Model comparison
 compareModels_bayes(params, details, 5, numChoices, LLs_chance(goodSubjects));
+
+%% Find good subj
+sprintf('%.0f,', find(paramEstimates{5}(:,7) > .1))

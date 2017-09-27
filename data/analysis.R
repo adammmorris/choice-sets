@@ -136,7 +136,6 @@ df.s2.subj = df.s2 %>% filter(subject %in% df.demo$subject) %>%
   group_by(subject) %>%
   summarize(s2_bonus = sum(bonus_value), rt = mean(rt) / 1000,
             comp_check_pass = mean(comp_check_pass),
-            #comp_check_almost = mean(comp_check_almost, na.rm = T),
             comp_check_rt = mean(comp_check_rt) / 1000,
             numNAs = sum(is.na(choice_real)),
             numRepeats = sum(choice_real == lag(choice_real), na.rm = T))
@@ -199,9 +198,9 @@ for (subj in 1:nrow(df.demo)) {
   }
 }
 
-# these were the people in cs_wg_v3_real2 that, according to the full model, had nonzero weight
-#good_subj = c(2,3,4,7,8,9,10,13,15,17,18,21,23,24,28,30,31,32,36,39,40,42,44,45,46,49,51,52,54,56,57,59,62,64,66,67,68,74,75,76,77,78,81,82,83,84,86,89,91,94,95,98,99,100,106,107,108,109,110,113,114,115,118,119,120)
-#include_names_good = include_names[good_subj]
+#good_v3 = c(2,3,4,7,8,9,10,13,15,17,18,21,23,24,28,30,31,32,36,39,40,42,44,45,46,49,51,52,54,56,57,59,62,64,66,67,68,74,75,76,77,78,81,82,83,84,86,89,91,94,95,98,99,100,106,107,108,109,110,113,114,115,118,119,120)
+good_v5 = c(3,5,10,11,13,14,16,20,23,25,26,28,31,32,36,37,41,42,43,45,46,50,52,53,54,55,56,58,59,60,62,68,70,71,73,74,75,76,77,81,84,86,87,88,89,92,94,96,98,99,101,103,105,107,108,109,111,115,117,118,119,121,125,126,127,129,130,131,133,134,136,141,143,145,146,147,153,157,158,160,161,164,165,170,171,173,176,177,181,182,184,185,186,187,190,192,193,194,195,196,197,198,200,201,202,204,205,206,208,209,210,213,214,216,218,221,224,225,226,227,228,231,233,234,235,237,238,244,246,248,251,252,253,255)
+include_names_good = include_names[good_v5]
 
 
 ## Check out data
@@ -250,9 +249,9 @@ for (subj in 1:nrow(df.demo)) {
   df.words.temp = df.words %>% filter(subject == subj.name)
   df.s2.temp = df.s2 %>% filter(subject == subj.name) %>% arrange(question_order)
   
-  nAnswered = sum(!is.na(df.s2.temp$choice_real_ind) & df.s2.temp$question_order < 5)
+  nAnswered = sum(!is.na(df.s2.temp$choice_real_ind))
   
-  if (nAnswered > 0 & subj.name %in% include_names) {
+  if (nAnswered > 0 & subj.name %in% include_names & (subj.name %in% include_names_good)) {
     Subj.col = rep(subj, num.recalled.temp * nAnswered)
     
     MFval.col = rep(df.words.temp$value[recalled.temp], nAnswered)
@@ -263,7 +262,7 @@ for (subj in 1:nrow(df.demo)) {
     #OptionID.col = rep(which(recalled.temp), nAnswered)
     OptionID.col = rep(1:num.recalled.temp, nAnswered)
     Trial.col = rep(1:nAnswered, each = num.recalled.temp)
-    Question.col = rep(df.s2.temp$question_ind[!is.na(df.s2.temp$choice_real_ind) & df.s2.temp$question_order < 5], each = num.recalled.temp)
+    Question.col = rep(df.s2.temp$question_ind[!is.na(df.s2.temp$choice_real_ind)], each = num.recalled.temp)
     
     temp.mbval = matrix(0, nrow = nAnswered, ncol = num.recalled.temp)
     temp.mbhigh = matrix(0, nrow = nAnswered, ncol = num.recalled.temp)
@@ -271,7 +270,7 @@ for (subj in 1:nrow(df.demo)) {
     temp.choice2 = matrix(0, nrow = nAnswered, ncol = num.recalled.temp)
     ind = 1
     for (q in 1:numRealQuestions) {
-      if (!is.na(df.s2.temp$choice_real_ind[q]) && df.s2.temp$question_order[q] < 5) {
+      if (!is.na(df.s2.temp$choice_real_ind[q])) {
         all_vals = as.numeric.vector(df.s2.temp$all_values[q])
         mbvals = rank(all_vals, ties.method = 'max')
         #mbvals = all_vals

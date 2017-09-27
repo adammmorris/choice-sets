@@ -87,7 +87,7 @@ r11 = r11[words_ind]
 wordlen = [len(word) for word in words]
 
 # range: 0-27
-full = (r1, r3, r5, r8, r11)
+full = (r1, r2, r3, r5, r6, r7, r8, r10, r11)
 k = len(full)
 cors = np.zeros((k, k))
 ps = np.zeros((k, k))

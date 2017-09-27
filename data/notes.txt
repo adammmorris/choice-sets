@@ -1,0 +1,4 @@
+v3 (real2) is the N=200 one that worked for MF value.
+v5 is the replication that failed.
+v6 is the frequency version.
+v7 is jonathan's stripped down version.
