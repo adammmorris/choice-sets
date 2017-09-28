@@ -1,9 +1,9 @@
-envName = 'wg_v5';
+envName = 'wg_v6';
 whichEnv = ['env/' envName '.mat'];
 simsName = 'real1';
 
 numStarts = 10;
-numSubjects = 258;
+numSubjects = 107;
 numFnEvals = 200;
 
 priorPDFs = {@(x) log(1/3), @(x) log(gampdf(x, 4.5, 1)), @(x) log(gampdf(x, 4.5, 1)), ...
