@@ -2,7 +2,7 @@
 % For a given dataset, get all the model fitting results, and compare
 % models.
 
-envName = 'wg_v5';
+envName = 'wg_v6';
 simsName = 'real1';
 realData = true;
 

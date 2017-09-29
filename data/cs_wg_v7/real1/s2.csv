@@ -1,0 +1,906 @@
+"subject","version","assignmentId","cond","question","question_ind","all_values","question_order","comp_check","comp_check_pass","comp_check_rt","choice","scratch","rt","stamp","id"
+"A36LW3J7QKZ5CT","cs_wg_v7_real1","3WR9XG3T63C2EYRYQARSAUQWIJG74R",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","23460","HELICOPTER",,"181000","2017-09-28 15:46:01","8813"
+"A36LW3J7QKZ5CT","cs_wg_v7_real1","3WR9XG3T63C2EYRYQARSAUQWIJG74R",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","15165","FOOTBALL",,"21000","2017-09-28 15:46:48","8814"
+"A229SEF35EGTSF","cs_wg_v7_real1","3ZGVPD4G6TI5FTCUO6KJ9MVN8B9ZT6",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","58580","BOOKSHELF",,"181000","2017-09-28 15:47:25","8815"
+"A1ZDR2UN7M92LI
+","cs_wg_v7_real1","3TXWC2NHNZRPU2H2V8LUMTX8RP79SC",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","21115","Football",,"181000","2017-09-28 15:47:29","8816"
+"A797UM4MBMLMK","cs_wg_v7_real1","3QL2OFSM96JUCNW0ZWEZPPOAAB2NCV",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","21331","UMBRELLA, BOOKSHELF, WEDDING",,"181000","2017-09-28 15:47:55","8817"
+"A55I1XM8UH9XJ","cs_wg_v7_real1","3I7DHKZYGN1XPAA4MY8E3E9RG3U5FY",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","4","0","44975","BOOKSHELF","BOOKSHELF","181000","2017-09-28 15:48:06","8818"
+"A31Q4HFUPE2DXG","cs_wg_v7_real1","3FUI0JHJPXZZVJ77OKJJN8MAZHY33X",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","39033","Football",,"181000","2017-09-28 15:48:09","8819"
+"A4JS2C4BV53LO","cs_wg_v7_real1","3OJSZ2ATDSXKAHVY4FA2FMWAIFB57U",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","4","0","26066","Football",,"181000","2017-09-28 15:48:21","8820"
+"A36OS4XKUJF4NB","cs_wg_v7_real1","30JNVC0OR9L6WSK81GKH4AGVSEUQHU",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","23480","helicopter",,"181000","2017-09-28 15:48:22","8821"
+"A1SWPK57MQMMSO","cs_wg_v7_real1","3M81GAB8A0KW5FHM1OALIZDXX1PBQZ",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","4","0","46734","Football",,"181000","2017-09-28 15:48:23","8822"
+"A229SEF35EGTSF","cs_wg_v7_real1","3ZGVPD4G6TI5FTCUO6KJ9MVN8B9ZT6",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","22813","Helicop",,"21000","2017-09-28 15:48:24","8823"
+"A3OJSGKZF1TWL6","cs_wg_v7_real1","3FDJT1UU74985W2IN9ZBJR1WOZBK5F",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","58347","football","football - 4
+
+bookshelf - 4
+","181000","2017-09-28 15:48:35","8824"
+"A1ZDR2UN7M92LI
+","cs_wg_v7_real1","3TXWC2NHNZRPU2H2V8LUMTX8RP79SC",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","37546","Bookshelf",,"21000","2017-09-28 15:48:41","8825"
+"AY5QUURIR136D","cs_wg_v7_real1","3RANCT1ZVFIOX8O3IXUQS0AM0MVBU4",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","37644","BOOKSHELF",,"181000","2017-09-28 15:48:45","8826"
+"A3UDXVVGJ88LS2","cs_wg_v7_real1","3GM6G9ZBKNY5GMDB9HUP1KZET7SMTD",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","35617","FOOTBALL",,"181000","2017-09-28 15:48:50","8827"
+"AHGAVSKDQXCWM","cs_wg_v7_real1","37FMASSAYCSJOHT3OG5C9XMB6R8IB3",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","22437","BOOKSHELF","U-4
+L-2
+S-1
+S-2
+T-2
+H-3
+D-0
+B-5
+M-2
+F-4
+B-2
+W-2
+K-2
+C-1","181000","2017-09-28 15:48:54","8828"
+"A55I1XM8UH9XJ","cs_wg_v7_real1","3I7DHKZYGN1XPAA4MY8E3E9RG3U5FY",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","3","0","17796","COMMUNITY",,"21000","2017-09-28 15:48:58","8829"
+"A36OS4XKUJF4NB","cs_wg_v7_real1","30JNVC0OR9L6WSK81GKH4AGVSEUQHU",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","15508","structure",,"21000","2017-09-28 15:49:12","8830"
+"A4JS2C4BV53LO","cs_wg_v7_real1","3OJSZ2ATDSXKAHVY4FA2FMWAIFB57U",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","3","0","17096","stomach","stomach","21000","2017-09-28 15:49:13","8831"
+"A33B85TN97HQ33","cs_wg_v7_real1","3DL65MZB8DGQIHJN6XBGZ2U1WJ1ECX",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","25054","STRUCTURE",,"181000","2017-09-28 15:49:31","8832"
+"A3OJSGKZF1TWL6","cs_wg_v7_real1","3FDJT1UU74985W2IN9ZBJR1WOZBK5F",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","18545","community",,"21000","2017-09-28 15:49:31","8833"
+"A1SWPK57MQMMSO","cs_wg_v7_real1","3M81GAB8A0KW5FHM1OALIZDXX1PBQZ",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","28176","m","Ladder, Football, Helicopter, Machine, ","21000","2017-09-28 15:49:33","8834"
+"AY5QUURIR136D","cs_wg_v7_real1","3RANCT1ZVFIOX8O3IXUQS0AM0MVBU4",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","15351",,,"21000","2017-09-28 15:49:36","8835"
+"A28URN0B675OIE
+","cs_wg_v7_real1","3DY4FPOOA1PBQUUSJKQLO1H9WF6RVL",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","21632","umbrella",,"181000","2017-09-28 15:49:40","8836"
+"AHGAVSKDQXCWM","cs_wg_v7_real1","37FMASSAYCSJOHT3OG5C9XMB6R8IB3",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","15257","COMMUNITY",,"21000","2017-09-28 15:49:44","8837"
+"A3UDXVVGJ88LS2","cs_wg_v7_real1","3GM6G9ZBKNY5GMDB9HUP1KZET7SMTD",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","14511","HELICOPTER",,"21000","2017-09-28 15:49:45","8838"
+"A36LW3J7QKZ5CT","cs_wg_v7_real1","3WR9XG3T63C2EYRYQARSAUQWIJG74R",,"Memory","2",,"2","10","1","7480","[""DOORWAY"",""FOOTBALL"",""HELICOPTER"",""BASKET"",""WEDDING"",""TRAFFIC"","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:49:58","8839"
+"A2A27TLFWKDXUW","cs_wg_v7_real1","38F5OAUN5NDWQAFT5HBB4JZ0NO2H7N",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","49187","BOOKSHELF
+",,"181000","2017-09-28 15:50:00","8840"
+"A2OAJTVDVLTLEZ","cs_wg_v7_real1","3137ONMDKG63ZTZS8J7ZPTFGUBTEG7",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","56410",,"SE
+NE
+S
+N
+LE
+ENG
+ELE
+FF
+BSELF
+","181000","2017-09-28 15:50:07","8841"
+"A3NUUMIAEIAN5","cs_wg_v7_real1","3NJM2BJS4W7UF88DFBRRTET5AQ3CPG",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","31884","BOOKSHELF",,"181000","2017-09-28 15:50:07","8842"
+"A1MSLM87Z8CLTK
+","cs_wg_v7_real1","3X73LLYYQ1FLTV7GLOS00GLQN37HNY",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","40033","bookshelf",,"181000","2017-09-28 15:50:08","8843"
+"A35P8YSNTQ7OTP","cs_wg_v7_real1","33M4IA01QG23UJZNJZR3CMEUCQFXRV",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","7","0","35116","BOOKSHELF",,"181000","2017-09-28 15:50:12","8844"
+"A1LRJ2MQD4AMES","cs_wg_v7_real1","3G0WWMR1UVLY6O6J4EFU9UDREQ3NQ0",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","23155","Umbrella",,"181000","2017-09-28 15:50:16","8845"
+"A3TYWTLNIKKD29","cs_wg_v7_real1","3EJJQNKU9R668TZ8EV9H90Q0O0WRHW",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","25106","STOMACH",,"181000","2017-09-28 15:50:16","8846"
+"A22DQ6HXUIZPON","cs_wg_v7_real1","3OHYZ19UGC6O1TZEGXILYJYR0IMOA9",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","33061","BASKET","2 3 2 2 3 1 1 ","181000","2017-09-28 15:50:17","8847"
+"A3VFC7V1X9XISE","cs_wg_v7_real1","352YTHGROVEZ7NXA3JD417FQWMCH43",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","57853","bookshelf","2 2 4 0 2 5","181000","2017-09-28 15:50:17","8848"
+"A1J21DM2Z753X4","cs_wg_v7_real1","3FE2ERCCZX9VOX5G5G0IOENMZ4MPOQ",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","83987","keyboard",,"181000","2017-09-28 15:50:19","8849"
+"A31EZYDK16XB9U","cs_wg_v7_real1","3OS4RQUCR9GZEQRDN8ZR609JQZGBF5",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","20219","BOOKSHELF",,"181000","2017-09-28 15:50:19","8850"
+"A33B85TN97HQ33","cs_wg_v7_real1","3DL65MZB8DGQIHJN6XBGZ2U1WJ1ECX",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","13430","MACHINE",,"21000","2017-09-28 15:50:20","8851"
+"A28URN0B675OIE
+","cs_wg_v7_real1","3DY4FPOOA1PBQUUSJKQLO1H9WF6RVL",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","12847","machine",,"21000","2017-09-28 15:50:28","8852"
+"AQ5RHGTE75AJT
+","cs_wg_v7_real1","3DH6GAKTYYQ1WFBOYC7IH3N2NDRZYV",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","53230","BOOKSHELF",,"181000","2017-09-28 15:50:30","8853"
+"A30CKD84V82EH2","cs_wg_v7_real1","32EYX73OY0ABDF5SEUGGSFFQI8XURZ",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","42993","HELICOPTER","HELICOPTER WEDDING STRUCTURETRAFFIC","181000","2017-09-28 15:50:37","8854"
+"A27XLN5KLI7JW","cs_wg_v7_real1","3YHH42UU5BGKUVYZB350HWIKWR60LE",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","32119","umbrella",,"181000","2017-09-28 15:50:44","8855"
+"A2A27TLFWKDXUW","cs_wg_v7_real1","38F5OAUN5NDWQAFT5HBB4JZ0NO2H7N",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","17345","COMMUNITY",,"21000","2017-09-28 15:50:52","8856"
+"A1VHFF2VC2XG7P","cs_wg_v7_real1","3JJVG1YBEBY7CTYOHWMIKOI6152B5M",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","37562","Umbrella",,"181000","2017-09-28 15:50:54","8857"
+"A2T20MH7SLU4IZ","cs_wg_v7_real1","32ZKVD547FO4YEBK3DYP5RKMN9BB3W",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","30965","BOOKSHELF",,"181000","2017-09-28 15:50:55","8858"
+"AJ7Y08EV8NO48","cs_wg_v7_real1","3J88R45B2GZII6J867NE7REFB8RXP3",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","39201","Bookshelf",,"181000","2017-09-28 15:50:56","8859"
+"ANBIWXLNKFCQQ
+","cs_wg_v7_real1","3R6P78PK7KC5OCHPYEWUOFFHXLGGTZ",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","36132","DOORWAY","DOORWAY","181000","2017-09-28 15:50:57","8860"
+"A3TYWTLNIKKD29","cs_wg_v7_real1","3EJJQNKU9R668TZ8EV9H90Q0O0WRHW",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","16186","stomach","stomach","21000","2017-09-28 15:51:03","8861"
+"A1MSLM87Z8CLTK
+","cs_wg_v7_real1","3X73LLYYQ1FLTV7GLOS00GLQN37HNY",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","18689","helicvopter",,"21000","2017-09-28 15:51:03","8862"
+"A2OAJTVDVLTLEZ","cs_wg_v7_real1","3137ONMDKG63ZTZS8J7ZPTFGUBTEG7",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","22362",,"STRUCTURE
+WEDDING
+STOMACH
+","21000","2017-09-28 15:51:07","8863"
+"A209H73TTW9F87","cs_wg_v7_real1","3W2LOLRXLBGXAJ0GKGCEMS6SGH0RK0",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","28671","bookshelf","bookshelf","181000","2017-09-28 15:51:07","8864"
+"A375OH1S7FO7L8","cs_wg_v7_real1","3TR2532VIPV9DGWEA794AIFJ55MJ6V",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","47441","bookshelf",,"181000","2017-09-28 15:51:07","8865"
+"A797UM4MBMLMK","cs_wg_v7_real1","3QL2OFSM96JUCNW0ZWEZPPOAAB2NCV",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","158807",,"HELICOPTER....LADDER...","21000","2017-09-28 15:51:08","8866"
+"A3NUUMIAEIAN5","cs_wg_v7_real1","3NJM2BJS4W7UF88DFBRRTET5AQ3CPG",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","21038","COMMUNITY",,"21000","2017-09-28 15:51:09","8867"
+"A31EZYDK16XB9U","cs_wg_v7_real1","3OS4RQUCR9GZEQRDN8ZR609JQZGBF5",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","12495","TRAFFIC","COMMUNITY
+HELICOPTER
+TRAFFIC","21000","2017-09-28 15:51:10","8868"
+"A2VF6506WDNXKS","cs_wg_v7_real1","3TMFV4NEP8FINEF1ALPHJM5IDWM8W2",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","29584","Bookshelf",,"181000","2017-09-28 15:51:10","8869"
+"A22DQ6HXUIZPON","cs_wg_v7_real1","3OHYZ19UGC6O1TZEGXILYJYR0IMOA9",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","18135",,"BASKET UMBRELLA WEDDING FOOTBALL K","21000","2017-09-28 15:51:10","8870"
+"A35P8YSNTQ7OTP","cs_wg_v7_real1","33M4IA01QG23UJZNJZR3CMEUCQFXRV",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","20298","hellicopter","i dont remember what word picked last time","21000","2017-09-28 15:51:11","8871"
+" A3JKALYQR6UP1S","cs_wg_v7_real1","3FTOP5WARFPEZ5AZ8ITN1H5SS20J0U",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","31272"," basket
+
+",,"181000","2017-09-28 15:51:13","8872"
+"A1J21DM2Z753X4","cs_wg_v7_real1","3FE2ERCCZX9VOX5G5G0IOENMZ4MPOQ",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","3","0","18863","machine",,"21000","2017-09-28 15:51:14","8873"
+"A3VFC7V1X9XISE","cs_wg_v7_real1","352YTHGROVEZ7NXA3JD417FQWMCH43",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","25698","traffic",,"21000","2017-09-28 15:51:20","8874"
+"AQ5RHGTE75AJT
+","cs_wg_v7_real1","3DH6GAKTYYQ1WFBOYC7IH3N2NDRZYV",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","23636","COMMUN",,"21000","2017-09-28 15:51:34","8875"
+"A24Q1UMV25TBV2","cs_wg_v7_real1","39N5ACM9HEOSHA1A3RH0ROSX4509PW",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","29565","Community",,"181000","2017-09-28 15:51:35","8876"
+"A229SEF35EGTSF","cs_wg_v7_real1","3ZGVPD4G6TI5FTCUO6KJ9MVN8B9ZT6",,"Memory","2",,"2","10","1","11472","[""Structure"",""Football"",""Bookshelf"",""helicopter"",""umbrella"",""Traffic"",""Ladder"",""keyboard"",""basket"",""doorway"","""","""","""",""""]",,"181000","2017-09-28 15:51:39","8877"
+"A2WQKPQT9DHBJK","cs_wg_v7_real1","3BV8HQ2ZZW2YCNTAG1WRHJC0FISA66",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","47194","UMBRELLA",,"181000","2017-09-28 15:51:40","8878"
+"A5BMKZRGHNSRT","cs_wg_v7_real1","3P529IW9KYMBRZDPELOLK35O2TULF2",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","4","0","12238","Football",,"181000","2017-09-28 15:51:41","8879"
+"A3AHYU9P0HLG4","cs_wg_v7_real1","3H7Z272LX78NIC2JSOKQWXJS4ZHPL9",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","119068","bookshelf",,"181000","2017-09-28 15:51:42","8880"
+"A1VHFF2VC2XG7P","cs_wg_v7_real1","3JJVG1YBEBY7CTYOHWMIKOI6152B5M",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","15434","Community",,"21000","2017-09-28 15:51:45","8881"
+"A27XLN5KLI7JW","cs_wg_v7_real1","3YHH42UU5BGKUVYZB350HWIKWR60LE",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","21900","basket",,"21000","2017-09-28 15:51:45","8882"
+"A30CKD84V82EH2","cs_wg_v7_real1","32EYX73OY0ABDF5SEUGGSFFQI8XURZ",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","27878","F",,"21000","2017-09-28 15:51:46","8883"
+"A1ZHX6QVK82TIP
+","cs_wg_v7_real1","34FNN24DCMA3P1RZRO02SZG7MEKY5O",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","42201","BOOKSHELF","STRUCTURE 2
+COMMUNITY 1
+LADDER 2
+HELICOPTER 3
+BASKET 3
+BOOKSHELF 4
+STOMACH 1
+FOOTBALL 4
+TRAFFIC 2
+WEDDING 3
+MACHINE 2
+KEYBOARD 2","181000","2017-09-28 15:51:46","8884"
+"A1H6AZSS5DQ0KD","cs_wg_v7_real1","3IXQG4FA2TZQDG00KMZZW4N8N1M9BC",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","19919","5","BOOKSHELF","181000","2017-09-28 15:51:51","8885"
+" A3JKALYQR6UP1S","cs_wg_v7_real1","3FTOP5WARFPEZ5AZ8ITN1H5SS20J0U",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","12033","helicopter
+",,"21000","2017-09-28 15:51:59","8886"
+"ANBIWXLNKFCQQ
+","cs_wg_v7_real1","3R6P78PK7KC5OCHPYEWUOFFHXLGGTZ",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","28090","STRUC","STRUCTURE","21000","2017-09-28 15:52:00","8887"
+"A2T20MH7SLU4IZ","cs_wg_v7_real1","32ZKVD547FO4YEBK3DYP5RKMN9BB3W",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","27453","STRUCTURE",,"21000","2017-09-28 15:52:01","8888"
+"A209H73TTW9F87","cs_wg_v7_real1","3W2LOLRXLBGXAJ0GKGCEMS6SGH0RK0",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","18491","helicopter","wedding
+helicopter","21000","2017-09-28 15:52:03","8889"
+"A3445FTO62DGIX","cs_wg_v7_real1","3BC8WZX3V3XJXNDBA0LBN4S6B9URRT",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","30380","Umbrella",,"181000","2017-09-28 15:52:03","8890"
+"AJ7Y08EV8NO48","cs_wg_v7_real1","3J88R45B2GZII6J867NE7REFB8RXP3",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","30319","Helicopter",,"21000","2017-09-28 15:52:03","8891"
+"A2SU01M6IZ0ZHH","cs_wg_v7_real1","3OJSZ2ATDSXKAHVY4FA2FMWAIFC57V",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","34650","bookshelf","bookshelf","181000","2017-09-28 15:52:05","8892"
+"A1YGENVE7OI5JL","cs_wg_v7_real1","3GA6AFUKOOPEPRE6358LR2NKIMGH3I",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","104737","football",,"181000","2017-09-28 15:52:12","8893"
+"AS7Z8HZLMM3QX","cs_wg_v7_real1","32VNZTT0A75CWHBDZOPYFBHWJVA4RN",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","43061","BOOKSHELF",,"181000","2017-09-28 15:52:14","8894"
+"A1PMZUBGXFANCI","cs_wg_v7_real1","3DI28L7YXAF6VE9PQ0MWI6BASMB1EV",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","34837","Football",,"181000","2017-09-28 15:52:14","8895"
+"A55I1XM8UH9XJ","cs_wg_v7_real1","3I7DHKZYGN1XPAA4MY8E3E9RG3U5FY",,"Memory","2",,"2","10","1","13130","[""WEDDING"",""BOOKSHELF"",""LADDER"",""DOORWAY"",""STRUCTURE"",""COMMUNITY"",""FOOTBALL"",""BASKET"",""HELICOPTER"","""","""","""","""",""""]",,"181000","2017-09-28 15:52:14","8896"
+"A9SC84RKQKS9K","cs_wg_v7_real1","3MRNMEIQW57ETFZTNFTVW323QGELDR",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","49628","BOOKSHELF",,"181000","2017-09-28 15:52:15","8897"
+"A33CS9OHRCSPO0","cs_wg_v7_real1","3FTYUGLFSUM0RQW8VSDOFE664QE5DN",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","41544","FOOTBALL","FOOTBALL","181000","2017-09-28 15:52:16","8898"
+"A1A3B77BG6NV8Y","cs_wg_v7_real1","3ZPPDN2SLVXOKJCKUD1PXCTTQYY9EB",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","34290","BOOKSHELF",,"181000","2017-09-28 15:52:17","8899"
+"A29AX5O8KL48F8","cs_wg_v7_real1","34YB12FSQYP1BHR5PHVI21KP3DKMG4",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","39828","BOOKSHELF",,"181000","2017-09-28 15:52:18","8900"
+"A26QUOLUXNKP3U","cs_wg_v7_real1","317HQ483I7TLPQI0R6AL0SM5NGMINS",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","38799","bookshelf",,"181000","2017-09-28 15:52:19","8901"
+"A4NBA4U28RA5V","cs_wg_v7_real1","3IX2EGZR7BK2ZZUY2VC2LD6F1S0RJ1",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","32909","BOOKSHELF",,"181000","2017-09-28 15:52:20","8902"
+"A36OS4XKUJF4NB","cs_wg_v7_real1","30JNVC0OR9L6WSK81GKH4AGVSEUQHU",,"Memory","2",,"2","10","1","6427","[""structure"",""football"",""helicopter"",""basket"","""","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:52:24","8903"
+"A24Q1UMV25TBV2","cs_wg_v7_real1","39N5ACM9HEOSHA1A3RH0ROSX4509PW",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","20124",,"Basket","21000","2017-09-28 15:52:28","8904"
+"A1ZDR2UN7M92LI
+","cs_wg_v7_real1","3TXWC2NHNZRPU2H2V8LUMTX8RP79SC",,"Memory","2",,"2","10","1","44404","[""Bookshelf"",""Helicopter"",""Doorway"",""Football"",""Basket"",""Traffic"","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:52:28","8905"
+"A4JS2C4BV53LO","cs_wg_v7_real1","3OJSZ2ATDSXKAHVY4FA2FMWAIFB57U",,"Memory","2",,"2","10","1","12722","[""traffic"",""football"",""stomach"",""umbrella"",""ladder"",""structure"",""doorway"",""basket"","""","""","""","""","""",""""]",,"181000","2017-09-28 15:52:29","8906"
+"A3O2JUIF4DZQJU","cs_wg_v7_real1","32UTUBMZ7GXOAND3NN4VOMC5ET4BVT",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","39428","BOOKSHELF","2,1,2,3,4,4,2,2,5,1,2,3,0,3","181000","2017-09-28 15:52:30","8907"
+"A2VDGWD0BBMSP2","cs_wg_v7_real1","3PXX5PX6LXZ4IZA5CSDZSZYSTJ3ABR",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","49042","BOOKSHELF",,"181000","2017-09-28 15:52:38","8908"
+"A1ZHX6QVK82TIP
+","cs_wg_v7_real1","34FNN24DCMA3P1RZRO02SZG7MEKY5O",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","18769","STOMACH",,"21000","2017-09-28 15:52:39","8909"
+"A1DY3TBDY4VZG5","cs_wg_v7_real1","31T4R4OBOSH5924DJPXATS2KAWYC7A",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","30129","BOOKSHELF",,"181000","2017-09-28 15:52:40","8910"
+"A1CPNA5L0J834N
+A1CPNA5L0J834N
+","cs_wg_v7_real1","3WMOAN2SRBYQBW20QD94FHCZVIINVU",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","28807","UMBRELLA","TRAFFIC HAS TWO F'S BASKET HAS 2 LETTERS HELICOPTER HAS 2 UMBRELLA HAS 3 LETTERS KEYBOARD HAS 1 LETTER, STRUCTURE HAS 2 LETTERS, FOOTBALL, HAS 3 LETTERS, ","181000","2017-09-28 15:52:40","8911"
+"A3OJSGKZF1TWL6","cs_wg_v7_real1","3FDJT1UU74985W2IN9ZBJR1WOZBK5F",,"Memory","2",,"2","10","1","10658","[""doorway"",""machine"",""keyboard"",""traffic"",""community"",""football"",""structure"",""stomach"","""","""","""","""","""",""""]",,"181000","2017-09-28 15:52:44","8912"
+"A3AHYU9P0HLG4","cs_wg_v7_real1","3H7Z272LX78NIC2JSOKQWXJS4ZHPL9",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","20347","helicopter",,"21000","2017-09-28 15:52:45","8913"
+"A1IP7MXZ9M7KOF
+","cs_wg_v7_real1","3NL0RFNU0FOQ9DYI94G1EZVIO3G4KU",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","66303","UMBRELLA",,"181000","2017-09-28 15:52:45","8914"
+"AY5QUURIR136D","cs_wg_v7_real1","3RANCT1ZVFIOX8O3IXUQS0AM0MVBU4",,"Memory","2",,"2","10","1","7788","[""WEDDING"",""LADDER"",""HELICOPTER"",""DOORWAY"",""BOOKSHELF"",""FOOTBALL"",""COMMUNITY"",""HIGHWAY"","""","""","""","""","""",""""]",,"181000","2017-09-28 15:52:46","8915"
+"A1SWPK57MQMMSO","cs_wg_v7_real1","3M81GAB8A0KW5FHM1OALIZDXX1PBQZ",,"Memory","2",,"2","10","1","11091","[""Machine"",""Football"",""Ladder"",""Keyboard"",""Helicopter"",""Traffic"",""Basket"",""Community"",""Structure"","""","""","""","""",""""]",,"181000","2017-09-28 15:52:47","8916"
+"A1H6AZSS5DQ0KD","cs_wg_v7_real1","3IXQG4FA2TZQDG00KMZZW4N8N1M9BC",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","3","0","22258",,"BOOKSHELF","21000","2017-09-28 15:52:48","8917"
+"A2WQKPQT9DHBJK","cs_wg_v7_real1","3BV8HQ2ZZW2YCNTAG1WRHJC0FISA66",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","35377","HELICOPTER ",,"21000","2017-09-28 15:52:48","8918"
+"AHGAVSKDQXCWM","cs_wg_v7_real1","37FMASSAYCSJOHT3OG5C9XMB6R8IB3",,"Memory","2",,"2","10","1","6244","[""TRAFFIC"",""HELICOPTER"",""COMMUNITY"",""BOOKSHELF"",""DOORWAY"",""WEDDING"",""FOOTBALL"",""BASKET"",""LADDER"","""","""","""","""",""""]",,"181000","2017-09-28 15:52:53","8919"
+"A2SU01M6IZ0ZHH","cs_wg_v7_real1","3OJSZ2ATDSXKAHVY4FA2FMWAIFC57V",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","14878","ma",,"21000","2017-09-28 15:52:56","8920"
+"A3UDXVVGJ88LS2","cs_wg_v7_real1","3GM6G9ZBKNY5GMDB9HUP1KZET7SMTD",,"Memory","2",,"2","10","1","9094","[""HELICOPTER"",""FOOTBALL"",""BOOKSHELF"",""MACHINE"",""BASKET"",""WEDDING"",""TRAFFIC"","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:52:57","8921"
+"A1PMZUBGXFANCI","cs_wg_v7_real1","3DI28L7YXAF6VE9PQ0MWI6BASMB1EV",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","14576",,"icepick","21000","2017-09-28 15:53:03","8922"
+"A5BMKZRGHNSRT","cs_wg_v7_real1","3P529IW9KYMBRZDPELOLK35O2TULF2",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","3","0","51196","Structure",,"21000","2017-09-28 15:53:06","8923"
+"A3445FTO62DGIX","cs_wg_v7_real1","3BC8WZX3V3XJXNDBA0LBN4S6B9URRT",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","19788","helicopter","helicopter","21000","2017-09-28 15:53:06","8924"
+"A3MTAJHYHCIJK4","cs_wg_v7_real1","3H0W84IWBK3UOJ86OU1BOXTNWK5ER4",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","29641","UMBRELLA ",,"181000","2017-09-28 15:53:07","8925"
+"A26QUOLUXNKP3U","cs_wg_v7_real1","317HQ483I7TLPQI0R6AL0SM5NGMINS",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","15548","machine",,"21000","2017-09-28 15:53:07","8926"
+"A38R7SIVV118KT","cs_wg_v7_real1","3F1567XTNW6DHM2P34WPRTI791MQ94",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","62178","umbrella",,"181000","2017-09-28 15:53:07","8927"
+"AXX2ST33NI5YW","cs_wg_v7_real1","3MAOD8E57QBIFL7VQSAM329KBTQXN7",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","37228","bookshelf",,"181000","2017-09-28 15:53:11","8928"
+"A4NBA4U28RA5V","cs_wg_v7_real1","3IX2EGZR7BK2ZZUY2VC2LD6F1S0RJ1",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","15777",,"BASKET
+TRAFFIC
+COMMUNI","21000","2017-09-28 15:53:11","8929"
+"A1A3B77BG6NV8Y","cs_wg_v7_real1","3ZPPDN2SLVXOKJCKUD1PXCTTQYY9EB",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","11193","Helicopter",,"21000","2017-09-28 15:53:12","8930"
+"A33CS9OHRCSPO0","cs_wg_v7_real1","3FTYUGLFSUM0RQW8VSDOFE664QE5DN",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","19050","Kick","K","21000","2017-09-28 15:53:18","8931"
+"A2KW26KE43UBRS","cs_wg_v7_real1","36TFCYNS44BQ5PLKNUF9YICOPHGXHX",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","62529",,"bookshelf","181000","2017-09-28 15:53:19","8932"
+"AS7Z8HZLMM3QX","cs_wg_v7_real1","32VNZTT0A75CWHBDZOPYFBHWJVA4RN",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","27957",,,"21000","2017-09-28 15:53:23","8933"
+"A29AX5O8KL48F8","cs_wg_v7_real1","34YB12FSQYP1BHR5PHVI21KP3DKMG4",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","27558","STOMACH",,"21000","2017-09-28 15:53:24","8934"
+"A9SC84RKQKS9K","cs_wg_v7_real1","3MRNMEIQW57ETFZTNFTVW323QGELDR",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","28281","FOOTBALL",,"21000","2017-09-28 15:53:26","8935"
+"acdc6staalwve","cs_wg_v7_real1","3LO69W1SU3EH5Z9KP5U32O5038UGLW",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","38833","Football",,"181000","2017-09-28 15:53:27","8936"
+"A3MRGTMHCJL67Q","cs_wg_v7_real1","3COPXFW7XBDCY6K17O8PHX6DFZCKP1",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","84475","FOOTBALL","STRUCTURE:2 , HELICOPTER:2 , TRAFFIC:2
+KEYBOARD: 2 , BASKET:3 , COMMUNITY:1
+FOOTBALL:","181000","2017-09-28 15:53:28","8937"
+"A1CPNA5L0J834N
+A1CPNA5L0J834N
+","cs_wg_v7_real1","3WMOAN2SRBYQBW20QD94FHCZVIINVU",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","11142","FOOTBALL","FOOTBALL","21000","2017-09-28 15:53:31","8938"
+"A1DY3TBDY4VZG5","cs_wg_v7_real1","31T4R4OBOSH5924DJPXATS2KAWYC7A",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","10468","HELICOPTER",,"21000","2017-09-28 15:53:32","8939"
+"A33B85TN97HQ33","cs_wg_v7_real1","3DL65MZB8DGQIHJN6XBGZ2U1WJ1ECX",,"Memory","2",,"2","10","1","9269","[""MACHINE"",""STRUCTURE"",""STOMACH"",""UMBRELLA"",""FOOTBALL"",""WEDDING"",""TRAFFIC"",""COMMUNITY"",""BOOKSHELF"",""HELICOPTER"","""","""","""",""""]",,"181000","2017-09-28 15:53:32","8940"
+"AL12RG9EJZ60","cs_wg_v7_real1","3RXPCZQMQPC4FS5GWVCKI9WM52Q1GC",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","34325","football",,"181000","2017-09-28 15:53:37","8941"
+"A28A7NZUJWGZ7Q","cs_wg_v7_real1","3WAKVUDHUWH1VWLD5GIANYOQHW4U71",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","48088","BOOKSHELF",,"181000","2017-09-28 15:53:38","8942"
+"A375OH1S7FO7L8","cs_wg_v7_real1","3TR2532VIPV9DGWEA794AIFJ55MJ6V",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","97717","football","foo","21000","2017-09-28 15:53:38","8943"
+"AP7BD9G7DSUI3","cs_wg_v7_real1","3DPNQGW4LLGJAYDT70M04GQ0N8X64S",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","35578","Football","Wedding
+Bookshelf
+Traffic
+Machine
+Community
+Stomach
+Ladder
+Helicopter
+","181000","2017-09-28 15:53:41","8944"
+"A28URN0B675OIE
+","cs_wg_v7_real1","3DY4FPOOA1PBQUUSJKQLO1H9WF6RVL",,"Memory","2",,"2","10","1","9453","[""basket"",""machine"",""umbrella"",""doorway"",""bookshelf"",""structure"",""stomache"","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:53:41","8945"
+"A38R7SIVV118KT","cs_wg_v7_real1","3F1567XTNW6DHM2P34WPRTI791MQ94",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","6144","hellic",,"21000","2017-09-28 15:53:47","8946"
+"A1IP7MXZ9M7KOF
+","cs_wg_v7_real1","3NL0RFNU0FOQ9DYI94G1EZVIO3G4KU",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","18321","Stomach",,"21000","2017-09-28 15:53:48","8947"
+"A24W1M0GILRCJ3","cs_wg_v7_real1","3K772S5NP8CHZPU3SPPHATRH9B6HE9",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","45510","bookshelf","keyboard-2
+basket-2
+traffic-2
+machine-1
+ umbrella-3
+ bookshelf-4
+football-3
+ladder-2
+","181000","2017-09-28 15:53:52","8948"
+"A2VDGWD0BBMSP2","cs_wg_v7_real1","3PXX5PX6LXZ4IZA5CSDZSZYSTJ3ABR",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","30069",,"Football","21000","2017-09-28 15:53:53","8949"
+"A66EDJGYY7JV8","cs_wg_v7_real1","3WR9XG3T63C2EYRYQARSAUQWIJH47P",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","7","0","42644","Bookshelf",,"181000","2017-09-28 15:53:57","8950"
+"A3MTAJHYHCIJK4","cs_wg_v7_real1","3H0W84IWBK3UOJ86OU1BOXTNWK5ER4",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","13640","BOOKSHELF",,"21000","2017-09-28 15:53:57","8951"
+"A31Q4HFUPE2DXG","cs_wg_v7_real1","3FUI0JHJPXZZVJ77OKJJN8MAZHY33X",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","314128","Structure",,"21000","2017-09-28 15:54:00","8952"
+"A2A27TLFWKDXUW","cs_wg_v7_real1","38F5OAUN5NDWQAFT5HBB4JZ0NO2H7N",,"Memory","2",,"2","10","1","8973","[""COMMUNITY"",""FOOTBALL"",""BASKET"",""STRUCTURE"",""BOOKSHELF"","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:54:04","8953"
+"A1HKS903W2E1DG","cs_wg_v7_real1","392CY0QWG1SZ3I8U91VP1JG5WZS4IK",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","22794","BOOKSHELF","BOOKSHELF","181000","2017-09-28 15:54:05","8954"
+"AKHJ9W43ZDHCL","cs_wg_v7_real1","3JV9LGBJWTFPBKCH2XAVU59UYD0GOE",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","25427","Football","49ers, national anthem, better than college? Raiders, protests, upsets","181000","2017-09-28 15:54:09","8955"
+"AXX2ST33NI5YW","cs_wg_v7_real1","3MAOD8E57QBIFL7VQSAM329KBTQXN7",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","17323","stomach",,"21000","2017-09-28 15:54:10","8956"
+"A10WU6W59U285S","cs_wg_v7_real1","36NEMU28XFEX83H54MZ0O46DX1AWMD",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","46732","umbrella",,"181000","2017-09-28 15:54:11","8957"
+"A3TYWTLNIKKD29","cs_wg_v7_real1","3EJJQNKU9R668TZ8EV9H90Q0O0WRHW",,"Memory","2",,"2","9","0","4748","[""umbrella"",""basket"",""stomach"","""","""","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:54:11","8958"
+"A1BAEFJ2OG7NJ0","cs_wg_v7_real1","39O5D9O87TTN8J3QHDUKGBQ45UCC35",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","4","0","87922","bookshelf","bookshelf
+","181000","2017-09-28 15:54:15","8959"
+"A1YGENVE7OI5JL","cs_wg_v7_real1","3GA6AFUKOOPEPRE6358LR2NKIMGH3I",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","63956",,,"21000","2017-09-28 15:54:16","8960"
+"A3NUUMIAEIAN5","cs_wg_v7_real1","3NJM2BJS4W7UF88DFBRRTET5AQ3CPG",,"Memory","2",,"2","10","1","8706","[""FOOTBALL"",""COMMUNITY"",""BOOKSHELF"",""MACHINE"",""WEDDING"",""DOORWAY"",""BASKET"",""HELICOPTER"",""TRAFFIC"","""","""","""","""",""""]",,"181000","2017-09-28 15:54:20","8961"
+"A31EZYDK16XB9U","cs_wg_v7_real1","3OS4RQUCR9GZEQRDN8ZR609JQZGBF5",,"Memory","2",,"2","10","1","9531","[""TRAFFIC"",""HELICOPTER"",""BOOKSHELF"",""STOMACH"",""BASKET"",""STRUCTURE"",""MACHINE"",""COMMUNITY"","""","""","""","""","""",""""]",,"181000","2017-09-28 15:54:22","8962"
+"A797UM4MBMLMK","cs_wg_v7_real1","3QL2OFSM96JUCNW0ZWEZPPOAAB2NCV",,"Memory","2",,"2","10","1","11130","[""HELICOPTER"",""LADDER"",""WEDDING"",""TRAFFIC"",""BOOKSHELF"",""MACHINE"",""STRUCTURE"",""FOOTBALL"",""UMBRELLA"",""COMMUNITY"",""WEDDING"",""DOORWAY"",""KEYBOARD"",""BLADDER""]",,"181000","2017-09-28 15:54:23","8963"
+"A22DQ6HXUIZPON","cs_wg_v7_real1","3OHYZ19UGC6O1TZEGXILYJYR0IMOA9",,"Memory","2",,"2","10","1","10071","[""KEYBOARD"",""FOOTBALL"",""WEDDING"",""DOORWAY"",""BOOKSHELF"",""UMBRELLA"",""HELICOPTER"",""BASKET"",""STRUCTURE"","""","""","""","""",""""]",,"181000","2017-09-28 15:54:24","8964"
+"A2OAJTVDVLTLEZ","cs_wg_v7_real1","3137ONMDKG63ZTZS8J7ZPTFGUBTEG7",,"Memory","2",,"2","10","1","13783","[""STOMACH"",""STRUCTURE"",""WEDDING"",""BASKET"",""BOOKSHELF"",""COMMUNITY"",""LADDER"",""TRAFFIC"","""","""","""","""","""",""""]",,"181000","2017-09-28 15:54:24","8965"
+"A35P8YSNTQ7OTP","cs_wg_v7_real1","33M4IA01QG23UJZNJZR3CMEUCQFXRV",,"Memory","2",,"2","10","1","12868","[""ladder"",""structure"",""hellicopter"",""bookshelf"","""","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:54:27","8966"
+"A1MSLM87Z8CLTK
+","cs_wg_v7_real1","3X73LLYYQ1FLTV7GLOS00GLQN37HNY",,"Memory","2",,"2","10","1","22079","[""helicopter"",""football"",""bookshelf"",""traffic"","""","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:54:29","8967"
+"A1J21DM2Z753X4","cs_wg_v7_real1","3FE2ERCCZX9VOX5G5G0IOENMZ4MPOQ",,"Memory","2",,"2","10","1","13616","[""wedding"",""machine"",""ladder"",""structure"",""community"",""helicopter"",""basket"","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:54:31","8968"
+"ARYGQ46IMW8AU","cs_wg_v7_real1","30ZX6P7VF8WLVFDDN5X1K5Y7P0LJ2F",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","24241","Umbrella",,"181000","2017-09-28 15:54:33","8969"
+"A3VFC7V1X9XISE","cs_wg_v7_real1","352YTHGROVEZ7NXA3JD417FQWMCH43",,"Memory","2",,"2","7","0","10991","[""traffic"",""bookshelf"",""helicopter"",""doorway"",""keyboard"",""umbrella"","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:54:34","8970"
+"AP7BD9G7DSUI3","cs_wg_v7_real1","3DPNQGW4LLGJAYDT70M04GQ0N8X64S",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","21523","Helicopter",,"21000","2017-09-28 15:54:39","8971"
+"A1A6CRRCTPS1IS","cs_wg_v7_real1","3LOTDFNYA70R2TPOIZVNTEM400ZFWQ",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","25471","WEDDING ",,"181000","2017-09-28 15:54:39","8972"
+"A28A7NZUJWGZ7Q","cs_wg_v7_real1","3WAKVUDHUWH1VWLD5GIANYOQHW4U71",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","19415","community",,"21000","2017-09-28 15:54:39","8973"
+"acdc6staalwve","cs_wg_v7_real1","3LO69W1SU3EH5Z9KP5U32O5038UGLW",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","3","0","34956","Keyboard","Keyboard","21000","2017-09-28 15:54:41","8974"
+"AL12RG9EJZ60","cs_wg_v7_real1","3RXPCZQMQPC4FS5GWVCKI9WM52Q1GC",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","24632","helicopter",,"21000","2017-09-28 15:54:44","8975"
+"A1E6XBV7FDHI6M","cs_wg_v7_real1","36WLNQG78ZB78CRHSXFLOIOJEY2EBR",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","27166","wedding","2
+5
+2
+4
+","181000","2017-09-28 15:54:45","8976"
+"A2W5128QDYM0D5","cs_wg_v7_real1","3F6KKYWMNB24HF2EZS9A9V6SVBENDV",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","41131","BOOKSHELF","UMBRELLA","181000","2017-09-28 15:54:46","8977"
+"A2L7M8FZ17YHQO","cs_wg_v7_real1","3B2X28YI3WG3VXY2MFWNCUW6X0EB63",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","24595","bookshelf","bookshelf","181000","2017-09-28 15:54:46","8978"
+"AQ5RHGTE75AJT
+","cs_wg_v7_real1","3DH6GAKTYYQ1WFBOYC7IH3N2NDRZYV",,"Memory","2",,"2","10","1","8849","[""COMMUNITY"",""BOOKSHELF"",""DOORWAY"",""MACHINE"",""FOOTBALL"",""HELICOPTER"",""UMBRELLA"",""STRUCTURE"",""LADDER"",""WEDDING"","""","""","""",""""]",,"181000","2017-09-28 15:54:46","8979"
+"A3KW13NHPR32JW","cs_wg_v7_real1","333U7HK6I9G8YPBTKUHIGOPBMRADJI",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","46397","bookshelf",,"181000","2017-09-28 15:54:48","8980"
+"AZV8213BMVMOT","cs_wg_v7_real1","30MVJZJNHMEWVZYC8ECGUS6LV6V9JX",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","31162","bookshelf",,"181000","2017-09-28 15:54:49","8981"
+"A1YH304YEW06BV","cs_wg_v7_real1","369J354OFDBZME6D21O1D5N3DD5G6O",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","43129","Bookshelf",,"181000","2017-09-28 15:54:50","8982"
+"A2H1QUGX0SOUMH","cs_wg_v7_real1","3WETL7AQWT929YUB237C25KUDDP53P",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","40037","Football",,"181000","2017-09-28 15:54:53","8983"
+"A66EDJGYY7JV8","cs_wg_v7_real1","3WR9XG3T63C2EYRYQARSAUQWIJH47P",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","20063","Stomach",,"21000","2017-09-28 15:54:53","8984"
+"A24YK0MTFM2TRL","cs_wg_v7_real1","3OUYGIZWR7ZALGDX3VY7YDR4116P00",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","40309","UMBRELLA",,"181000","2017-09-28 15:54:53","8985"
+"A24W1M0GILRCJ3","cs_wg_v7_real1","3K772S5NP8CHZPU3SPPHATRH9B6HE9",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","17414",,,"21000","2017-09-28 15:54:55","8986"
+"ABZD7CRM46SN","cs_wg_v7_real1","3XM0HYN6NK09C6SRB2XMJ2T8V2GEPB",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","77590","UMBRELLA",,"181000","2017-09-28 15:54:56","8987"
+"A27XLN5KLI7JW","cs_wg_v7_real1","3YHH42UU5BGKUVYZB350HWIKWR60LE",,"Memory","2",,"2","10","1","7908","[""basket"",""wedding"",""machine"",""umbrella"",""football"",""ladder"",""bookshelf"","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:54:56","8988"
+"A3KB9R1IGO61Q9","cs_wg_v7_real1","3FTF2T8WLRJI1JYBFDVVJI0TX239WR",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","72229","4","BOOKSHELF","181000","2017-09-28 15:54:57","8989"
+"AKHJ9W43ZDHCL","cs_wg_v7_real1","3JV9LGBJWTFPBKCH2XAVU59UYD0GOE",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","12792","Doorway","football, doorway","21000","2017-09-28 15:54:57","8990"
+"A1VHFF2VC2XG7P","cs_wg_v7_real1","3JJVG1YBEBY7CTYOHWMIKOI6152B5M",,"Memory","2",,"2","10","1","12227","[""Community"",""Machine"",""Stomach"",""Door"",""Book"",""Helicopter"","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:55:00","8991"
+"A3O2JUIF4DZQJU","cs_wg_v7_real1","32UTUBMZ7GXOAND3NN4VOMC5ET4BVT",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","113416","lad",,"21000","2017-09-28 15:55:07","8992"
+"A30CKD84V82EH2","cs_wg_v7_real1","32EYX73OY0ABDF5SEUGGSFFQI8XURZ",,"Memory","2",,"2","10","1","19254","[""FOOTBALL"",""COMMUNITY"",""WEDDING"",""HELICOPTER"",""KEYBOARD"",""LADDER"",""STRUCTURE"",""MACHINE"",""UMBRELLA"","""","""","""","""",""""]",,"181000","2017-09-28 15:55:09","8993"
+"A10WU6W59U285S","cs_wg_v7_real1","36NEMU28XFEX83H54MZ0O46DX1AWMD",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","22387","structure",,"21000","2017-09-28 15:55:10","8994"
+"A16J4BMYULRUZ7","cs_wg_v7_real1","3JAOYWH7VI52QPMCBZOTA7JDZVZL9A",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","35041","Wedding",,"181000","2017-09-28 15:55:12","8995"
+" A3JKALYQR6UP1S","cs_wg_v7_real1","3FTOP5WARFPEZ5AZ8ITN1H5SS20J0U",,"Memory","2",,"2","10","1","9381","[""wedding"",""basket"",""structure"",""football"",""machine"",""community"",""helicopter"",""keyboard"","""","""","""","""","""",""""]",,"181000","2017-09-28 15:55:12","8996"
+"A209H73TTW9F87","cs_wg_v7_real1","3W2LOLRXLBGXAJ0GKGCEMS6SGH0RK0",,"Memory","2",,"2","10","1","6864","[""helicopter"",""umbrella"",""bookshelf"",""wedding"",""stomach"",""football"","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:55:13","8997"
+"A2T20MH7SLU4IZ","cs_wg_v7_real1","32ZKVD547FO4YEBK3DYP5RKMN9BB3W",,"Memory","2",,"2","10","1","10781","[""STOMACH"",""COMMUNITY"",""BOOKSHELF"",""BASKET"",""WEDDING"",""STRUCTURE"","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:55:15","8998"
+"A2RHJT0OMA09YH","cs_wg_v7_real1","37ZHEEHM6WNHW28UQWM90PYQ4JK736",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","21330","UMBRELLA",,"181000","2017-09-28 15:55:17","8999"
+"A2KW26KE43UBRS","cs_wg_v7_real1","36TFCYNS44BQ5PLKNUF9YICOPHGXHX",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","80634","keyboard","keyboard","21000","2017-09-28 15:55:19","9000"
+"A33SBMZEFOYHJ3","cs_wg_v7_real1","3HMVI3QICJT41JQGQ1YQP93QAYGY17",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","26556","bookshelf",,"181000","2017-09-28 15:55:19","9001"
+"A3N8113KOPLDDM","cs_wg_v7_real1","3URFVVM165JKF6RJOBATEIHPRPHZUY",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","35726","UMBRELLA",,"181000","2017-09-28 15:55:20","9002"
+"A1KN3TP3P2NJHC","cs_wg_v7_real1","32UTUBMZ7GXOAND3NN4VOMC5ET4VBD",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","57408","BOOKSHELF",,"181000","2017-09-28 15:55:21","9003"
+"AJ7Y08EV8NO48","cs_wg_v7_real1","3J88R45B2GZII6J867NE7REFB8RXP3",,"Memory","2",,"2","8","0","15354","[""Helicopter"",""Structure"",""Community"",""Football"",""Bookshelf"",""Umbrella"",""keyboard"",""Traffic"","""","""","""","""","""",""""]",,"181000","2017-09-28 15:55:21","9004"
+"A24ZZW0J3MOVYV","cs_wg_v7_real1","3TXD01ZLD4I4C93U3IK3KM4GQUEU4H",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","31514","WEDDING","KEYBOARD, MACHINE, WEDDING, LADDER, UMBRELLA, BASKET, FOOTBALL, TRAFFIC, STOMACH, STRUCTURE, HELICOPTER, COMMUNITY, DOORWAY, BOOKSHELF","181000","2017-09-28 15:55:21","9005"
+"ARYGQ46IMW8AU","cs_wg_v7_real1","30ZX6P7VF8WLVFDDN5X1K5Y7P0LJ2F",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","3","0","14336","Bookshelf",,"21000","2017-09-28 15:55:24","9006"
+"A1UMMEJR2M75NJ","cs_wg_v7_real1","3Z7ISHFUH0WMH9K6L89OIQZ0UYQ8ZS",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","59336","bookshelf",,"181000","2017-09-28 15:55:26","9007"
+"A1LOT8IFHPA77E","cs_wg_v7_real1","36NEMU28XFEX83H54MZ0O46DX1BMW4",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","40344","BOOKSHELF",,"181000","2017-09-28 15:55:27","9008"
+"A1E6XBV7FDHI6M","cs_wg_v7_real1","36WLNQG78ZB78CRHSXFLOIOJEY2EBR",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1",NULL,"0","7462","keyboard",,"21000","2017-09-28 15:55:27","9009"
+"ANBIWXLNKFCQQ
+","cs_wg_v7_real1","3R6P78PK7KC5OCHPYEWUOFFHXLGGTZ",,"Memory","2",,"2","10","1","27859","[""STRUCTURE"",""COMMUNITY"",""HELICOPTER"",""WEDDING"",""BASKET"",""STOMACH"","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:55:31","9010"
+"A2OSXVGQUR6IL6","cs_wg_v7_real1","32SVAV9L3FAZF46SXZYTAG0G5RRA31",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","4","0","24535","UMBRELLA",,"181000","2017-09-28 15:55:31","9011"
+"A3MRGTMHCJL67Q","cs_wg_v7_real1","3COPXFW7XBDCY6K17O8PHX6DFZCKP1",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","49030","COMMUNITY",,"21000","2017-09-28 15:55:34","9012"
+"A33KVM8Y5MFHQO","cs_wg_v7_real1","39JEC7537U27KS591N0QZ6INWE5CV2",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","42950","football","ele
+e
+ellb
+","181000","2017-09-28 15:55:34","9013"
+"A2L7M8FZ17YHQO","cs_wg_v7_real1","3B2X28YI3WG3VXY2MFWNCUW6X0EB63",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","8315","football",,"21000","2017-09-28 15:55:34","9014"
+"A1BAEFJ2OG7NJ0","cs_wg_v7_real1","39O5D9O87TTN8J3QHDUKGBQ45UCC35",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","3","0","39169","helicopter","helic","21000","2017-09-28 15:55:35","9015"
+"A1A6CRRCTPS1IS","cs_wg_v7_real1","3LOTDFNYA70R2TPOIZVNTEM400ZFWQ",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","19532","HELICOPTER ",,"21000","2017-09-28 15:55:40","9016"
+"A27KZJJR9201NN","cs_wg_v7_real1","3UOUJI6MTDFVABR4NTM8HX1EJPKXU0",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","25948","Bookshelf",,"181000","2017-09-28 15:55:42","9017"
+"A2ZEU31OG72EQC","cs_wg_v7_real1","3CN4LGXD5XPLTINZDJHSN7ATMIQ4YQ",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","42625","Bookshelf","Bookshelf 6","181000","2017-09-28 15:55:44","9018"
+"A24Q1UMV25TBV2","cs_wg_v7_real1","39N5ACM9HEOSHA1A3RH0ROSX4509PW",,"Memory","2",,"2","10","1","13602","[""Ladder"",""community"",""structure"",""bookshelf"",""umbrella"",""wedding"",""stomach"",""helicopter"",""basket"",""traffic"",""doorway"",""football"",""machine"",""keyboard""]",,"181000","2017-09-28 15:55:44","9019"
+"ABZD7CRM46SN","cs_wg_v7_real1","3XM0HYN6NK09C6SRB2XMJ2T8V2GEPB",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","19556",,"keyboard","21000","2017-09-28 15:55:52","9020"
+"A2RHJT0OMA09YH","cs_wg_v7_real1","37ZHEEHM6WNHW28UQWM90PYQ4JK736",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","5711","TOPIC",,"21000","2017-09-28 15:55:53","9021"
+"A3R0V7F5LPVVAH","cs_wg_v7_real1","3U4J9857OECMZXC75P1FI8W2SBY7BY",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","29244","UMBRELLA",,"181000","2017-09-28 15:55:53","9022"
+"A2W5128QDYM0D5","cs_wg_v7_real1","3F6KKYWMNB24HF2EZS9A9V6SVBENDV",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","24865","HELICOPTER",,"21000","2017-09-28 15:55:55","9023"
+"A1ZHX6QVK82TIP
+","cs_wg_v7_real1","34FNN24DCMA3P1RZRO02SZG7MEKY5O",,"Memory","2",,"2","10","1","13050","[""BOOKSHELF"",""STOMACH"",""FOOTBALL"",""UMBRELLA"",""COMMUNITY"",""BASKET"",""DOORWAY "",""KEYBOARD "","""","""","""","""","""",""""]",,"181000","2017-09-28 15:55:55","9024"
+"A1YH304YEW06BV","cs_wg_v7_real1","369J354OFDBZME6D21O1D5N3DD5G6O",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","22523","Bask",,"21000","2017-09-28 15:55:55","9025"
+"A3AHYU9P0HLG4","cs_wg_v7_real1","3H7Z272LX78NIC2JSOKQWXJS4ZHPL9",,"Memory","2",,"2","10","1","8164","[""doorway"",""umbrella"",""helicopter"",""bookshelf"",""basket"",""ladder"",""community"",""structure"","""","""","""","""","""",""""]",,"181000","2017-09-28 15:55:56","9026"
+"A1PE5AT62CBGS4","cs_wg_v7_real1","3I3WADAZ9Q5RVNNXL1R4Q8I584M5OL",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","43629","UMBRELLA",,"181000","2017-09-28 15:55:59","9027"
+"A3KW13NHPR32JW","cs_wg_v7_real1","333U7HK6I9G8YPBTKUHIGOPBMRADJI",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","19887",,,"21000","2017-09-28 15:56:00","9028"
+"A16J4BMYULRUZ7","cs_wg_v7_real1","3JAOYWH7VI52QPMCBZOTA7JDZVZL9A",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","13700","Bookshelf",,"21000","2017-09-28 15:56:01","9029"
+"A4UIXESOEZI05","cs_wg_v7_real1","3QAVNHZ3EM5GV8WH352T62UX5DILAQ",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","31488","BOOKSHELF","S G E F B N L","181000","2017-09-28 15:56:02","9030"
+"A1H6AZSS5DQ0KD","cs_wg_v7_real1","3IXQG4FA2TZQDG00KMZZW4N8N1M9BC",,"Memory","2",,"2","10","1","12133","[""BOOKSHELF"","""","""","""","""","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:56:03","9031"
+"A24YK0MTFM2TRL","cs_wg_v7_real1","3OUYGIZWR7ZALGDX3VY7YDR4116P00",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","29246","HE","HELICOPTER","21000","2017-09-28 15:56:06","9032"
+"A1CC1ESUM2JWJ2
+","cs_wg_v7_real1","3JNQLM5FT4NRQ51DQQ9E0KBZTPQL2J",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","4","0","17457","bookshelf",,"181000","2017-09-28 15:56:07","9033"
+"A2WQKPQT9DHBJK","cs_wg_v7_real1","3BV8HQ2ZZW2YCNTAG1WRHJC0FISA66",,"Memory","2",,"2","10","1","15795","[""UMBRELLA"",""HELICOPTTER"",""TRAFFIC"",""BASKET"",""FOOTBALL"",""STOMACH"",""KEYBOARD"",""COMMUNITY"",""LADDER"",""STRUCTURE"",""BOOKSHELF"","""","""",""""]",,"181000","2017-09-28 15:56:07","9034"
+"A2H1QUGX0SOUMH","cs_wg_v7_real1","3WETL7AQWT929YUB237C25KUDDP53P",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","26656",,,"21000","2017-09-28 15:56:09","9035"
+"A1H2E85EW10IO3","cs_wg_v7_real1","3OWEPKL089DO06148F6O93WW90C7NN",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","38405","bookshelf",,"181000","2017-09-28 15:56:10","9036"
+"A33SBMZEFOYHJ3","cs_wg_v7_real1","3HMVI3QICJT41JQGQ1YQP93QAYGY17",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","15682",,,"21000","2017-09-28 15:56:10","9037"
+"A2SU01M6IZ0ZHH","cs_wg_v7_real1","3OJSZ2ATDSXKAHVY4FA2FMWAIFC57V",,"Memory","2",,"2","10","1","12337","[""community"",""bookshelf"",""umbrella"",""doorway"",""traffic"",""machine"",""keyboard"",""stomach"",""giggles"","""","""","""","""",""""]",,"181000","2017-09-28 15:56:12","9038"
+"AZV8213BMVMOT","cs_wg_v7_real1","30MVJZJNHMEWVZYC8ECGUS6LV6V9JX",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","49495","machine",,"21000","2017-09-28 15:56:12","9039"
+"A248RKU6T22V9N","cs_wg_v7_real1","3XXU1SWE8MW3YC7VECGA8I292F70AW",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","53990","BOOKSHELF","BOOKSHELF = 5
+DOORWAY = 0
+BASKET = 3
+UMBRELLA = 4
+KEYBOARD = 2
+COMMUNITY = 1
+STRUCTURE = 2
+FOOTBALL = 4
+MACHINE + 2
+HELICOPTER = 3
+LADDER = 2
+WEDDING = 3
+TRAFFIC = 2
+STOMACH = 1","181000","2017-09-28 15:56:12","9040"
+"A3Q5M94UVWYTLS
+A3Q5M94UVWYTLS
+","cs_wg_v7_real1","3IO1LGZLK9YKTZ0VJ3CDLS65PUS860",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","69612","bookshelf
+","bookshelf","181000","2017-09-28 15:56:13","9041"
+"A1DIL5CPN9GUU5","cs_wg_v7_real1","382M9COHEHGM4B0NSOWGT8G73J8EU7",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","54980","Umbrella","I don't know what to write here.","181000","2017-09-28 15:56:14","9042"
+"A1KN3TP3P2NJHC","cs_wg_v7_real1","32UTUBMZ7GXOAND3NN4VOMC5ET4VBD",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","11695","HELICOPTER",,"21000","2017-09-28 15:56:14","9043"
+"A1PMZUBGXFANCI","cs_wg_v7_real1","3DI28L7YXAF6VE9PQ0MWI6BASMB1EV",,"Memory","2",,"2","10","1","10029","[""doorway"",""Structure"",""basket"","""","""","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:56:17","9044"
+"A3KB9R1IGO61Q9","cs_wg_v7_real1","3FTF2T8WLRJI1JYBFDVVJI0TX239WR",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","27049",,,"21000","2017-09-28 15:56:17","9045"
+"A3445FTO62DGIX","cs_wg_v7_real1","3BC8WZX3V3XJXNDBA0LBN4S6B9URRT",,"Memory","2",,"2","10","1","12211","[""helicopter"",""community"",""umbrella"",""football"",""structure"",""bookshelf"","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:56:21","9046"
+"A3N8113KOPLDDM","cs_wg_v7_real1","3URFVVM165JKF6RJOBATEIHPRPHZUY",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","20336","HELICOPTER",,"21000","2017-09-28 15:56:22","9047"
+"A26QUOLUXNKP3U","cs_wg_v7_real1","317HQ483I7TLPQI0R6AL0SM5NGMINS",,"Memory","2",,"2","10","1","11924","[""basket"",""umbrella"",""machine"",""bookshelf"",""community"",""wedding"",""doorway"",""ladder"",""structure"",""keyboard"","""","""","""",""""]",,"181000","2017-09-28 15:56:22","9048"
+"A2OSXVGQUR6IL6","cs_wg_v7_real1","32SVAV9L3FAZF46SXZYTAG0G5RRA31",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","15093","BOOKSHELF",,"21000","2017-09-28 15:56:24","9049"
+"A3GVGX77WM8V0R","cs_wg_v7_real1","3HMIGG0U4L7MCJA1PM754JQYO4MY8R",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","54685","TRAFFIC",,"181000","2017-09-28 15:56:27","9050"
+"A1A3B77BG6NV8Y","cs_wg_v7_real1","3ZPPDN2SLVXOKJCKUD1PXCTTQYY9EB",,"Memory","2",,"2","10","1","15054","[""Traffic"",""Stomach"",""Structure"",""Helicopter"",""Ladder"","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:56:30","9052"
+"A33KVM8Y5MFHQO","cs_wg_v7_real1","39JEC7537U27KS591N0QZ6INWE5CV2",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","17378","community","community
+machine","21000","2017-09-28 15:56:30","9051"
+"A3GXC3VG37CQ3G","cs_wg_v7_real1","3VBEN272MK049C4A9ER4EAJVV23GSB",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","33856","BOOKSHELF",,"181000","2017-09-28 15:56:31","9053"
+"A27KZJJR9201NN","cs_wg_v7_real1","3UOUJI6MTDFVABR4NTM8HX1EJPKXU0",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","16767","Helicopter","Helicopter","21000","2017-09-28 15:56:32","9054"
+"A4NBA4U28RA5V","cs_wg_v7_real1","3IX2EGZR7BK2ZZUY2VC2LD6F1S0RJ1",,"Memory","2",,"2","10","1","18315","[""TRAFFIC"",""COMMUNITY"",""UMBRELLA"",""FOOTBALL"",""STRUCTURE"",""BOOKSHELF"",""LADDER"",""BASKET"",""WEDDING"",""KEYBOARD"",""MACHINE"",""BUILDING"",""DOORWAY"",""""]",,"181000","2017-09-28 15:56:33","9055"
+"A3OXRDSUN9F10I","cs_wg_v7_real1","3M0BCWMB8VX1PCD8DX9RAOVJL26BW3",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","30080","BOOKSHELF","0
+1
+","181000","2017-09-28 15:56:36","9056"
+"A29AX5O8KL48F8","cs_wg_v7_real1","34YB12FSQYP1BHR5PHVI21KP3DKMG4",,"Memory","2",,"2","10","1","9876","[""MACHINE"",""STRUCTURE"",""KEYBOARD"",""WEDDING"",""STOMACH"",""BOOKSHELF"",""TRAFFIC"",""BASKET"",""DOORWAY"",""HELICOPTER"",""LADDER"","""","""",""""]",,"181000","2017-09-28 15:56:37","9057"
+"A9SC84RKQKS9K","cs_wg_v7_real1","3MRNMEIQW57ETFZTNFTVW323QGELDR",,"Memory","2",,"2","10","1","10350","[""BOOKSHELF"",""BASKET"",""HELICOPTER"",""FOOTBALL"",""MACHINE"",""COMMUNITY"",""STRUCTURE"","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:56:39","9058"
+"A26L7403RHRQP8","cs_wg_v7_real1","3BV8HQ2ZZW2YCNTAG1WRHJC0FIU6A4",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","24829","BOOKSHELF","UMBRELLA: 111
+WEDDING: 111
+FOOTBALL: 1111
+STRUCTURE: 11
+HELICOPTER: 111
+COMMUNITY: 1
+BASKET: 111
+MACHINE: 1
+BOOKSHELF: 11111
+KEYBOARD: 11","181000","2017-09-28 15:56:39","9059"
+"A1UMMEJR2M75NJ","cs_wg_v7_real1","3Z7ISHFUH0WMH9K6L89OIQZ0UYQ8ZS",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","32395","helicopter",,"21000","2017-09-28 15:56:40","9060"
+"A35T0SNF90U1W5","cs_wg_v7_real1","37Z929RLG998EHQGTEQBDTYKLWATSW",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","68339","UMBRELLA",,"181000","2017-09-28 15:56:40","9061"
+"A2ZEU31OG72EQC","cs_wg_v7_real1","3CN4LGXD5XPLTINZDJHSN7ATMIQ4YQ",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","19901","Helicopter",,"21000","2017-09-28 15:56:40","9062"
+"A1LOT8IFHPA77E","cs_wg_v7_real1","36NEMU28XFEX83H54MZ0O46DX1BMW4",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","34117",,"B","21000","2017-09-28 15:56:42","9063"
+"A2QSVBUPZQ9USZ","cs_wg_v7_real1","3DI28L7YXAF6VE9PQ0MWI6BASMAE17",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","294092","Helicopter","helicopter
+
+machine","181000","2017-09-28 15:56:43","9064"
+"A1CPNA5L0J834N
+A1CPNA5L0J834N
+","cs_wg_v7_real1","3WMOAN2SRBYQBW20QD94FHCZVIINVU",,"Memory","2",,"2","10","1","10357","[""FOOTBALL"",""KICK"",""BASKET"",""TICKET"","""","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:56:44","9065"
+"A24LP60QLUKQWX","cs_wg_v7_real1","3PJUZCGDJ6H7BI2THAFP52X7FV189C",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","51413","football","football - 4
+umbrella - 4
+bookshelf - 4
+","181000","2017-09-28 15:56:46","9066"
+"A375OH1S7FO7L8","cs_wg_v7_real1","3TR2532VIPV9DGWEA794AIFJ55MJ6V",,"Memory","2",,"2","10","1","9652","[""football"",""basket"",""community"",""wedding"",""structure"","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:56:51","9067"
+"A1DY3TBDY4VZG5","cs_wg_v7_real1","31T4R4OBOSH5924DJPXATS2KAWYC7A",,"Memory","2",,"2","10","1","15841","[""HELICOPTER"",""BOOKSHELF"",""BASKET"",""COMMUNITY"",""FOOTBALL"",""MACHINE"",""LADDER"","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:56:51","9068"
+"AS7Z8HZLMM3QX","cs_wg_v7_real1","32VNZTT0A75CWHBDZOPYFBHWJVA4RN",,"Memory","2",,"2","10","1","28500","[""COMMUNITY"",""HELICOPTER"",""UMBRELLA"",""DOORWAY"",""WEDDING"",""KEYBOARD"",""MACHINE"",""FOOTBALL"",""BOOKSHELF"",""BASKET"","""","""","""",""""]",,"181000","2017-09-28 15:56:54","9069"
+"A1CC1ESUM2JWJ2
+","cs_wg_v7_real1","3JNQLM5FT4NRQ51DQQ9E0KBZTPQL2J",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","14817","doorway",,"21000","2017-09-28 15:56:55","9070"
+"A3R0V7F5LPVVAH","cs_wg_v7_real1","3U4J9857OECMZXC75P1FI8W2SBY7BY",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","19739","STRUCTURE",,"21000","2017-09-28 15:57:02","9071"
+"A1HKS903W2E1DG","cs_wg_v7_real1","392CY0QWG1SZ3I8U91VP1JG5WZS4IK",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","3","0","146410","igooo",,"21000","2017-09-28 15:57:03","9072"
+"A1H2E85EW10IO3","cs_wg_v7_real1","3OWEPKL089DO06148F6O93WW90C7NN",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","16513","doorway",,"21000","2017-09-28 15:57:04","9073"
+"A30CZPRE5Q036A
+","cs_wg_v7_real1","3QY5DC2MXRLEAP0JNZGMBQ17FKOFUR",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","4","0","3249","Bookshelf",,"181000","2017-09-28 15:57:04","9074"
+"A1IP7MXZ9M7KOF
+","cs_wg_v7_real1","3NL0RFNU0FOQ9DYI94G1EZVIO3G4KU",,"Memory","2",,"2","10","1","15518","[""Stomach"",""Basket"",""Football"",""Umbrella"",""Doorway"",""Ladder"",""Community"","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:57:07","9075"
+"A38R7SIVV118KT","cs_wg_v7_real1","3F1567XTNW6DHM2P34WPRTI791MQ94",,"Memory","2",,"2","10","1","19100","[""hellicopter"",""doorway"",""wedding"",""machine"",""traffic"",""basket"",""structure"",""community"",""football"","""","""","""","""",""""]",,"181000","2017-09-28 15:57:10","9076"
+"ARB80JPV0HQ5O","cs_wg_v7_real1","337RC3OW0530NWZFE0TP2P8AQNJLVR",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","37255","UMBRELLA",,"181000","2017-09-28 15:57:11","9077"
+"A31Q4HFUPE2DXG","cs_wg_v7_real1","3FUI0JHJPXZZVJ77OKJJN8MAZHY33X",,"Memory","2",,"2","10","1","8963","[""Structure"",""Football"",""Wedding"",""Basket"",""Helicopter"","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:57:12","9078"
+"A4UIXESOEZI05","cs_wg_v7_real1","3QAVNHZ3EM5GV8WH352T62UX5DILAQ",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","35036","DOORWAY",,"21000","2017-09-28 15:57:12","9079"
+"A2TUS3SMO9D6JU","cs_wg_v7_real1","3VD82FOHKQPCU8WC0BEC4EOF0L7OCB",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","51643","umbrella",,"181000","2017-09-28 15:57:14","9080"
+"A248RKU6T22V9N","cs_wg_v7_real1","3XXU1SWE8MW3YC7VECGA8I292F70AW",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","22072","BOOKSHELF",,"21000","2017-09-28 15:57:14","9081"
+"AKN67C89B5QW5","cs_wg_v7_real1","3570Y55XZPK15YGJ8KJTWW7WCNZGYP",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","78338","Umbrella",,"181000","2017-09-28 15:57:15","9082"
+"A3MTAJHYHCIJK4","cs_wg_v7_real1","3H0W84IWBK3UOJ86OU1BOXTNWK5ER4",,"Memory","2",,"2","10","1","16629","[""BOOKSHELF"",""STRUCTURE"",""UMBRELLA"","""","""","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:57:17","9083"
+"A3GVGX77WM8V0R","cs_wg_v7_real1","3HMIGG0U4L7MCJA1PM754JQYO4MY8R",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","10776","TRAFFIC",,"21000","2017-09-28 15:57:17","9084"
+"A23437BMZ5T1FH","cs_wg_v7_real1","3CTOC39K37RSHGAJTHEWGWFF0G6J7U",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","33136","Bookkshelf",,"181000","2017-09-28 15:57:18","9085"
+"A1PE5AT62CBGS4","cs_wg_v7_real1","3I3WADAZ9Q5RVNNXL1R4Q8I584M5OL",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","27700",,,"21000","2017-09-28 15:57:21","9086"
+"A3KSSE0HD0QNUJ","cs_wg_v7_real1","3ZDAD0O1T1EGAYCFNOWYC1FC0BDXT9",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","74384","BOOKSHELF",,"181000","2017-09-28 15:57:21","9087"
+"A2VDGWD0BBMSP2","cs_wg_v7_real1","3PXX5PX6LXZ4IZA5CSDZSZYSTJ3ABR",,"Memory","2",,"2","10","1","27407","[""FOOTBALL"",""UMBRELLA"",""BOOKSHELF"",""LADDER"",""STOMACH"",""HELICOPTER"",""TRAFFIC"",""COMMUNITY"",""DOORWAY"",""BASKET"",""KEYBOARD"","""","""",""""]",,"181000","2017-09-28 15:57:24","9088"
+"A3GXC3VG37CQ3G","cs_wg_v7_real1","3VBEN272MK049C4A9ER4EAJVV23GSB",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","18903","HELICOPTER",,"21000","2017-09-28 15:57:26","9089"
+"AXX2ST33NI5YW","cs_wg_v7_real1","3MAOD8E57QBIFL7VQSAM329KBTQXN7",,"Memory","2",,"2","10","1","13230","[""stomach"",""structure"",""helicopter"",""basket"",""traffic"",""doorway"",""football"",""wedding"",""machine"","""","""","""","""",""""]",,"181000","2017-09-28 15:57:27","9090"
+"A2QSVBUPZQ9USZ","cs_wg_v7_real1","3DI28L7YXAF6VE9PQ0MWI6BASMAE17",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","3","0","11521","Basket",,"21000","2017-09-28 15:57:27","9091"
+"A3Q5M94UVWYTLS
+A3Q5M94UVWYTLS
+","cs_wg_v7_real1","3IO1LGZLK9YKTZ0VJ3CDLS65PUS860",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","35912","football",,"21000","2017-09-28 15:57:28","9092"
+"A26L7403RHRQP8","cs_wg_v7_real1","3BV8HQ2ZZW2YCNTAG1WRHJC0FIU6A4",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","15118","Machine",,"21000","2017-09-28 15:57:30","9093"
+"A3OXRDSUN9F10I","cs_wg_v7_real1","3M0BCWMB8VX1PCD8DX9RAOVJL26BW3",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","18104",,"WEDDING","21000","2017-09-28 15:57:31","9094"
+"AZIDXMX2VZOTZ","cs_wg_v7_real1","3180JW2OT4DDUCW05OZZIC1J9ACJ5G",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","35510","Umbrella",,"181000","2017-09-28 15:57:32","9095"
+"A5BMKZRGHNSRT","cs_wg_v7_real1","3P529IW9KYMBRZDPELOLK35O2TULF2",,"Memory","2",,"2","10","1","85802","[""Wedding"",""Structure"",""Traffic"",""Umbrella"","""","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:57:36","9096"
+"A1YGENVE7OI5JL","cs_wg_v7_real1","3GA6AFUKOOPEPRE6358LR2NKIMGH3I",,"Memory","2",,"2","10","1","20970","[""football"",""community"",""keyboard"","""","""","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:57:40","9097"
+"AP7BD9G7DSUI3","cs_wg_v7_real1","3DPNQGW4LLGJAYDT70M04GQ0N8X64S",,"Memory","2",,"2","10","1","9998","[""Wedding"",""Helicopter"",""Doorway"",""Machine"",""Structure"",""Basket"",""Football"",""Bookshelf"","""","""","""","""","""",""""]",,"181000","2017-09-28 15:57:52","9098"
+"acdc6staalwve","cs_wg_v7_real1","3LO69W1SU3EH5Z9KP5U32O5038UGLW",,"Memory","2",,"2","10","1","14750","[""Keyboard"",""helicopter"",""ladder"",""basket"",""football"",""stomach"",""machine"",""doorway"",""bookshelf"","""","""","""","""",""""]",,"181000","2017-09-28 15:57:53","9099"
+"A2NT3OQZUUZPEO","cs_wg_v7_real1","3WLEIWSYHOIP49INZ5UG8SISC8GH27",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","92589","football",,"181000","2017-09-28 15:57:55","9100"
+"ARB80JPV0HQ5O","cs_wg_v7_real1","337RC3OW0530NWZFE0TP2P8AQNJLVR",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","11872","BASKET",,"21000","2017-09-28 15:57:57","9101"
+"A1DIL5CPN9GUU5","cs_wg_v7_real1","382M9COHEHGM4B0NSOWGT8G73J8EU7",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","35391",,"I can't remember ","21000","2017-09-28 15:57:58","9102"
+"A28A7NZUJWGZ7Q","cs_wg_v7_real1","3WAKVUDHUWH1VWLD5GIANYOQHW4U71",,"Memory","2",,"2","10","1","16592","[""community"",""bookshelf"",""stomach"",""ladder"",""machine"",""helicopter"",""doorway"",""basket"",""keyboard"",""football"",""wedding"",""traffic"",""umbrella"",""structure""]",,"181000","2017-09-28 15:57:59","9103"
+"A26ZENZ5G8AEGM","cs_wg_v7_real1","3WQQ9FUS6AVQZBHQFUTLW8SX3V4B8P",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","31273","BOOKSHELF",,"181000","2017-09-28 15:58:05","9104"
+"A2TUS3SMO9D6JU","cs_wg_v7_real1","3VD82FOHKQPCU8WC0BEC4EOF0L7OCB",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","14279","helicopter",,"21000","2017-09-28 15:58:06","9105"
+"AKN67C89B5QW5","cs_wg_v7_real1","3570Y55XZPK15YGJ8KJTWW7WCNZGYP",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","15387","bookshelf",,"21000","2017-09-28 15:58:07","9106"
+"AKHJ9W43ZDHCL","cs_wg_v7_real1","3JV9LGBJWTFPBKCH2XAVU59UYD0GOE",,"Memory","2",,"2","10","1","10178","[""football"",""doorway"",""helicopter"",""structure"",""traffic"",""wedding"",""basket"",""umbrella"",""keyboard"",""automatic"","""","""","""",""""]",,"181000","2017-09-28 15:58:10","9107"
+"A24W1M0GILRCJ3","cs_wg_v7_real1","3K772S5NP8CHZPU3SPPHATRH9B6HE9",,"Memory","2",,"2","10","1","13215","[""keyboard"",""ladder"",""wedding"",""structure"",""machine"",""community"",""football"",""helicopter"",""bookshelf"",""umbrella"","""","""","""",""""]",,"181000","2017-09-28 15:58:11","9108"
+"A66EDJGYY7JV8","cs_wg_v7_real1","3WR9XG3T63C2EYRYQARSAUQWIJH47P",,"Memory","2",,"2","10","1","17573","[""Football"",""Stomach"",""Basket"",""Doorway"",""Ladder"",""Structure"",""Bookshelf"",""Traffic"","""","""","""","""","""",""""]",,"181000","2017-09-28 15:58:13","9109"
+"A35T0SNF90U1W5","cs_wg_v7_real1","37Z929RLG998EHQGTEQBDTYKLWATSW",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","45750","MACHINE",,"21000","2017-09-28 15:58:15","9110"
+"AL12RG9EJZ60","cs_wg_v7_real1","3RXPCZQMQPC4FS5GWVCKI9WM52Q1GC",,"Memory","2",,"2","7","0","30114","[""football"",""helicopter"",""traffic"",""doorway"",""bookcase"",""machine"",""umbrella"","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:58:17","9111"
+"A15LHHN76OW2UM","cs_wg_v7_real1","386PBUZZXFYRW1ZLXBF6Z1XGV0BJL3",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","46569","umbrella",,"181000","2017-09-28 15:58:20","9112"
+"A10WU6W59U285S","cs_wg_v7_real1","36NEMU28XFEX83H54MZ0O46DX1AWMD",,"Memory","2",,"2","10","1","11367","[""stomach"",""basket"",""structure"",""machine"",""umbrella"",""doorway"",""helicopter"",""football"",""community"",""bookshelf"",""ladder"","""","""",""""]",,"181000","2017-09-28 15:58:25","9113"
+"A168QBUOKNFWWK","cs_wg_v7_real1","386PBUZZXFYRW1ZLXBF6Z1XGV0CJL4",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","42321","umbrella",,"181000","2017-09-28 15:58:25","9114"
+"AA331KS49751Q","cs_wg_v7_real1","33LK57MYLT640TZFZ6FTZHZ16SWZSI",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","54399","helicopter",,"181000","2017-09-28 15:58:25","9115"
+"AXY7GS1JSPUP4","cs_wg_v7_real1","32N49TQG3GJJRD8BH94ZTBSZWBKVAJ",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","80969","BOOKSHELF","BASKET 3 BOOKSHELF 5 FOOTBALL 4 HELICOPTER 3 UMBRELLA 3","181000","2017-09-28 15:58:27","9116"
+"A23437BMZ5T1FH","cs_wg_v7_real1","3CTOC39K37RSHGAJTHEWGWFF0G6J7U",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","29822",,"Helicopter","21000","2017-09-28 15:58:27","9117"
+"A3KSSE0HD0QNUJ","cs_wg_v7_real1","3ZDAD0O1T1EGAYCFNOWYC1FC0BDXT9",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","22738",,"UMBRELLA
+TRAFFIC
+","21000","2017-09-28 15:58:29","9118"
+"A3O2JUIF4DZQJU","cs_wg_v7_real1","32UTUBMZ7GXOAND3NN4VOMC5ET4BVT",,"Memory","2",,"2","10","1","19913","[""BOOKSHELF"",""LADDER"",""KEYBOARD"",""COMMUNITY"",""FOOTBALL"",""DOORWAY"",""WEDDING"",""STOMACH"",""BASKET"",""STRUCTURE"","""","""","""",""""]",,"181000","2017-09-28 15:58:30","9119"
+"A2KW26KE43UBRS","cs_wg_v7_real1","36TFCYNS44BQ5PLKNUF9YICOPHGXHX",,"Memory","2",,"2","10","1","8816","[""community"",""keyboard"","""","""","""","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:58:31","9120"
+"A1QX6AXRT6T94R","cs_wg_v7_real1","3AAPLD8UCCIJO8C0IKEC9FRICLTHTZ",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","41158","UMBRELLA",,"181000","2017-09-28 15:58:33","9121"
+"ARYGQ46IMW8AU","cs_wg_v7_real1","30ZX6P7VF8WLVFDDN5X1K5Y7P0LJ2F",,"Memory","2",,"2","10","1","7837","[""Bookshelf"",""Umbrella"",""Helicopter"",""Ladder"",""Community"",""Doorway"",""Structure"","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:58:35","9122"
+"A24ZZW0J3MOVYV","cs_wg_v7_real1","3TXD01ZLD4I4C93U3IK3KM4GQUEU4H",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","163125","KICK","KICK","21000","2017-09-28 15:58:36","9123"
+"A1KRO0JWU6LT0I","cs_wg_v7_real1","3G2UL9A02DFGTLVC9YK77SAAEAN67C",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","71422","football",,"181000","2017-09-28 15:58:41","9124"
+"A1E6XBV7FDHI6M","cs_wg_v7_real1","36WLNQG78ZB78CRHSXFLOIOJEY2EBR",,"Memory","2",,"2","10","1","11125","[""keyboard"",""machine"",""structure"",""bookshelf"",""umbrella"",""community"",""football"",""wedding"",""stomach"","""","""","""","""",""""]",,"181000","2017-09-28 15:58:41","9125"
+"A36I8EWDC03SG8","cs_wg_v7_real1","3J4Q2Z4UTY4OTIFXWF6H5DQI727QWU",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","46967","2","TRAFFIC","181000","2017-09-28 15:58:41","9126"
+"AZIDXMX2VZOTZ","cs_wg_v7_real1","3180JW2OT4DDUCW05OZZIC1J9ACJ5G",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","33166",,"bookshelf","21000","2017-09-28 15:58:43","9127"
+"A1BAEFJ2OG7NJ0","cs_wg_v7_real1","39O5D9O87TTN8J3QHDUKGBQ45UCC35",,"Memory","2",,"2","10","1","11205","[""ladder"",""doorway"",""wedding"",""bookshelf"",""helicopter"",""basket"",""football"","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:58:49","9128"
+"A3AS4FEB057TRG","cs_wg_v7_real1","3ZR9AIQJUBAOWNRE5B6JVFG9A5A04K",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","72353","bookshelf","1
+3
+2
+3
+","181000","2017-09-28 15:58:51","9129"
+"A2L7M8FZ17YHQO","cs_wg_v7_real1","3B2X28YI3WG3VXY2MFWNCUW6X0EB63",,"Memory","2",,"2","10","1","14351","[""football"",""community"",""bookshelf"","""","""","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:58:52","9130"
+"AXEXQBM7B2QT9","cs_wg_v7_real1","32Z9ZLUT1LL3BG7SM3SDF5LVDDDHOE",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","65966","FOOTBALL",,"181000","2017-09-28 15:58:52","9131"
+"A1A6CRRCTPS1IS","cs_wg_v7_real1","3LOTDFNYA70R2TPOIZVNTEM400ZFWQ",,"Memory","2",,"2","10","1","13923","[""WEDDING "",""STOMACH "",""UMBRELLA "",""STRUCTURE "",""BOOKSHELF "",""BASKET "",""HELICOPTER "",""LADDER "",""TRAFFIC "",""KEYBOARD "","""","""","""",""""]",,"181000","2017-09-28 15:58:57","9132"
+"AJMX1Q5WG33D7","cs_wg_v7_real1","37TRT2X24QSFJSD96YQCLY1BJ6YJBH",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","52876","UMBRELLA",,"181000","2017-09-28 15:59:00","9133"
+"A2RHJT0OMA09YH","cs_wg_v7_real1","37ZHEEHM6WNHW28UQWM90PYQ4JK736",,"Memory","2",,"2","10","1","7042","[""FOOTBALL"",""STRUCTURE"",""STOMACH"",""BASKET"",""HELICOPTER"","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:59:03","9134"
+"A25VHX1PUAHR4T","cs_wg_v7_real1","39PAAFCODM1O697KN9VGOGIRK04TV1",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","57164","4","FOOTBALL 1,1,2","181000","2017-09-28 15:59:06","9135"
+"A1207N7QFOFPKB","cs_wg_v7_real1","3M81GAB8A0KW5FHM1OALIZDXX1QQBF",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","39087","umbrella","Umbrella","181000","2017-09-28 15:59:07","9136"
+"A3MRGTMHCJL67Q","cs_wg_v7_real1","3COPXFW7XBDCY6K17O8PHX6DFZCKP1",,"Memory","2",,"2","10","1","32351","[""COMMUNITY"",""FOOTBALL"",""BOOKSHELF"",""KEYBOARD"",""STRUCTURE"",""MACHINE"",""LADDER"",""DOORWAY"",""KICK"",""WEDDING"","""","""","""",""""]",,"181000","2017-09-28 15:59:09","9137"
+"A2W5128QDYM0D5","cs_wg_v7_real1","3F6KKYWMNB24HF2EZS9A9V6SVBENDV",,"Memory","2",,"2","10","1","13598","[""STOMACH"",""HELICOPTER"",""UMBRELLA"",""MACHINE"",""KEYBOARD"",""LADDER"",""WEDDING"",""BOOKCASE"",""DOORWAY"","""","""","""","""",""""]",,"181000","2017-09-28 15:59:11","9138"
+"A26ZENZ5G8AEGM","cs_wg_v7_real1","3WQQ9FUS6AVQZBHQFUTLW8SX3V4B8P",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","24332","FOOTBALL",,"21000","2017-09-28 15:59:11","9139"
+"A1YH304YEW06BV","cs_wg_v7_real1","369J354OFDBZME6D21O1D5N3DD5G6O",,"Memory","2",,"2","10","1","14326","[""Wedding"",""Structure"",""Stomach"",""Doorway"",""Basket"",""Football"",""Community"",""Machine"","""","""","""","""","""",""""]",,"181000","2017-09-28 15:59:13","9140"
+"A3Q5WW0WTELIJ2","cs_wg_v7_real1","3DEL4X4EL6MCRKB9XUJXKI7RFDVXYY",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","55928","Bookshelf","Bookshelf - 5
+","181000","2017-09-28 15:59:13","9141"
+"A30CZPRE5Q036A
+","cs_wg_v7_real1","3QY5DC2MXRLEAP0JNZGMBQ17FKOFUR",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","94108","Ladder",,"21000","2017-09-28 15:59:14","9142"
+"A15LHHN76OW2UM","cs_wg_v7_real1","386PBUZZXFYRW1ZLXBF6Z1XGV0BJL3",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","24834",,,"21000","2017-09-28 15:59:18","9143"
+"A1UCM4T7TZDUAO
+","cs_wg_v7_real1","30OG32W0SUC99LGEVNKUFDODVNGENG",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","47617","Bookshelf","Bookshelf","181000","2017-09-28 15:59:19","9144"
+"A16J4BMYULRUZ7","cs_wg_v7_real1","3JAOYWH7VI52QPMCBZOTA7JDZVZL9A",,"Memory","2",,"2","10","1","17287","[""Structure"",""Bookshelf"",""Umbrella"",""Wedding"",""Football"","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:59:21","9145"
+"A33SBMZEFOYHJ3","cs_wg_v7_real1","3HMVI3QICJT41JQGQ1YQP93QAYGY17",,"Memory","2",,"2","10","1","9076","[""community"",""bookshelf"",""umbrella"",""helicopter"",""wedding"","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:59:22","9146"
+"A24YK0MTFM2TRL","cs_wg_v7_real1","3OUYGIZWR7ZALGDX3VY7YDR4116P00",,"Memory","2",,"2","10","1","13379","[""HELICOPTER"",""FOOTBALL"",""STOMACH"",""STRUCTURE"",""LADDER"",""BASKET"",""DOORWAY"",""UMBRELLA"",""BOOKSHELF"",""COMMUNITY"","""","""","""",""""]",,"181000","2017-09-28 15:59:22","9147"
+"AZV8213BMVMOT","cs_wg_v7_real1","30MVJZJNHMEWVZYC8ECGUS6LV6V9JX",,"Memory","2",,"2","10","1","7673","[""wedding"",""ladder"",""machine"",""bookshelf"",""traffic"",""doorway"",""basket"","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:59:24","9148"
+"A1KN3TP3P2NJHC","cs_wg_v7_real1","32UTUBMZ7GXOAND3NN4VOMC5ET4VBD",,"Memory","2",,"2","10","1","8234","[""HELICOPTER"",""BASKET"",""LADDER"",""BOOKSHELF"",""UMBRELLA"",""COMPUTER"",""MACHINE"",""WEDDING"",""STRUCTURE"",""DOORWAY"",""STOMACH"","""","""",""""]",,"181000","2017-09-28 15:59:26","9149"
+"A1QX6AXRT6T94R","cs_wg_v7_real1","3AAPLD8UCCIJO8C0IKEC9FRICLTHTZ",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","18685","HELICOPTER",,"21000","2017-09-28 15:59:27","9150"
+"A1QP59PUWJJMJY","cs_wg_v7_real1","386CSBG1OZNQZ30R5XTD7JR5J0FQ6U",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","65552","Umbrella","structure = 2
+wedding = 2
+doorway = 0
+ladder = 2
+keyboard = ","181000","2017-09-28 15:59:27","9151"
+"A1KRO0JWU6LT0I","cs_wg_v7_real1","3G2UL9A02DFGTLVC9YK77SAAEAN67C",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","14950","helicopter",,"21000","2017-09-28 15:59:31","9152"
+"A168QBUOKNFWWK","cs_wg_v7_real1","386PBUZZXFYRW1ZLXBF6Z1XGV0CJL4",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","27508","keyboard",,"21000","2017-09-28 15:59:31","9153"
+"ABZD7CRM46SN","cs_wg_v7_real1","3XM0HYN6NK09C6SRB2XMJ2T8V2GEPB",,"Memory","2",,"2","10","1","38142","[""keyboard"",""helicopter"",""basket"",""community"",""football"",""machine"","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:59:34","9154"
+"AA331KS49751Q","cs_wg_v7_real1","33LK57MYLT640TZFZ6FTZHZ16SWZSI",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","31945","doorway",,"21000","2017-09-28 15:59:35","9155"
+"A3N8113KOPLDDM","cs_wg_v7_real1","3URFVVM165JKF6RJOBATEIHPRPHZUY",,"Memory","2",,"2","10","1","11046","[""HELICOPTER"",""BASKET"",""UMBRELLA"",""WEDDING"",""BOOKSHELF"",""DOORWAY"",""STOMACH"",""FOOTBALL"","""","""","""","""","""",""""]",,"181000","2017-09-28 15:59:36","9156"
+"A2OSXVGQUR6IL6","cs_wg_v7_real1","32SVAV9L3FAZF46SXZYTAG0G5RRA31",,"Memory","2",,"2","10","1","8834","[""FOOTBALL"",""UMBRELLA"",""KEYBOARD"",""BOOKSHELF"",""LADDER"",""STRUCTURE"",""WEDDING"",""BASKET"","""","""","""","""","""",""""]",,"181000","2017-09-28 15:59:36","9157"
+"A3KW13NHPR32JW","cs_wg_v7_real1","333U7HK6I9G8YPBTKUHIGOPBMRADJI",,"Memory","2",,"2","10","1","34711","[""bookshelf"",""wedding"",""helicopter"",""community"",""doorway"",""keyboard"",""machine"",""basket"",""traffic"",""stomach"",""umbrella"",""structure"",""ladder"",""football""]",,"181000","2017-09-28 15:59:38","9158"
+"A27KZJJR9201NN","cs_wg_v7_real1","3UOUJI6MTDFVABR4NTM8HX1EJPKXU0",,"Memory","2",,"2","10","1","5504","[""Basket"",""Helicopter"",""Stomach"",""Bookshelf"",""Community"",""Wedding"",""Ladder"",""Umbrella"",""Machine"",""Structure"","""","""","""",""""]",,"181000","2017-09-28 15:59:40","9159"
+"A2H1QUGX0SOUMH","cs_wg_v7_real1","3WETL7AQWT929YUB237C25KUDDP53P",,"Memory","2",,"2","10","1","30797","[""Structure"",""Umbrella"",""Community"",""Wedding"",""Bookshelf"",""Machine"",""Stomach"",""Traffic"","""","""","""","""","""",""""]",,"181000","2017-09-28 15:59:43","9160"
+"A33KVM8Y5MFHQO","cs_wg_v7_real1","39JEC7537U27KS591N0QZ6INWE5CV2",,"Memory","2",,"2","10","1","13940","[""machine"",""bookshelf"",""stomach"",""doorway"",""helicopter"",""community"",""ladder"",""football"",""umbrella"",""basket"",""keyboard"","""","""",""""]",,"181000","2017-09-28 15:59:48","9161"
+"A239EUWY6SNDEZ","cs_wg_v7_real1","3WZ36BJEV3H9XV9EIS4GN4OKH8OBTD",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","42191","umbrella",,"181000","2017-09-28 15:59:48","9162"
+"A1UMMEJR2M75NJ","cs_wg_v7_real1","3Z7ISHFUH0WMH9K6L89OIQZ0UYQ8ZS",,"Memory","2",,"2","10","1","12425","[""helicopter"",""bookshelf"",""stomach"",""community"",""umbrella"",""football"",""traffic"",""basket"","""","""","""","""","""",""""]",,"181000","2017-09-28 15:59:55","9163"
+"A1LOT8IFHPA77E","cs_wg_v7_real1","36NEMU28XFEX83H54MZ0O46DX1BMW4",,"Memory","2",,"2","7","0","12478","[""DOORWAY"",""KICK"",""BASKET"",""WEDDING"",""LADDER"","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 15:59:58","9164"
+"A2ZEU31OG72EQC","cs_wg_v7_real1","3CN4LGXD5XPLTINZDJHSN7ATMIQ4YQ",,"Memory","2",,"2","10","1","15875","[""Helicopter"",""Wedding"",""Bookcase"",""Umbrella"",""Stomach"",""Traffic"",""Doorway"",""Machine"",""Community"",""Structure"",""Football"","""","""",""""]",,"181000","2017-09-28 15:59:59","9165"
+"AXY7GS1JSPUP4","cs_wg_v7_real1","32N49TQG3GJJRD8BH94ZTBSZWBKVAJ",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","23218","HELICOPTER",,"21000","2017-09-28 16:00:01","9166"
+"A3AS4FEB057TRG","cs_wg_v7_real1","3ZR9AIQJUBAOWNRE5B6JVFG9A5A04K",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","18366","structure",,"21000","2017-09-28 16:00:01","9167"
+"A1207N7QFOFPKB","cs_wg_v7_real1","3M81GAB8A0KW5FHM1OALIZDXX1QQBF",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","18161","Helicopter",,"21000","2017-09-28 16:00:02","9168"
+"AJMX1Q5WG33D7","cs_wg_v7_real1","37TRT2X24QSFJSD96YQCLY1BJ6YJBH",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","26342","FOOTBALL",,"21000","2017-09-28 16:00:06","9169"
+"A36I8EWDC03SG8","cs_wg_v7_real1","3J4Q2Z4UTY4OTIFXWF6H5DQI727QWU",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","35368","3","Doorway","21000","2017-09-28 16:00:07","9170"
+"AUYSORYS35GFY","cs_wg_v7_real1","3I02618YA07Q12PD12CRNKFBHQBPU4",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","64138","BOOKSHELF",,"181000","2017-09-28 16:00:09","9171"
+"A1CC1ESUM2JWJ2
+","cs_wg_v7_real1","3JNQLM5FT4NRQ51DQQ9E0KBZTPQL2J",,"Memory","2",,"2","10","1","11764","[""LADDER"",""DOORWAY"",""WEDDING"",""BOOKSHELF"",""FOOTBALL"",""TRAFFIC"","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:00:10","9172"
+"A3JC9RP37J5TUJ
+A3JC9RP37J5TUJ
+A3JC9RP37J5TUJ
+A3JC9RP37J5TUJ","cs_wg_v7_real1","337RC3OW0530NWZFE0TP2P8AQNJVL1",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","48151","UMBRELLA","STOMACH","181000","2017-09-28 16:00:15","9173"
+"AXEXQBM7B2QT9","cs_wg_v7_real1","32Z9ZLUT1LL3BG7SM3SDF5LVDDDHOE",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","43664","MACHINE",,"21000","2017-09-28 16:00:15","9174"
+"A1H2E85EW10IO3","cs_wg_v7_real1","3OWEPKL089DO06148F6O93WW90C7NN",,"Memory","2",,"2","10","1","9268","[""doorway"",""traffic"",""stomach"",""ladder"",""bookshelf"",""helicopter"","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:00:16","9175"
+"A3R0V7F5LPVVAH","cs_wg_v7_real1","3U4J9857OECMZXC75P1FI8W2SBY7BY",,"Memory","2",,"2","10","1","12266","[""STRUCTURE"",""TRAFFIC"",""BASKET"",""UMBRELLA"",""FOOTBALL"",""DOORWAY"",""HELICOPTER"","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:00:17","9176"
+"A3Q5WW0WTELIJ2","cs_wg_v7_real1","3DEL4X4EL6MCRKB9XUJXKI7RFDVXYY",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","22932",,"C","21000","2017-09-28 16:00:19","9177"
+"AK7FDS2KRJZLA","cs_wg_v7_real1","3TXD01ZLD4I4C93U3IK3KM4GQUE4UR",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","109178","wedding","marriage","181000","2017-09-28 16:00:21","9178"
+"AHZ5YRRIRTLJG","cs_wg_v7_real1","3D4CH1LGEAUM4X8B08RDXFE53EE9GT",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","68576",,"2,2,1,1,3,4,0,0,1,3,3,2,","181000","2017-09-28 16:00:24","9179"
+"A4UIXESOEZI05","cs_wg_v7_real1","3QAVNHZ3EM5GV8WH352T62UX5DILAQ",,"Memory","2",,"2","10","1","9341","[""BASKET"",""HELICOPTER"",""WEDDING"",""DOORWAY"",""STRUCTURE"",""STOMACH"",""LADDER"",""KEYBOARD"",""BOOKSHELF"",""MACHINE"",""UMBRELLA"",""TRAFFIC"",""FOOTBALL"",""""]",,"181000","2017-09-28 16:00:25","9180"
+"A2DVIIJDVRHIPQ","cs_wg_v7_real1","3K4J6M3CXEU09GIGSE5DTAPP9WWAG9",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","68010","umbrella",,"181000","2017-09-28 16:00:27","9181"
+"A3GVGX77WM8V0R","cs_wg_v7_real1","3HMIGG0U4L7MCJA1PM754JQYO4MY8R",,"Memory","2",,"2","10","1","8926","[""TRAFFIC"","""","""","""","""","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:00:29","9182"
+"A248RKU6T22V9N","cs_wg_v7_real1","3XXU1SWE8MW3YC7VECGA8I292F70AW",,"Memory","2",,"2","10","1","12742","[""BOOKSHELF"",""LADDER"",""DOORWAY"",""MACHINE"",""WEDDING"",""COMMUNITY"",""STRUCTURE"",""KEYBOARD"",""BASKET"","""","""","""","""",""""]",,"181000","2017-09-28 16:00:30","9183"
+"A3GXC3VG37CQ3G","cs_wg_v7_real1","3VBEN272MK049C4A9ER4EAJVV23GSB",,"Memory","2",,"2","10","1","7199","[""STRUCTURE"",""BOOKSHELF"",""HELICOPTER"",""BASKET"",""LADDER"",""WEDDING"",""FOOTBALL"",""COMMUNITY"",""TRAFFIC"",""UMBRELLA"",""STOMACH"","""","""",""""]",,"181000","2017-09-28 16:00:37","9184"
+"A1PE5AT62CBGS4","cs_wg_v7_real1","3I3WADAZ9Q5RVNNXL1R4Q8I584M5OL",,"Memory","2",,"2","10","1","13777","[""basket"",""structure"",""football"",""community"",""keyboard"",""helicopter\n"",""umbrella"",""doorway"","""","""","""","""","""",""""]",,"181000","2017-09-28 16:00:38","9185"
+"A3OXRDSUN9F10I","cs_wg_v7_real1","3M0BCWMB8VX1PCD8DX9RAOVJL26BW3",,"Memory","2",,"2","10","1","9069","[""WEDDING"",""BASKET"",""MACHINE"",""BOOKSHELF"",""FOOTBALL"",""HELICOPTER"","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:00:43","9186"
+"A2NT3OQZUUZPEO","cs_wg_v7_real1","3WLEIWSYHOIP49INZ5UG8SISC8GH27",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","43020","bookshelf",,"21000","2017-09-28 16:00:44","9187"
+"A26L7403RHRQP8","cs_wg_v7_real1","3BV8HQ2ZZW2YCNTAG1WRHJC0FIU6A4",,"Memory","2",,"2","10","1","11874","[""WEDDING"",""MACHINE"",""BASKET"",""FOOTBALL"",""KEYBOARD"",""COMMUNITY"",""STRUCTURE"",""UMBRELLA"",""DOORWAY"","""","""","""","""",""""]",,"181000","2017-09-28 16:00:44","9188"
+"A1UCM4T7TZDUAO
+","cs_wg_v7_real1","30OG32W0SUC99LGEVNKUFDODVNGENG",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","39301","helicopter",,"21000","2017-09-28 16:00:47","9189"
+"A239EUWY6SNDEZ","cs_wg_v7_real1","3WZ36BJEV3H9XV9EIS4GN4OKH8OBTD",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","23120","helicopter",,"21000","2017-09-28 16:00:49","9190"
+"A3Q5M94UVWYTLS
+A3Q5M94UVWYTLS
+","cs_wg_v7_real1","3IO1LGZLK9YKTZ0VJ3CDLS65PUS860",,"Memory","2",,"2","10","1","25305","[""football"",""traffic"",""bookshelf"",""ladder"",""doorway"",""keyboard"",""community "","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:00:56","9191"
+"A1LIMVH3P4KMJC","cs_wg_v7_real1","3C2NJ6JBKAIHE54Y23PTDCFOYKP2N1",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","2998"," BOOKSHELF
+",,"181000","2017-09-28 16:01:00","9192"
+"A1HKS903W2E1DG","cs_wg_v7_real1","392CY0QWG1SZ3I8U91VP1JG5WZS4IK",,"Memory","2",,"2","7","0","53199","[""bookshelf"",""machine"",""man"",""traffic"",""cars"",""books"","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:01:01","9193"
+"A1QP59PUWJJMJY","cs_wg_v7_real1","386CSBG1OZNQZ30R5XTD7JR5J0FQ6U",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","48457",,,"21000","2017-09-28 16:01:01","9194"
+"ARB80JPV0HQ5O","cs_wg_v7_real1","337RC3OW0530NWZFE0TP2P8AQNJLVR",,"Memory","2",,"2","10","1","9882","[""basket"",""umbrella"",""football"","""","""","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:01:10","9195"
+"A2TV7LRPXDTRWO","cs_wg_v7_real1","3OVR4I9USPKCKGWDM90YAL7RN99Q49",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","36661","Bookshelf","10111
+0000
+01101
+0010
+00101
+0010
+0001
+1000
+0000
+0010
+0020
+1010
+0002
+0010
+","181000","2017-09-28 16:01:11","9196"
+"A1DIL5CPN9GUU5","cs_wg_v7_real1","382M9COHEHGM4B0NSOWGT8G73J8EU7",,"Memory","2",,"2","10","1","18684","[""Helicopter"",""Bookshelf"",""Community"",""Traffic"",""Structure"","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:01:20","9197"
+"A17TJCEP04BEZ4","cs_wg_v7_real1","3A1PQ49WVHIIFO0RG1U2398NK22H1Q",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","98456","Structure",,"181000","2017-09-28 16:01:20","9198"
+"A3JC9RP37J5TUJ
+A3JC9RP37J5TUJ
+A3JC9RP37J5TUJ
+A3JC9RP37J5TUJ","cs_wg_v7_real1","337RC3OW0530NWZFE0TP2P8AQNJVL1",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","23225","HELICOPTER",,"21000","2017-09-28 16:01:21","9199"
+"AUYSORYS35GFY","cs_wg_v7_real1","3I02618YA07Q12PD12CRNKFBHQBPU4",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","32800","STOMACH",,"21000","2017-09-28 16:01:22","9200"
+"AKN67C89B5QW5","cs_wg_v7_real1","3570Y55XZPK15YGJ8KJTWW7WCNZGYP",,"Memory","2",,"2","10","1","14732","[""bookshelf"",""stomach"",""basket"",""umbrella"",""machine"",""helicopter"",""football"",""ladder"","""","""","""","""","""",""""]",,"181000","2017-09-28 16:01:24","9201"
+"A2TUS3SMO9D6JU","cs_wg_v7_real1","3VD82FOHKQPCU8WC0BEC4EOF0L7OCB",,"Memory","2",,"2","10","1","20639","[""community"",""football"",""umbrella"",""structure"",""stomach"",""doorway"",""wedding"",""machine"",""keyboard"",""basket"",""bookshelf"",""helicopter"",""traffic"",""ladder""]",,"181000","2017-09-28 16:01:30","9202"
+"A2DVIIJDVRHIPQ","cs_wg_v7_real1","3K4J6M3CXEU09GIGSE5DTAPP9WWAG9",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","28421","helicopter",,"21000","2017-09-28 16:01:33","9203"
+"A18RE2B07K9M88","cs_wg_v7_real1","3VSOLARPKBALALWN5TKTELPWZ9939F",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","132814",,,"181000","2017-09-28 16:01:39","9204"
+"A23437BMZ5T1FH","cs_wg_v7_real1","3CTOC39K37RSHGAJTHEWGWFF0G6J7U",,"Memory","2",,"2","10","1","9398","[""Helicopter"",""Umbrella"",""Basket"",""Ladder"",""Bookshelf"",""Community"",""Traffic"",""Machine"",""Football"",""Keyboard"",""Stomach"",""Doorway"",""Wedding"",""""]",,"181000","2017-09-28 16:01:39","9205"
+"A3KSSE0HD0QNUJ","cs_wg_v7_real1","3ZDAD0O1T1EGAYCFNOWYC1FC0BDXT9",,"Memory","2",,"2","10","1","7434","[""TRAFFIC"",""UMBRELLA"",""BOOKSHELF"",""COMMUNITY"",""MACHINE"",""BASKET"",""HELICOPTER"",""LADDER"",""WEDDING"",""FOOTBALL"",""STRUCTURE"",""DOORWAY"","""",""""]",,"181000","2017-09-28 16:01:39","9206"
+"A68FOYEC0MW25","cs_wg_v7_real1","3JW0YLFXRTHTDFBJ8O5NX284V3OWW4",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","69993","bookshelf
+",,"181000","2017-09-28 16:01:40","9207"
+"AHZ5YRRIRTLJG","cs_wg_v7_real1","3D4CH1LGEAUM4X8B08RDXFE53EE9GT",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","37103",,,"21000","2017-09-28 16:01:46","9208"
+"A35T0SNF90U1W5","cs_wg_v7_real1","37Z929RLG998EHQGTEQBDTYKLWATSW",,"Memory","2",,"2","10","1","31508","[""MACHINE"",""UMBRELLA"",""LADDER"",""BASKET"",""STOMACH"",""FOOTBALL"",""MARRIAGE"",""BOOKSHELF"",""DOORWAY"",""HELICOPTER"",""KEYBOARD"","""","""",""""]",,"181000","2017-09-28 16:01:51","9209"
+"A1I40IZ12GO0G2","cs_wg_v7_real1","3EFVCAY5L3AWHUF23M62UWBAB0DJ8I",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","40396",,"basket-3
+umbrell-4
+doorway-0
+keyboard-2
+wedding-2
+machine-1
+helicopter-3
+community-1
+football-4
+bookshelf-5
+stucture-2
+stomach-1
+traffic-2
+ladder","181000","2017-09-28 16:01:51","9210"
+"A25VHX1PUAHR4T","cs_wg_v7_real1","39PAAFCODM1O697KN9VGOGIRK04TV1",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","40850","6","helicopter","21000","2017-09-28 16:01:56","9211"
+"AZIDXMX2VZOTZ","cs_wg_v7_real1","3180JW2OT4DDUCW05OZZIC1J9ACJ5G",,"Memory","2",,"2","10","1","11739","[""umbrella"",""ladder"",""keyboard"",""machine"",""basket"",""football"",""architecture "",""community"",""wedding"","""","""","""","""",""""]",,"181000","2017-09-28 16:01:58","9212"
+"A2TV7LRPXDTRWO","cs_wg_v7_real1","3OVR4I9USPKCKGWDM90YAL7RN99Q49",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","17241",,"Community","21000","2017-09-28 16:02:03","9213"
+"A1LIMVH3P4KMJC","cs_wg_v7_real1","3C2NJ6JBKAIHE54Y23PTDCFOYKP2N1",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","33748","FOOTBALL",,"21000","2017-09-28 16:02:11","9214"
+"A26ZENZ5G8AEGM","cs_wg_v7_real1","3WQQ9FUS6AVQZBHQFUTLW8SX3V4B8P",,"Memory","2",,"2","10","1","10126","[""BOOKSHELF"",""FOOTBALL"",""COMMUNITY"",""LADDER"",""STRUCTURE"",""MACHINE"",""BASKET"",""TRAFFIC"","""","""","""","""","""",""""]",,"181000","2017-09-28 16:02:25","9215"
+"A30CZPRE5Q036A
+","cs_wg_v7_real1","3QY5DC2MXRLEAP0JNZGMBQ17FKOFUR",,"Memory","2",,"2","10","1","9741","[""Umbrella"",""Ladder"",""Traffic"",""Structure"",""Keyboard"",""Stomach"",""Bookshelf"",""Basket"","""","""","""","""","""",""""]",,"181000","2017-09-28 16:02:28","9216"
+"A1LRJ2MQD4AMES","cs_wg_v7_real1","3G0WWMR1UVLY6O6J4EFU9UDREQ3NQ0",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","695142","Stomach",,"21000","2017-09-28 16:02:29","9217"
+"A15LHHN76OW2UM","cs_wg_v7_real1","386PBUZZXFYRW1ZLXBF6Z1XGV0BJL3",,"Memory","2",,"2","10","1","9689","[""football"",""structure"",""wedding"",""doorway"","""","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:02:31","9218"
+"A24LP60QLUKQWX","cs_wg_v7_real1","3PJUZCGDJ6H7BI2THAFP52X7FV189C",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","58128","helicopter","helicopter
+ladder
+football
+bookshelf
+community
+stomach","21000","2017-09-28 16:02:36","9219"
+"AK7FDS2KRJZLA","cs_wg_v7_real1","3TXD01ZLD4I4C93U3IK3KM4GQUE4UR",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","27371","hickory","smoke","21000","2017-09-28 16:02:38","9220"
+"A1QX6AXRT6T94R","cs_wg_v7_real1","3AAPLD8UCCIJO8C0IKEC9FRICLTHTZ",,"Memory","2",,"2","10","1","9793","[""LADDER"",""STOMACH"",""HELICOPTER"",""UMBRELLA"",""BOOKSHELF"",""FOOTBALL"",""BASKET"",""STRUCTURE"",""WEDDING"","""","""","""","""",""""]",,"181000","2017-09-28 16:02:40","9221"
+"A1KRO0JWU6LT0I","cs_wg_v7_real1","3G2UL9A02DFGTLVC9YK77SAAEAN67C",,"Memory","2",,"2","10","1","6919","[""helicopter"",""umbrella"",""stomach"",""structure"",""football"",""doorway"",""community"",""basket"","""","""","""","""","""",""""]",,"181000","2017-09-28 16:02:41","9222"
+"A68FOYEC0MW25","cs_wg_v7_real1","3JW0YLFXRTHTDFBJ8O5NX284V3OWW4",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","3","0","20287","structure","structure","21000","2017-09-28 16:02:44","9223"
+"A168QBUOKNFWWK","cs_wg_v7_real1","386PBUZZXFYRW1ZLXBF6Z1XGV0CJL4",,"Memory","2",,"2","10","1","12795","[""umbrella"",""bookshelf"",""football"",""basket"",""community"",""ladder"",""stomach"",""wedding"",""keyboard"",""helicopter"",""doorway"","""","""",""""]",,"181000","2017-09-28 16:02:47","9224"
+"A1I40IZ12GO0G2","cs_wg_v7_real1","3EFVCAY5L3AWHUF23M62UWBAB0DJ8I",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","23149","stomach",,"21000","2017-09-28 16:02:50","9225"
+"A17TJCEP04BEZ4","cs_wg_v7_real1","3A1PQ49WVHIIFO0RG1U2398NK22H1Q",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","3","0","51943",,,"21000","2017-09-28 16:02:57","9226"
+"AA331KS49751Q","cs_wg_v7_real1","33LK57MYLT640TZFZ6FTZHZ16SWZSI",,"Memory","2",,"2","10","1","26356","[""doorway"",""machine"",""structure"",""football"",""keyboard"",""stomach"",""helicopter"",""basket"",""ladder"","""","""","""","""",""""]",,"181000","2017-09-28 16:03:05","9227"
+"A3AS4FEB057TRG","cs_wg_v7_real1","3ZR9AIQJUBAOWNRE5B6JVFG9A5A04K",,"Memory","2",,"2","10","1","8184","[""bookshelf"",""structure"",""ladder"",""machine"",""wedding"",""doorway"",""helicopter"",""traffic"","""","""","""","""","""",""""]",,"181000","2017-09-28 16:03:12","9228"
+"A1207N7QFOFPKB","cs_wg_v7_real1","3M81GAB8A0KW5FHM1OALIZDXX1QQBF",,"Memory","2",,"2","10","1","9270","[""doorway"",""football"",""traffic"",""basket"",""machine"",""umbrella"",""keyboard"",""ladder"",""helicopter"","""","""","""","""",""""]",,"181000","2017-09-28 16:03:14","9229"
+"A18RE2B07K9M88","cs_wg_v7_real1","3VSOLARPKBALALWN5TKTELPWZ9939F",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","61600",,,"21000","2017-09-28 16:03:21","9230"
+"A2QSVBUPZQ9USZ","cs_wg_v7_real1","3DI28L7YXAF6VE9PQ0MWI6BASMAE17",,"Memory","2",,"2","8","0","172936","[""Basket"",""Traffic"",""Bookshelf"","""","""","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:03:24","9231"
+"A36I8EWDC03SG8","cs_wg_v7_real1","3J4Q2Z4UTY4OTIFXWF6H5DQI727QWU",,"Memory","2",,"2","10","1","15433","[""doorway"",""structure"",""basket"",""traffic"",""machine"",""umbrella"",""keyboard"","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:03:25","9232"
+"AXY7GS1JSPUP4","cs_wg_v7_real1","32N49TQG3GJJRD8BH94ZTBSZWBKVAJ",,"Memory","2",,"2","10","1","23197","[""HELICOPTER"",""WEDDING"",""BASKET"",""BOOKSHELF"",""FOOTBALL"",""LADDER"",""STRUCTURE"",""STOMACH"",""TRAFFIC"",""MACHINE"",""UMBRELLA"",""DOORWAY"","""",""""]",,"181000","2017-09-28 16:03:27","9233"
+"AJMX1Q5WG33D7","cs_wg_v7_real1","37TRT2X24QSFJSD96YQCLY1BJ6YJBH",,"Memory","2",,"2","10","1","22082","[""Community"",""Ladder"",""Umbrella"",""Football"",""Traffic"",""Bookshelf"",""Keyboard"",""Machine"",""Basket"",""Doorway"","""","""","""",""""]",,"181000","2017-09-28 16:03:31","9234"
+"A3Q5WW0WTELIJ2","cs_wg_v7_real1","3DEL4X4EL6MCRKB9XUJXKI7RFDVXYY",,"Memory","2",,"2","10","1","9518","[""Community"",""Football"",""Traffic"",""Umbrella"",""Keyboard"",""Doorway"",""Bookshelf"",""Basket"",""Machine"","""","""","""","""",""""]",,"181000","2017-09-28 16:03:31","9235"
+"A24ZZW0J3MOVYV","cs_wg_v7_real1","3TXD01ZLD4I4C93U3IK3KM4GQUEU4H",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","11511","FOOTBALL",,"181000","2017-09-28 16:03:42","9236"
+"A2NT3OQZUUZPEO","cs_wg_v7_real1","3WLEIWSYHOIP49INZ5UG8SISC8GH27",,"Memory","2",,"2","10","1","8135","[""traffic"",""structure"",""bookshelf"",""community"",""umbrella"",""football"",""stomach"",""machine"",""ladder"",""basket"",""helicopter"",""doorway"","""",""""]",,"181000","2017-09-28 16:03:55","9237"
+"AXEXQBM7B2QT9","cs_wg_v7_real1","32Z9ZLUT1LL3BG7SM3SDF5LVDDDHOE",,"Memory","2",,"2","10","1","41151","[""MACHINE"",""FOOTBALL"",""WEDDING"",""TRAFFIC"",""COMMUNITY"",""HELICOPTER"",""DOORWAY"",""LADDER"",""UMBRELLA"",""STRUCTURE"",""KEYBOARD"",""STOMACH"",""BASKET"",""BOOKSHELF""]",,"181000","2017-09-28 16:04:00","9238"
+"A239EUWY6SNDEZ","cs_wg_v7_real1","3WZ36BJEV3H9XV9EIS4GN4OKH8OBTD",,"Memory","2",,"2","10","1","10265","[""basket"",""helicopter"",""washing"",""community"","""","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:04:02","9239"
+"A1UCM4T7TZDUAO
+","cs_wg_v7_real1","30OG32W0SUC99LGEVNKUFDODVNGENG",,"Memory","2",,"2","10","1","13704","[""helicopter"",""football"",""structure"",""basket"",""machine"",""wedding"",""umbrella"",""traffic"",""stomach"",""ladder"",""bookshelf"",""keyboard"","""",""""]",,"181000","2017-09-28 16:04:04","9240"
+"A1QP59PUWJJMJY","cs_wg_v7_real1","386CSBG1OZNQZ30R5XTD7JR5J0FQ6U",,"Memory","2",,"2","10","1","15265","[""Structure"",""Ladder"",""Wedding"",""Keyboard"",""Machine"",""Basket"",""Football"",""Doorway"",""Bookshelf"",""Umbrella"","""","""","""",""""]",,"181000","2017-09-28 16:04:19","9241"
+"A1NDSEXBYNOUOS","cs_wg_v7_real1","30BXRYBRP4YBGPGUDPJNWZYHGFBHWP",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","33583","Bookshelf",,"181000","2017-09-28 16:04:27","9242"
+"A3JC9RP37J5TUJ
+A3JC9RP37J5TUJ
+A3JC9RP37J5TUJ
+A3JC9RP37J5TUJ","cs_wg_v7_real1","337RC3OW0530NWZFE0TP2P8AQNJVL1",,"Memory","2",,"2","10","1","11535","[""STOMACH"",""DOORWAY"",""COMMUNITY"",""UMBRELLA"",""FOOTBALL"",""WEDDING"",""TRAFFIC"",""BASKET"",""HELICOPTER"",""LADDER"",""STRUCTURE"",""BOOKSHELF"","""",""""]",,"181000","2017-09-28 16:04:36","9243"
+"ALM8YFO0272UR","cs_wg_v7_real1","3WJEQKOXA83351SDAVKAMNLJ77F1A2",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","35341","umbrella",,"181000","2017-09-28 16:04:40","9244"
+"AUYSORYS35GFY","cs_wg_v7_real1","3I02618YA07Q12PD12CRNKFBHQBPU4",,"Memory","2",,"2","10","1","16501","[""STOMACH"",""BOOKSHELF"",""LADDER"",""WEDDING"",""STRUCTURE"",""BASKET"",""DOORWAY"",""HOSPITAL"",""COMMUNITY"",""FOOTBALL"",""CONSTRUCTION"","""","""",""""]",,"181000","2017-09-28 16:04:41","9245"
+"A6M6N01KBYGVM","cs_wg_v7_real1","3B4YI393V9X7ZHD14ELL3O2YJDXSS7",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","63317","umbrella ",,"181000","2017-09-28 16:04:50","9246"
+"A2DVIIJDVRHIPQ","cs_wg_v7_real1","3K4J6M3CXEU09GIGSE5DTAPP9WWAG9",,"Memory","2",,"2","10","1","22729","[""traffic"",""stomach"",""structure"",""helicopter"",""wedding"",""basket"",""machine"",""bookshelf"",""football"",""doorway"","""","""","""",""""]",,"181000","2017-09-28 16:04:59","9247"
+" A3EMHZMWXV4B05","cs_wg_v7_real1","379J5II41OHJLLDTJA4F2LKOQSGLEL",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","2378","umbrella",,"181000","2017-09-28 16:05:00","9248"
+"A3D3NEQ158WUB0","cs_wg_v7_real1","3EFVCAY5L3AWHUF23M62UWBAB0CJ8H",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","28329","FOOTBALL",,"181000","2017-09-28 16:05:02","9249"
+"A36O6HV8LCXLJR","cs_wg_v7_real1","35LDD5557A56D3NOF8GX0TCIAU2MK8",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","75334","bookshelf",,"181000","2017-09-28 16:05:07","9250"
+"A25VHX1PUAHR4T","cs_wg_v7_real1","39PAAFCODM1O697KN9VGOGIRK04TV1",,"Memory","2",,"2","10","1","11207","[""helicopter\nhelicopter"",""ladder"",""football"",""traffic"",""bookshelf"",""basket"",""umbrella"",""stomach"",""wedding"",""community"","""","""","""",""""]",,"181000","2017-09-28 16:05:10","9251"
+"A2TV7LRPXDTRWO","cs_wg_v7_real1","3OVR4I9USPKCKGWDM90YAL7RN99Q49",,"Memory","2",,"2","10","1","9448","[""Community"",""Traffic"",""Wedding"",""Basket"",""Doorframe"",""Ladder"",""Stomach"",""Bookshelf"",""Machine"","""","""","""","""",""""]",,"181000","2017-09-28 16:05:16","9252"
+"A28O8I1SYFZO7A","cs_wg_v7_real1","39N5ACM9HEOSHA1A3RH0ROSX4539PZ",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","25971","umbrella",,"181000","2017-09-28 16:05:19","9253"
+"ALM8YFO0272UR","cs_wg_v7_real1","3WJEQKOXA83351SDAVKAMNLJ77F1A2",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","16355","helicopter ",,"21000","2017-09-28 16:05:31","9254"
+"A1LIMVH3P4KMJC","cs_wg_v7_real1","3C2NJ6JBKAIHE54Y23PTDCFOYKP2N1",,"Memory","2",,"2","10","1","22251","[""WEDDING"",""KEYBOARD"",""FOOTBALL"",""LADDER"",""COMMUNITY"",""DOORWAY"",""STOMACH"",""BOOKSHELF"",""UMBRELLA"",""HELICOPTER "",""TRAFFIC"",""MACHINE"","""",""""]",,"181000","2017-09-28 16:05:37","9255"
+"A1NDSEXBYNOUOS","cs_wg_v7_real1","30BXRYBRP4YBGPGUDPJNWZYHGFBHWP",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","31622",,,"21000","2017-09-28 16:05:38","9256"
+"A1LRJ2MQD4AMES","cs_wg_v7_real1","3G0WWMR1UVLY6O6J4EFU9UDREQ3NQ0",,"Memory","2",,"2","10","1","8717","[""Football"",""Bookshelf"",""Machine"",""Wedding"",""Stomach"",""Ladder"",""Basket"",""Keyboard"","""","""","""","""","""",""""]",,"181000","2017-09-28 16:05:40","9257"
+"A6M6N01KBYGVM","cs_wg_v7_real1","3B4YI393V9X7ZHD14ELL3O2YJDXSS7",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","3","0","16103",,"helicopter","21000","2017-09-28 16:05:41","9258"
+"A24LP60QLUKQWX","cs_wg_v7_real1","3PJUZCGDJ6H7BI2THAFP52X7FV189C",,"Memory","2",,"2","10","1","4697","[""bookshelf"",""community"",""ladder"",""stomach"",""football"",""helicopter"",""umbrella"",""wedding"",""machine"",""keyboard"","""","""","""",""""]",,"181000","2017-09-28 16:05:44","9259"
+"AKWJ11TYOGBJ3","cs_wg_v7_real1","3VHHR074H3IYC6YJW2Q9WBS745BL7Y",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","45134","HELICOPTER",,"181000","2017-09-28 16:05:48","9260"
+"AK7FDS2KRJZLA","cs_wg_v7_real1","3TXD01ZLD4I4C93U3IK3KM4GQUE4UR",,"Memory","2",,"2","10","1","8242","[""basket"",""structure "",""football"",""bookshelve"",""machine"",""keyboard"",""wedding"","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:05:50","9261"
+"A3D3NEQ158WUB0","cs_wg_v7_real1","3EFVCAY5L3AWHUF23M62UWBAB0CJ8H",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","21505","HELICOPTER",,"21000","2017-09-28 16:05:58","9262"
+"A68FOYEC0MW25","cs_wg_v7_real1","3JW0YLFXRTHTDFBJ8O5NX284V3OWW4",,"Memory","2",,"2","10","1","10474","[""machine"",""basket"",""structure"",""doorway"",""umbrella"",""football"",""ladder"",""wedding"",""stomach"",""community"",""helicopter"",""bookshelf"",""keyboard"",""""]",,"181000","2017-09-28 16:05:58","9263"
+"A1I40IZ12GO0G2","cs_wg_v7_real1","3EFVCAY5L3AWHUF23M62UWBAB0DJ8I",,"Memory","2",,"2","10","1","13194","[""stomach"",""community"",""helicopter"",""traffic"",""football"",""wedding"",""machine"",""basket"","""","""","""","""","""",""""]",,"181000","2017-09-28 16:06:07","9264"
+"A28O8I1SYFZO7A","cs_wg_v7_real1","39N5ACM9HEOSHA1A3RH0ROSX4539PZ",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","20099",,,"21000","2017-09-28 16:06:13","9265"
+" A3EMHZMWXV4B05","cs_wg_v7_real1","379J5II41OHJLLDTJA4F2LKOQSGLEL",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","39651",,"sto","21000","2017-09-28 16:06:14","9266"
+"A36O6HV8LCXLJR","cs_wg_v7_real1","35LDD5557A56D3NOF8GX0TCIAU2MK8",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","27010","traffic",,"21000","2017-09-28 16:06:17","9267"
+"A14WLAP6TCEKO0","cs_wg_v7_real1","3RXPCZQMQPC4FS5GWVCKI9WM52PG1Q",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","45258","STRUCTURE",,"181000","2017-09-28 16:06:29","9268"
+"A3SOJWB6AZWZV9
+","cs_wg_v7_real1","3OS46CRSLF0I4BW8RWNND6QD0SU6V4",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","3033","FOOTBALL",,"181000","2017-09-28 16:06:31","9269"
+"A18RE2B07K9M88","cs_wg_v7_real1","3VSOLARPKBALALWN5TKTELPWZ9939F",,"Memory","2",,"2","10","1","18043","["" Traffic"",""football"",""bookshelf"",""wedding"",""structure"",""ladder"",""umbrella"",""helicopter "",""keyboard"",""stomach"","""","""","""",""""]",,"181000","2017-09-28 16:06:42","9270"
+"A1K6X3UTV5YLHL","cs_wg_v7_real1","3H8DHMCCW9C399HB2FHUH3PO1GADKH",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","42064","bookshelf","2
+3
+3
+0
+3
+3
+2
+1
+2
+1
+1
+1
+1
+","181000","2017-09-28 16:07:01","9271"
+"AKWJ11TYOGBJ3","cs_wg_v7_real1","3VHHR074H3IYC6YJW2Q9WBS745BL7Y",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","53704","BOOKSHELF",,"21000","2017-09-28 16:07:17","9272"
+"A24ZZW0J3MOVYV","cs_wg_v7_real1","3TXD01ZLD4I4C93U3IK3KM4GQUEU4H",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","181569","UMB",,"21000","2017-09-28 16:07:25","9273"
+"A3L2VS3998R77L","cs_wg_v7_real1","3A1COHJ8NJW0QOKCFM3HIJVVY898H2",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","38315","BOOKSHELF",,"181000","2017-09-28 16:07:34","9274"
+"A3SOJWB6AZWZV9
+","cs_wg_v7_real1","3OS46CRSLF0I4BW8RWNND6QD0SU6V4",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","27887","STRUCTURE",,"21000","2017-09-28 16:07:38","9275"
+"A15340BRCER2UO","cs_wg_v7_real1","3AUQQEL7U5UNQ0ATP77645GMNP80VX",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","42355","FOOTBALL 
+
+
+
+","
+","181000","2017-09-28 16:08:14","9276"
+"A14WLAP6TCEKO0","cs_wg_v7_real1","3RXPCZQMQPC4FS5GWVCKI9WM52PG1Q",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","70762","BASKET",,"21000","2017-09-28 16:08:20","9277"
+"A2VF6506WDNXKS","cs_wg_v7_real1","3TMFV4NEP8FINEF1ALPHJM5IDWM8W2",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","1002858","Football",,"21000","2017-09-28 16:08:28","9278"
+"A3L2VS3998R77L","cs_wg_v7_real1","3A1COHJ8NJW0QOKCFM3HIJVVY898H2",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","17032","MACHINE",,"21000","2017-09-28 16:08:32","9279"
+"ALM8YFO0272UR","cs_wg_v7_real1","3WJEQKOXA83351SDAVKAMNLJ77F1A2",,"Memory","2",,"2","10","1","13617","[""helicopter"",""bookshelf"",""ladder"",""umbrella"",""traffic"",""structure "",""football"",""wedding"","""","""","""","""","""",""""]",,"181000","2017-09-28 16:08:47","9280"
+"ALTDBA92K2GS1","cs_wg_v7_real1","3N8OEVH1FRRD3XTFQGN3ZEIWPZSOOA",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","81177","bookshelf",,"181000","2017-09-28 16:08:50","9281"
+"A1NDSEXBYNOUOS","cs_wg_v7_real1","30BXRYBRP4YBGPGUDPJNWZYHGFBHWP",,"Memory","2",,"2","10","1","12911","[""Helicopter"",""Traffic"",""Bookshelf"",""Doorway"",""Football"",""Wedding"",""Community"","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:08:54","9282"
+"A6M6N01KBYGVM","cs_wg_v7_real1","3B4YI393V9X7ZHD14ELL3O2YJDXSS7",,"Memory","2",,"2","10","1","10040","[""helicopter"",""wedding"",""basket"",""ladder"",""umbrella"",""football"",""community"",""structure"",""traffic"","""","""","""","""",""""]",,"181000","2017-09-28 16:08:54","9283"
+"A1K6X3UTV5YLHL","cs_wg_v7_real1","3H8DHMCCW9C399HB2FHUH3PO1GADKH",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","79374","community",,"21000","2017-09-28 16:08:56","9284"
+"A3D3NEQ158WUB0","cs_wg_v7_real1","3EFVCAY5L3AWHUF23M62UWBAB0CJ8H",,"Memory","2",,"2","10","1","9065","[""COMMUNITY"",""HELICOPTER"",""FOOTBALL"",""BOOKSHELF"",""WEDDING"",""BASKET"",""UMBRELLA"",""CONSTRUCTION"",""MACHINE"",""KEYBOARD"",""LADDER"",""DOORWAY"","""",""""]",,"181000","2017-09-28 16:09:10","9285"
+"A1KLEZSP9ZE0WV","cs_wg_v7_real1","3GGAI1SQEVZOU5B0NVZZCAZA5LTMCV",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","63228","bookshelf",,"181000","2017-09-28 16:09:15","9286"
+"A28O8I1SYFZO7A","cs_wg_v7_real1","39N5ACM9HEOSHA1A3RH0ROSX4539PZ",,"Memory","2",,"2","10","1","9214","[""machine"",""umbrella"",""football"",""traffic"",""wedding"","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:09:26","9287"
+" A3EMHZMWXV4B05","cs_wg_v7_real1","379J5II41OHJLLDTJA4F2LKOQSGLEL",,"Memory","2",,"2","9","0","17782","[""stomach"",""keyboard"",""basket"",""umbrella"",""structure"",""bookshelf"",""traffic"",""ladder"",""kick"","""","""","""","""",""""]",,"181000","2017-09-28 16:09:35","9288"
+"A36O6HV8LCXLJR","cs_wg_v7_real1","35LDD5557A56D3NOF8GX0TCIAU2MK8",,"Memory","2",,"2","10","1","15445","[""traffic"",""community"",""wedding"",""football"",""bookshelf"",""umbrella"",""helicopter"",""doorway"",""basket"",""stomach"",""structure"",""community"","""",""""]",,"181000","2017-09-28 16:09:36","9289"
+"A15340BRCER2UO","cs_wg_v7_real1","3AUQQEL7U5UNQ0ATP77645GMNP80VX",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","23808","BOOKSHELF",,"21000","2017-09-28 16:09:37","9290"
+"A2ZRF4I5RTKN7G","cs_wg_v7_real1","373ERPL3YO9WD2Q3EPQ6NJTOZUQRT5",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","25237","BOOKSHELF","TRAFFIC - 2
+KEYBOARD - 3
+STOMACH - 1
+LADDER - 2
+STRUCTURE - 2
+DOORWAY - 0
+COMMUNITY - 1
+WEDDING - 2
+FOOTBALL - 4
+HELICOPTER - 3
+MACHINE - 2
+UMBRELLA - 5
+BASKET - 3
+BOOKSHELF - 5","181000","2017-09-28 16:09:40","9291"
+"ALTDBA92K2GS1","cs_wg_v7_real1","3N8OEVH1FRRD3XTFQGN3ZEIWPZSOOA",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","37359","tropical",,"21000","2017-09-28 16:10:08","9292"
+"AHZ5YRRIRTLJG
+","cs_wg_v7_real1","3D4CH1LGEAUM4X8B08RDXFE53EE9GT",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","16429","BOOKSHELF",,"181000","2017-09-28 16:10:19","9293"
+"AKWJ11TYOGBJ3","cs_wg_v7_real1","3VHHR074H3IYC6YJW2Q9WBS745BL7Y",,"Memory","2",,"2","10","1","9202","[""FOOTBALL"",""BASKETBALL"",""WEDDING"",""DOORWAY"",""TRAFFIC"",""STOMACH"",""COMMUNITY"","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:10:30","9294"
+"A1KLEZSP9ZE0WV","cs_wg_v7_real1","3GGAI1SQEVZOU5B0NVZZCAZA5LTMCV",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","31050","machine","machine","21000","2017-09-28 16:10:31","9295"
+"A2ZRF4I5RTKN7G","cs_wg_v7_real1","373ERPL3YO9WD2Q3EPQ6NJTOZUQRT5",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","14543","HELICOPTER",,"21000","2017-09-28 16:10:42","9296"
+"A1EN3FW93BSXQQ","cs_wg_v7_real1","3QJOXOW4XJS3R3VEJM5U2YZDQX6EMG",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","112406","UMBRELLA",,"181000","2017-09-28 16:10:50","9297"
+"A24ZZW0J3MOVYV","cs_wg_v7_real1","3TXD01ZLD4I4C93U3IK3KM4GQUEU4H",,"Memory","2",,"2","10","1","44233","[""HELICOPTER"",""STRUCTURE"",""FOOTBALL"",""BOOKSHELF"",""DOORWAY"",""BASKET"",""WEDDING"",""MACHINE"",""COMMUNITY"",""KEYBOARD"",""UMBRELLA"",""tRAFFIC"",""LADDER"",""STOMACH""]",,"181000","2017-09-28 16:11:12","9298"
+"A3SOJWB6AZWZV9
+","cs_wg_v7_real1","3OS46CRSLF0I4BW8RWNND6QD0SU6V4",,"Memory","2",,"2","10","1","40068","[""UMBRELLA"",""BRIDGE"",""BASKET"",""MACHINE"",""FOOTBALL"",""STRUCTURE"","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:11:24","9299"
+"AHZ5YRRIRTLJG
+","cs_wg_v7_real1","3D4CH1LGEAUM4X8B08RDXFE53EE9GT",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","17610","COMMUNITY","HEL","21000","2017-09-28 16:11:35","9300"
+"A32L4ESDWBNQU6","cs_wg_v7_real1","31JLPPHS2UVOH80T7I3BBBKLU8V3OT",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","175419","Bookshelf",,"181000","2017-09-28 16:11:42","9301"
+"A14WLAP6TCEKO0","cs_wg_v7_real1","3RXPCZQMQPC4FS5GWVCKI9WM52PG1Q",,"Memory","2",,"2","10","1","21454","[""BASKET"",""DOORWAY"",""TRAFFIC"",""LADDER"","""","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:11:46","9302"
+"A3L2VS3998R77L","cs_wg_v7_real1","3A1COHJ8NJW0QOKCFM3HIJVVY898H2",,"Memory","2",,"2","10","1","11437","[""HELICOPTER\n"",""TRAFFIC"",""MACHINE"",""LADDER"",""COMMUNITY"",""FOOTBALL"",""STOMACH"",""KEYBOARD"",""WEDDING"",""DOORWAY"","""","""","""",""""]",,"181000","2017-09-28 16:11:46","9303"
+"A1EN3FW93BSXQQ","cs_wg_v7_real1","3QJOXOW4XJS3R3VEJM5U2YZDQX6EMG",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","20492","basket",,"21000","2017-09-28 16:11:46","9304"
+"A2VF6506WDNXKS","cs_wg_v7_real1","3TMFV4NEP8FINEF1ALPHJM5IDWM8W2",,"Memory","2",,"2","10","1","16996","[""Football"",""Helicopter"",""Community"",""Basket"",""Doorway"",""Bookshelf"","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:11:48","9305"
+"A3GO4JVHJ9VD41","cs_wg_v7_real1","3SBEHTYCWN4F1PMEY8JWH8KCR0SYI0",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","181260","2","Ladder","181000","2017-09-28 16:12:01","9306"
+"A32L4ESDWBNQU6","cs_wg_v7_real1","31JLPPHS2UVOH80T7I3BBBKLU8V3OT",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","15494","bookshelf",,"21000","2017-09-28 16:12:29","9307"
+"AK77EA1UZ8KJG","cs_wg_v7_real1","33SA9F9TRXVZWFPSNOBHBW14OZJWEO",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","27655","UMBRELLA",,"181000","2017-09-28 16:13:04","9308"
+"ALTDBA92K2GS1","cs_wg_v7_real1","3N8OEVH1FRRD3XTFQGN3ZEIWPZSOOA",,"Memory","2",,"2","10","1","18425","[""community"",""stomach"",""umbrella"",""bookshelf"",""machine"",""football"",""doorway"",""wedding"",""ladder"",""basket"","""","""","""",""""]",,"181000","2017-09-28 16:13:30","9309"
+"A8L94A9EF23BV
+","cs_wg_v7_real1","3HFNH7HEMHFSWWPXHA2ZJA4UDELGQP",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","27343","wedding","wedding rings venue vows cake bus love family friends priest minister candles dancing tables drinks food dress bridesmaid groom best man speech eternity promise flowers bouquet suit tie veil shoes","181000","2017-09-28 16:13:44","9310"
+"AJACXA5FC5BYZ","cs_wg_v7_real1","3JV9LGBJWTFPBKCH2XAVU59UYD3GOH",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","27690","FOOTBALL","BOOKSHELF-4 FOOTBALL-4","181000","2017-09-28 16:13:48","9311"
+"A3GO4JVHJ9VD41","cs_wg_v7_real1","3SBEHTYCWN4F1PMEY8JWH8KCR0SYI0",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","53905",,"keyboard","21000","2017-09-28 16:13:49","9312"
+"A2ZRF4I5RTKN7G","cs_wg_v7_real1","373ERPL3YO9WD2Q3EPQ6NJTOZUQRT5",,"Memory","2",,"2","10","1","11344","[""traffic"",""helicopter"",""wedding"",""stomach"",""machine"",""doorway"",""football"",""bookshelf"",""basket"","""","""","""","""",""""]",,"181000","2017-09-28 16:13:56","9313"
+"A1KLEZSP9ZE0WV","cs_wg_v7_real1","3GGAI1SQEVZOU5B0NVZZCAZA5LTMCV",,"Memory","2",,"2","10","1","23504","[""football"",""wedding"",""machine"",""basket"",""umbrella"",""helicoptor"",""ladder"",""traffic"",""structure"",""keyboard\nkeyboard"",""bookshelf"",""doorway"","""",""""]",,"181000","2017-09-28 16:13:58","9314"
+"AK77EA1UZ8KJG","cs_wg_v7_real1","33SA9F9TRXVZWFPSNOBHBW14OZJWEO",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","34120","Community",,"21000","2017-09-28 16:14:13","9315"
+"A2X1CK16QNWS79","cs_wg_v7_real1","3S96KQ6I9M52CS7YWOVMIUCKKT0TD2",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","60676","bookshelf",,"181000","2017-09-28 16:14:27","9316"
+"A8L94A9EF23BV
+","cs_wg_v7_real1","3HFNH7HEMHFSWWPXHA2ZJA4UDELGQP",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","16643","football",,"21000","2017-09-28 16:14:36","9317"
+"AJACXA5FC5BYZ","cs_wg_v7_real1","3JV9LGBJWTFPBKCH2XAVU59UYD3GOH",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","14317",,"COMMUNITY:","21000","2017-09-28 16:14:36","9318"
+"AHZ5YRRIRTLJG
+","cs_wg_v7_real1","3D4CH1LGEAUM4X8B08RDXFE53EE9GT",,"Memory","2",,"2","10","1","11507","[""COMMUNITY"",""BOOKSHELF"",""FOOTBALL"",""HELICOPTER"",""STRUCTURE"",""MACHINE"",""BASKET"",""WEDDING"",""LADDER"",""STRUCTURE"",""UMBRELLA"","""","""",""""]",,"181000","2017-09-28 16:14:49","9319"
+"A1K6X3UTV5YLHL","cs_wg_v7_real1","3H8DHMCCW9C399HB2FHUH3PO1GADKH",,"Memory","2",,"2","10","1","186473","[""bookshelf"",""community"",""football"",""basket"",""structure"",""umbrella"",""machine"",""helicopter"",""doorway"",""ladder"","""","""","""",""""]",,"181000","2017-09-28 16:15:05","9320"
+"A1EN3FW93BSXQQ","cs_wg_v7_real1","3QJOXOW4XJS3R3VEJM5U2YZDQX6EMG",,"Memory","2",,"2","10","1","23455","[""FOOTBALL"",""HELICOPTER"",""DOORWAY"",""BASKET"",""LADDER"",""STRUCTURE"",""UMBRELLA"",""BOOKSHELF"","""","""","""","""","""",""""]",,"181000","2017-09-28 16:15:13","9321"
+"A32L4ESDWBNQU6","cs_wg_v7_real1","31JLPPHS2UVOH80T7I3BBBKLU8V3OT",,"Memory","2",,"2","10","1","9089","[""helicopter"",""bookshelf"",""stomach"",""basket"",""ladder"",""structure"","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:15:41","9322"
+"A15340BRCER2UO","cs_wg_v7_real1","3AUQQEL7U5UNQ0ATP77645GMNP80VX",,"Memory","2",,"2","10","1","12221","[""bookshelf"",""football"",""umbrella"",""ladder"",""doorway"",""helicopter"","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:15:42","9323"
+"AHI4R9YE0SF9E","cs_wg_v7_real1","3PZDLQMM0TMYN177DDGFX1LCZGBC2T",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","59672","3","HELICOPTER","181000","2017-09-28 16:16:13","9324"
+"A37JA32OJCPHML","cs_wg_v7_real1","3M1CVSFP606RM5CUVAAPNOTRFJ5AQ4",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","35396","umbrella",,"181000","2017-09-28 16:16:38","9325"
+"A5XQ30GQTHHK6","cs_wg_v7_real1","3DQQ64TANGM3T6EIW2RS580826PPW6",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","27907","Bookshelf",,"181000","2017-09-28 16:16:54","9326"
+"AHI4R9YE0SF9E","cs_wg_v7_real1","3PZDLQMM0TMYN177DDGFX1LCZGBC2T",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","16872","2","DOORWAY","21000","2017-09-28 16:17:06","9327"
+"A2X1CK16QNWS79","cs_wg_v7_real1","3S96KQ6I9M52CS7YWOVMIUCKKT0TD2",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","130528","helicopter",,"21000","2017-09-28 16:17:11","9328"
+"A37JA32OJCPHML","cs_wg_v7_real1","3M1CVSFP606RM5CUVAAPNOTRFJ5AQ4",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","14078","stomach",,"21000","2017-09-28 16:17:26","9329"
+"A3GO4JVHJ9VD41","cs_wg_v7_real1","3SBEHTYCWN4F1PMEY8JWH8KCR0SYI0",,"Memory","2",,"2","10","1","40290","[""keyboard"",""helicopter"",""ladder"",""bookshelf"",""wedding"",""football"",""structure"",""doorway"","""","""","""","""","""",""""]",,"181000","2017-09-28 16:17:33","9330"
+"AB774I47XHB4K","cs_wg_v7_real1","3NVC2EB65Q00BM4VD5C9D2IN8IU3Y4",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","4","0","15053","HELICOPTER","none","181000","2017-09-28 16:17:36","9331"
+"A8L94A9EF23BV
+","cs_wg_v7_real1","3HFNH7HEMHFSWWPXHA2ZJA4UDELGQP",,"Memory","2",,"2","10","1","10308","[""football"",""wedding"",""umbrella"",""machine"",""doorway"",""helicopter"",""bookshelf"",""traffic"",""keyboard"",""stomach"",""doorframe"",""basket"","""",""""]",,"181000","2017-09-28 16:17:49","9332"
+"AJACXA5FC5BYZ","cs_wg_v7_real1","3JV9LGBJWTFPBKCH2XAVU59UYD3GOH",,"Memory","2",,"2","10","1","11881","[""COMMUNITY"",""LADDER"",""STRUCTURE"",""TRAFFIC"",""FOOTBALL"",""BASKET"","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:17:51","9333"
+"A5XQ30GQTHHK6","cs_wg_v7_real1","3DQQ64TANGM3T6EIW2RS580826PPW6",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","23714","helicopter",,"21000","2017-09-28 16:17:55","9334"
+"A002160837SWJFPIAI7L7","cs_wg_v7_real1","3X31TUMD7XNK1KJH7M90V11U1JC1LI",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","22698","bookshelf",,"181000","2017-09-28 16:17:59","9335"
+"AK77EA1UZ8KJG","cs_wg_v7_real1","33SA9F9TRXVZWFPSNOBHBW14OZJWEO",,"Memory","2",,"2","10","1","61145","[""Community"",""keyboard"",""Umbrella"","""","""","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:18:17","9336"
+"AB774I47XHB4K","cs_wg_v7_real1","3NVC2EB65Q00BM4VD5C9D2IN8IU3Y4",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","33111","doorway",,"21000","2017-09-28 16:18:42","9337"
+"A002160837SWJFPIAI7L7","cs_wg_v7_real1","3X31TUMD7XNK1KJH7M90V11U1JC1LI",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","13098","helicopter",,"21000","2017-09-28 16:18:46","9338"
+"A1VAYSV4KK3HEY","cs_wg_v7_real1","3WS1NTTKEYDYU3O3PS22MJD0ZVK0F9",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","71324","UMBRELLA",,"181000","2017-09-28 16:19:12","9339"
+"ADWPGLPZY9W2D","cs_wg_v7_real1","3WJ1OXY92AHLG1CY9GTP1X8RLDIA8S",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","7","0","155675","wedding","KEYBOARD-2, WEDDING-3, COMMUNITY-1, LADDER, HELICOPTER, STOMACH, BOOKSHELF, DOORWAY, BASKET, TRAFFIC, STRUCTURE, MACHINE, UMBRELLA, FOOTBALL","181000","2017-09-28 16:19:39","9340"
+"AHI4R9YE0SF9E","cs_wg_v7_real1","3PZDLQMM0TMYN177DDGFX1LCZGBC2T",,"Memory","2",,"2","10","1","14386","[""HELICOPTER"",""DOORWAY"",""FOOTBALL"","""","""","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:20:24","9341"
+"A2X1CK16QNWS79","cs_wg_v7_real1","3S96KQ6I9M52CS7YWOVMIUCKKT0TD2",,"Memory","2",,"2","10","1","15974","[""helicopter"",""stomach"",""community"",""wedding"",""basket"",""umbrella"",""doorway"",""bookshelft"",""ladder"",""structure"",""traffic"",""keyboard"",""football"",""machine""]",,"181000","2017-09-28 16:20:30","9342"
+"A1VAYSV4KK3HEY","cs_wg_v7_real1","3WS1NTTKEYDYU3O3PS22MJD0ZVK0F9",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","38500","KEYBOARD",,"21000","2017-09-28 16:20:35","9343"
+"A37JA32OJCPHML","cs_wg_v7_real1","3M1CVSFP606RM5CUVAAPNOTRFJ5AQ4",,"Memory","2",,"2","10","1","10582","[""stomach"",""umbrella"",""football"",""ladder"",""bookshelf"","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:20:40","9344"
+"A56TWAXG8WGWM","cs_wg_v7_real1","3STRJBFXOWSAQYD8O5H9M77A421KTA",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","45145","Bookshelf",,"181000","2017-09-28 16:21:03","9345"
+"A5XQ30GQTHHK6","cs_wg_v7_real1","3DQQ64TANGM3T6EIW2RS580826PPW6",,"Memory","2",,"2","10","1","10306","[""bookshelf"",""helicopter"",""wedding"",""umbrella"",""football"",""doorway"",""keyboard"",""basket"",""traffic"","""","""","""","""",""""]",,"181000","2017-09-28 16:21:09","9346"
+"ARJ8XLYXTWNE","cs_wg_v7_real1","3YOH7BII098P3QHXT0HONPVV1NEVKY",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","37533","UMBRELLA",,"181000","2017-09-28 16:21:16","9347"
+"ADWPGLPZY9W2D","cs_wg_v7_real1","3WJ1OXY92AHLG1CY9GTP1X8RLDIA8S",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","88847","community",,"21000","2017-09-28 16:21:41","9348"
+"A002160837SWJFPIAI7L7","cs_wg_v7_real1","3X31TUMD7XNK1KJH7M90V11U1JC1LI",,"Memory","2",,"2","10","1","6704","[""football"",""helicopter"",""umbrella"",""bookshelf"",""stomach"",""machine"",""keyboard"","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:21:55","9349"
+"AB774I47XHB4K","cs_wg_v7_real1","3NVC2EB65Q00BM4VD5C9D2IN8IU3Y4",,"Memory","2",,"2","10","1","13861","[""doorway"",""stomach"",""basket"",""machine"",""community "","""","""","""","""","""","""","""",""football"",""wedding""]",,"181000","2017-09-28 16:21:59","9350"
+"A56TWAXG8WGWM","cs_wg_v7_real1","3STRJBFXOWSAQYD8O5H9M77A421KTA",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","30949","traffic",,"21000","2017-09-28 16:22:21","9351"
+"ARJ8XLYXTWNE","cs_wg_v7_real1","3YOH7BII098P3QHXT0HONPVV1NEVKY",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","33606","BASKET",,"21000","2017-09-28 16:22:31","9352"
+"A2Y749J0XM6TIW","cs_wg_v7_real1","3IUZPWIU1O82IFH2JAMK9RE98WJKW0",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","38607","UMBRELLA",,"181000","2017-09-28 16:23:38","9353"
+"A1VAYSV4KK3HEY","cs_wg_v7_real1","3WS1NTTKEYDYU3O3PS22MJD0ZVK0F9",,"Memory","2",,"2","10","1","17259","[""MACHINE"",""WEDDING"",""UMBRELLA"",""KEYBOARD"",""BOOKSHELF"",""STRUCTURE"",""STOMACH"",""HELICOPTER"",""BASKET"",""FOOTBALL"",""LADDER"",""DOORWAY"","""",""""]",,"181000","2017-09-28 16:23:56","9354"
+"ALL5YYZDJ4FB2","cs_wg_v7_real1","308Q0PEVB8E00OE6QWRGIRRLIR69IL",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","4","0","12038","
+machine","machne","181000","2017-09-28 16:24:19","9355"
+"ADWPGLPZY9W2D","cs_wg_v7_real1","3WJ1OXY92AHLG1CY9GTP1X8RLDIA8S",,"Memory","2",,"2","10","1","8613","[""community"",""wedding"",""traffic"",""keyboard"",""bookshelf"","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:24:53","9356"
+"ALL5YYZDJ4FB2","cs_wg_v7_real1","308Q0PEVB8E00OE6QWRGIRRLIR69IL",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","3565","kick","kick","21000","2017-09-28 16:24:54","9357"
+"A1B65EVDS55AME","cs_wg_v7_real1","3VP0C6EFSGXZEO2ZD4MWQA709ZI6MN",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","43383","4","football","181000","2017-09-28 16:25:26","9358"
+"A56TWAXG8WGWM","cs_wg_v7_real1","3STRJBFXOWSAQYD8O5H9M77A421KTA",,"Memory","2",,"2","10","1","16517","[""Traffic"",""keyboard"",""stomach"",""helicopter"",""ladder"",""doorway"",""community"",""structure"",""bookshelf"",""wedding"",""umbrella"",""basket"","""",""""]",,"181000","2017-09-28 16:25:41","9359"
+"ARJ8XLYXTWNE","cs_wg_v7_real1","3YOH7BII098P3QHXT0HONPVV1NEVKY",,"Memory","2",,"2","10","1","9710","[""BASKET"",""DOORWAY"",""FOOTBALL"",""COMMUNITY"",""KEYBOARD"",""MACHINE"",""STRUCTURE"",""WEDDING"",""UMBRELLA"","""","""","""","""",""""]",,"181000","2017-09-28 16:25:44","9360"
+"ABVMLQWTQQEWI","cs_wg_v7_real1","3A0EX8ZRN8P5EH88SYRFVLGZWA7YBQ",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","38111","bookshelf","s - basket, bookshelf, stomach
+g -  none
+e - umbrella, helicopter, machine, keyboard, wedding, bookshelf
+f - football, traffic, bookshelf
+b - keyboard, basket, umbrella, bookshelf 
+n - 
+l - ","181000","2017-09-28 16:27:06","9361"
+"A1B65EVDS55AME","cs_wg_v7_real1","3VP0C6EFSGXZEO2ZD4MWQA709ZI6MN",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","95361","3","machine","21000","2017-09-28 16:27:35","9362"
+"ALL5YYZDJ4FB2","cs_wg_v7_real1","308Q0PEVB8E00OE6QWRGIRRLIR69IL",,"Memory","2",,"2","8","0","4426","[""kick"",""machine"",""basket"",""weaving"","""","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:28:01","9363"
+"ABVMLQWTQQEWI","cs_wg_v7_real1","3A0EX8ZRN8P5EH88SYRFVLGZWA7YBQ",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","24192",,,"21000","2017-09-28 16:28:10","9364"
+"A2Y749J0XM6TIW","cs_wg_v7_real1","3IUZPWIU1O82IFH2JAMK9RE98WJKW0",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","107831",,,"21000","2017-09-28 16:28:17","9365"
+"A2QMHQXR8K4VJ2","cs_wg_v7_real1","3LPW2N6LKT3M8S7UHN3DPEAUQQA5UY",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","21918","4","keyboard","181000","2017-09-28 16:28:54","9366"
+"A1ARROVE5ZA4HM
+A1ARROVE5ZA4HM","cs_wg_v7_real1","3L6L49WXW0YNRUDF2HCVCAC0RDM45A",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","26580","Bookshelf",,"181000","2017-09-28 16:30:28","9367"
+"A2O4RICIH4QZU9","cs_wg_v7_real1","3R8YZBNQ9HJ933EWO7Y5DXR1EBY7Q9",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","704403","BOOKSHELF","STRUCTURE  STOMACH BASKET BOOKSHELF","181000","2017-09-28 16:30:36","9368"
+"A1B65EVDS55AME","cs_wg_v7_real1","3VP0C6EFSGXZEO2ZD4MWQA709ZI6MN",,"Memory","2",,"2","10","1","14963","[""machine"",""basket"",""football"",""community"","""","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:30:54","9369"
+"A326O3VWP8TO8N","cs_wg_v7_real1","3K772S5NP8CHZPU3SPPHATRH9BCHEF",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","22304","BASKET",,"181000","2017-09-28 16:30:58","9370"
+"A3RVHUY67SVXQV","cs_wg_v7_real1","3H7Z272LX78NIC2JSOKQWXJS4ZIPLA",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","23532","BOOKSHELF",,"181000","2017-09-28 16:31:09","9371"
+"ABVMLQWTQQEWI","cs_wg_v7_real1","3A0EX8ZRN8P5EH88SYRFVLGZWA7YBQ",,"Memory","2",,"2","10","1","8347","[""umbrella"",""bookshelf"",""helicopter"",""ladder"",""community"",""machine"",""structure"",""doorway"",""ladder"",""doorway"",""traffic"",""football"",""machine"",""ladder""]",,"181000","2017-09-28 16:31:22","9372"
+"A1ARROVE5ZA4HM
+A1ARROVE5ZA4HM","cs_wg_v7_real1","3L6L49WXW0YNRUDF2HCVCAC0RDM45A",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","34861","Community",,"21000","2017-09-28 16:31:36","9373"
+"A2Y749J0XM6TIW","cs_wg_v7_real1","3IUZPWIU1O82IFH2JAMK9RE98WJKW0",,"Memory","2",,"2","10","1","16167","[""football"",""basket"",""bookshelf"",""stomach"",""machine"",""umbrella"",""ladder"",""keyboard"",""doorway"",""helicopter"",""wedding"","""","""",""""]",,"181000","2017-09-28 16:31:36","9374"
+"A326O3VWP8TO8N","cs_wg_v7_real1","3K772S5NP8CHZPU3SPPHATRH9BCHEF",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","13599","HELICOPTER",,"21000","2017-09-28 16:31:43","9375"
+"A6MWJK1YEY5L2","cs_wg_v7_real1","3PJ71Z61R43P0II8IP6AQSAZ1PU91S",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","46841","BOOKSHELF","football 4","181000","2017-09-28 16:31:48","9376"
+"A2O4RICIH4QZU9","cs_wg_v7_real1","3R8YZBNQ9HJ933EWO7Y5DXR1EBY7Q9",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","52859","Bookshelf",,"21000","2017-09-28 16:32:06","9377"
+"A3RVHUY67SVXQV","cs_wg_v7_real1","3H7Z272LX78NIC2JSOKQWXJS4ZIPLA",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","54578",,,"21000","2017-09-28 16:32:40","9378"
+"A6MWJK1YEY5L2","cs_wg_v7_real1","3PJ71Z61R43P0II8IP6AQSAZ1PU91S",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","25345",,"football 
+community","21000","2017-09-28 16:32:52","9379"
+"A240OTT1T85UGT","cs_wg_v7_real1","308XBLVESI5WHGWME3ZLNPN2TNRBR0",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","45654","UMBRELLA",,"181000","2017-09-28 16:33:15","9380"
+"A34Z37JJ836IUO","cs_wg_v7_real1","3JPSL1DZ5S06J8Z2FII8JUYMA8IANH",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","21013","BOOKSHELF",,"181000","2017-09-28 16:33:31","9381"
+"A4ZW4GNQ98HV6","cs_wg_v7_real1","3H7Z272LX78NIC2JSOKQWXJS4ZMPLE",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","5","0","2921","football","1, 3, 3, 2, 2, 2, 1, 2 ","181000","2017-09-28 16:34:13","9382"
+"A34Z37JJ836IUO","cs_wg_v7_real1","3JPSL1DZ5S06J8Z2FII8JUYMA8IANH",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","28042","Helicopter",,"21000","2017-09-28 16:34:30","9383"
+"A240OTT1T85UGT","cs_wg_v7_real1","308XBLVESI5WHGWME3ZLNPN2TNRBR0",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","44110","MACHINE",,"21000","2017-09-28 16:34:37","9384"
+"A1ARROVE5ZA4HM
+A1ARROVE5ZA4HM","cs_wg_v7_real1","3L6L49WXW0YNRUDF2HCVCAC0RDM45A",,"Memory","2",,"2","10","1","18594","[""Doorway"",""Helicopter"",""Community"",""Basket"",""Machine"",""Stomach"",""Keyboard"",""Traffic"","""","""","""","""","""",""""]",,"181000","2017-09-28 16:34:57","9385"
+"A326O3VWP8TO8N","cs_wg_v7_real1","3K772S5NP8CHZPU3SPPHATRH9BCHEF",,"Memory","2",,"2","10","1","10775","[""HELICOPTER"",""WEDDING"",""BASKET"",""FOOTBALL"",""TRAFFIC"",""STRUCTURE"",""COMMUNITY"",""MACHINE"",""KEYBOARD"",""STOMACH"",""LADDER"",""UMBRELLA"","""",""""]",,"181000","2017-09-28 16:34:58","9386"
+"A4ZW4GNQ98HV6","cs_wg_v7_real1","3H7Z272LX78NIC2JSOKQWXJS4ZMPLE",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","3","0","36941","football",,"21000","2017-09-28 16:35:21","9387"
+"A2O4RICIH4QZU9","cs_wg_v7_real1","3R8YZBNQ9HJ933EWO7Y5DXR1EBY7Q9",,"Memory","2",,"2","10","1","14984","[""LADDER"",""MARRIAGE"",""BOOKSHELF"",""BASKET"",""DOORWAY"",""MACHINE"","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:35:25","9388"
+"A3RVHUY67SVXQV","cs_wg_v7_real1","3H7Z272LX78NIC2JSOKQWXJS4ZIPLA",,"Memory","2",,"2","10","1","10651","[""HELICOPTOR"",""STOMACH"",""LADDER"",""UMBRELLA"",""BOOKSHELF"",""DOORWAY"",""FOOTBALL"",""MACHINE"","""","""","""","""","""",""""]",,"181000","2017-09-28 16:35:54","9389"
+"A1B5KIQ8JLR2F7","cs_wg_v7_real1","3NXNZ5RS1AY3B4XA75NJR21C4BU97P",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","38152","bookshelf","ne
+s
+ell
+ele
+bse
+tb
+ff
+bsel
+le
+n
+
+se
+fb
+","181000","2017-09-28 16:35:55","9390"
+"A6MWJK1YEY5L2","cs_wg_v7_real1","3PJ71Z61R43P0II8IP6AQSAZ1PU91S",,"Memory","2",,"2","10","1","28648","[""football"",""doorway"",""community"",""keyboard"",""umbrella"",""wedding"",""machine"",""bookshelf"",""traffic"",""structure"",""stomach"",""ladder"","""",""""]",,"181000","2017-09-28 16:36:23","9391"
+"A1B5KIQ8JLR2F7","cs_wg_v7_real1","3NXNZ5RS1AY3B4XA75NJR21C4BU97P",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","17027",,"chopping","21000","2017-09-28 16:36:49","9392"
+"A34Z37JJ836IUO","cs_wg_v7_real1","3JPSL1DZ5S06J8Z2FII8JUYMA8IANH",,"Memory","2",,"2","10","1","6252","[""Bookshelf"",""Community"",""Helicopter"",""Basket"",""Umbrella"",""Stomach"",""doorway"",""marriage"",""structure"","""","""","""","""",""""]",,"181000","2017-09-28 16:37:40","9393"
+"A4ZW4GNQ98HV6","cs_wg_v7_real1","3H7Z272LX78NIC2JSOKQWXJS4ZMPLE",,"Memory","2",,"2","10","1","7154","[""football"",""umbrella"",""basket"",""machine"",""bookshelf"",""keyboard"",""ladder"",""wedding"",""community"",""traffic"",""doorway"",""helicopter"",""stomach"",""""]",,"181000","2017-09-28 16:38:31","9394"
+"A240OTT1T85UGT","cs_wg_v7_real1","308XBLVESI5WHGWME3ZLNPN2TNRBR0",,"Memory","2",,"2","10","1","52710","[""BASKET"",""TRAFFIC"",""STRUCTURE"",""BOOKSHELF"",""FOOTBALL"",""STOMACH"",""LADDER"",""UMBRELLA"",""HELLICOPTER"",""COMMUNITY"",""DOORWAY"",""WEDDING"",""MACHINE"",""KEYBOARD""]",,"181000","2017-09-28 16:38:33","9395"
+"A1B5KIQ8JLR2F7","cs_wg_v7_real1","3NXNZ5RS1AY3B4XA75NJR21C4BU97P",,"Memory","2",,"2","10","1","17346","[""wedding"",""football"",""umbrella"",""basket"",""bookshelf"","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:40:09","9396"
+"A98E8M4QLI9RS","cs_wg_v7_real1","3CPLWGV3MO0SEPPXNC48NZN24Q09N1",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","7","0","57200","Bookshelf",,"181000","2017-09-28 16:40:41","9397"
+"AIWSB4YTN32GF","cs_wg_v7_real1","308XBLVESI5WHGWME3ZLNPN2TNSBR1",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","7","0","4191","yes","ok","181000","2017-09-28 16:40:43","9398"
+"A98E8M4QLI9RS","cs_wg_v7_real1","3CPLWGV3MO0SEPPXNC48NZN24Q09N1",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","20369","Community",,"21000","2017-09-28 16:41:43","9399"
+"AIWSB4YTN32GF","cs_wg_v7_real1","308XBLVESI5WHGWME3ZLNPN2TNSBR1",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","96881","hi","yes","21000","2017-09-28 16:42:54","9400"
+"A98E8M4QLI9RS","cs_wg_v7_real1","3CPLWGV3MO0SEPPXNC48NZN24Q09N1",,"Memory","2",,"2","10","1","10031","[""Bookshelf"",""Community"",""Keyboard"",""Structure"",""Basket"",""Doorway"","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:44:56","9401"
+"A1G8XY49335US8","cs_wg_v7_real1","3U8YCDAGXPHVLSEC38DWYIHE6X2Q02",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","45085","Bookshelf","bookshelf 4
+","181000","2017-09-28 16:51:46","9402"
+"A2ZFMLLZB1LFU5","cs_wg_v7_real1","3IRIK4HM3ALM52Q80FSINE2OFLN6CE",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","62987","Bookshelf",,"181000","2017-09-28 16:52:40","9403"
+"A1G8XY49335US8","cs_wg_v7_real1","3U8YCDAGXPHVLSEC38DWYIHE6X2Q02",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","16018","umbrella",,"21000","2017-09-28 16:52:45","9404"
+"A2ZFMLLZB1LFU5","cs_wg_v7_real1","3IRIK4HM3ALM52Q80FSINE2OFLN6CE",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","48834","Helicopter",,"21000","2017-09-28 16:54:17","9405"
+"A3KWBTJ151INDT","cs_wg_v7_real1","3A9AA95ATWN9GNZY014JF8NVI9RP5V",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","36251","Umbrella",,"181000","2017-09-28 16:55:59","9406"
+"A1G8XY49335US8","cs_wg_v7_real1","3U8YCDAGXPHVLSEC38DWYIHE6X2Q02",,"Memory","2",,"2",NULL,"0","14504","[""machine"",""basket"",""helicopter"",""traffic"",""structure"",""bookshelf"",""ladder"",""stomach"",""community"",""football"",""keyboard"",""umbrella"",""wedding"",""doorway\n""]",,"181000","2017-09-28 16:56:03","9407"
+"A3KWBTJ151INDT","cs_wg_v7_real1","3A9AA95ATWN9GNZY014JF8NVI9RP5V",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","14527","topic",,"21000","2017-09-28 16:56:51","9408"
+"A2ZFMLLZB1LFU5","cs_wg_v7_real1","3IRIK4HM3ALM52Q80FSINE2OFLN6CE",,"Memory","2",,"2","10","1","20168","[""Helicopter"",""Football"",""Doorway"",""Bookshelf"",""Community"",""Basket"","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 16:57:41","9409"
+"A3BSE5PUEKPTRU","cs_wg_v7_real1","3Q8GYXHFEP3QMYQUVWIDV8OOJQCC54",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","33027","football","football","181000","2017-09-28 16:58:00","9410"
+"A3BSE5PUEKPTRU","cs_wg_v7_real1","3Q8GYXHFEP3QMYQUVWIDV8OOJQCC54",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","16014","helicopter","helicopter","21000","2017-09-28 16:58:47","9411"
+"A32TGAK321JDFF","cs_wg_v7_real1","3ON104KXQKXH4DSZYIZ42APDBA04W1",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","99726","BOOKSHELF",,"181000","2017-09-28 17:00:05","9412"
+"A3KWBTJ151INDT","cs_wg_v7_real1","3A9AA95ATWN9GNZY014JF8NVI9RP5V",,"Memory","2",,"2","10","1","24007","[""Helicopter"",""Community"",""Structure"",""Basket"",""Ladder"","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 17:00:18","9413"
+"A32TGAK321JDFF","cs_wg_v7_real1","3ON104KXQKXH4DSZYIZ42APDBA04W1",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","38483","helicopter",,"21000","2017-09-28 17:01:40","9414"
+"A3BSE5PUEKPTRU","cs_wg_v7_real1","3Q8GYXHFEP3QMYQUVWIDV8OOJQCC54",,"Memory","2",,"2","10","1","10131","[""basket"",""ladder"",""helicopter"",""community"",""doorway"",""keyboard"",""stomach"",""football"",""umbrella"",""machine"",""structure"","""","""",""""]",,"181000","2017-09-28 17:02:00","9415"
+"A2OWFD7J4MRGKM
+","cs_wg_v7_real1","3LPW2N6LKT3M8S7UHN3DPEAUQQA5UY",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","42223","BOOKSHELF","2 2 2 2  0 0 2 1 2 0 2 3 ","181000","2017-09-28 17:02:45","9416"
+"A2OWFD7J4MRGKM
+","cs_wg_v7_real1","3LPW2N6LKT3M8S7UHN3DPEAUQQA5UY",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","16625",,"BOOK 3 COM","21000","2017-09-28 17:03:48","9417"
+"A32TGAK321JDFF","cs_wg_v7_real1","3ON104KXQKXH4DSZYIZ42APDBA04W1",,"Memory","2",,"2","10","1","16851","[""helicopter"",""ladder"",""bookshelf"",""football"",""keyboard"","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 17:05:00","9418"
+"A2OWFD7J4MRGKM
+","cs_wg_v7_real1","3LPW2N6LKT3M8S7UHN3DPEAUQQA5UY",,"Memory","2",,"2","10","1","14346","[""COMMUNITY"",""UMBRELLA"",""WEDDING"",""LADDER"",""STOMACH"",""BOOKSHELF"",""FOOTBALL"",""TRAFFIC"",""MACHINE"","""","""","""","""",""""]",,"181000","2017-09-28 17:07:05","9419"
+"AAHZCL4LIPCBQ","cs_wg_v7_real1","3TXWC2NHNZRPU2H2V8LUMTX8RPHS95",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","121901","umbrella",,"181000","2017-09-28 17:19:34","9420"
+"AAHZCL4LIPCBQ","cs_wg_v7_real1","3TXWC2NHNZRPU2H2V8LUMTX8RPHS95",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","18589","machine",,"21000","2017-09-28 17:20:50","9421"
+"A19IWME4DCIU1H","cs_wg_v7_real1","3QEMNNSB2X0FEUARJLSLDYK2VW97D4",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","57624","BOOKSHELF","B S E
+E N G
+E L
+L E
+E L L
+F F
+N
+
+E B
+N E
+F B L L
+B S E L F","181000","2017-09-28 17:24:45","9422"
+"AAHZCL4LIPCBQ","cs_wg_v7_real1","3TXWC2NHNZRPU2H2V8LUMTX8RPHS95",,"Memory","2",,"2","8","0","52466","[""machine"",""ladder"",""helicopter"","""","""","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 17:24:45","9423"
+"A3PC7DYXJW4I2Z","cs_wg_v7_real1","3YT88D1N08Z5RHFE9QBI4U3CA3L3K9",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","21298","HELICOPTER",,"181000","2017-09-28 17:25:29","9424"
+"A19IWME4DCIU1H","cs_wg_v7_real1","3QEMNNSB2X0FEUARJLSLDYK2VW97D4",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","16424","HELICOPTER","H I C O P T","21000","2017-09-28 17:25:36","9425"
+"A3PC7DYXJW4I2Z","cs_wg_v7_real1","3YT88D1N08Z5RHFE9QBI4U3CA3L3K9",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","9120","DOORWAY",,"21000","2017-09-28 17:26:13","9426"
+"A19IWME4DCIU1H","cs_wg_v7_real1","3QEMNNSB2X0FEUARJLSLDYK2VW97D4",,"Memory","2",,"2","10","1","6202","[""FOOTBALL"",""WEDDING"",""STRUCTURE"",""HELICOPTER"",""DOORWAY"",""BOOKSHELF"",""COMMUNITY"",""UMBRELLA"",""KEYBOARD"",""MACHINE"","""","""","""",""""]",,"181000","2017-09-28 17:28:45","9427"
+"A3PC7DYXJW4I2Z","cs_wg_v7_real1","3YT88D1N08Z5RHFE9QBI4U3CA3L3K9",,"Memory","2",,"2","10","1","11526","[""DOORWAY"",""FOOTBALL"",""LADDER"",""STRUCTURE"",""HELICOPTER"","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 17:29:27","9428"
+"A3VVR8NR3ED04C","cs_wg_v7_real1","3HMIGG0U4L7MCJA1PM754JQYO4MY8R",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","19218","Umbrella",,"181000","2017-09-28 17:30:07","9429"
+"A3VVR8NR3ED04C","cs_wg_v7_real1","3HMIGG0U4L7MCJA1PM754JQYO4MY8R",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","18871","Football",,"21000","2017-09-28 17:30:59","9430"
+"A3VVR8NR3ED04C","cs_wg_v7_real1","3HMIGG0U4L7MCJA1PM754JQYO4MY8R",,"Memory","2",,"2","10","1","9874","[""Stomach"",""Football"",""Umbrella"","""","""","""","""","""","""","""","""","""","""",""""]",,"181000","2017-09-28 17:34:12","9431"
+"A3B9JIE2GR2I9T","cs_wg_v7_real1","358UUM7WRZ49F4TW1MN5IN16AYHR7D",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","90627","bookself",,"181000","2017-09-28 17:41:06","9432"
+"A3B9JIE2GR2I9T","cs_wg_v7_real1","358UUM7WRZ49F4TW1MN5IN16AYHR7D",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","17608","kick",,"21000","2017-09-28 17:41:58","9433"
+"A3B9JIE2GR2I9T","cs_wg_v7_real1","358UUM7WRZ49F4TW1MN5IN16AYHR7D",,"Memory","2",,"2","10","1","17099","[""wedding"",""ladder"",""helicopter"",""machine"",""basket"",""football"",""structure"",""kick"",""bookshelf"","""","""","""","""",""""]",,"181000","2017-09-28 17:45:18","9434"
+"A3L6TO881Q0GZS","cs_wg_v7_real1","3YGXWBAF70I8QFMUHRZ3QGIAJVR4C3",,"s,g,e,f,b,n,l","0","[3,1,2,1,5,4,4,0,3,2,2,2,2,3]","0","6","1","54541","Bookshelf","Bookshelf","181000","2017-09-28 17:57:26","9435"
+"A3L6TO881Q0GZS","cs_wg_v7_real1","3YGXWBAF70I8QFMUHRZ3QGIAJVR4C3",,"t,p,o,k,i,c,h","1","[1,4,0,4,4,0,3,2,6,3,3,3,2,2]","1","4","1","26205","Traffic",,"21000","2017-09-28 17:58:26","9436"
+"A3L6TO881Q0GZS","cs_wg_v7_real1","3YGXWBAF70I8QFMUHRZ3QGIAJVR4C3",,"Memory","2",,"2","10","1","14803","[""Traffic"",""Bookshelf"",""Keyboard"",""Ladder"",""Football"",""Structure"",""Helicopter"",""Doorway"",""Stomach"",""Basket"",""umbra"","""","""",""""]",,"181000","2017-09-28 18:01:44","9437"

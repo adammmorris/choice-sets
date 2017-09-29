@@ -45,8 +45,8 @@ runLogit = function(df) {
   df$Subj = factor(df$Subj)
   df.m = mlogit.data(df, choice = "Choice", shape = "long", id.var = "Subj", alt.var = "OptionID", chid.var = "Trial_unique")
   
-  m = mlogit(Choice ~ MFcent + MBcent + Int, df.m, panel = T,
-             rpar = c(MFcent = "n", MBcent = "n", Int = 'n'), correlation = F, halton = NA, R = 1000, tol = .001)
+  m = mlogit(Choice ~ MFcent + MBcent + Int | -1, df.m, #panel = T, rpar = c(MFcent = "n", MBcent = "n", Int = 'n')
+            correlation = F, halton = NA, R = 1000, tol = .001)
   return(m)
 }
 
@@ -54,10 +54,10 @@ se = function(x) {return(sd(x) / sqrt(length(x)))}
 dodge <- position_dodge(width=0.9)
 
 numWords = 14;
-numQuestions = 2;
+numQuestions = 3;
 pointsPerCent = 1;
-pointsPerWord = 10; # for memory condition
-path = 'data/cs_wg_v7/pilot1/'
+pointsPerWord = 1; # for memory condition
+path = 'data/cs_wg_v7/real1/'
 
 # Load data
 df.demo = read.csv(paste0(path, 'demo.csv'), stringsAsFactors = F) %>% arrange(subject) %>% mutate(total_time_real = total_time / 60000)
@@ -129,7 +129,6 @@ df.s2.subj = df.s2 %>% filter(subject %in% df.demo$subject) %>%
 ## Compute recalled
 recalled = matrix(F, nrow = nrow(df.mem), ncol = numWords)
 recalled_ever = matrix(F, nrow = nrow(df.mem), ncol = numWords)
-recalled_val = matrix(F, nrow = nrow(df.mem), ncol = numWords)
 df.words$recall = NULL
 df.words$recall.ever = NULL
 df.words$order = NULL
@@ -140,8 +139,7 @@ for (i in 1:nrow(df.mem)) {
   df.s2.temp = df.s2 %>% filter(subject == subj.name)
   
   words_temp = trimws(as.string.vector(df.mem$choice[i]))
-  val_temp = as.numeric(trimws(as.string.vector(df.mem$scratch[i])))
-  
+
   wordlist = df.words.temp$word
   
   if (length(wordlist) == numWords) {
@@ -151,7 +149,6 @@ for (i in 1:nrow(df.mem)) {
       
       if (recalled[i,j]) {
         true_val = df.words.temp$value[df.words.temp$word_ind  == (j - 1)]
-        recalled_val[i,j] = abs(val_temp[which_word] - true_val) <= 2
       }
       df.words$recall[df.words$subject == subj.name & df.words$word == wordlist[j]] = recalled[i,j]
       
@@ -172,7 +169,7 @@ for (subj in 1:nrow(df.demo)) {
   subj.name = df.demo$subject[subj]
   df.s2.subj.temp = df.s2.subj %>% filter(subject == subj.name)
   
-  if (df.s2.subj.temp$comp_check_pass < .5 || df.s2.subj.temp$numNAs > 0) {#|| df.s2.subj.temp$numRepeats > 0 #|| sum(recalled[subj,]) < 5) {
+  if (df.s2.subj.temp$comp_check_pass < .5 || df.s2.subj.temp$numNAs > 1 || df.s2.subj.temp$numRepeats > 0 || sum(recalled[subj,]) < 5) {
     include_rows[subj] = FALSE
   } else {
     include_rows[subj] = TRUE
@@ -180,14 +177,13 @@ for (subj in 1:nrow(df.demo)) {
   }
 }
 
-#include_names_good = include_names[good_v5]
+#good_v6 = c(1,2,5,7,11,14,15,17,18,19,22,24,26,27,28,29,30,31,32,34,35,36,37,38,41,44,45,46,49,50,51,52,53,54,55,59,60,63,64,66,67,70,72,73,75,76,77,79,83,85,86,87,88,90,92,93,95,96,98,100,101,102,103,104,106,107)
+#include_names_good = include_names[good_v6]
 
 
 ## Check out data
 nrecall = rowSums(recalled[include_rows,])
-nrecall_val = rowSums(recalled[include_rows,])
 mean(nrecall)
-mean(nrecall_val)
 
 df.words.coll = df.words %>% filter(subject %in% include_names) %>% group_by(high_val, subject) %>% summarize(recall = mean(recall, na.rm = T)) %>%
   group_by(high_val) %>% summarize(recall.mean = mean(recall, na.rm = T), recall.se = se(recall))
@@ -217,17 +213,17 @@ summary(m.order)
 
 
 ## Prepare for mlogit
-numRealQuestions = numQuestions #- 1
+numRealQuestions = numQuestions - 1
 df.logit = data.frame(Subj = NULL, Trial = NULL, OptionID = NULL, Choice = NULL, MFval = NULL, MBval = NULL, nExposures = NULL, Recalled = NULL, Question = NULL)
 
 for (subj in 1:nrow(df.demo)) {
   subj.name = df.demo$subject[subj]
-  #recalled.temp = recalled_ever[subj, ] # CHANGE THIS BACK
-  recalled.temp = !logical(numWords)
+  recalled.temp = recalled_ever[subj, ] # CHANGE THIS BACK
+  #recalled.temp = !logical(numWords)
   num.recalled.temp = sum(recalled.temp)
   
   df.words.temp = df.words %>% filter(subject == subj.name)
-  df.s2.temp = df.s2 %>% filter(subject == subj.name) %>% arrange(question_order)
+  df.s2.temp = df.s2 %>% filter(subject == subj.name) %>% arrange(question_order) %>% filter(question_order == 1)
   
   nAnswered = sum(!is.na(df.s2.temp$choice_real_ind))
   
@@ -281,7 +277,7 @@ for (subj in 1:nrow(df.demo)) {
   }
 }
 
-df.logit = df.logit %>% mutate(MFcent = MFval - mean(MFval), MBcent = MBval - mean(MBval), Int = MFcent * MBcent)
+df.logit = df.logit %>% mutate(MFcent = MFhigh - mean(MFhigh), MBcent = MBhigh - mean(MBhigh), Int = MFcent * MBcent)
 
 m.real = runLogit(df.logit)
 summary(m.real)
@@ -295,12 +291,12 @@ ggplot(data = df.sum, aes(x = MBhigh, y = Choice.mean, group = MFhigh, colour = 
 
 
 ## Get bonuses
-nrecall_bonus = rowSums(recalled & recalled_val)
+nrecall_bonus = rowSums(recalled)
 df.s2.subj = df.s2.subj %>% mutate(mem_bonus = nrecall_bonus[df.mem$subject == subject] * pointsPerWord)
 df.demo = df.demo %>% mutate(s2_bonus = I(df.s2.subj$s2_bonus), mem_bonus = I(df.s2.subj$mem_bonus),
                              bonus = round((s1_bonus + s2_bonus + mem_bonus) / (pointsPerCent * 100), 2))
 write.table(df.demo %>% select(WorkerID = subject, Bonus = bonus),
-            paste0(path, 'Bonuses - cs_wg_v7_pilot1.csv'), row.names = FALSE, col.names = FALSE, sep = ",")
+            paste0(path, 'Bonuses - cs_wg_v7_pilot2.csv'), row.names = FALSE, col.names = FALSE, sep = ",")
 
 save.image(paste0(path, 'analysis.rdata'))
 

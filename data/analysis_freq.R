@@ -188,6 +188,8 @@ for (subj in 1:nrow(df.demo)) {
   }
 }
 
+good_v6 = c(1,2,5,7,11,14,15,17,18,19,22,24,26,27,28,29,30,31,32,34,35,36,37,38,41,44,45,46,49,50,51,52,53,54,55,59,60,63,64,66,67,70,72,73,75,76,77,79,83,85,86,87,88,90,92,93,95,96,98,100,101,102,103,104,106,107)
+include_names_good = include_names[good_v6]
 
 ## Check out data
 nrecall = rowSums(recalled[include_rows,])
@@ -235,7 +237,7 @@ for (subj in 1:nrow(df.demo)) {
   
   nAnswered = sum(!is.na(df.s2.temp$choice_real_ind))
   
-  if (nAnswered > 0 & subj.name %in% include_names) {
+  if (nAnswered > 0 & subj.name %in% include_names & !(subj.name %in% include_names_good)) {
     Subj.col = rep(subj, num.recalled.temp * nAnswered)
     
     MFval.col = rep(df.words.temp$value[recalled.temp], nAnswered)
