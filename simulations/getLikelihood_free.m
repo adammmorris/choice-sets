@@ -13,7 +13,7 @@
 %% Outputs
 % likelihood: the log likelihood (NOT negative)
 
-function LL = getLikelihood(envInfo, choices, rewards_te, recalled, whichSubj, freeParams, fixedParams, nSamples)
+function LL = getLikelihood_free(envInfo, choices, rewards_te, recalled, whichSubj, freeParams, fixedParams, nSamples)
 
 %% Load env info
 numWords = envInfo{1};
@@ -35,10 +35,10 @@ w_MB = params(5);
 
 doSoftmax = true;
 
-wSum = w_MF + w_MB;
-if beta > 0 && abs(wSum - 1) > .01
-    error('Weights do not sum to 1.');
-end
+% wSum = w_MF + w_MB;
+% if beta > 0 && abs(wSum - 1) > .01
+%     error('Weights do not sum to 1.');
+% end
 
 %rewards_tr = -rewards_tr;
 

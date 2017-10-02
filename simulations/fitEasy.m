@@ -10,18 +10,23 @@ for i = 1:length(envNames)
     numStarts = 10;
     numFnEvals = 200;
     
+    % CHANGE THIS BACK
+%     priorPDFs = {@(x) log(1/3), @(x) log(gampdf(x, 4.5, 1)), @(x) log(gampdf(x, 4.5, 1)), ...
+%         @(x) log(unifpdf(x, 0, 1)), @(x) log(unifpdf(x, 0, 1))};
     priorPDFs = {@(x) log(1/3), @(x) log(gampdf(x, 4.5, 1)), @(x) log(gampdf(x, 4.5, 1)), ...
-        @(x) log(unifpdf(x, 0, 1)), @(x) log(unifpdf(x, 0, 1))};
+        @(x) log(unifpdf(x, -10, 10)), @(x) log(unifpdf(x, -10, 10))};
     
     main = ['fitting/' envName '/' simsName];
     modelNames_all = {'mixture-mf-mb', 'mixture-mf', 'mixture-mb', 'random', ...
         'cs-mf-mb', 'cs-mf', 'cs-mb', 'cs-rand', ...
-        'cs-amf-mb', 'cs-amf', 'mixture-amf-mb', 'mixture-amf'};
+        'cs-amf-mb', 'cs-amf', 'mixture-amf-mb', 'mixture-amf', ...
+        'cs-free'};
     modelParams_all = {[1 -1 0 -1 -1], [1 -1 0 1 0], [1 -1 0 0 1], [1 0 0 0 0], ...
         [-1 -1 -1 -1 -1], [-1 -1 -1 1 0], [-1 -1 -1 0 1], [-1 0 -1 0 0], ...
-        [-1 -1 -1 -1 -1], [-1 -1 -1 1 0], [1 -1 0 -1 -1], [1 -1 0 1 0]};
+        [-1 -1 -1 -1 -1], [-1 -1 -1 1 0], [1 -1 0 -1 -1], [1 -1 0 1 0], ...
+        [-1 1 -1 -1 -1]};
     
-    whichModels = [11 12 9 10];
+    whichModels = 13;
     
     modelNames = modelNames_all(whichModels);
     modelParams = modelParams_all(whichModels);

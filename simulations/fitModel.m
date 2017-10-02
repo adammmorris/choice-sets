@@ -30,9 +30,9 @@ envInfo{3} = rewards_tr;
 %% Set up
 numSubjects = length(subjMarkers);
 
-if (fixedParams(2) > 0)
-    error('beta cannot be fixed higher than 0.');
-end
+% if (fixedParams(2) > 0)
+%     error('beta cannot be fixed higher than 0.');
+% end
 
 if (taskid < 1 || taskid > numSubjects)
     error('taskid must be between 1 and numSubjects');
@@ -42,7 +42,6 @@ whichSubj = taskid;
 
 % Params
 K_PARAM_IND = [true false false false false];
-WEIGHT_INDS = [false false false true true];
 
 freeParams = fixedParams == -1;
 freeParams_noK = freeParams;
@@ -50,7 +49,11 @@ freeParams_noK(K_PARAM_IND) = false;
 nFreeParams = sum(freeParams);
 nContFreeParams = sum(freeParams_noK);
 
-bounds = [2 0 0 0 0; 4 10 10 1 1];
+% CHANGE THESE BACK
+%bounds = [2 0 0 0 0; 4 10 10 1 1];
+bounds = [2 0 0 -10 -10; 4 10 10 10 10];
+%WEIGHT_INDS = [false false false true true];
+WEIGHT_INDS = [false false false false false];
 
 A_all = zeros(1, length(fixedParams));
 A_all(WEIGHT_INDS) = 1;
@@ -152,7 +155,8 @@ if nFreeParams > 0 % Are there free parameters?
         lme = nFreeParams / 2 * log(2*pi) + post - .5 * log(det(hessian));
     end
     
-    ll = getLikelihood(envInfo, choice(index), rewards_te_trial(index, :), recalled, whichSubj, optParams, fixedParams, nSamples);
+    % CHANGE THIS BACK
+    ll = getLikelihood_free(envInfo, choice(index), rewards_te_trial(index, :), recalled, whichSubj, optParams, fixedParams, nSamples);
     if isnan(lme) || ~isreal(lme) || isinf(lme) % resort to BIC
         lme = -0.5 * (nFreeParams * (log(length(index)) - log(2*pi)) - 2 * ll);
     end

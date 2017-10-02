@@ -1,5 +1,6 @@
 function [logp, logl] = getPosterior(envInfo, choices, rewards_te_trial, recalled, whichSubj, freeParams, fixedParams, priorPDFs, nSamples)
-logl = getLikelihood(envInfo, choices, rewards_te_trial, recalled, whichSubj, freeParams, fixedParams, nSamples);
+% CHANGE THIS BACK
+logl = getLikelihood_free(envInfo, choices, rewards_te_trial, recalled, whichSubj, freeParams, fixedParams, nSamples);
 logp = logl;
 
 whichParams = find(fixedParams == -1);
