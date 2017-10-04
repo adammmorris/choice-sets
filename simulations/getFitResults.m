@@ -2,7 +2,7 @@
 % For a given dataset, get all the model fitting results, and compare
 % models.
 
-envName = 'wg_v6';
+envName = 'wg_v5';
 simsName = 'real1';
 realData = true;
 
@@ -47,7 +47,7 @@ for j = 1:length(modelParams_all)
 end
 %whichParams_all = {1:3, 1:2, 1:2, 1:2, 1, 2:4, 2:3, [2 4], 2, []};
 
-whichModels = 1:12;
+whichModels = 1:13;
 
 modelNames = modelNames_all(whichModels);
 whichParams = whichParams_all(whichModels);

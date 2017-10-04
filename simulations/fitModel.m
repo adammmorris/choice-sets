@@ -51,7 +51,7 @@ nContFreeParams = sum(freeParams_noK);
 
 % CHANGE THESE BACK
 %bounds = [2 0 0 0 0; 4 10 10 1 1];
-bounds = [2 0 0 -10 -10; 4 10 10 10 10];
+bounds = [2 0 0 -10 0; 4 10 10 10 10];
 %WEIGHT_INDS = [false false false true true];
 WEIGHT_INDS = [false false false false false];
 

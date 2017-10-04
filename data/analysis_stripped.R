@@ -45,8 +45,8 @@ runLogit = function(df) {
   df$Subj = factor(df$Subj)
   df.m = mlogit.data(df, choice = "Choice", shape = "long", id.var = "Subj", alt.var = "OptionID", chid.var = "Trial_unique")
   
-  m = mlogit(Choice ~ MFcent + MBcent + Int | -1, df.m, #panel = T, rpar = c(MFcent = "n", MBcent = "n", Int = 'n')
-            correlation = F, halton = NA, R = 1000, tol = .001)
+  m = mlogit(Choice ~ MFcent + MBcent + Int | -1, df.m,
+            halton = NA, R = 1000, tol = .001)
   return(m)
 }
 
@@ -57,7 +57,7 @@ numWords = 14;
 numQuestions = 3;
 pointsPerCent = 1;
 pointsPerWord = 1; # for memory condition
-path = 'data/cs_wg_v7/real1/'
+path = 'data/cs_wg_v7/pilot4/'
 
 # Load data
 df.demo = read.csv(paste0(path, 'demo.csv'), stringsAsFactors = F) %>% arrange(subject) %>% mutate(total_time_real = total_time / 60000)
@@ -66,25 +66,28 @@ df.s2.raw = read.csv(paste0(path, 's2.csv'), stringsAsFactors = F) %>% arrange(s
 
 subjlist = df.demo$subject
 
-
 ## Fix DFs
 
-q1val = c(3, 1, 2, 1, 5, 4, 4, 0, 3, 2, 2, 2, 2, 3)
-q2val = c(1, 4, 0, 4, 4, 0, 3, 2, 6, 3, 3, 3, 2, 2)
-
-# drop anyone who didn't finish
-df.s2 = df.s2.raw %>% filter(subject %in% subjlist)
-df.words = df.words.raw %>% mutate(doubled = ifelse(is.na(lead(word)), FALSE, word == lead(word) & subject == lead(subject)),
-                                   value = q1val[word_ind+1], high_val = value > median(q1val)) %>%
+# df.words
+df.words = df.words.raw %>% mutate(doubled = ifelse(is.na(lead(word)), FALSE, word == lead(word) & subject == lead(subject))) %>%
   filter(doubled == FALSE & subject %in% subjlist)
 
-# Mutate df.s2
+for (i in 1:nrow(df.words)) {
+  subj.name = df.words$subject[i]
+  valuelist = (df.words %>% filter(subject == subj.name))$value
+  valuelist_rank = rank(valuelist, ties.method = 'max')
+  wordind = df.words$word_ind[i] + 1
+  
+  df.words$value_rank[i] = valuelist_rank[wordind]
+  df.words$value_high[i] = df.words$value[i] > median(valuelist)
+}
+
+# df.s2
+df.s2 = df.s2.raw %>% filter(subject %in% subjlist)
 df.s2$choice = toupper(df.s2$choice)
 df.s2$scratch = gsub("[.]", ",", toupper(as.character(df.s2$scratch)))
 df.s2$all_values = as.character(df.s2$all_values)
 
-df.s2$rank_value = NULL
-df.s2$num_ties = NULL
 for (i in 1:nrow(df.s2)) {
   subj.name = df.s2$subject[i]
   wordlist = (df.words %>% filter(subject == subj.name))$word
@@ -93,38 +96,31 @@ for (i in 1:nrow(df.s2)) {
   cind = getIndex(creal, wordlist)
   
   all_vals = as.numeric.vector(df.s2$all_values[i])
-  #all_vals = rewards_te[qvec[df.s2$question_ind[i] + 1], ] * mult[df.s2$question_ind[i] + 1]
-  #df.s2$all_values[i] = paste0('[', toString(all_vals), ']')
-  
   all_vals_rank = rank(all_vals, ties.method = 'max')
   s2_val = ifelse(is.na(cind), NA, all_vals[cind])
   word_rows = subj.name == df.words$subject & creal == df.words$word
 
   df.s2$choice_real[i] = creal
   df.s2$choice_real_ind[i] = cind
-  df.s2$s2_value[i] = s2_val
-  df.s2$rank_value[i] = ifelse(is.na(cind), NA, all_vals_rank[cind])
-  df.s2$num_ties[i] = ifelse(is.na(cind), NA, sum(s2_val == all_vals))
-  df.s2$s1_value[i] = ifelse(is.na(cind), NA, df.words$value[word_rows])
+  df.s2$value[i] = s2_val
+  df.s2$value_rank[i] = ifelse(is.na(cind), NA, all_vals_rank[cind])
+  df.s2$value_high[i] = s2_val > median(all_vals)
 }
 
 df.s2 = df.s2 %>% mutate(s2_subj_ind = as.numeric(as.factor(subject)), # don't use that ind for anything serious
                          doubled = ifelse(is.na(choice_real_ind), NA, ifelse(is.na(lead(choice_real_ind)), F, choice_real_ind == lead(choice_real_ind)) |
                                                   ifelse(is.na(lag(choice_real_ind)), F, choice_real_ind == lag(choice_real_ind))),
-                         bonus_value = ifelse(is.na(choice_real_ind), 0, s2_value),#ifelse(doubled, 0, s2_value)),
-                         high_val = s1_value > median(s1_value))
+                         bonus_value = ifelse(is.na(choice_real_ind), 0, ifelse(doubled, 0, value)))
 
 df.mem = df.s2 %>% filter(question == 'Memory')
 
-df.s2.subj = df.s2 %>% filter(subject %in% df.demo$subject) %>%
+df.s2.subj = df.s2 %>%
   group_by(subject) %>%
   summarize(s2_bonus = sum(bonus_value), rt = mean(rt) / 1000,
             comp_check_pass = mean(comp_check_pass),
-            #comp_check_almost = mean(comp_check_almost, na.rm = T),
             comp_check_rt = mean(comp_check_rt) / 1000,
             numNAs = sum(is.na(choice_real)),
             numRepeats = sum(choice_real == lag(choice_real), na.rm = T))
-
 
 ## Compute recalled
 recalled = matrix(F, nrow = nrow(df.mem), ncol = numWords)
@@ -218,8 +214,8 @@ df.logit = data.frame(Subj = NULL, Trial = NULL, OptionID = NULL, Choice = NULL,
 
 for (subj in 1:nrow(df.demo)) {
   subj.name = df.demo$subject[subj]
-  recalled.temp = recalled_ever[subj, ] # CHANGE THIS BACK
-  #recalled.temp = !logical(numWords)
+  recalled.temp = recalled_ever[subj, ]
+  #recalled.temp = !logical(numWords) # uncomment this if you don't want to filter to recalled words
   num.recalled.temp = sum(recalled.temp)
   
   df.words.temp = df.words %>% filter(subject == subj.name)
@@ -230,9 +226,8 @@ for (subj in 1:nrow(df.demo)) {
   if (nAnswered > 0 & subj.name %in% include_names) {
     Subj.col = rep(subj, num.recalled.temp * nAnswered)
     
-    MFval.col = rep(df.words.temp$value[recalled.temp], nAnswered)
-    MFhigh.col = rep(df.words.temp$high_val[recalled.temp] * 1, nAnswered)
-    nExposures.col = rep(df.words.temp$exposures[recalled.temp], nAnswered)
+    MFval.col = rep(df.words.temp$value_rank[recalled.temp], nAnswered)
+    MFhigh.col = rep(df.words.temp$value_high[recalled.temp] * 1, nAnswered)
     #OptionID.col = rep(which(recalled.temp), nAnswered)
     OptionID.col = rep(1:num.recalled.temp, nAnswered)
     Trial.col = rep(1:nAnswered, each = num.recalled.temp)
@@ -246,19 +241,14 @@ for (subj in 1:nrow(df.demo)) {
     for (q in 1:numRealQuestions) {
       if (!is.na(df.s2.temp$choice_real_ind[q])) {
         all_vals = as.numeric.vector(df.s2.temp$all_values[q])
-        #mbvals = rank(all_vals, ties.method = 'max')
-        mbvals = all_vals
+        mbvals = rank(all_vals, ties.method = 'max')
+        #mbvals = all_vals
         temp.mbval[ind,] = mbvals[recalled.temp]
-        temp.mbhigh[ind,] = mbvals[recalled.temp] > median(q2val)
+        temp.mbhigh[ind,] = mbvals[recalled.temp] > median(mbvals)
         
         choice = logical(num.recalled.temp)
         choice[which(df.s2.temp$choice_real_ind[q] == which(recalled.temp))] = TRUE
         temp.choice[ind,] = choice
-        
-        choice2 = vector(mode = 'numeric', num.recalled.temp)
-        #choice2[1] = which(df.s2.temp$choice_real_ind[q] == which(recalled.temp))
-        choice2[1] = OptionID.col[1:num.recalled.temp][choice]
-        temp.choice2[ind,] = choice2
         
         ind = ind + 1
       }
@@ -271,7 +261,7 @@ for (subj in 1:nrow(df.demo)) {
     
     df.logit = rbind(df.logit,
                      data.frame(Subj = Subj.col, Trial = Trial.col, OptionID = OptionID.col, Choice = Choice.col,
-                                MFval = MFval.col, MBval = MBval.col, MFhigh = MFhigh.col, MBhigh = MBhigh.col, Choice2 = Choice2.col, nExposures = nExposures.col,
+                                MFval = MFval.col, MBval = MBval.col, MFhigh = MFhigh.col, MBhigh = MBhigh.col,
                                 Question = Question.col))
 
   }
@@ -296,7 +286,7 @@ df.s2.subj = df.s2.subj %>% mutate(mem_bonus = nrecall_bonus[df.mem$subject == s
 df.demo = df.demo %>% mutate(s2_bonus = I(df.s2.subj$s2_bonus), mem_bonus = I(df.s2.subj$mem_bonus),
                              bonus = round((s1_bonus + s2_bonus + mem_bonus) / (pointsPerCent * 100), 2))
 write.table(df.demo %>% select(WorkerID = subject, Bonus = bonus),
-            paste0(path, 'Bonuses - cs_wg_v7_pilot2.csv'), row.names = FALSE, col.names = FALSE, sep = ",")
+            paste0(path, 'Bonuses - cs_wg_v7_pilot4.csv'), row.names = FALSE, col.names = FALSE, sep = ",")
 
 save.image(paste0(path, 'analysis.rdata'))
 
@@ -331,4 +321,4 @@ write.csv(recalled_ever[include_rows, ] * 1, paste0(path, 'recalled.csv'), row.n
 df.modeling = df.s2 %>% filter(subject %in% include_names & !is.na(choice_real_ind)) %>%
   mutate(all_values_nocomma = gsub(",", " ", all_values)) %>% 
   select(s2_subj_ind, choice_real_ind, all_values_nocomma)
-write.table(df.modeling, paste0(path, 'choices.csv'), row.names = F, col.names = F, sep=",");
+write.table(df.modeling, paste0(path, 'choices.csv'), row.names = F, col.names = F, sep=",")
