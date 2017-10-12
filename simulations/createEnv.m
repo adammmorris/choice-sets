@@ -3,7 +3,7 @@ clearvars
 %% Basics
 nAgents = 1000;
 nWords = 14;
-nTrials = 8; % num of test trials
+nTrials = 1; % num of test trials
 
 %% Values
 possibleRewards_tr = [0, 0, 0, 0, 0, 0, 0, 10, 10, 10, 10, 10, 10, 10];
@@ -23,4 +23,4 @@ maxRe_te = max(possibleRewards_te);
 %% Save
 
 envInfo = {nWords, nTrials, rewards_tr, maxRe_tr, rewards_te, maxRe_te};
-save('env/wg_v6.mat', 'envInfo');
+save('env/wg_v7.mat', 'envInfo');

@@ -4,3 +4,4 @@ v6 is the frequency version.
 v7 is jonathan's stripped down version.
 	real1 is just two questions.
 	real2 is random question pairs.
+v8 is the confounded version.

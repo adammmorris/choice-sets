@@ -45,7 +45,7 @@ runLogit = function(df) {
   df$Subj = factor(df$Subj)
   df.m = mlogit.data(df, choice = "Choice", shape = "long", id.var = "Subj", alt.var = "OptionID", chid.var = "Trial_unique")
   
-  m = mlogit(Choice ~ MFcent + MBcent + Int, df.m, panel = T,
+  m = mlogit(Choice ~ MFcent + MBcent + Int | -1, df.m, panel = T,
              rpar = c(MFcent = "n", MBcent = "n", Int = 'n'), correlation = F, halton = NA, R = 1000, tol = .001)
   return(m)
 }
@@ -54,10 +54,10 @@ se = function(x) {return(sd(x) / sqrt(length(x)))}
 dodge <- position_dodge(width=0.9)
 
 numWords = 14;
-numQuestions = 6; # including memory
+numQuestions = 9; # including memory
 pointsPerCent = 10;
 pointsPerWord = 10; # for memory condition
-path = 'data/cs_wg_v5/real1/'
+path = 'data/cs_wg_v8/real1/'
 
 # Load data
 df.demo = read.csv(paste0(path, 'demo.csv'), stringsAsFactors = F) %>% arrange(subject) %>% mutate(total_time_real = total_time / 60000)
@@ -67,26 +67,47 @@ df.s2.raw = read.csv(paste0(path, 's2.csv'), stringsAsFactors = F) %>% arrange(s
 
 subjlist = df.demo$subject
 
+## words
 
-## Fix DFs
-
-# drop anyone who didn't finish
-df.s1 = df.s1.raw %>% filter(subject %in% subjlist) %>% mutate(correct_word = ain(toupper(resp), word, maxDist = 2), correct_val = resp2 == value)
-df.s2 = df.s2.raw %>% filter(subject %in% subjlist)
 df.words = df.words.raw %>% mutate(doubled = ifelse(is.na(lead(word)), FALSE, word == lead(word) & subject == lead(subject))) %>%
   filter(doubled == FALSE & subject %in% subjlist) %>%
   mutate(high_val = value > 5, numChosen = 0)
 
-# get numChosen & cors
-df.s1.subjword = df.s1 %>% group_by(subject, word) %>% summarize(numChosen = sum(choice == 0))
-for (i in 1:nrow(df.words)) {
-  subjword_rows = df.s1.subjword$subject == df.words$subject[i] & df.s1.subjword$word == df.words$word[i]
-  df.words$numChosen[i] = ifelse(any(subjword_rows), df.s1.subjword$numChosen[subjword_rows], NA)
+## s1
+
+df.s1 = df.s1.raw %>% filter(subject %in% subjlist) %>%
+  mutate(correct_word = ain(toupper(resp), word, maxDist = 2), correct_val = resp2 == value, word_chosen = ifelse(choice, alt, word),
+         high_val = value > 5)
+
+for (i in 1:nrow(df.s1)) {
+  subj = df.s1$subject[i]
+  word = df.s1$word[i]
+  alt = df.s1$alt[i]
+  choice = df.s1$choice[i]
+  df.s1$word_value[i] = df.words$value[df.words$subject == subj & df.words$word == word]
+  df.s1$alt_value[i] = df.words$value[df.words$subject == subj & df.words$word == alt]
+  df.s1$word_better[i] = df.s1$word_value[i] > df.s1$alt_value[i]
+  df.s1$chose_better[i] = ifelse(df.s1$word_better[i], !choice, choice)
 }
-df.cors = df.words %>% group_by(subject) %>% summarize(cors = cor(numChosen, value))
+
+# get numChosen & cors
+df.s1.subjword = df.s1 %>% group_by(subject, word_chosen) %>% summarize(numChosen = n())
+for (i in 1:nrow(df.words)) {
+  subjword_rows = df.s1.subjword$subject == df.words$subject[i] & df.s1.subjword$word_chosen == df.words$word[i]
+  df.words$numChosen[i] = ifelse(any(subjword_rows), df.s1.subjword$numChosen[subjword_rows], NA)
+  df.words$numChosen_high[i] = df.words$numChosen[i] > 6
+}
+df.words.subj = df.words %>% group_by(subject) %>% summarize(cor = cor(value, numChosen)) 
 
 # get pctCorrects
-df.s1.subj = df.s1 %>% group_by(subject) %>% summarize(pctCorrect_words = mean(correct_word), pctCorrect_val = mean(correct_val), numTrials = n())
+df.s1.subj = df.s1 %>% group_by(subject) %>%
+  summarize(pctCorrect_words = mean(correct_word, na.rm = T), pctCorrect_val = mean(correct_val, na.rm = T), numTrials = n(),
+            pctCorrectChoice = mean(chose_better), pctHighVal = mean(high_val))
+df.s1.trial = df.s1 %>% group_by(trial) %>% summarize(pctCorrectChoice = mean(chose_better))
+plot(df.s1.trial$pctCorrectChoice)
+
+## s2
+df.s2 = df.s2.raw %>% filter(subject %in% subjlist)
 
 # Mutate df.s2
 df.s2$choice = toupper(df.s2$choice)
@@ -114,14 +135,9 @@ for (i in 1:nrow(df.s2)) {
   df.s2$choice_real_ind[i] = cind
   df.s2$s2_value[i] = s2_val
   df.s2$rank_value[i] = ifelse(is.na(cind), NA, all_vals_rank[cind])
-  df.s2$num_ties[i] = ifelse(is.na(cind), NA, sum(s2_val == all_vals))
   df.s2$s1_value[i] = ifelse(is.na(cind), NA, df.words$value[word_rows])
   df.s2$s1_exposures[i] = ifelse(is.na(cind), NA, df.words$exposures[word_rows])
   df.s2$s1_chosen[i] = ifelse(is.na(cind), NA, df.words$numChosen[word_rows])
-  
-  df.s2$numWords_s1val[i] = ifelse(is.na(cind), NA, ifelse(df.s2$s1_value[i] %in% c(0,10), 3, 2))
-  
-  #df.s2$comp_check_almost[i] = abs(as.numeric(df.s2$comp_check[i]) - correct_comp[df.s2$question_ind[i] + 1]) <= mult[df.s2$question_ind[i] + 1]
 }
 
 df.s2 = df.s2 %>% mutate(s2_subj_ind = as.numeric(as.factor(subject)), # don't use that ind for anything serious
@@ -187,10 +203,9 @@ for (subj in 1:nrow(df.demo)) {
   subj.name = df.demo$subject[subj]
   df.s1.subj.temp = df.s1.subj %>% filter(subject == subj.name)
   df.s2.subj.temp = df.s2.subj %>% filter(subject == subj.name)
-  df.cors.temp = df.cors %>% filter(subject == subj.name)
-  
-  if (subj.name == 'A40O6S62MI2VC' || df.s1.subj.temp$pctCorrect_words < .75 || df.s1.subj.temp$pctCorrect_val < .75 || df.s2.subj.temp$comp_check_pass < .5 ||
-      df.s2.subj.temp$numRepeats > 2 || df.cors.temp$cors < .75 || sum(recalled[subj,]) < 5 || df.s1.subj.temp$numTrials != 112 || df.s2.subj.temp$numNAs > 2) { # CHANGE TO 2
+
+  if (df.s1.subj.temp$pctCorrect_words < .75 || df.s1.subj.temp$pctCorrect_val < .75 || df.s2.subj.temp$comp_check_pass < .5 || df.s1.subj.temp$pctCorrectChoice < .6 ||
+      df.s2.subj.temp$numRepeats > 2 || sum(recalled[subj,]) < 5 || df.s1.subj.temp$numTrials != 91 || df.s2.subj.temp$numNAs > 4) { # either 2 or 4
     include_rows[subj] = FALSE
   } else {
     include_rows[subj] = TRUE
@@ -199,8 +214,8 @@ for (subj in 1:nrow(df.demo)) {
 }
 
 #good_v3 = c(2,3,4,7,8,9,10,13,15,17,18,21,23,24,28,30,31,32,36,39,40,42,44,45,46,49,51,52,54,56,57,59,62,64,66,67,68,74,75,76,77,78,81,82,83,84,86,89,91,94,95,98,99,100,106,107,108,109,110,113,114,115,118,119,120)
-good_v5 = c(3,5,10,11,13,14,16,20,23,25,26,28,31,32,36,37,41,42,43,45,46,50,52,53,54,55,56,58,59,60,62,68,70,71,73,74,75,76,77,81,84,86,87,88,89,92,94,96,98,99,101,103,105,107,108,109,111,115,117,118,119,121,125,126,127,129,130,131,133,134,136,141,143,145,146,147,153,157,158,160,161,164,165,170,171,173,176,177,181,182,184,185,186,187,190,192,193,194,195,196,197,198,200,201,202,204,205,206,208,209,210,213,214,216,218,221,224,225,226,227,228,231,233,234,235,237,238,244,246,248,251,252,253,255)
-include_names_good = include_names[good_v5]
+#good_v5 = c(3,5,10,11,13,14,16,20,23,25,26,28,31,32,36,37,41,42,43,45,46,50,52,53,54,55,56,58,59,60,62,68,70,71,73,74,75,76,77,81,84,86,87,88,89,92,94,96,98,99,101,103,105,107,108,109,111,115,117,118,119,121,125,126,127,129,130,131,133,134,136,141,143,145,146,147,153,157,158,160,161,164,165,170,171,173,176,177,181,182,184,185,186,187,190,192,193,194,195,196,197,198,200,201,202,204,205,206,208,209,210,213,214,216,218,221,224,225,226,227,228,231,233,234,235,237,238,244,246,248,251,252,253,255)
+#include_names_good = include_names[good_v5]
 
 
 ## Check out data
@@ -251,14 +266,14 @@ for (subj in 1:nrow(df.demo)) {
   
   nAnswered = sum(!is.na(df.s2.temp$choice_real_ind))
   
-  if (nAnswered > 0 & subj.name %in% include_names & (subj.name %in% include_names_good)) {
+  if (nAnswered > 0 & subj.name %in% include_names) {
     Subj.col = rep(subj, num.recalled.temp * nAnswered)
     
     MFval.col = rep(df.words.temp$value[recalled.temp], nAnswered)
     MFhigh.col = rep(df.words.temp$high_val[recalled.temp] * 1, nAnswered)
     nExposures.col = rep(df.words.temp$exposures[recalled.temp], nAnswered)
     Recalled.col = rep(df.words.temp$recall.ever[recalled.temp] * 1, nAnswered)
-    numChosen.col = rep(df.words.temp$numChosen[recalled.temp], nAnswered)
+    numChosen.col = rep(df.words.temp$numChosen_high[recalled.temp], nAnswered)
     #OptionID.col = rep(which(recalled.temp), nAnswered)
     OptionID.col = rep(1:num.recalled.temp, nAnswered)
     Trial.col = rep(1:nAnswered, each = num.recalled.temp)
@@ -303,7 +318,8 @@ for (subj in 1:nrow(df.demo)) {
   }
 }
 
-df.logit = df.logit %>% mutate(MFcent = MFhigh - mean(MFhigh), MBcent = MBval - mean(MBval), Int = MFcent * MBcent)
+df.logit = df.logit %>% mutate(MFcent = MFhigh - mean(MFhigh), MBcent = MBval - mean(MBval), Int = MFcent * MBcent,
+                               nChosen_cent = nChosen - mean(nChosen))
 
 m.real = runLogit(df.logit)
 summary(m.real)
@@ -322,7 +338,7 @@ df.s2.subj = df.s2.subj %>% mutate(mem_bonus = nrecall_bonus[df.mem$subject == s
 df.demo = df.demo %>% mutate(s2_bonus = I(df.s2.subj$s2_bonus), mem_bonus = I(df.s2.subj$mem_bonus),
                              bonus = round((s1_bonus + s2_bonus + mem_bonus) / (pointsPerCent * 100), 2))
 write.table(df.demo %>% filter(id >= 150) %>% select(WorkerID = subject, Bonus = bonus),
-            paste0(path, 'Bonuses - cs_wg_v5_real1.csv'), row.names = FALSE, col.names = FALSE, sep = ",")
+            paste0(path, 'Bonuses.csv'), row.names = FALSE, col.names = FALSE, sep = ",")
 
 save.image(paste0(path, 'analysis.rdata'))
 

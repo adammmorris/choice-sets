@@ -1,0 +1,149 @@
+"subject","version","assignmentId","cond","question","question_ind","all_values","question_order","comp_check","comp_check_pass","comp_check_rt","choice","scratch","rt","stamp","id"
+"A1L1SQ488YCCFJ","cs_wg_v8_pilot1","3JPSL1DZ5S06J8Z2FII8JUYMCJMAN9","1","Most letters before word's second letter in alphabet","3","[20,95,0,70,70,60,70,70,20,85,95,0,20,0]","0","20","1","25216","umbrella",,"16000","2017-10-10 15:01:35","10142"
+"A1L1SQ488YCCFJ","cs_wg_v8_pilot1","3JPSL1DZ5S06J8Z2FII8JUYMCJMAN9","1","Most letters in alphabet between word's 5th and 6th letters","5","[25,10,65,35,55,35,5,110,60,15,85,25,70,75]","1","15","0","28537","helicopter",,"26000","2017-10-10 15:02:31","10143"
+"A1L1SQ488YCCFJ","cs_wg_v8_pilot1","3JPSL1DZ5S06J8Z2FII8JUYMCJMAN9","1","Most letters in the set: S, G, E, F, B, N, L.","0","[30,10,20,10,50,40,40,0,30,20,20,20,20,30]","2","60","1","24712","football",,"21000","2017-10-10 15:03:19","10144"
+"A3US51RJ9AWSEE","cs_wg_v8_pilot1","3KMS4QQVK2R07TV7TLCK53S9F4UKFR","1","Most letters in the set: S, G, E, F, B, N, L.","0","[30,10,20,10,50,40,40,0,30,20,20,20,20,30]","0","60","1","30491","Doorway",,"21000","2017-10-10 15:03:33","10145"
+"A1L1SQ488YCCFJ","cs_wg_v8_pilot1","3JPSL1DZ5S06J8Z2FII8JUYMCJMAN9","1","Most vertical lines","6","[60,50,50,90,70,80,50,30,90,50,50,80,60,40]","3","15","0","30626","community",,"31000","2017-10-10 15:04:23","10146"
+"A3US51RJ9AWSEE","cs_wg_v8_pilot1","3KMS4QQVK2R07TV7TLCK53S9F4UKFR","1","Most letters before word's second letter in alphabet","3","[20,95,0,70,70,60,70,70,20,85,95,0,20,0]","1","25","0","63344","Community",,"16000","2017-10-10 15:04:54","10147"
+"A1L1SQ488YCCFJ","cs_wg_v8_pilot1","3JPSL1DZ5S06J8Z2FII8JUYMCJMAN9","1","Most letters in the set: T, P, O, K, I, C, H.","1","[10,40,0,40,40,0,30,20,60,30,30,30,20,20]","4","30","1","15674","
+bookshelf",,"21000","2017-10-10 15:05:02","10148"
+"A1L1SQ488YCCFJ","cs_wg_v8_pilot1","3JPSL1DZ5S06J8Z2FII8JUYMCJMAN9","1","Most horizontal lines","7","[60,30,50,30,70,60,60,10,110,80,50,70,40,50]","5","40","0","11988","
+traffic
+wedding ",,"31000","2017-10-10 15:05:47","10149"
+"A1L1SQ488YCCFJ","cs_wg_v8_pilot1","3JPSL1DZ5S06J8Z2FII8JUYMCJMAN9","1","Most letters in alphabet between word's 4th and 5th letters","4","[25,60,5,40,40,65,90,25,30,0,90,5,65,30]","6","30","0","18880","stomach
+stomach",,"26000","2017-10-10 15:06:33","10150"
+"A3US51RJ9AWSEE","cs_wg_v8_pilot1","3KMS4QQVK2R07TV7TLCK53S9F4UKFR","1","Most letters come after the word's third letter in the alphabet.","2","[115,60,115,70,60,125,60,60,75,130,45,120,10,40]","2","20","0","88850","traffic",,"16000","2017-10-10 15:06:41","10151"
+"A1L1SQ488YCCFJ","cs_wg_v8_pilot1","3JPSL1DZ5S06J8Z2FII8JUYMCJMAN9","1","Most letters come after the word's third letter in the alphabet.","2","[115,60,115,70,60,125,60,60,75,130,45,120,10,40]","7","25","1","24894","ladder",,"16000","2017-10-10 15:07:16","10152"
+"A3HE8VNBXD2BR0","cs_wg_v8_pilot1","3Z4AIRP3C6EF1E06L5CO6VWHA3QX1S","1","Most letters in alphabet between word's 4th and 5th letters","4","[25,60,5,40,40,65,90,25,30,0,90,5,65,30]","0","15","1","58671","keyboard",,"26000","2017-10-10 15:07:43","10153"
+"A3US51RJ9AWSEE","cs_wg_v8_pilot1","3KMS4QQVK2R07TV7TLCK53S9F4UKFR","1","Most letters in alphabet between word's 5th and 6th letters","5","[25,10,65,35,55,35,5,110,60,15,85,25,70,75]","3","30","0","74949","Helicopter",,"26000","2017-10-10 15:08:24","10154"
+"A3HE8VNBXD2BR0","cs_wg_v8_pilot1","3Z4AIRP3C6EF1E06L5CO6VWHA3QX1S","1","Most letters in alphabet between word's 5th and 6th letters","5","[25,10,65,35,55,35,5,110,60,15,85,25,70,75]","1","25","1","27145","structure",,"26000","2017-10-10 15:08:38","10155"
+"A3US51RJ9AWSEE","cs_wg_v8_pilot1","3KMS4QQVK2R07TV7TLCK53S9F4UKFR","1","Most horizontal lines","7","[60,30,50,30,70,60,60,10,110,80,50,70,40,50]","4","100","0","64900","Ladder",,"31000","2017-10-10 15:10:02","10156"
+"A3HE8VNBXD2BR0","cs_wg_v8_pilot1","3Z4AIRP3C6EF1E06L5CO6VWHA3QX1S","1","Most letters in the set: S, G, E, F, B, N, L.","0","[30,10,20,10,50,40,40,0,30,20,20,20,20,30]","2","60","1","80299","football",,"21000","2017-10-10 15:10:22","10157"
+"A1L1SQ488YCCFJ","cs_wg_v8_pilot1","3JPSL1DZ5S06J8Z2FII8JUYMCJMAN9","1","Memory","8",NULL,"8","100","1","33017","[""football"",""traffic"",""wedding"",""community"",""stomach"",""bookshelf"",""umbrella"",""helicopter"","""","""","""","""","""",""""]","[""0"",""0"",""9"",""10"",""0"",""1"",""2"",""10"","""","""","""","""","""",""""]","181000","2017-10-10 15:10:53","10158"
+"A3HE8VNBXD2BR0","cs_wg_v8_pilot1","3Z4AIRP3C6EF1E06L5CO6VWHA3QX1S","1","Most letters in the set: T, P, O, K, I, C, H.","1","[10,40,0,40,40,0,30,20,60,30,30,30,20,20]","3","30","1","18551","stomach",,"21000","2017-10-10 15:11:03","10159"
+"A3US51RJ9AWSEE","cs_wg_v8_pilot1","3KMS4QQVK2R07TV7TLCK53S9F4UKFR","1","Most letters in the set: T, P, O, K, I, C, H.","1","[10,40,0,40,40,0,30,20,60,30,30,30,20,20]","5","30","1","54264","Football",,"21000","2017-10-10 15:11:19","10160"
+"A3US51RJ9AWSEE","cs_wg_v8_pilot1","3KMS4QQVK2R07TV7TLCK53S9F4UKFR","1","Most letters in alphabet between word's 4th and 5th letters","4","[25,60,5,40,40,65,90,25,30,0,90,5,65,30]","6","25","0","16170","Basket",,"26000","2017-10-10 15:12:03","10161"
+"AM8OWAW9TUVLN","cs_wg_v8_pilot1","3LWJHTCVCCNMIWT26QWH1P4IEAMFQE","1","Most horizontal lines","7","[60,30,50,30,70,60,60,10,110,80,50,70,40,50]","0","70","1","69583","machine","machine
+doorway
+umbrella
+","31000","2017-10-10 15:12:39","10162"
+"A3US51RJ9AWSEE","cs_wg_v8_pilot1","3KMS4QQVK2R07TV7TLCK53S9F4UKFR","1","Most vertical lines","6","[60,50,50,90,70,80,50,30,90,50,50,80,60,40]","7","40","1","36904","Machine",,"31000","2017-10-10 15:13:13","10163"
+"A3HE8VNBXD2BR0","cs_wg_v8_pilot1","3Z4AIRP3C6EF1E06L5CO6VWHA3QX1S","1","Most vertical lines","6","[60,50,50,90,70,80,50,30,90,50,50,80,60,40]","4","40","1","103756","MACHINE",,"31000","2017-10-10 15:13:20","10164"
+"AM8OWAW9TUVLN","cs_wg_v8_pilot1","3LWJHTCVCCNMIWT26QWH1P4IEAMFQE","1","Most letters in alphabet between word's 5th and 6th letters","5","[25,10,65,35,55,35,5,110,60,15,85,25,70,75]","1","40","0","37487","umbrella","umbrella
+machine
+doorway
+","26000","2017-10-10 15:13:44","10165"
+"AM8OWAW9TUVLN","cs_wg_v8_pilot1","3LWJHTCVCCNMIWT26QWH1P4IEAMFQE","1","Most letters before word's second letter in alphabet","3","[20,95,0,70,70,60,70,70,20,85,95,0,20,0]","2","20","1","28853","doorway","umbrella
+machine
+doorway
+","16000","2017-10-10 15:14:31","10166"
+"A3HE8VNBXD2BR0","cs_wg_v8_pilot1","3Z4AIRP3C6EF1E06L5CO6VWHA3QX1S","1","Most horizontal lines","7","[60,30,50,30,70,60,60,10,110,80,50,70,40,50]","5","70","1","49844","TRAFFIC",,"31000","2017-10-10 15:14:43","10167"
+"AM8OWAW9TUVLN","cs_wg_v8_pilot1","3LWJHTCVCCNMIWT26QWH1P4IEAMFQE","1","Most vertical lines","6","[60,50,50,90,70,80,50,30,90,50,50,80,60,40]","3","30","0","21554","umbrella","umbrella
+machine
+doorway
+structure
+","31000","2017-10-10 15:15:26","10168"
+"A3HE8VNBXD2BR0","cs_wg_v8_pilot1","3Z4AIRP3C6EF1E06L5CO6VWHA3QX1S","1","Most letters before word's second letter in alphabet","3","[20,95,0,70,70,60,70,70,20,85,95,0,20,0]","6","20","1","40746","stomach",,"16000","2017-10-10 15:15:42","10169"
+"AM8OWAW9TUVLN","cs_wg_v8_pilot1","3LWJHTCVCCNMIWT26QWH1P4IEAMFQE","1","Most letters in alphabet between word's 4th and 5th letters","4","[25,60,5,40,40,65,90,25,30,0,90,5,65,30]","4","15","1","21500","football","umbrella
+machine
+doorway
+structure
+football
+","26000","2017-10-10 15:16:15","10170"
+"A3US51RJ9AWSEE","cs_wg_v8_pilot1","3KMS4QQVK2R07TV7TLCK53S9F4UKFR","1","Memory","8",NULL,"8","100","1","16027","[""Ladder"",""Doorway"",""Machine"",""Wedding"",""Football"",""Basket"",""Helicopter"",""Stomach"",""Structure"","""","""","""","""",""""]","[""0"",""2"",""10"",""10"",""2"",""2"",""8"",""10"",""8"","""","""","""","""",""""]","181000","2017-10-10 15:16:32","10171"
+"A3HE8VNBXD2BR0","cs_wg_v8_pilot1","3Z4AIRP3C6EF1E06L5CO6VWHA3QX1S","1","Most letters come after the word's third letter in the alphabet.","2","[115,60,115,70,60,125,60,60,75,130,45,120,10,40]","7","25","1","46801","traffic",,"16000","2017-10-10 15:16:47","10172"
+"A2HOUSKURBF8UA","cs_wg_v8_pilot1","33IZTU6J812FVYZ0YOR82WJQ033XSC","1","Most letters in the set: S, G, E, F, B, N, L.","0","[30,10,20,10,50,40,40,0,30,20,20,20,20,30]","0","60","1","36418","football","football","21000","2017-10-10 15:16:51","10173"
+"AM8OWAW9TUVLN","cs_wg_v8_pilot1","3LWJHTCVCCNMIWT26QWH1P4IEAMFQE","1","Most letters in the set: S, G, E, F, B, N, L.","0","[30,10,20,10,50,40,40,0,30,20,20,20,20,30]","5","60","1","23138","football","umbrella
+machine
+doorway
+structure
+football
+communit","21000","2017-10-10 15:17:01","10174"
+"AM8OWAW9TUVLN","cs_wg_v8_pilot1","3LWJHTCVCCNMIWT26QWH1P4IEAMFQE","1","Most letters come after the word's third letter in the alphabet.","2","[115,60,115,70,60,125,60,60,75,130,45,120,10,40]","6","25","1","23548","machine","umbrella
+machine
+doorway
+structure
+football
+community","16000","2017-10-10 15:17:43","10175"
+"A2HOUSKURBF8UA","cs_wg_v8_pilot1","33IZTU6J812FVYZ0YOR82WJQ033XSC","1","Most horizontal lines","7","[60,30,50,30,70,60,60,10,110,80,50,70,40,50]","1","70","1","43638","football",,"31000","2017-10-10 15:18:08","10176"
+"AM8OWAW9TUVLN","cs_wg_v8_pilot1","3LWJHTCVCCNMIWT26QWH1P4IEAMFQE","1","Most letters in the set: T, P, O, K, I, C, H.","1","[10,40,0,40,40,0,30,20,60,30,30,30,20,20]","7","30","1","11270","football","umbrella
+machine
+doorway
+structure
+football
+community","21000","2017-10-10 15:18:17","10177"
+"A2HOUSKURBF8UA","cs_wg_v8_pilot1","33IZTU6J812FVYZ0YOR82WJQ033XSC","1","Most letters in alphabet between word's 4th and 5th letters","4","[25,60,5,40,40,65,90,25,30,0,90,5,65,30]","2","15","1","32680","helicopter",,"26000","2017-10-10 15:19:09","10178"
+"A2HOUSKURBF8UA","cs_wg_v8_pilot1","33IZTU6J812FVYZ0YOR82WJQ033XSC","1","Most letters come after the word's third letter in the alphabet.","2","[115,60,115,70,60,125,60,60,75,130,45,120,10,40]","3","25","1","24809","wedding",,"16000","2017-10-10 15:19:52","10179"
+"A3HE8VNBXD2BR0","cs_wg_v8_pilot1","3Z4AIRP3C6EF1E06L5CO6VWHA3QX1S","1","Memory","8",NULL,"8","100","1","28038","[""structure"",""stomach"",""community"",""helicopter"",""keyboard"",""basket"",""wedding"",""machine"",""ladder"",""football"",""traffic"",""doorway"",""bookshelf"",""umbrella""]","[""10"",""1"",""0"",""9"",""8"",""10"",""9"",""8"",""10"",""1"",""2"",""0"",""0"",""2""]","181000","2017-10-10 15:20:18","10180"
+"A2HOUSKURBF8UA","cs_wg_v8_pilot1","33IZTU6J812FVYZ0YOR82WJQ033XSC","1","Most letters in the set: T, P, O, K, I, C, H.","1","[10,40,0,40,40,0,30,20,60,30,30,30,20,20]","4","30","1","27393","helicopter",,"21000","2017-10-10 15:20:42","10181"
+"A2HOUSKURBF8UA","cs_wg_v8_pilot1","33IZTU6J812FVYZ0YOR82WJQ033XSC","1","Most vertical lines","6","[60,50,50,90,70,80,50,30,90,50,50,80,60,40]","5","40","1","23043","HELICOPTER ",,"31000","2017-10-10 15:21:38","10182"
+"AM8OWAW9TUVLN","cs_wg_v8_pilot1","3LWJHTCVCCNMIWT26QWH1P4IEAMFQE","1","Memory","8",NULL,"8","100","1","27850","[""keyboard"",""machine"",""structure"",""football"",""community"",""doorway"",""umbrella"",""wedding"","""","""","""","""","""",""""]","[""10"",""9"",""10"",""10"",""9"",""2"",""8"",""0"","""","""","""","""","""",""""]","181000","2017-10-10 15:21:48","10183"
+"A2HOUSKURBF8UA","cs_wg_v8_pilot1","33IZTU6J812FVYZ0YOR82WJQ033XSC","1","Most letters before word's second letter in alphabet","3","[20,95,0,70,70,60,70,70,20,85,95,0,20,0]","6","20","1","52357","traffic",,"16000","2017-10-10 15:22:49","10184"
+"A2HOUSKURBF8UA","cs_wg_v8_pilot1","33IZTU6J812FVYZ0YOR82WJQ033XSC","1","Most letters in alphabet between word's 5th and 6th letters","5","[25,10,65,35,55,35,5,110,60,15,85,25,70,75]","7","25","1","41555","helicopter ",,"26000","2017-10-10 15:23:58","10185"
+"A2HOUSKURBF8UA","cs_wg_v8_pilot1","33IZTU6J812FVYZ0YOR82WJQ033XSC","1","Memory","8",NULL,"8","100","1","29577","[""traffic"",""community"",""ladder"",""wedding"",""stomach"",""basket"",""community"",""bookshelf"",""keyboard"",""helicopter"",""football"",""doorway"",""machine"",""""]","[""10"",""10"",""9"",""8"",""2"",""0"",""10"",""0"",""8"",""2"",""1"",""1"",""10"",""""]","181000","2017-10-10 15:27:31","10186"
+"A1Q93M41J566U1","cs_wg_v8_pilot1","3CFJTT4SXTRWM5QDBZTW4V0FPCM7IZ","1","Most vertical lines","6","[60,50,50,90,70,80,50,30,90,50,50,80,60,40]","0","30","0","42646","Basket","Basket","31000","2017-10-10 15:32:31","10187"
+"A1Q93M41J566U1","cs_wg_v8_pilot1","3CFJTT4SXTRWM5QDBZTW4V0FPCM7IZ","1","Most letters in the set: T, P, O, K, I, C, H.","1","[10,40,0,40,40,0,30,20,60,30,30,30,20,20]","1","30","1","29448","Helicopter","Helicopter
+Structure","21000","2017-10-10 15:33:23","10188"
+"A1Q93M41J566U1","cs_wg_v8_pilot1","3CFJTT4SXTRWM5QDBZTW4V0FPCM7IZ","1","Most letters before word's second letter in alphabet","3","[20,95,0,70,70,60,70,70,20,85,95,0,20,0]","2","20","1","45126","Football",,"16000","2017-10-10 15:34:26","10189"
+"A1Q93M41J566U1","cs_wg_v8_pilot1","3CFJTT4SXTRWM5QDBZTW4V0FPCM7IZ","1","Most letters come after the word's third letter in the alphabet.","2","[115,60,115,70,60,125,60,60,75,130,45,120,10,40]","3","25","1","34075","Bookshelf",,"16000","2017-10-10 15:35:19","10190"
+"A1Q93M41J566U1","cs_wg_v8_pilot1","3CFJTT4SXTRWM5QDBZTW4V0FPCM7IZ","1","Most letters in alphabet between word's 5th and 6th letters","5","[25,10,65,35,55,35,5,110,60,15,85,25,70,75]","4","30","0","70421","Machine",,"26000","2017-10-10 15:36:57","10191"
+"A1Q93M41J566U1","cs_wg_v8_pilot1","3CFJTT4SXTRWM5QDBZTW4V0FPCM7IZ","1","Most letters in the set: S, G, E, F, B, N, L.","0","[30,10,20,10,50,40,40,0,30,20,20,20,20,30]","5","60","1","80585","Bookshelf",,"21000","2017-10-10 15:38:41","10192"
+"A1Q93M41J566U1","cs_wg_v8_pilot1","3CFJTT4SXTRWM5QDBZTW4V0FPCM7IZ","1","Most horizontal lines","7","[60,30,50,30,70,60,60,10,110,80,50,70,40,50]","6","70","1","93567","Stomach",,"31000","2017-10-10 15:40:47","10193"
+"A1Q93M41J566U1","cs_wg_v8_pilot1","3CFJTT4SXTRWM5QDBZTW4V0FPCM7IZ","1","Most letters in alphabet between word's 4th and 5th letters","4","[25,60,5,40,40,65,90,25,30,0,90,5,65,30]","7","70","0","72594","Wedding",,"26000","2017-10-10 15:42:28","10194"
+"A1Q93M41J566U1","cs_wg_v8_pilot1","3CFJTT4SXTRWM5QDBZTW4V0FPCM7IZ","1","Memory","8",NULL,"8","100","1","22249","[""Stomach"",""Bookshelf"",""Machine"",""Wedding"",""Football"",""Structure"",""Doorway"",""Helicopter"",""Basket"","""","""","""","""",""""]","[""10"",""0"",""10"",""8"",""2"",""0"",""1"",""10"",""9"","""","""","""","""",""""]","181000","2017-10-10 15:45:53","10195"
+"ACDTQNYOT3GG8","cs_wg_v8_pilot1","3L6L49WXW0YNRUDF2HCVCAC0TOQ543","1","Most letters in alphabet between word's 5th and 6th letters","5","[25,10,65,35,55,35,5,110,60,15,85,25,70,75]","0","30","0","33429","domestic",,"26000","2017-10-10 15:46:08","10196"
+"A1Q9BT0F1AUUAY","cs_wg_v8_pilot1","31Z0PCVWUKGMVJ6O5BS0I22O0T7T77","1","Most letters in the set: T, P, O, K, I, C, H.","1","[10,40,0,40,40,0,30,20,60,30,30,30,20,20]","0","30","1","21993",,,"21000","2017-10-10 15:46:13","10197"
+"ACDTQNYOT3GG8","cs_wg_v8_pilot1","3L6L49WXW0YNRUDF2HCVCAC0TOQ543","1","Most letters in alphabet between word's 4th and 5th letters","4","[25,60,5,40,40,65,90,25,30,0,90,5,65,30]","1","20","0","32411","helicopter",,"26000","2017-10-10 15:47:10","10198"
+"A1Q9BT0F1AUUAY","cs_wg_v8_pilot1","31Z0PCVWUKGMVJ6O5BS0I22O0T7T77","1","Most letters in alphabet between word's 5th and 6th letters","5","[25,10,65,35,55,35,5,110,60,15,85,25,70,75]","1","15","0","36982","community",,"26000","2017-10-10 15:47:18","10199"
+"ACDTQNYOT3GG8","cs_wg_v8_pilot1","3L6L49WXW0YNRUDF2HCVCAC0TOQ543","1","Most horizontal lines","7","[60,30,50,30,70,60,60,10,110,80,50,70,40,50]","2","30","0","29064","Football",,"31000","2017-10-10 15:48:12","10200"
+"A1Q9BT0F1AUUAY","cs_wg_v8_pilot1","31Z0PCVWUKGMVJ6O5BS0I22O0T7T77","1","Most letters come after the word's third letter in the alphabet.","2","[115,60,115,70,60,125,60,60,75,130,45,120,10,40]","2","25","1","47583",,,"16000","2017-10-10 15:48:24","10201"
+"A1Q9BT0F1AUUAY","cs_wg_v8_pilot1","31Z0PCVWUKGMVJ6O5BS0I22O0T7T77","1","Most letters in alphabet between word's 4th and 5th letters","4","[25,60,5,40,40,65,90,25,30,0,90,5,65,30]","3","15","1","52036","stomach",,"26000","2017-10-10 15:49:44","10202"
+"A1Q9BT0F1AUUAY","cs_wg_v8_pilot1","31Z0PCVWUKGMVJ6O5BS0I22O0T7T77","1","Most letters before word's second letter in alphabet","3","[20,95,0,70,70,60,70,70,20,85,95,0,20,0]","4","20","1","45003","community",,"16000","2017-10-10 15:50:47","10203"
+"A1Q9BT0F1AUUAY","cs_wg_v8_pilot1","31Z0PCVWUKGMVJ6O5BS0I22O0T7T77","1","Most horizontal lines","7","[60,30,50,30,70,60,60,10,110,80,50,70,40,50]","5","70","1","58381","breakfast",,"31000","2017-10-10 15:52:18","10204"
+"A1Q9BT0F1AUUAY","cs_wg_v8_pilot1","31Z0PCVWUKGMVJ6O5BS0I22O0T7T77","1","Most letters in the set: S, G, E, F, B, N, L.","0","[30,10,20,10,50,40,40,0,30,20,20,20,20,30]","6","30","0","66651","wedding",,"21000","2017-10-10 15:53:48","10205"
+"A1Q9BT0F1AUUAY","cs_wg_v8_pilot1","31Z0PCVWUKGMVJ6O5BS0I22O0T7T77","1","Most vertical lines","6","[60,50,50,90,70,80,50,30,90,50,50,80,60,40]","7","40","1","40528","community",,"31000","2017-10-10 15:55:01","10206"
+"A1Q9BT0F1AUUAY","cs_wg_v8_pilot1","31Z0PCVWUKGMVJ6O5BS0I22O0T7T77","1","Memory","8",NULL,"8","100","1","34288","[""doorway"",""keyboard"",""wedding"",""ladder"",""community"",""stomach"",""machine"",""breakfast"",""helicopter"","""","""","""","""",""""]","[""8"",""8"",""9"",""0"",""10"",""10"",""2"",""8"",""2"","""","""","""","""",""""]","181000","2017-10-10 15:58:39","10207"
+"ACDTQNYOT3GG8","cs_wg_v8_pilot1","3L6L49WXW0YNRUDF2HCVCAC0TOQ543","1","Most vertical lines","6","[60,50,50,90,70,80,50,30,90,50,50,80,60,40]","3","20","0","1022866","STOMACH",,"31000","2017-10-10 16:05:49","10208"
+"ACDTQNYOT3GG8","cs_wg_v8_pilot1","3L6L49WXW0YNRUDF2HCVCAC0TOQ543","1","Most letters come after the word's third letter in the alphabet.","2","[115,60,115,70,60,125,60,60,75,130,45,120,10,40]","4","25","1","72642","Wedding",,"16000","2017-10-10 16:07:20","10209"
+"ACDTQNYOT3GG8","cs_wg_v8_pilot1","3L6L49WXW0YNRUDF2HCVCAC0TOQ543","1","Most letters in the set: S, G, E, F, B, N, L.","0","[30,10,20,10,50,40,40,0,30,20,20,20,20,30]","5","25","0","18557","Football",,"21000","2017-10-10 16:08:02","10210"
+"ACDTQNYOT3GG8","cs_wg_v8_pilot1","3L6L49WXW0YNRUDF2HCVCAC0TOQ543","1","Most letters before word's second letter in alphabet","3","[20,95,0,70,70,60,70,70,20,85,95,0,20,0]","6","25","0","33447","structure",,"16000","2017-10-10 16:08:54","10211"
+"ACDTQNYOT3GG8","cs_wg_v8_pilot1","3L6L49WXW0YNRUDF2HCVCAC0TOQ543","1","Most letters in the set: T, P, O, K, I, C, H.","1","[10,40,0,40,40,0,30,20,60,30,30,30,20,20]","7","15","0","68421","stomach",,"21000","2017-10-10 16:10:26","10212"
+"ACDTQNYOT3GG8","cs_wg_v8_pilot1","3L6L49WXW0YNRUDF2HCVCAC0TOQ543","1","Memory","8",NULL,"8","100","1","25186","[""football"",""bookcase"",""stomach"",""basket"",""traffic"",""wedding"",""machine"",""keyboard"",""structure"",""community"",""helicopter"","""","""",""""]","[""10"",""9"",""9"",""10"",""0"",""0"",""2"",""8"",""1"",""0"",""10"","""","""",""""]","181000","2017-10-10 16:13:56","10213"
+"A3QPVH0DRW0ZQV","cs_wg_v8_pilot1","3QY5DC2MXRLEAP0JNZGMBQ17HW7FU0","1","Most letters in the set: T, P, O, K, I, C, H.","1","[10,40,0,40,40,0,30,20,60,30,30,30,20,20]","0","40","0","43694","HELICOPTER","HELICOPTER","21000","2017-10-10 17:45:53","10214"
+"A3QPVH0DRW0ZQV","cs_wg_v8_pilot1","3QY5DC2MXRLEAP0JNZGMBQ17HW7FU0","1","Most horizontal lines","7","[60,30,50,30,70,60,60,10,110,80,50,70,40,50]","1","70","1","106823","STRUCTURE","HELICOPTER
+LADDER
+BOOKSHELF
+WEDDING
+STRUCTURE
+","31000","2017-10-10 17:48:13","10215"
+"A3QPVH0DRW0ZQV","cs_wg_v8_pilot1","3QY5DC2MXRLEAP0JNZGMBQ17HW7FU0","1","Most letters in the set: S, G, E, F, B, N, L.","0","[30,10,20,10,50,40,40,0,30,20,20,20,20,30]","2","60","1","64541","UMBRELLA","HELICOPTER
+LADDER
+WEDDING
+STOMACH
+","21000","2017-10-10 17:49:40","10216"
+"A3QPVH0DRW0ZQV","cs_wg_v8_pilot1","3QY5DC2MXRLEAP0JNZGMBQ17HW7FU0","1","Most letters in alphabet between word's 4th and 5th letters","4","[25,60,5,40,40,65,90,25,30,0,90,5,65,30]","3","15","1","72394","WEDDING","HELICOPTER
+LADDER
+WEDDING
+TRAFFIC","26000","2017-10-10 17:51:21","10217"
+"A3QPVH0DRW0ZQV","cs_wg_v8_pilot1","3QY5DC2MXRLEAP0JNZGMBQ17HW7FU0","1","Most letters in alphabet between word's 5th and 6th letters","5","[25,10,65,35,55,35,5,110,60,15,85,25,70,75]","4","30","0","77034","BOOKSHELF","HELICOPTER
+BOOKSHELF
+WEDDING
+LADDER
+TRAFFIC
+","26000","2017-10-10 17:53:06","10218"
+"A3QPVH0DRW0ZQV","cs_wg_v8_pilot1","3QY5DC2MXRLEAP0JNZGMBQ17HW7FU0","1","Most vertical lines","6","[60,50,50,90,70,80,50,30,90,50,50,80,60,40]","5","40","1","31989","LADDER
+COMMUNITY","HELICOPTER
+WEDDING
+COMMUNITY
+STOMACH
+FOOTBALL
+","31000","2017-10-10 17:54:11","10219"
+"A3QPVH0DRW0ZQV","cs_wg_v8_pilot1","3QY5DC2MXRLEAP0JNZGMBQ17HW7FU0","1","Most letters come after the word's third letter in the alphabet.","2","[115,60,115,70,60,125,60,60,75,130,45,120,10,40]","6","25","1","156607","MACHINE","LADDER
+HELICOPTER
+MACHINE
+BOOKSHELF
+KEYBOARD","16000","2017-10-10 17:57:05","10220"
+"A3QPVH0DRW0ZQV","cs_wg_v8_pilot1","3QY5DC2MXRLEAP0JNZGMBQ17HW7FU0","1","Most letters before word's second letter in alphabet","3","[20,95,0,70,70,60,70,70,20,85,95,0,20,0]","7","20","1","78450","FOOTBALL","LADDER
+KEYBOARD
+FOOTBALL","16000","2017-10-10 17:58:42","10221"
+"A3QPVH0DRW0ZQV","cs_wg_v8_pilot1","3QY5DC2MXRLEAP0JNZGMBQ17HW7FU0","1","Memory","8",NULL,"8","100","1","24627","[""HELICOPTER"",""WEDDING"",""DOORWAY"",""FOOTBALL"",""STOMACH"",""BOOKSHELF"",""STRUCTURE"",""LADDER"",""BASKET"",""KEYBOARD"",""MACHINE"",""COMMUNITY"",""TRAFFIC"",""""]","[""10"",""10"",""10"",""0"",""0"",""8"",""0"",""9"",""2"",""2"",""1"",""8"",""1"",""""]","181000","2017-10-10 18:02:09","10222"

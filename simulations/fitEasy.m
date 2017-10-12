@@ -1,10 +1,11 @@
-envNames = {'wg_v5', 'wg_v6'};
-numSubjects_all = [258, 107];
+envNames = {'wg_v7', 'wg_v8'};
+numSubjects_all = [119, 184];
+simsNames = {'real2', 'real1'};
 
 for i = 1:length(envNames)
     envName = envNames{i};
     whichEnv = ['env/' envName '.mat'];
-    simsName = 'real1';
+    simsName = simsNames{i};
     
     numSubjects = numSubjects_all(i);
     numStarts = 10;
