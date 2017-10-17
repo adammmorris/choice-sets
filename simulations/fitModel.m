@@ -50,10 +50,10 @@ nFreeParams = sum(freeParams);
 nContFreeParams = sum(freeParams_noK);
 
 % CHANGE THESE BACK
-%bounds = [2 0 0 0 0; 4 10 10 1 1];
-bounds = [2 0 0 -10 0; 4 10 10 10 10];
-%WEIGHT_INDS = [false false false true true];
-WEIGHT_INDS = [false false false false false];
+bounds = [2 0 0 0 0; 4 10 10 1 1];
+%bounds = [2 0 0 -10 0; 4 10 10 10 10];
+WEIGHT_INDS = [false false false true true];
+%WEIGHT_INDS = [false false false false false];
 
 A_all = zeros(1, length(fixedParams));
 A_all(WEIGHT_INDS) = 1;
@@ -156,7 +156,7 @@ if nFreeParams > 0 % Are there free parameters?
     end
     
     % CHANGE THIS BACK
-    ll = getLikelihood_free(envInfo, choice(index), rewards_te_trial(index, :), recalled, whichSubj, optParams, fixedParams, nSamples);
+    ll = getLikelihood(envInfo, choice(index), rewards_te_trial(index, :), recalled, whichSubj, optParams, fixedParams, nSamples);
     if isnan(lme) || ~isreal(lme) || isinf(lme) % resort to BIC
         lme = -0.5 * (nFreeParams * (log(length(index)) - log(2*pi)) - 2 * ll);
     end
