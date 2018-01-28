@@ -1,7 +1,7 @@
 clearvars
 
-datapath = '../data/cs_wg_v7/real2/';
-savepath = 'fitting/wg_v7/real2/';
+datapath = '../data/cs_wg_v10/real2/';
+savepath = 'fitting/wg_v10/real2/';
 
 f = fopen([datapath 'choices.csv']);
 choice_csv = textscan(f, '%f %f %s %*[^\n]', 'Delimiter', ',');

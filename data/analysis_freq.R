@@ -188,7 +188,7 @@ for (subj in 1:nrow(df.demo)) {
   }
 }
 
-good_v6 = c(1,2,5,7,11,14,15,17,18,19,22,24,26,27,28,29,30,31,32,34,35,36,37,38,41,44,45,46,49,50,51,52,53,54,55,59,60,63,64,66,67,70,72,73,75,76,77,79,83,85,86,87,88,90,92,93,95,96,98,100,101,102,103,104,106,107)
+good_v6 = c(1,5,7,11,14,15,18,24,27,28,30,31,34,35,37,41,44,46,52,54,55,59,64,66,70,72,73,76,79,85,86,90,92,95,98,100,103,104,107)
 include_names_good = include_names[good_v6]
 
 ## Check out data
@@ -221,6 +221,9 @@ m.order = lmer(order ~ high_exp + (high_exp | subject) + (high_exp | word),
                  data = df.words[df.words$subject %in% include_names & df.words$recall == T, ])
 summary(m.order)
 
+weights_v6 = c(6.94e-01,4.74e-01,2.82e-07,4.31e-02,7.73e-01,5.05e-08,6.12e-01,1.70e-07,1.27e-07,5.57e-07,01,2.33e-08,9.29e-09,01,01,3.77e-07,2.47e-01,6.96e-01,4.80e-01,8.94e-02,2.94e-07,2.99e-01,2.26e-02,01,4.72e-07,4.66e-01,01,8.49e-01,1.56e-01,5.63e-01,01,3.70e-01,2.85e-05,5.67e-01,01,1.09e-01,8.48e-01,4.45e-01,8.27e-08,2.81e-02,01,1.05e-07,3.17e-07,01,4.55e-01,01,2.09e-07,2.41e-08,2.65e-01,4.45e-01,4.81e-01,9.32e-01,3.66e-01,8.77e-01,5.93e-01,1.74e-08,1.42e-07,2.17e-08,9.81e-01,2.91e-01,3.53e-02,7.76e-07,1.55e-01,01,7.08e-03,9.64e-01,2.44e-01,7.13e-08,1.92e-08,01,1.85e-07,5.58e-01,01,7.78e-07,3.06e-01,01,3.46e-01,8.31e-08,5.40e-01,2.58e-08,8.68e-08,7.57e-02,4.65e-01,1.13e-07,01,5.70e-01,2.25e-01,2.72e-01,2.24e-07,8.48e-01,1.28e-07,01,2.51e-01,2.99e-07,7.15e-01,2.19e-01,2.73e-08,8.04e-01,3.48e-07,5.30e-01,4.03e-01,4.58e-01,6.14e-01,01,1.14e-07,4.46e-01,01)
+coefs = coef(m.order)$subject$high_expTRUE
+cor.test(coefs, weights_v6)
 
 ## Prepare for mlogit
 numRealQuestions = numQuestions - 1
@@ -237,7 +240,7 @@ for (subj in 1:nrow(df.demo)) {
   
   nAnswered = sum(!is.na(df.s2.temp$choice_real_ind))
   
-  if (nAnswered > 0 & subj.name %in% include_names & !(subj.name %in% include_names_good)) {
+  if (nAnswered > 0 & subj.name %in% include_names_good) {
     Subj.col = rep(subj, num.recalled.temp * nAnswered)
     
     MFval.col = rep(df.words.temp$value[recalled.temp], nAnswered)
@@ -260,7 +263,7 @@ for (subj in 1:nrow(df.demo)) {
         mbvals = rank(all_vals, ties.method = 'max')
         #mbvals = all_vals
         temp.mbval[ind,] = mbvals[recalled.temp]
-        temp.mbhigh[ind,] = mbvals[recalled.temp] > 7
+        temp.mbhigh[ind,] = mbvals[recalled.temp] > 13
         
         choice = logical(num.recalled.temp)
         choice[which(df.s2.temp$choice_real_ind[q] == which(recalled.temp))] = TRUE

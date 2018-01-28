@@ -34,8 +34,9 @@ as.numeric.vector = function(x) {
   return(as.numeric(strsplit(substr(x,2,nchar(x)-1), split=",")[[1]]))
 }
 
-numWords = 15;
+numWords = 21;
 pointsPerCent = 10;
+nTrials = 120;
 path = 'data/cs_wg_v3_poss/real1/'
 
 # Load data
@@ -72,22 +73,42 @@ df.s2 = df.s2 %>% filter(practice == 0)
 
 df.s2$prompt = toupper(df.s2$prompt)
 
+df.s2$choice_real = NULL
+df.s2$choice_real_ind = NULL
+df.s2$s1_value = NULL
+df.s2$s1_exposures = NULL
+df.s2$s1_chosen = NULL
+df.s2$seen_memory = NULL
+df.s2$seen_poss = NULL
 for (i in 1:nrow(df.s2)) {
   subj.name = df.s2$subject[i]
+  if (i == 1 || subj.name != df.s2$subject[i - 1]) {
+    seen_memory = FALSE
+    seen_poss = F
+  }
+  if (df.s2$modality[i] == 'should' || df.s2$modality[i] == 'ought') {
+    seen_memory = TRUE
+  }
+  if (df.s2$modality[i] == 'possible') {
+    seen_poss = TRUE
+  }
   wordlist = (df.words %>% filter(subject == subj.name))$word
   c = df.s2$prompt[i]
   creal = wordlist[amatch(c, wordlist, maxDist = 2)]
   cind = getIndex(creal, wordlist)
   word_rows = subj.name == df.words$subject & creal == df.words$word
-  s1_val = ifelse(is.na(cind), NA, df.words$value[word_rows])
+  s1_val = ifelse(is.na(cind), -1, df.words$value[word_rows])
   
   df.s2$choice_real[i] = creal
   df.s2$choice_real_ind[i] = cind
   df.s2$s1_value[i] = s1_val
   df.s2$s1_exposures[i] = ifelse(is.na(cind) | s1_val == -1, NA, df.words$exposures[word_rows])
   df.s2$s1_chosen[i] = ifelse(is.na(cind) | s1_val == -1, NA, df.words$numChosen[word_rows])
+  df.s2$seen_memory[i] = seen_memory
+  df.s2$seen_poss[i] = seen_poss
 }
-df.s2$s1_value = factor(df.s2$s1_value, levels = c(-1, 5, 0, 10), labels = c('absent', 'grey', 'low', 'high'))
+df.s2$s1_value = factor(df.s2$s1_value, levels = c(-1, 5, 0, 1, 9, 10), labels = c('absent', 'grey', 'low1', 'low2', 'high1', 'high2'))
+levels(df.s2$s1_value) = list(low=c('low1','low2'), high=c('high1','high2'), absent='absent')
 
 #df.s2 = df.s2 %>% mutate(s2_subj_ind = as.numeric(as.factor(subject)))
 
@@ -107,7 +128,7 @@ for (subj in 1:nrow(df.demo)) {
   df.s2.subj.temp = df.s2.subj %>% filter(subject == subj.name)
   df.cors.temp = df.cors %>% filter(subject == subj.name)
   
-  if (df.s1.subj.temp$pctCorrect_words < .75 || df.cors.temp$cors < .75 || df.s1.subj.temp$numTrials != 120 || df.s2.subj.temp$pctNA > .2) {
+  if (df.s1.subj.temp$pctCorrect_words < .75 || df.cors.temp$cors < .75 || df.s1.subj.temp$numTrials != nTrials) {# || df.s2.subj.temp$pctNA > .2) {
     include_rows[subj] = FALSE
   } else {
     include_rows[subj] = TRUE
@@ -131,19 +152,23 @@ df.collapsed = df.halfway %>% group_by(cond, s1_value) %>%
 ggplot(df.collapsed, aes(x = s1_value, y = choice.mean, group = cond, fill = cond)) +
   geom_bar(stat = "identity", position = dodge) +
   geom_errorbar(aes(ymax = choice.mean + choice.se, ymin = choice.mean - choice.se), width = .5, position = dodge) +
-  xlab('') + ylab('') + guides(fill = F)
+  xlab('') + ylab('')
 
-m.simple = lmer(choice ~ cond * s1_value + (1 | subject), data = df.halfway %>% filter(s1_value %in% c('low', 'high')))
+df.hist = df.halfway %>% group_by(subject, cond) %>% summarize(val = choice[s1_value == 'low'] - choice[s1_value == 'high'])
+
+m.simple = lmer(choice ~ cond * s1_value + (1 + s1_value | subject), data = df.halfway %>% filter(s1_value %in% c('low', 'high')))
 summary(m.simple)
 
-m = glmer(choice ~ cond * s1_value + (1 | subject) + (0 + s1_value | subject) + (1 + cond * s1_value | prompt),
-          data = df.s2 %>% filter(choice != -1 & modality == 'possible' & s1_value %in% c('low', 'high') & subject %in% include_names),
+ezANOVA(data.frame(df.halfway %>% filter(s1_value %in% c('low', 'high'))), choice, wid = subject, within = s1_value, between = cond)
+
+m = glmer(choice ~ cond * s1_value + (1 | subject),
+          data = df.poss %>% filter(s1_value %in% c('low', 'high')),
           family = binomial)
 summary(m)
 
 # all modalities
-df.poss = df.s2 %>% filter(choice != -1 & subject %in% include_names & s1_value %in% c('low', 'high')) %>%
-  mutate(choice = ifelse(choice == 1, 0, 1), modal_type = as.factor(ifelse(modality %in% c('possible', 'could'), 'possibility', 'normative')))
+df.poss = df.s2 %>% filter(choice != -1 & subject %in% include_names) %>%
+  mutate(choice = ifelse(choice == 1, 1, 0), modal_type = as.factor(ifelse(modality %in% c('possible', 'could'), 'possibility', 'normative')))
 
 df.halfway = df.poss %>% group_by(subject, cond, modality, s1_value) %>%
   summarize(choice = mean(choice))
@@ -159,7 +184,7 @@ ggplot(df.collapsed, aes(x = s1_value, y = choice.mean, group = cond, fill = con
 
 # collapsed
 df.halfway = df.poss %>% group_by(subject, cond, modal_type, s1_value) %>%
-  mutate(choice = ifelse(modal_type == 'possibility', choice, ifelse(choice == 1, 0, 1)))
+  mutate(choice = ifelse(modal_type == 'possibility', choice, ifelse(choice == 1, 0, 1))) %>%
   summarize(choice = mean(choice))
 
 m.simple = lmer(choice ~ cond * s1_value * modal_type + (1 | subject), data = df.halfway)
@@ -168,7 +193,7 @@ summary(m.simple)
 ## Get bonuses
 df.demo = df.demo %>% mutate(bonus = round(s1_bonus / (pointsPerCent * 100), 2))
 write.table(df.demo %>% select(WorkerID = subject, Bonus = bonus),
-            paste0(path, 'Bonuses - cs_wg_v3_poss_real1.csv'), row.names = FALSE, col.names = FALSE, sep = ",")
+            paste0(path, 'Bonuses - cs_wg_v9_pilot1.csv'), row.names = FALSE, col.names = FALSE, sep = ",")
 
 save.image(paste0(path, 'analysis.rdata'))
 

@@ -2,7 +2,7 @@
 
 %% Parameters
 numAgents = 120;
-envName = 'wg_v3';
+envName = 'wg_v8';
 whichEnv = ['env/' envName '.mat'];
 copyOver = false;
 
@@ -28,11 +28,11 @@ actualParams = cur_params;
 
 modelNames_all = {'mixture-mf-mb', 'cs-mf-mb'};
 modelParams_all = {
-    [ones(numAgents, 1) actualParams(:, 2) zeros(numAgents, 1) actualParams(:, 4:5)], ...
+    [], ...
     actualParams
 };
 
-whichModels = 1:2;
+whichModels = 2;
 
 modelNames = modelNames_all(whichModels);
 modelParams = modelParams_all(whichModels);

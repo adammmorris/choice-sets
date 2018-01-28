@@ -2,8 +2,8 @@
 % For a given dataset, get all the model fitting results, and compare
 % models.
 
-envName = 'wg_v5';
-simsName = 'real1';
+envName = 'wg_v10';
+simsName = 'real2';
 realData = true;
 
 whichEnv = ['env/' envName '.mat'];
@@ -47,7 +47,7 @@ for j = 1:length(modelParams_all)
 end
 %whichParams_all = {1:3, 1:2, 1:2, 1:2, 1, 2:4, 2:3, [2 4], 2, []};
 
-whichModels = 1:13;
+whichModels = 1:8;
 
 modelNames = modelNames_all(whichModels);
 whichParams = whichParams_all(whichModels);
@@ -79,4 +79,7 @@ end
 compareModels_bayes(params, details, 5, numChoices, LLs_chance(goodSubjects));
 
 %% Find good subj
-sprintf('%.0f,', find(paramEstimates{5}(:,7) > .1))
+sprintf('%.2d,', paramEstimates{5}(:,7))
+hist(paramEstimates{5}(:,7))
+histcounts(paramEstimates{5}(:,7),11)
+%[h, p] = ttest(paramEstimates{13}(:, 6))

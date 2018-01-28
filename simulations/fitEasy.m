@@ -1,6 +1,6 @@
-envNames = {'wg_v7', 'wg_v8'};
-numSubjects_all = [119, 184];
-simsNames = {'real2', 'real1'};
+envNames = {'wg_v10'};
+numSubjects_all = [205];
+simsNames = {'real2'};
 
 for i = 1:length(envNames)
     envName = envNames{i};
@@ -27,7 +27,7 @@ for i = 1:length(envNames)
         [-1 -1 -1 -1 -1], [-1 -1 -1 1 0], [1 -1 0 -1 -1], [1 -1 0 1 0], ...
         [-1 1 -1 -1 -1]};
     
-    whichModels = 9:12;
+    whichModels = 5:12;
     
     modelNames = modelNames_all(whichModels);
     modelParams = modelParams_all(whichModels);

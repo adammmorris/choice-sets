@@ -248,7 +248,7 @@ for (subj in 1:nrow(df.demo)) {
         mbvals = rank(all_vals, ties.method = 'max')
         #mbvals = all_vals
         temp.mbval[ind,] = mbvals[recalled.temp]
-        temp.mbhigh[ind,] = mbvals[recalled.temp] > median(mbvals)
+        temp.mbhigh[ind,] = mbvals[recalled.temp] == max(mbvals) #> median(mbvals)
         
         choice = logical(num.recalled.temp)
         choice[which(df.s2.temp$choice_real_ind[q] == which(recalled.temp))] = TRUE
