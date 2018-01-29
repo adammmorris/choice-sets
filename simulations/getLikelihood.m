@@ -40,7 +40,8 @@ if beta > 0 && abs(wSum - 1) > .01
     error('Weights do not sum to 1.');
 end
 
-rewards_tr = -rewards_tr;
+% for negative MF
+%rewards_tr = -rewards_tr;
 
 %% Calculate log likelihood
 likelihood = zeros(numTrials, 1);

@@ -27,7 +27,7 @@ for i = 1:length(envNames)
         [-1 -1 -1 -1 -1], [-1 -1 -1 1 0], [1 -1 0 -1 -1], [1 -1 0 1 0], ...
         [-1 1 -1 -1 -1]};
     
-    whichModels = 5:10;
+    whichModels = 1:8;
     
     modelNames = modelNames_all(whichModels);
     modelParams = modelParams_all(whichModels);
