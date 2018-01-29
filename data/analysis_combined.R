@@ -36,6 +36,19 @@ as.numeric.vector = function(x) {
   return(as.numeric(strsplit(substr(x,2,nchar(x)-1), split=",")[[1]]))
 }
 
+runLogit = function(df) {
+  df$Choice = as.logical(df$Choice)
+  df$OptionID = factor(df$OptionID)
+  df = df %>% mutate(Trial_unique = paste(Subj, Trial, sep="_"))
+  df$Trial = factor(df$Trial)
+  df$Trial_unique = factor(df$Trial_unique)
+  df$Subj = factor(df$Subj)
+  df.m = mlogit.data(df, choice = "Choice", shape = "long", id.var = "Subj", alt.var = "OptionID", chid.var = "Trial_unique")
+  
+  m = mlogit(Choice ~ MFcent + MBcent + Int | -1, df.m, panel = T,
+             rpar = c(MFcent = "n", MBcent = "n", Int = 'n'), correlation = F, halton = NA, R = 1000, tol = .001)
+  return(m)
+}
 
 se = function(x) {return(sd(x) / sqrt(length(x)))}
 dodge <- position_dodge(width=0.9)
@@ -270,7 +283,8 @@ ggplot(df.poss.graph, aes(x = s1_value, y = choice.mean, group = cond, fill = co
   geom_errorbar(aes(ymax = choice.mean + choice.se, ymin = choice.mean - choice.se), width = .5, position = dodge) +
   xlab('') + ylab('')
 
-df.poss.subj.filt = df.poss.collapsed.filt %>% group_by(subject, cond) %>% summarize(val = choice[s1_value == 'low'] - choice[s1_value == 'high'])
+df.poss.subj.filt = df.poss.collapsed.filt %>% group_by(subject, cond) %>%
+  summarize(val = choice[s1_value == 'low'] - choice[s1_value == 'high'])
 histogram(~ df.poss.subj.filt$val | df.poss.subj.filt$cond)
 
 ezANOVA(data.frame(df.poss.collapsed.filt %>% filter(s1_value %in% c('low', 'high'))), choice, wid = subject, within = s1_value, between = cond)
@@ -290,32 +304,122 @@ ggplot(df.s2.subj.filt, aes(x = s2_val)) + geom_histogram(col = 'black', fill = 
 t.test(df.s2.subj.filt$s1_val_high - .5)
 t.test(df.s2.subj.filt$s2_val - 7)
 
-# correlation
+# prepare correlations
 numGoodSubj = length(include_names)
 df.cor = data.frame(poss_measure = numeric(numGoodSubj), s2_measure = numeric(numGoodSubj), time_cond = factor(numGoodSubj))
 df.cor$poss_measure = df.poss.subj.filt$val
 df.cor$s2_measure = df.s2.subj.filt$s1_val_high
 df.cor$time_cond = df.poss.subj.filt$cond
-
-m.cor = lm(s2_measure ~ poss_measure * time_cond, data = df.cor)
-summary(m.cor)
-
-df.cor.pressure = df.cor %>% filter(time_cond == 'pressure')
-cor.test(df.cor.pressure$s2_measure, df.cor.pressure$poss_measure)
-
+df.cor$weights = c(3.50e-07,3.44e-08,9.48e-01,2.25e-01,9.28e-02,1.24e-01,3.44e-01,1.45e-01,1.43e-08,2.66e-01,8.69e-09,4.77e-01,9.58e-08,1.14e-07,1.15e-01,3.67e-08,2.55e-08,2.65e-07,3.68e-01,3.92e-06,3.95e-07,1.93e-01,4.03e-01,7.26e-07,7.08e-01,2.80e-01,3.59e-08,1.13e-07,1.67e-07,6.90e-08,3.72e-01,2.55e-01,4.31e-01,1.08e-07,2.89e-01,01,1.38e-07,4.27e-01,3.38e-08,6.90e-02,8.02e-03,1.43e-01,2.17e-06,2.47e-01,6.29e-01,2.33e-01,1.19e-01,2.68e-01,6.34e-01,2.24e-01,4.28e-02,2.79e-01,5.12e-02,7.87e-02,3.88e-01,1.61e-01,5.67e-01,4.95e-01,4.21e-01,1.83e-01,5.62e-08,1.27e-07,1.47e-06,6.91e-08,5.67e-09,8.57e-09,2.73e-02,1.08e-02,6.78e-02,5.77e-08,3.94e-01,5.22e-07,8.20e-07,1.21e-06,3.62e-01,2.53e-01,1.14e-07,2.95e-01,4.92e-08,1.29e-01,7.44e-08,1.59e-07,4.87e-01,8.01e-08,4.64e-01,1.14e-07,5.95e-01,7.12e-09,3.01e-01,2.27e-07,1.52e-08,3.02e-08,3.02e-02,8.73e-02,1.88e-01,2.35e-08,3.38e-01,2.82e-07,2.64e-01,3.77e-01,2.80e-01,1.42e-01,3.21e-01,1.46e-01,4.17e-08,1.78e-01,2.15e-01,6.72e-08,7.92e-07,1.02e-07,9.83e-07,3.02e-01,1.08e-07,4.79e-01,4.77e-02,2.12e-05,2.10e-07,1.38e-07,1.56e-01,2.38e-01,3.92e-01,4.03e-08,6.49e-08,8.40e-01,8.09e-01,1.00e-07,3.28e-01,1.01e-01,3.37e-01,5.18e-07,3.75e-01,5.48e-01,5.91e-09,1.33e-02,6.04e-08,1.10e-02,5.41e-08,2.69e-01,6.46e-08,1.35e-07,1.17e-06,2.22e-07,4.97e-01,8.30e-08,1.16e-08,3.28e-07,2.93e-01,2.21e-01,9.98e-01,4.62e-02,4.86e-08,2.65e-01,2.63e-01,1.26e-07,2.54e-01,1.00e+00,4.20e-01,7.81e-08,6.02e-07,6.90e-08,5.41e-09,7.84e-02,3.92e-08,2.20e-08,1.23e-07,3.62e-07,9.85e-01,3.74e-01,3.54e-01,1.93e-08,8.32e-08,7.02e-08,9.14e-01,01,7.75e-02,2.70e-07,1.38e-01,4.91e-01,4.44e-08,3.10e-01,1.81e-01,1.89e-06,1.55e-01,5.44e-01,1.33e-06,1.51e-07,2.29e-07,1.23e-01,1.33e-01,5.01e-01,3.22e-01,7.81e-09,2.33e-08,5.10e-01,1.19e-07,4.00e-07,2.66e-01,8.11e-02,6.06e-02,3.41e-01,1.24e-01,4.40e-01,5.54e-01,5.30e-02,3.34e-01)
 
 # order
 histogram(~ order | s1_val_high, df.words.filt[df.words.filt$recall == T, ])
 m.order = lmer(order ~ s1_val_high + (1 | subject) + (0 + s1_val_high | subject) + (s1_val_high | word),
                data = df.words.filt[df.words.filt$recall == T, ])
 summary(m.order)
+df.cor$coefs = coef(m.order)$subject$s1_val_highTRUE
 
-coefs = coef(m.order)$subject$s1_val_highTRUE
-cor.test(coefs, df.cor$s2_measure) # people who chose high s1 words more also put high-val words earlier
-cor.test(coefs, df.cor$poss_measure) # people who said low-val words were more impossible more also put high-val words earlier
+df.cor.pressure = df.cor %>% filter(time_cond == 'pressure')
+
+# test correlations
+cor.test(df.cor.pressure$poss_measure, df.cor.pressure$weights)
+m.cor = lm(weights ~ poss_measure * time_cond, data = df.cor)
+summary(m.cor)
+
+plot(poss_measure ~ weights, data = df.cor.pressure)
+
+cor.test(df.cor.pressure$s2_measure, df.cor.pressure$poss_measure)
+m.cor2 = lm(s2_measure ~ poss_measure * time_cond, data = df.cor)
+summary(m.cor2)
+
+cor.test(df.cor$coefs, df.cor$s2_measure) # people who chose high s1 words more also put high-val words earlier
+cor.test(df.cor$coefs, df.cor$poss_measure) # people who said low-val words were more impossible more also put high-val words earlier
+cor.test(df.cor$coefs, df.cor$weights) # people who said low-val words were more impossible more also put high-val words earlier
 
 #weights_v8 = c(6.01e-01,2.56e-01,3.72e-01,3.10e-01,2.10e-01,5.41e-08,1.08e-08,3.03e-01,2.15e-01,1.49e-08,2.65e-08,2.17e-06,1.88e-01,1.13e-08,4.72e-08,4.62e-02,1.62e-01,1.60e-01,7.77e-02,2.49e-01,1.87e-08,1.33e-01,1.80e-08,1.21e-01,4.56e-01,1.24e-07,2.04e-01,1.30e-07,2.03e-03,6.07e-01,4.46e-07,7.41e-01,1.21e-01,2.68e-07,1.84e-01,9.94e-01,5.68e-01,7.53e-01,4.95e-07,9.45e-08,6.10e-08,2.74e-08,1.23e-07,5.15e-08,3.44e-01,5.73e-07,5.88e-01,2.65e-01,3.24e-08,7.84e-01,2.13e-01,9.03e-08,7.08e-01,7.47e-01,2.30e-01,4.69e-01,3.20e-01,1.37e-07,1.94e-07,2.50e-08,5.05e-01,1.77e-01,1.05e-07,2.09e-01,3.54e-08,01,4.47e-01,4.35e-01,4.30e-08,3.83e-01,6.80e-01,4.75e-01,1.55e-01,3.82e-01,4.46e-01,5.44e-01,01,4.42e-06,3.37e-01,5.01e-01,3.51e-01,1.74e-01,1.85e-01,1.15e-05,1.21e-01,8.85e-08,1.50e-07,2.03e-01,3.29e-01,3.33e-01,3.48e-01,2.89e-07,2.44e-01,01,9.50e-09,9.14e-08,4.96e-02,3.68e-01,4.69e-01,1.79e-06,6.75e-01,2.18e-01,1.21e-01,7.06e-01,2.13e-01,2.49e-01,7.83e-01,2.85e-01,4.43e-01,5.93e-08,6.45e-01,2.86e-07,1.60e-08,5.30e-02,1.83e-07,4.96e-01,2.09e-07,4.51e-08,3.51e-01,4.04e-01,3.19e-01,5.59e-01,5.82e-01,5.40e-07,3.97e-08,7.36e-03,5.21e-08,2.93e-01,2.78e-07,5.07e-01,1.45e-01,1.14e-06,01,4.02e-01,6.53e-09,2.57e-01,1.64e-01,1.99e-01,1.97e-07,2.61e-07,01,2.04e-07,9.94e-02,3.17e-08,2.38e-08,3.29e-01,3.22e-01,2.42e-01,1.61e-07,1.19e-07,1.61e-07,2.81e-01,5.76e-08,2.34e-01,3.25e-08,2.10e-02,3.79e-01,3.51e-01,5.01e-01,6.04e-08,1.23e-07,7.24e-01,2.11e-01,7.10e-08,1.00e+00,2.66e-01,1.76e-06,1.65e-01,2.99e-07,9.67e-01,1.94e-07,2.58e-02,2.69e-07,1.68e-07,4.15e-01,2.44e-01,7.50e-08,1.60e-07,2.75e-01,1.03e-02,1.44e-01,7.14e-01,3.41e-02,3.07e-07)
 #cor.test(coefs, weights_v8)
+
+
+# logit -------------------------------------------------------------------
+
+numRealQuestions = 8
+df.logit = data.frame(Subj = NULL, Trial = NULL, OptionID = NULL, Choice = NULL, MFval = NULL, MBval = NULL, nExposures = NULL, Recalled = NULL, Question = NULL)
+
+for (subj in 1:nrow(df.demo)) {
+  subj.name = df.demo$subject[subj]
+  recalled.temp = recalled_ever[subj, ]
+  #recalled.temp = !logical(numWords)
+  num.recalled.temp = sum(recalled.temp)
+  
+  df.words.temp = df.words %>% filter(subject == subj.name)
+  df.s2.temp = df.s2 %>% filter(subject == subj.name) %>% arrange(question_order)
+  
+  nAnswered = sum(!is.na(df.s2.temp$choice_real_ind))
+  
+  if (nAnswered > 0 & subj.name %in% include_names) {
+    Subj.col = rep(subj, num.recalled.temp * nAnswered)
+    
+    MFval.col = rep(df.words.temp$value[recalled.temp], nAnswered)
+    MFhigh.col = rep(df.words.temp$s1_val_high[recalled.temp] * 1, nAnswered)
+    nExposures.col = rep(df.words.temp$exposures[recalled.temp], nAnswered)
+    Recalled.col = rep(df.words.temp$recall.ever[recalled.temp] * 1, nAnswered)
+    numChosen.col = rep(df.words.temp$numChosen_high[recalled.temp], nAnswered)
+    #OptionID.col = rep(which(recalled.temp), nAnswered)
+    OptionID.col = rep(1:num.recalled.temp, nAnswered)
+    Trial.col = rep(1:nAnswered, each = num.recalled.temp)
+    Question.col = rep(df.s2.temp$question_ind[!is.na(df.s2.temp$choice_real_ind)], each = num.recalled.temp)
+    
+    temp.mbval = matrix(0, nrow = nAnswered, ncol = num.recalled.temp)
+    temp.mbhigh = matrix(0, nrow = nAnswered, ncol = num.recalled.temp)
+    temp.choice = matrix(0, nrow = nAnswered, ncol = num.recalled.temp)
+    temp.choice2 = matrix(0, nrow = nAnswered, ncol = num.recalled.temp)
+    ind = 1
+    for (q in 1:numRealQuestions) {
+      if (!is.na(df.s2.temp$choice_real_ind[q])) {
+        all_vals = as.numeric.vector(df.s2.temp$all_values[q])
+        mbvals = rank(all_vals, ties.method = 'max')
+        #mbvals = all_vals
+        temp.mbval[ind,] = mbvals[recalled.temp]
+        temp.mbhigh[ind,] = mbvals[recalled.temp] > 13
+        
+        choice = logical(num.recalled.temp)
+        choice[which(df.s2.temp$choice_real_ind[q] == which(recalled.temp))] = TRUE
+        temp.choice[ind,] = choice
+        
+        choice2 = vector(mode = 'numeric', num.recalled.temp)
+        #choice2[1] = which(df.s2.temp$choice_real_ind[q] == which(recalled.temp))
+        choice2[1] = OptionID.col[1:num.recalled.temp][choice]
+        temp.choice2[ind,] = choice2
+        
+        ind = ind + 1
+      }
+    }
+    
+    MBval.col = as.vector(t(temp.mbval))
+    MBhigh.col = as.vector(t(temp.mbhigh))
+    Choice.col = as.vector(t(temp.choice))
+    Choice2.col = as.vector(t(temp.choice2))
+    
+    df.logit = rbind(df.logit,
+                     data.frame(Subj = Subj.col, Trial = Trial.col, OptionID = OptionID.col, Choice = Choice.col,
+                                MFval = MFval.col, MBval = MBval.col, MFhigh = MFhigh.col, MBhigh = MBhigh.col, Choice2 = Choice2.col,
+                                Recall = Recalled.col))
+    
+  }
+}
+
+df.logit = df.logit %>% mutate(MFcent = MFhigh - mean(MFhigh), MBcent = MBhigh - mean(MBhigh), Int = MFcent * MBcent)
+
+m.real = runLogit(df.logit)
+summary(m.real)
+
+
+# Graph
+df.sum = df.logit %>% group_by(MFhigh,MBhigh) %>% summarize(Choice.mean = mean(Choice)) #%>% mutate(Choice.mean = Choice.mean * ifelse(MFval %in% c(0,10), 2/3, 1))
+
+ggplot(data = df.sum, aes(x = MBhigh, y = Choice.mean, group = MFhigh, colour = MFhigh)) +
+  geom_point(aes(size = 2)) + geom_line()
+
 
 # clean-up ----------------------------------------------------------------
 
