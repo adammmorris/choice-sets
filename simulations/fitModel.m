@@ -26,6 +26,7 @@ end
 load(dataPath);
 load(whichEnv);
 envInfo{3} = rewards_tr;
+envInfo{5} = poss;
 
 %% Set up
 numSubjects = length(subjMarkers);
@@ -41,7 +42,7 @@ end
 whichSubj = taskid;
 
 % Params
-K_PARAM_IND = [true false false false false];
+K_PARAM_IND = [true false false false false false];
 
 freeParams = fixedParams == -1;
 freeParams_noK = freeParams;
@@ -50,9 +51,9 @@ nFreeParams = sum(freeParams);
 nContFreeParams = sum(freeParams_noK);
 
 % CHANGE THESE BACK
-bounds = [2 0 0 0 0; 4 10 10 1 1];
+bounds = [2 0 0 0 0 0; 4 10 10 1 1 1];
 %bounds = [2 0 0 -10 0; 4 10 10 10 10];
-WEIGHT_INDS = [false false false true true];
+WEIGHT_INDS = [false false false true true true];
 %WEIGHT_INDS = [false false false false false];
 
 A_all = zeros(1, length(fixedParams));

@@ -19,6 +19,7 @@ function LL = getLikelihood(envInfo, choices, rewards_te, recalled, whichSubj, f
 numWords = envInfo{1};
 rewards_tr = envInfo{3}(whichSubj, :);
 maxRe_tr = envInfo{4};
+poss = envInfo{5}(whichSubj, :);
 
 recalled = recalled(whichSubj, :);
 numTrials = length(choices);
@@ -32,10 +33,11 @@ beta = params(2);
 epsilon = params(3); % if doSoftmax, this is beta2
 w_MF = params(4);
 w_MB = params(5);
+w_poss = params(6);
 
 doSoftmax = true;
 
-wSum = w_MF + w_MB;
+wSum = w_MF + w_MB + w_poss;
 if beta > 0 && abs(wSum - 1) > .01
     error('Weights do not sum to 1.');
 end
@@ -114,7 +116,8 @@ else
             
             weights_num = exp(beta * ...
                 (rewards_te(trial, availWords) * w_MB / maxRe_te + ...
-                rewards_tr(availWords) * w_MF / maxRe_tr));
+                rewards_tr(availWords) * w_MF / maxRe_tr + ...
+                poss(availWords) * w_poss));
             weights = weights_num / sum(weights_num);
             
             prob = 0;
@@ -122,14 +125,14 @@ else
             if doSoftmax
                 sets = [];
                 possible_others = combnk_fast(setdiff_fast(1:numAvailWords, word), nToEval - 1);
-                
+
                 for other_ind = 1:size(possible_others, 1)
                     sets(end+1, :) = [word possible_others(other_ind, :)];
                 end
                 
                 for set_ind = 1:size(sets, 1)
                     set = sets(set_ind, :);
-
+                    
                     pset = getPowerSet_reduced(set);
                     temp_prob = zeros(length(pset), 1);
 

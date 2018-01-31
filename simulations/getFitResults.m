@@ -47,7 +47,7 @@ for j = 1:length(modelParams_all)
 end
 %whichParams_all = {1:3, 1:2, 1:2, 1:2, 1, 2:4, 2:3, [2 4], 2, []};
 
-whichModels = 1:8;
+whichModels = 1:12;
 
 modelNames = modelNames_all(whichModels);
 whichParams = whichParams_all(whichModels);
@@ -80,6 +80,7 @@ compareModels_bayes(params, details, 5, numChoices, LLs_chance(goodSubjects));
 
 %% Find good subj
 sprintf('%.2d,', paramEstimates{5}(:,7))
+sprintf('%.1d,', test2)
 hist(paramEstimates{5}(:,7))
-histcounts(paramEstimates{5}(:,7),11)
+%histcounts(paramEstimates{5}(:,7),11)
 %[h, p] = ttest(paramEstimates{13}(:, 6))
