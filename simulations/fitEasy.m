@@ -10,7 +10,7 @@ for i = 1:length(envNames)
     
     numSubjects = numSubjects_all(i);
     numStarts = 5;
-    numFnEvals = 150;
+    numFnEvals = 200;
     
     % CHANGE THIS BACK
      priorPDFs = {@(x) log(1/3), @(x) log(gampdf(x, 4.5, 1)), @(x) log(gampdf(x, 4.5, 1)), ...
