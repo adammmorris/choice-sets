@@ -35,11 +35,11 @@ end
 modelNames_all = {'mixture-mf-mb', 'mixture-mf', 'mixture-mb', 'random', ...
     'cs-mf-mb', 'cs-mf', 'cs-mb', 'cs-rand', ...
     'cs-amf-mb', 'cs-amf', 'mixture-amf-mb', 'mixture-amf', ...
-    'cs-free'};
+    'cs-free', 'cs-mf-mb-poss', 'cs-mb-poss'};
 modelParams_all = {[1 -1 0 -1 -1], [1 -1 0 1 0], [1 -1 0 0 1], [1 0 0 0 0], ...
     [-1 -1 -1 -1 -1], [-1 -1 -1 1 0], [-1 -1 -1 0 1], [-1 0 -1 0 0], ...
     [-1 -1 -1 -1 -1], [-1 -1 -1 1 0], [1 -1 0 -1 -1], [1 -1 0 1 0], ...
-    [-1 1 -1 -1 -1]};
+    [-1 1 -1 -1 -1], [-1 -1 -1 -1 -1 -1], [-1 -1 -1 0 -1 -1]};
 
 whichParams_all = cell(length(modelParams_all), 1);
 for j = 1:length(modelParams_all)
@@ -47,7 +47,7 @@ for j = 1:length(modelParams_all)
 end
 %whichParams_all = {1:3, 1:2, 1:2, 1:2, 1, 2:4, 2:3, [2 4], 2, []};
 
-whichModels = 1:12;
+whichModels = [1:12 14:15];
 
 modelNames = modelNames_all(whichModels);
 whichParams = whichParams_all(whichModels);

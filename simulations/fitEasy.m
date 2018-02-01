@@ -1,5 +1,6 @@
 envNames = {'wg_v10'};
-numSubjects_all = [205];
+subjlist = [5   6   8   9  11  19  20  24  25  30  37  39  41  46  53  57  58  66  68  69  71  80  86  88  89  90  91  93 109 118 119 122 124 125 128 129 131 133 134 138 139 140 143 149 159 162 167 168 173 176 178 179 180 189 191 194 195 198 199 202];
+numSubjects_all = length(subjlist);
 simsNames = {'real2'};
 
 for i = 1:length(envNames)
@@ -8,8 +9,8 @@ for i = 1:length(envNames)
     simsName = simsNames{i};
     
     numSubjects = numSubjects_all(i);
-    numStarts = 10;
-    numFnEvals = 200;
+    numStarts = 5;
+    numFnEvals = 150;
     
     % CHANGE THIS BACK
      priorPDFs = {@(x) log(1/3), @(x) log(gampdf(x, 4.5, 1)), @(x) log(gampdf(x, 4.5, 1)), ...
@@ -38,9 +39,10 @@ for i = 1:length(envNames)
         params = modelParams{model};
         name = modelNames{model};
         parfor subj = 1:numSubjects
-            disp(['subject ' num2str(subj)]);
+            subj_real = subjlist(subj);
+            disp(['subject ' num2str(subj_real)]);
             fitModel([main '/sims.mat'], whichEnv, [main '/fit_' name '/'], ...
-                params, priorPDFs, subj, numStarts, numFnEvals, 0, false);
+                params, priorPDFs, subj_real, numStarts, numFnEvals, 0, false);
         end
     end
 end

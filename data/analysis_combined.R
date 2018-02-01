@@ -271,7 +271,7 @@ for (subj in 1:nrow(df.demo)) {
 
 # check out data ----------------------------------------------------------
 df.poss.filt = df.poss %>% filter(subject %in% include_names)
-df.poss.subj.filt = df.poss.subj %>% filter(subject %in% include_names)
+df.poss.subj.exclusion.filt = df.poss.subj %>% filter(subject %in% include_names)
 df.poss.collapsed.filt = df.poss.collapsed %>% filter(subject %in% include_names)
 df.s2.filt = df.s2 %>% filter(subject %in% include_names)
 df.s1.filt = df.s1 %>% filter(subject %in% include_names)
@@ -478,9 +478,9 @@ for (subj in 1:nrow(df.demo)) {
 
 write.csv(rewards_tr, paste0(path, 'rewards_tr.csv'), row.names = F)
 write.csv(poss, paste0(path, 'poss.csv'), row.names = F)
-write.csv(recalled_and_answeredposs[include_rows, ] * 1, paste0(path, 'recalled.csv'), row.names = F)
+write.csv(recalled_ever[include_rows, ] * 1, paste0(path, 'recalled.csv'), row.names = F)
 
-df.modeling = df.s2 %>% filter(subject %in% include_names & !is.na(choice_real_ind) & !is.na(possible)) %>%
+df.modeling = df.s2 %>% filter(subject %in% include_names & !is.na(choice_real_ind)) %>%
   mutate(all_values_nocomma = gsub(",", " ", all_values)) %>% 
   select(s2_subj_ind, choice_real_ind, all_values_nocomma)
 write.table(df.modeling, paste0(path, 'choices.csv'), row.names = F, col.names = F, sep=",")
