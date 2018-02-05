@@ -1,5 +1,7 @@
 envNames = {'wg_v10'};
-subjlist = [5   6   8   9  11  19  20  24  25  30  37  39  41  46  53  57  58  66  68  69  71  80  86  88  89  90  91  93 109 118 119 122 124 125 128 129 131 133 134 138 139 140 143 149 159 162 167 168 173 176 178 179 180 189 191 194 195 198 199 202];
+%which subjects needed to be rerun
+%subjlist = [5   6   8   9  11  19  20  24  25  30  37  39  41  46  53  57  58  66  68  69  71  80  86  88  89  90  91  93 109 118 119 122 124 125 128 129 131 133 134 138 139 140 143 149 159 162 167 168 173 176 178 179 180 189 191 194 195 198 199 202];
+subjlist = 1:205;
 numSubjects_all = length(subjlist);
 simsNames = {'real2'};
 
@@ -9,11 +11,13 @@ for i = 1:length(envNames)
     simsName = simsNames{i};
     
     numSubjects = numSubjects_all(i);
-    numStarts = 5;
+    numStarts = 10;
     numFnEvals = 200;
     
     % CHANGE THIS BACK
-     priorPDFs = {@(x) log(1/3), @(x) log(gampdf(x, 4.5, 1)), @(x) log(gampdf(x, 4.5, 1)), ...
+     %priorPDFs = {@(x) log(1/3), @(x) log(gampdf(x, 4.5, 1)), @(x) log(gampdf(x, 4.5, 1)), ...
+      %   @(x) log(unifpdf(x, 0, 1)), @(x) log(unifpdf(x, 0, 1)), @(x) log(unifpdf(x, 0, 1))};
+     priorPDFs = {@(x) log(1/3), @(x) log(unifpdf(x, 0, 10)), @(x) log(unifpdf(x, 0, 10)), ...
          @(x) log(unifpdf(x, 0, 1)), @(x) log(unifpdf(x, 0, 1)), @(x) log(unifpdf(x, 0, 1))};
 %    priorPDFs = {@(x) log(1/3), @(x) log(gampdf(x, 4.5, 1)), @(x) log(gampdf(x, 4.5, 1)), ...
 %        @(x) log(unifpdf(x, -10, 10)), @(x) log(gampdf(x, 4.5, 1))};
@@ -23,12 +27,12 @@ for i = 1:length(envNames)
         'cs-mf-mb', 'cs-mf', 'cs-mb', 'cs-rand', ...
         'cs-amf-mb', 'cs-amf', 'mixture-amf-mb', 'mixture-amf', ...
         'cs-free', 'cs-mf-mb-poss', 'cs-mb-poss'};
-    modelParams_all = {[1 -1 0 -1 -1], [1 -1 0 1 0], [1 -1 0 0 1], [1 0 0 0 0], ...
-        [-1 -1 -1 -1 -1], [-1 -1 -1 1 0], [-1 -1 -1 0 1], [-1 0 -1 0 0], ...
+    modelParams_all = {[1 -1 0 -1 -1 0], [1 -1 0 1 0], [1 -1 0 0 1], [1 0 0 0 0], ...
+        [-1 -1 -1 -1 -1 0], [-1 -1 -1 1 0], [-1 -1 -1 0 1 0], [-1 0 -1 0 0 0], ...
         [-1 -1 -1 -1 -1], [-1 -1 -1 1 0], [1 -1 0 -1 -1], [1 -1 0 1 0], ...
         [-1 1 -1 -1 -1], [-1 -1 -1 -1 -1 -1], [-1 -1 -1 0 -1 -1]};
     
-    whichModels = 14:15;
+    whichModels = [1 5 7 8 14 15];
     
     modelNames = modelNames_all(whichModels);
     modelParams = modelParams_all(whichModels);

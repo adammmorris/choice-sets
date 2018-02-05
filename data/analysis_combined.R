@@ -45,7 +45,7 @@ runLogit = function(df) {
   df$Subj = factor(df$Subj)
   df.m = mlogit.data(df, choice = "Choice", shape = "long", id.var = "Subj", alt.var = "OptionID", chid.var = "Trial_unique")
   
-  m = mlogit(Choice ~ MFcent + MBcent + Int | -1, df.m, panel = T,
+  m = mlogit(Choice ~ MFcent + MBcent | -1, df.m, panel = T,
              rpar = c(MFcent = "n", MBcent = "n"), correlation = F, halton = NA, R = 1000, tol = .001)
   return(m)
 }
@@ -329,7 +329,7 @@ df.cor$weights3 = c(0,0,1,0,1,0,1,1,0,1,0,1,0,0,1,0,0,0,1,0,0,1,1,0,1,1,0,0,0,0,
 
 # order
 histogram(~ order | s1_val_high, df.words.filt[df.words.filt$recall == T, ])
-m.order = lmer(order ~ s1_val_high + (1 | subject) + (0 + s1_val_high | subject) + (s1_val_high | word),
+m.order = lmer(order ~ s1_val_high + (1 + s1_val_high | subject) + (1 + s1_val_high | word),
                data = df.words.filt[df.words.filt$recall == T, ])
 summary(m.order)
 df.cor$coefs = coef(m.order)$subject$s1_val_highTRUE
@@ -373,13 +373,13 @@ for (subj in 1:nrow(df.demo.filt)) {
   df.s2.temp = df.s2 %>% filter(subject == subj.name) %>% arrange(question_order)
   df.poss.temp = df.poss %>% filter(subject == subj.name)
   
-  recalled.temp = recalled_ever[subj, ] & !is.na(df.words.temp$possible)
+  recalled.temp = recalled_ever[subj, ] #& !is.na(df.words.temp$possible)
   num.recalled.temp = sum(recalled.temp)
   
-  question_filter = !is.na(df.s2.temp$choice_real_ind) & !is.na(df.s2.temp$possible)
+  question_filter = !is.na(df.s2.temp$choice_real_ind) #& !is.na(df.s2.temp$possible)
   nAnswered = sum(question_filter)
   
-  if (nAnswered > 0 & length(question_filter) == (numRealQuestions + 1) & num.recalled.temp > 0 & df.poss.temp$cond == 'pressure') {
+  if (nAnswered > 0 & length(question_filter) == (numRealQuestions + 1)) {
     Subj.col = rep(subj, num.recalled.temp * nAnswered)
     
     MFval.col = rep(df.words.temp$value[recalled.temp], nAnswered)

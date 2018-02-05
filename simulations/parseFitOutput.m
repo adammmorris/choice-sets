@@ -12,17 +12,19 @@
 % corrs: correlations between actual & estimated params (if dataPath was
 % inputted)
 
-function [paramEstimates, goodSubjects, corrs] = parseFitOutput(savePath, numSubjects, whichParams, numExtraVars, dataPath, realData)
+function [paramEstimates, goodSubjects, corrs] = parseFitOutput(savePath, whichSubjects, whichParams, numExtraVars, dataPath, realData)
 
+numSubjects = length(whichSubjects);
 numFreeParams = length(whichParams);
 paramEstimates = zeros(numSubjects, numFreeParams + numExtraVars);
 goodSubjects = false(numSubjects,1);
 
-for whichSubj = 1:numSubjects    
+for whichSubj_ind = 1:numSubjects    
+    whichSubj = whichSubjects(whichSubj_ind);
     name = [savePath num2str(whichSubj) '.txt'];
     if exist(name, 'file')
-        paramEstimates(whichSubj, :) = csvread(name);
-        goodSubjects(whichSubj) = true;
+        paramEstimates(whichSubj_ind, :) = csvread(name);
+        goodSubjects(whichSubj_ind) = true;
     end
 end
 
