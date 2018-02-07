@@ -21,8 +21,8 @@ numTrials = envInfo{2};
 % delay
 %subjlist = [1   2   3   4   7  10  13  14  15  17  21  22  23  26  27  28  30  31  33  35  40  41  45  47  48  49  52  53  54  57  59  60  62  63 65  68  70  71  72  73  75  76  80  81  83  85  90  92  94  95  97  98  99 101 102 104 105 106 108 109 110 111 112 113 114 115 118 128 133 134 135 139 140 142 143 144 145 146 148 149 151 152 153 154 155 158 159 161 162 164 169 170 175 178 179 180 181 182 184 185 187 189 190 193 194 197 200 201 202];
 % said nothing was impossible
-%subjlist = find(sum(poss == 1,2) == 14);
-subjlist = 1:length(subjMarkers);
+subjlist = find(sum(poss == 1,2) == 14);
+%subjlist = 1:length(subjMarkers);
 
 
 %numSubjects = length(subjMarkers);

@@ -34,6 +34,7 @@ epsilon = params(3); % if doSoftmax, this is beta2
 w_MF = params(4);
 w_MB = params(5);
 w_poss = params(6);
+negMF = params(7);
 
 doSoftmax = true;
 
@@ -43,7 +44,9 @@ if beta > 0 && abs(wSum - 1) > .01
 end
 
 % for negative MF
-rewards_tr = -rewards_tr;
+if negMF
+    rewards_tr = -rewards_tr;
+end
 
 %% Calculate log likelihood
 likelihood = zeros(numTrials, 1);
