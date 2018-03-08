@@ -1,0 +1,5 @@
+v1 is first version of this, with intermingled modal questions, and greyed out words.
+v2 is follow-up to v3_poss.
+	pilot3 is w/o decisions, but with modal blocks & no greyed-out words
+	real1 is w/o "should/ought", and just memory questions.
+v3 is combined possibility + decisions.

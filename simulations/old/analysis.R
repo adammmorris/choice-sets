@@ -2,7 +2,7 @@ require(dplyr)
 require(ggplot2)
 require(lme4)
 require(lmerTest)
-require(ordPens)
+require(mlogit)
 
 theme_update(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour = "black"),
              axis.text=element_text(size=20, colour = "black"), axis.title=element_text(size=18, face = "bold"), axis.title.x = element_text(vjust = 0),
@@ -39,7 +39,9 @@ df.mbrank$xsq <- df.mbrank$ranks_numeric ^ 2;
 
 base = ggplot(data = df.mbrank, aes(x = ranks_numeric, y = probRank)) +
   geom_point(colour = "black", group = 1)
-base + geom_smooth(method = 'lm', formula = y ~ choose(x - 1, 4))
+base + stat_function(fun = function(x) {.0091 * exp(.1 * x) - .0266}) +
+  stat_function(fun = function(x) {7.22e-06 * choose(x - 1, 4) - 6.447e-04})
+#base + geom_smooth(method = 'lm', formula = y ~ exp(.1 * x))
 
 mexp = lm(probRank ~ exp(.1 * ranks_numeric), data = df.mbrank)
 mchoose = lm(probRank ~ choose(ranks_numeric - 1, 4), data = df.mbrank)
@@ -74,21 +76,48 @@ grid.arrange(p1, p2, ncol = 2)
 
 
 
-k <- length(levels(df$Choice))
-I <- diag(k-1)
-J <- matrix(rep(1, (k-1)^2), c(k-1, k-1))
 
-# Have to really learn this if I'm gonna do it
-m1 <- MCMCglmm(Choice ~ -1 + trait + MFval * MBval,
-               random = ~ idh(trait):Subj + idh(1+MFval * MBval):Subj,
-               rcov = ~us(trait):units,
-               # prior = list(R = list(fix = 1, V = .5 * (I + J), n = 4),
-               #              G=list(G1 = list(V = diag(k), n = k),
-               #                     G2 = list(V = diag(k), n = k))),
-               family = c("categorical"), data = df)
+df <- read.csv('analyzeLikelihood.csv')
+df$MBtop = factor(df$MBtop)
+df$MFtop = factor(df$MFtop)
+df$MBrank = factor(df$MBrank)
+nTrials = length(unique(df$Trial))
+nSubj = length(unique(df$Subj))
 
-npmlt(df$Choice ~ df$MFval, random = ~1, id = df$Subj, k = 2, link = "blogit", EB = FALSE)
+m = lmer(Diff ~ MBval * beta + (1 | Subj) + (0 + MBval | Subj), data = df)
+summary(m)
 
-data(schizo)
-schizo$y <- as.factor(schizo$y)
-npmlt(schizo$y~1+schizo$trt,random=~1,id=schizo$id,k=2,EB=FALSE,link="blogit")
+df.col = df %>% mutate(betatop = beta > median(beta), ktop = nToEval > mean(nToEval)) %>% 
+  group_by(MBrank, ktop) %>% summarize(Diff = mean(Diff))
+ggplot(data = df.col, aes(x = MBrank, y = Diff, group = ktop, colour = ktop)) +
+  geom_point()
+
+
+
+
+df = read.csv('results/33-9.beta2-3-28.beta1p2-1p2-7/mfcs.csv')
+#df = read.csv('results/testing.csv')
+df$Choice = as.logical(df$Choice)
+df$OptionID = factor(df$OptionID)
+df = df %>% mutate(Trial_unique = paste(Subj, Trial, sep="_"))
+df$Trial = factor(df$Trial)
+df$Trial_unique = factor(df$Trial_unique)
+df$Subj = factor(df$Subj)
+df = df %>% mutate(MFcent = MFval - mean(MFval), MBcent = MBval - mean(MBval), Int = MFcent * MBcent)
+df.m = mlogit.data(df, choice = "Choice", shape = "long", id.var = "Subj", chid.var = "Trial_unique", alt.var = "OptionID")
+
+m = mlogit(Choice ~ MFcent + MBcent + Int, df.m, panel = T, rpar = c(MFcent = "cn", MBcent = "cn", Int = "n"), correlation = T)
+
+df = read.csv('results/33-9.beta2-3-28.beta1p2-1p2-7/mixture.csv')
+#df = read.csv('results/testing.csv')
+df$Choice = as.logical(df$Choice)
+df$OptionID = factor(df$OptionID)
+df = df %>% mutate(Trial_unique = paste(Subj, Trial, sep="_"))
+df$Trial = factor(df$Trial)
+df$Trial_unique = factor(df$Trial_unique)
+df$Subj = factor(df$Subj)
+df = df %>% mutate(MFcent = MFval - mean(MFval), MBcent = MBval - mean(MBval), Int = MFcent * MBcent)
+df.m = mlogit.data(df, choice = "Choice", shape = "long", id.var = "Subj", chid.var = "Trial_unique", alt.var = "OptionID")
+
+m2 = mlogit(Choice ~ MFcent + MBcent + Int, df.m, panel = T, rpar = c(MFcent = "cn", MBcent = "cn", Int = "n"), correlation = T)
+#m3 = mlogit(Choice ~ MFcent + MBcent + Int, df.m, panel = T, rpar = c(MFcent = "cn", MBcent = "cn", Int = "n"), correlation = F)

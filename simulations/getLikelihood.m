@@ -13,16 +13,16 @@
 %% Outputs
 % likelihood: the log likelihood (NOT negative)
 
-function LL = getLikelihood(envInfo, choices, rewards_te, recalled, whichSubj, freeParams, fixedParams, nSamples)
+function LL = getLikelihood(choices, rewards_s1, rewards_s2, recalled, whichSubj, freeParams, fixedParams, nSamples)
 
 %% Load env info
-numWords = envInfo{1};
-rewards_tr = envInfo{3}(whichSubj, :);
-maxRe_tr = envInfo{4};
-poss = envInfo{5}(whichSubj, :);
+numWords = 14;
+maxRe_s1 = max(rewards_s1);
 
 recalled = recalled(whichSubj, :);
 numTrials = length(choices);
+
+poss = ones(numWords, 1) * -1;
 
 %% Set params
 params = zeros(length(fixedParams), 1);
@@ -45,7 +45,7 @@ end
 
 % for negative MF
 if negMF
-    rewards_tr = -rewards_tr;
+    rewards_s1 = -rewards_s1;
 end
 
 %% Calculate log likelihood
@@ -53,15 +53,15 @@ likelihood = zeros(numTrials, 1);
 
 if nToEval == 1 % any non-choice-set
     for trial = 1:numTrials
-        maxRe_te = max(rewards_te(trial, :));
+        maxRe_s2 = max(rewards_s2(trial, :));
         
         availWords = find(recalled);
         numAvailWords = length(availWords);
         word = find(availWords == choices(trial));
         
         probs_num = exp(beta * ...
-                (rewards_te(trial, availWords) * w_MB / maxRe_te + ...
-                rewards_tr(availWords) * w_MF / maxRe_tr));
+                (rewards_s2(trial, availWords) * w_MB / maxRe_s2 + ...
+                rewards_s1(availWords) * w_MF / maxRe_s1));
         probs = probs_num / sum(probs_num);
         
         probs = (1 - epsilon) * probs + epsilon * (1 / numAvailWords);
@@ -74,7 +74,7 @@ elseif beta == 0 % randcs
     
     for trial = 1:numTrials
         word = find(availWords == choices(trial));
-        maxRe_te = max(rewards_te(trial, :));
+        maxRe_s2 = max(rewards_s2(trial, :));
         
         prob = 0;
         if doSoftmax
@@ -87,14 +87,14 @@ elseif beta == 0 % randcs
             
             for set_ind = 1:size(sets, 1)
                 cur_set_prob = 1 / binCoef(numAvailWords, nToEval);
-                choice_prob_num = exp(epsilon * rewards_te(trial, availWords(sets(set_ind, :))) / maxRe_te);
+                choice_prob_num = exp(epsilon * rewards_s2(trial, availWords(sets(set_ind, :))) / maxRe_s2);
                 choice_prob = choice_prob_num / sum(choice_prob_num);
                 
                 prob = prob + choice_prob(1) * cur_set_prob; % word they chose is always 1st
             end
         else
-            lq = sum(rewards_te(trial, availWords) < rewards_te(trial, availWords(word))); % # of MB values < q
-            tq = sum(rewards_te(trial, availWords) == rewards_te(trial, availWords(word))) - 1; % # of MB values == q
+            lq = sum(rewards_s2(trial, availWords) < rewards_s2(trial, availWords(word))); % # of MB values < q
+            tq = sum(rewards_s2(trial, availWords) == rewards_s2(trial, availWords(word))) - 1; % # of MB values == q
         
             sets_prob = 0;
             for numTies = 0:(nToEval - 1)
@@ -111,7 +111,7 @@ elseif beta == 0 % randcs
 else
     if nSamples == 0 % do exact calculation
         for trial = 1:numTrials
-            maxRe_te = max(rewards_te(trial, :));
+            maxRe_s2 = max(rewards_s2(trial, :));
             availWords = find(recalled);
             numAvailWords = length(availWords);
             
@@ -119,16 +119,16 @@ else
             
             if poss(availWords) > -1
                 weights_num = exp(beta * ...
-                    (rewards_te(trial, availWords) * w_MB / maxRe_te + ...
-                    rewards_tr(availWords) * w_MF / maxRe_tr + ...
+                    (rewards_s2(trial, availWords) * w_MB / maxRe_s2 + ...
+                    rewards_s1(availWords) * w_MF / maxRe_s1 + ...
                     poss(availWords) * w_poss));
             else
                 % reweight
                 softmax_weights_new = [w_MB w_MF];
                 softmax_weights_new = softmax_weights_new / sum(softmax_weights_new);
                 weights_num = exp(beta * ...
-                    (rewards_te(trial, availWords) * softmax_weights_new(1) / maxRe_te + ...
-                    rewards_tr(availWords) * softmax_weights_new(2) / maxRe_tr));
+                    (rewards_s2(trial, availWords) * softmax_weights_new(1) / maxRe_s2 + ...
+                    rewards_s1(availWords) * softmax_weights_new(2) / maxRe_s1));
             end
             weights = weights_num / sum(weights_num);
             
@@ -158,7 +158,7 @@ else
                     end
 
                     cur_set_prob = sum(temp_prob) + 1 + d * ((-1)^numel(set));
-                    choice_prob_num = exp(epsilon * rewards_te(trial, availWords(set)) / maxRe_te);
+                    choice_prob_num = exp(epsilon * rewards_s2(trial, availWords(set)) / maxRe_s2);
                     choice_prob = choice_prob_num / sum(choice_prob_num);
                     
                     prob = prob + choice_prob(1) * cur_set_prob;
@@ -167,7 +167,7 @@ else
                 set_prob = 0;
 
                 for numTies = 0:(nToEval-1)
-                    sets = getSets(word, numTies, nToEval, rewards_te(trial, availWords));
+                    sets = getSets(word, numTies, nToEval, rewards_s2(trial, availWords));
 
                     for set_ind = 1:size(sets, 1)
                         set = sets(set_ind, :);
@@ -201,12 +201,12 @@ else
             rand_table = exprnd(1, [numWords, nSamples]);
             
             nThisChoice = 0;
-            temp = exp(beta * rewards_tr)';
+            temp = exp(beta * rewards_s1)';
             
             parfor i = 1:nSamples
                 [~, options] = sort(rand_table(:, i) ./ temp);
                 toEval = options(1:5);
-                [~, choice_ind] = max(rewards_te(trial, toEval));
+                [~, choice_ind] = max(rewards_s2(trial, toEval));
                 if toEval(choice_ind) == word, nThisChoice = nThisChoice + 1; end
             end
             
