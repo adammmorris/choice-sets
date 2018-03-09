@@ -285,7 +285,7 @@ for (subj in 1:nrow(df.demo)) {
     df.words.temp = df.words %>% filter(subject == subj.name)
     
     for (word in 1:numWords) {
-        rewards_tr[ind, word] = df.words.temp$high_value[word]
+        rewards_tr[ind, word] = df.words.temp$value[word]
     }
     ind = ind + 1
   }
