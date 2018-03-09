@@ -34,7 +34,7 @@ options = optimoptions(@fmincon, 'Display', 'off', 'UseParallel', false, 'MaxFun
 results = zeros(numSubjects, 4); % post ll bic lme
 params = zeros(numSubjects, nFreeParams);
 
-parfor whichSubj = 1:numSubjects
+for whichSubj = 1:numSubjects
     % Index
     if whichSubj < length(subjMarkers)
         index = subjMarkers(whichSubj):(subjMarkers(whichSubj + 1) - 1);
@@ -74,7 +74,7 @@ parfor whichSubj = 1:numSubjects
                     logposts_starts = zeros(numStarts, 1);
                     params_starts = zeros(numStarts, nContFreeParams);
                     
-                    for thisStart = 1:numStarts
+                    parfor thisStart = 1:numStarts
                         [params_starts(thisStart, :), logposts_starts(thisStart), ~, ~, ~, ~] = ...
                             fmincon(f, starts(thisStart, :), [], [], A, b, ...
                             bounds(1, freeParams_noK), bounds(2, freeParams_noK), [], options);

@@ -2,8 +2,8 @@
 % For a given dataset, get all the model fitting results, and compare
 % models.
 
-datapath = 'fitting/value/v1/output_5-9.mat';
-simspath = 'fitting/value/v1/sims.mat';
+datapath = 'fitting/value/v2/output.mat';
+simspath = 'fitting/value/v2/sims.mat';
 load(datapath);
 load(simspath);
 
@@ -53,6 +53,6 @@ for i = 1:numModels
 end
 
 %% Model comparison
-compareModels_bayes(optParams, details, 1, numChoices, LLs_chance(goodSubjects));
+compareModels_bayes(optParams, details, 1, numChoices, LLs_chance);
 
 %sprintf('%.2d,', paramEstimates{5}(:,7))
