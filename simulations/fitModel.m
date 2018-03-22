@@ -99,7 +99,7 @@ for whichSubj = 1:numSubjects
             logposts_starts = zeros(numStarts, 1);
             params_starts = zeros(numStarts, nFreeParams);
             
-            for thisStart = 1:numStarts
+            parfor thisStart = 1:numStarts
                 [params_starts(thisStart, :), logposts_starts(thisStart), ~, ~, ~, ~] = ...
                     fmincon(f, starts(thisStart, :), [], [], A, b, ...
                     bounds(1, freeParams), bounds(2, freeParams), [], options);
@@ -123,6 +123,8 @@ for whichSubj = 1:numSubjects
         params(whichSubj, :) = optParams;
     else % If there's no free parameters, just evaluate it at the one place.
         [post, ll] = getPosterior(choice(index), rewards_s1_subj, rewards_s2_subj, recalled, whichSubj, [], fixedParams, priorPDFs, nSamples);
+        bic = -2 * ll;
+        lme = ll;
         
         results(whichSubj, :) = [post ll bic lme];
     end

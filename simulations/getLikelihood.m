@@ -45,7 +45,7 @@ end
 
 % for negative MF
 if negMF
-    rewards_s1 = -rewards_s1;
+    rewards_s1 = maxRe_s1 - rewards_s1;
 end
 
 %% Calculate log likelihood
