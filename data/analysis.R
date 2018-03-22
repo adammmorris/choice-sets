@@ -42,7 +42,7 @@ dodge <- position_dodge(width=0.9)
 # import data -------------------------------------------------------------
 
 versions = c('value1', 'value2', 'freq', 'confounded', 'stripped')
-version = versions[2]
+version = versions[3]
 
 if (version == 'value1') {
   numWords = 14;
@@ -296,7 +296,7 @@ write.csv(recalled_ever[include_rows, ] * 1, paste0(path, 'recalled.csv'), row.n
 
 df.modeling = df.s2 %>% filter(subject %in% include_names & !is.na(choice_real_ind)) %>%
   mutate(all_values_nocomma = gsub(",", " ", all_values)) %>% 
-  select(s2_subj_ind, choice_real_ind, all_values_nocomma)
+  dplyr::select(s2_subj_ind, choice_real_ind, all_values_nocomma)
 write.table(df.modeling, paste0(path, 'choices.csv'), row.names = F, col.names = F, sep=",")
 
 ## bonuses
