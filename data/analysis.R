@@ -42,7 +42,7 @@ dodge <- position_dodge(width=0.9)
 # import data -------------------------------------------------------------
 
 versions = c('value1', 'value2', 'freq', 'confounded', 'stripped')
-version = versions[3]
+version = versions[5]
 
 if (version == 'value1') {
   numWords = 14;
