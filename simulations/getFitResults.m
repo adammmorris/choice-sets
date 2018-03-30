@@ -2,7 +2,7 @@
 % For a given dataset, get all the model fitting results, and compare
 % models.
 
-datapath = 'fitting/value/v1/output.mat';
+datapath = 'fitting/value/v1/output_withrand.mat';
 simspath = 'fitting/value/v1/sims.mat';
 load(datapath);
 load(simspath);
@@ -27,18 +27,18 @@ end
 modelNames_all = {'mixture-mf-mb', 'mixture-mf', 'mixture-mb', 'random', ...
     'cs-mf-mb', 'cs-mf', 'cs-mb', 'cs-rand', ...
     'cs-amf-mb', 'cs-amf', 'mixture-amf-mb', 'mixture-amf', ...
-    'cs-free', 'cs-mf-mb-poss', 'cs-mb-poss'};
-modelParams_all = {[1 -1 0 -1 -1 0], [1 -1 0 1 0], [1 -1 0 0 1], [1 0 0 0 0], ...
-    [-1 -1 -1 -1 -1 0 0], [-1 -1 -1 1 0], [-1 -1 -1 0 1 0], [-1 0 -1 0 0 0], ...
-    [-1 -1 -1 -1 -1 0 1], [-1 -1 -1 1 0], [1 -1 0 -1 -1], [1 -1 0 1 0], ...
-    [-1 1 -1 -1 -1], [-1 -1 -1 -1 -1 -1 0], [-1 -1 -1 0 -1 -1]};
+    'cs-rmf-mb', 'cs-free', 'cs-mf-mb-poss', 'cs-mb-poss'};
+modelParams_all = {[1 -1 0 -1 -1 0 0], [1 -1 0 1 0 0 0], [1 -1 0 0 1 0 0], [1 0 0 0 0 0 0], ...
+    [-1 -1 -1 -1 -1 0 0], [-1 -1 -1 1 0 0 0], [-1 -1 -1 0 1 0 0], [-1 0 -1 0 0 0 0], ...
+    [-1 -1 -1 -1 -1 0 1], [-1 -1 -1 1 0 0 1], [1 -1 0 -1 -1 0 1], [1 -1 0 1 0 0 1], ...
+    [-1 -1 -1 -1 -1 0 2], [-1 1 -1 -1 -1], [-1 -1 -1 -1 -1 -1 0], [-1 -1 -1 0 -1 -1]};
 
 whichParams_all = cell(length(modelParams_all), 1);
 for j = 1:length(modelParams_all)
     whichParams_all{j} = find(modelParams_all{j} == -1);
 end
 
-whichModels = 1:12;
+whichModels = 1:13;
 
 modelNames = modelNames_all(whichModels);
 whichParams = whichParams_all(whichModels);

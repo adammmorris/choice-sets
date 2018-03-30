@@ -44,8 +44,10 @@ if beta > 0 && abs(wSum - 1) > .01
 end
 
 % for negative MF
-if negMF
+if negMF == 1
     rewards_s1 = maxRe_s1 - rewards_s1;
+elseif negMF == 2
+    rewards_s1 = rewards_s1(randperm(length(rewards_s1)));
 end
 
 %% Calculate log likelihood
