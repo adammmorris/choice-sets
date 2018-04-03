@@ -1,15 +1,16 @@
-require(dplyr)
 require(ggplot2)
 require(lme4)
 require(lmerTest)
 require(mlogit)
 require(stringdist)
+require(dplyr)
 
 theme_update(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour = "black"),
              axis.text=element_text(size=20, colour = "black"), axis.title=element_text(size=18, face = "bold"), axis.title.x = element_text(vjust = 0),
              legend.title = element_text(size = 24, face = "bold"), legend.text = element_text(size = 20), plot.title = element_text(size = 26, face = "bold", vjust = 1))
 
 setwd("~/Me/Psychology/Projects/choicesets/with_sam")
+setwd("C:/Users/Jphil/Dropbox/choiceSets/choice-sets/")
 
 ## Setup
 
@@ -131,7 +132,7 @@ df.collapsed = df.halfway %>% group_by(cond, s1_value) %>%
 ggplot(df.collapsed, aes(x = s1_value, y = choice.mean, group = cond, fill = cond)) +
   geom_bar(stat = "identity", position = dodge) +
   geom_errorbar(aes(ymax = choice.mean + choice.se, ymin = choice.mean - choice.se), width = .5, position = dodge) +
-  xlab('') + ylab('') + guides(fill = F)
+  xlab('') + ylab('')
 
 m.simple = lmer(choice ~ cond * s1_value + (1 | subject), data = df.halfway %>% filter(s1_value %in% c('low', 'high')))
 summary(m.simple)
@@ -179,10 +180,58 @@ m.sim = runLogit(df.sim)
 summary(m.sim)
 
 
+### Jphil graphs  
+df.collapsed$cond <- factor(df.collapsed$cond)
+df.collapsed$cond  <- factor(c("Reflection","Time Pressure")[df.collapsed$cond])
+
+df.collapsed$s1_value <- factor(df.collapsed$s1_value)
+df.collapsed$s1_value <- factor(c(c("Absent Words","Grey Words","Low-Value Words","High-Value Words"))[df.collapsed$s1_value])
+df.collapsed$s1_value <- factor(df.collapsed$s1_value, levels=c("Absent Words","Grey Words","High-Value Words","Low-Value Words"))
+df.collapsed$cond <- factor(df.collapsed$cond, levels=c("Time Pressure","Reflection"))
+
+blackGreyPalette <- c("#2C3539", "#999999")
+blackGreyPalette <- c("#999999","#2C3539")
+jphilPalette <- c("darkorange3","lightblue","darkgreen","azure4")
 
 
-
-
-
+ggplot(df.collapsed, aes(x = cond, y = 100-(choice.mean*100), fill = cond)) +
+  geom_bar(stat = "identity", position = dodge) +
+  geom_errorbar(aes(ymax = 100-(choice.mean*100) + choice.se*100, ymin = 100-(choice.mean*100) - choice.se*100), width = .5, position = dodge) +
+  xlab('') + ylab('% of Words Judged to be Possible to Select') +
+  facet_grid(~s1_value) +
+  scale_fill_manual(values=blackGreyPalette) +
+  theme_bw() +
+  theme(
+    plot.background = element_blank()
+    ,panel.grid.major = element_blank()
+    ,panel.grid.minor = element_blank()
+    ,legend.title=element_blank()
+    ,legend.position = c(.125,.9)
+    ,legend.text=element_text(size=rel(1.75))
+    #,axis.title=element_blank()
+    ,axis.text.y=element_text(size=rel(1.75))
+    ,strip.text = element_text(size=rel(1.7))
+    ,axis.text.x=element_blank()
+    ,axis.ticks = element_blank()
+  )
+  
+ggplot(df.collapsed, aes(x = s1_value, y = choice.mean, group = cond, fill = cond)) +
+  geom_bar(stat = "identity", position = dodge) +
+  geom_errorbar(aes(ymax = choice.mean + choice.se, ymin = choice.mean - choice.se), width = .5, position = dodge) +
+  xlab('') + ylab('') + 
+  facet_wrap(~modality) +
+  scale_fill_manual(values=blackGreyPalette) +
+  theme_bw() +
+  theme(
+    plot.background = element_blank()
+    ,panel.grid.major = element_blank()
+    ,panel.grid.minor = element_blank()
+    ,legend.title=element_blank()
+    ,legend.text=element_text(size=rel(1.4))
+    ,axis.title=element_blank()
+    ,axis.text.y=element_text(size=rel(1.5))
+    ,axis.text.x=element_text(size=rel(1.5))
+    ,axis.ticks = element_blank()
+  )
 
 
