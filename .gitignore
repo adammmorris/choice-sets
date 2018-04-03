@@ -1,3 +1,2 @@
-data/modelSim.csv
-.RData
+*.RData
 *.Rhistory

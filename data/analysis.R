@@ -58,7 +58,7 @@ numWords = 14;
 numQuestions = 9; # including memory
 pointsPerCent = 10;
 pointsPerWord = 10; # for memory condition
-path = 'data/cs_wg_v8//real1/'
+path = 'data/cs_wg_v8/real1/'
 
 # Load data
 df.demo = read.csv(paste0(path, 'demo.csv'), stringsAsFactors = F) %>% arrange(subject) %>% mutate(total_time_real = total_time / 60000)
