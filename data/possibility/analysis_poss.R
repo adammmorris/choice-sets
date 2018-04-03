@@ -9,7 +9,7 @@ theme_update(panel.grid.major = element_blank(), panel.grid.minor = element_blan
              axis.text=element_text(size=20, colour = "black"), axis.title=element_text(size=18, face = "bold"), axis.title.x = element_text(vjust = 0),
              legend.title = element_text(size = 24, face = "bold"), legend.text = element_text(size = 20), plot.title = element_text(size = 26, face = "bold", vjust = 1))
 
-setwd("~/Me/Psychology/Projects/choicesets/with_sam")
+setwd("~/Me/Psychology/Projects/choicesets/git")
 
 ## Setup
 
@@ -36,14 +36,14 @@ as.numeric.vector = function(x) {
 
 numWords = 21;
 pointsPerCent = 10;
-nTrials = 120;
-path = 'data/cs_wg_v3_poss/real1/'
+nTrials = 112;
+path = 'data/possibility/v2/real1/'
 
 # Load data
 df.demo = read.csv(paste0(path, 'demo.csv'), stringsAsFactors = F) %>% arrange(subject) %>% mutate(total_time_real = total_time / 60000)
 df.words.raw = read.csv(paste0(path, 'words.csv'), stringsAsFactors = F) %>% arrange(subject, word_ind)
 df.s1.raw = read.csv(paste0(path, 's1.csv'), stringsAsFactors = F) %>% arrange(subject)
-df.s2.raw = read.csv(paste0(path, 's2.csv'), stringsAsFactors = F) %>% arrange(subject)
+#df.s2.raw = read.csv(paste0(path, 's2.csv'), stringsAsFactors = F) %>% arrange(subject)
 
 subjlist = df.demo$subject
 
