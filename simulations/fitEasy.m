@@ -2,7 +2,7 @@ addpath 'utilities';
 numStarts = 10;
 numFnEvals = 200;
 
-datapath = 'fitting/frequency/v2/';
+datapath = 'fitting/frequency/v1/';
 
 priorPDFs = {@(x) 1/3, @(x) gampdf(x, 4.5, 1), @(x) gampdf(x, 4.5, 1), ...
     @(x) unifpdf(x, 0, 1), @(x) unifpdf(x, 0, 1), @(x) unifpdf(x, 0, 1), @(x) 1/2};
