@@ -1,7 +1,7 @@
 clearvars
 
-datapath = '../data/value/v3/real2/';
-savepath = 'fitting/value/v3/';
+datapath = '../data/frequency/v1/real1/';
+savepath = 'fitting/frequency/v1/';
 
 f = fopen([datapath 'choices.csv']);
 choice_csv = textscan(f, '%f %f %s %*[^\n]', 'Delimiter', ',');

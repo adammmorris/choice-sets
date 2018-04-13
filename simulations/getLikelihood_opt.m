@@ -116,7 +116,9 @@ else
             availWords = find(recalled);
             numAvailWords = length(availWords);
             
-            word = find(availWords == choices(trial));
+            %word = find(availWords == choices(trial));
+            word = find(rewards_s2(trial,availWords) == max(rewards_s2(trial, availWords)));
+            word = word(1);
             
             if poss(availWords) > -1
                 weights_num = exp(beta * ...

@@ -2,8 +2,8 @@
 % For a given dataset, get all the model fitting results, and compare
 % models.
 
-datapath = 'fitting/value/v3/output_withrand.mat';
-simspath = 'fitting/value/v3/sims.mat';
+datapath = 'fitting/frequency/v1/output_withrand.mat';
+simspath = 'fitting/frequency/v1/sims.mat';
 load(datapath);
 load(simspath);
 

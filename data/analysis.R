@@ -35,6 +35,20 @@ as.numeric.vector = function(x) {
   return(as.numeric(strsplit(substr(x,2,nchar(x)-1), split=",")[[1]]))
 }
 
+runLogit = function(df) {
+  df$Choice = as.logical(df$Choice)
+  df$OptionID = factor(df$OptionID)
+  df = df %>% mutate(Trial_unique = paste(Subj, Trial, sep="_"))
+  df$Trial = factor(df$Trial)
+  df$Trial_unique = factor(df$Trial_unique)
+  df$Subj = factor(df$Subj)
+  df.m = mlogit.data(df, choice = "Choice", shape = "long", id.var = "Subj", alt.var = "OptionID", chid.var = "Trial_unique")
+  
+  m = mlogit(Choice ~ MFval + MBval | -1, df.m, panel = T,
+             rpar = c(MFval = "n", MBval = "n"), correlation = F, halton = NA, R = 1000, tol = .001)
+  return(m)
+}
+
 se = function(x) {return(sd(x) / sqrt(length(x)))}
 dodge <- position_dodge(width=0.9)
 
@@ -42,7 +56,7 @@ dodge <- position_dodge(width=0.9)
 # import data -------------------------------------------------------------
 
 versions = c('value1', 'value2', 'freq', 'confounded', 'stripped')
-version = versions[5]
+version = versions[3]
 
 if (version == 'value1') {
   numWords = 14;
@@ -51,7 +65,7 @@ if (version == 'value1') {
   path = 'data/value/v1/real2/'
   pointsPerCent = 10;
   pointsPerWord = 10; # for memory condition
-  type = 0; # 0 is value, 1 is freq
+  type = 0; # 0 is value, 1 is freq, 2 is stripped
 } else if (version == 'value2') {
   numWords = 14;
   numTrials = 112;
@@ -140,6 +154,7 @@ for (i in 1:nrow(df.s2)) {
   df.s2$s1_value[i] = ifelse(is.na(cind), NA, df.words$value[word_rows])
   df.s2$s1_exposures[i] = ifelse(is.na(cind), NA, df.words$exposures[word_rows])
   df.s2$high_value[i] = ifelse(type == 1, df.s2$s1_exposures[i] > 8, df.s2$s1_value[i] > 5)
+  df.s2$high_rank[i] = ifelse(is.na(cind), NA, df.s2$rank_value[i] > 7)
 }
 
 df.s2 = df.s2 %>% mutate(s2_subj_ind = as.numeric(as.factor(subject)), # just for modeling
@@ -154,8 +169,10 @@ df.s2.subj = df.s2 %>% filter(subject %in% df.demo$subject) %>%
             comp_check_rt = mean(comp_check_rt) / 1000,
             numNAs = sum(is.na(choice_real)),
             numRepeats = sum(choice_real == lag(choice_real), na.rm = T),
+            s1_value = mean(s1_value, na.rm = T),
             high_value = mean(high_value, na.rm = T),
-            rank_value = mean(rank_value, na.rm = T))
+            rank_value = mean(rank_value, na.rm = T),
+            high_rank = mean(high_rank, na.rm = T))
 
 df.s2.subj$mem_words = NULL
 df.s2.subj$mem_vals = NULL
@@ -217,7 +234,7 @@ for (subj in 1:length(subjlist)) {
   df.demo.temp = df.demo %>% filter(subject == subj.name)
 
   exclude = df.demo.temp$write_down == 'Yes' || df.s2.subj.temp$comp_check_pass < .5 || df.s2.subj.temp$numRepeats > 2 ||
-    df.s2.subj.temp$numNAs > minNAs || df.s2.subj.temp$numNAs > minNAs || sum(recalled[subj,]) < 5
+    df.s2.subj.temp$numNAs > minNAs || sum(recalled[subj,]) < 5
   if (type != 2) {
     exclude = exclude || df.s1.subj.temp$numTrials != numTrials || df.s1.subj.temp$pctCorrect_words < .75 ||
       df.s1.subj.temp$pctCorrect_val < .75
@@ -237,16 +254,89 @@ df.s2.filt = df.s2 %>% filter(subject %in% include_names)
 df.s2.subj.filt = df.s2.subj %>% filter(subject %in% include_names)
 
 # s2 rank value
-hist(df.s2.filt$rank_value, breaks = 15, main = "S2 ranks of words chosen in S2", xlab = "S2 rank")
-mean(df.s2.filt$rank_value, na.rm = T)
 ggplot(df.s2.subj.filt, aes(x = rank_value)) + geom_histogram(col = 'black', fill = 'blue') + xlim(c(1,14))
 t.test(df.s2.subj.filt$rank_value - 7)
+ggplot(df.s2.subj.filt, aes(x = high_rank)) + geom_histogram(col = 'black', fill = 'blue') + ylim(c(0,40)) + xlim(c(0,1)) +
+  xlab('') + ylab('')
+t.test(df.s2.subj.filt$high_rank - .5)
 
 # s1 high value
-hist(as.numeric(df.s2.filt$high_value), breaks = 15, main = "S1 values of words chosen in S2", xlab = "S1 value")
-mean(df.s2.filt$high_value, na.rm = T)
 ggplot(df.s2.subj.filt, aes(x = high_value)) + geom_histogram(col = 'black', fill = 'blue')
 t.test(df.s2.subj.filt$high_value - .5)
+ggplot(df.s2.subj.filt, aes(x = s1_value)) + geom_histogram(col = 'black', fill = 'blue')
+t.test(df.s2.subj.filt$s1_value - 5)
+
+# logit test
+numRealQuestions = 5
+df.logit = data.frame(Subj = NULL, Trial = NULL, OptionID = NULL, Choice = NULL, MFval = NULL, MBval = NULL, nExposures = NULL, Recalled = NULL, Question = NULL)
+
+for (subj in 1:nrow(df.demo)) {
+  subj.name = df.demo$subject[subj]
+  recalled.temp = recalled_ever[subj, ]
+  #recalled.temp = !logical(numWords)
+  num.recalled.temp = sum(recalled.temp)
+  
+  df.words.temp = df.words %>% filter(subject == subj.name)
+  df.s2.temp = df.s2 %>% filter(subject == subj.name) %>% arrange(question_order)
+  
+  nAnswered = sum(!is.na(df.s2.temp$choice_real_ind))
+  
+  if (nAnswered > 0 & subj.name %in% include_names) {
+    Subj.col = rep(subj, num.recalled.temp * nAnswered)
+    
+    MFval.col = rep(df.words.temp$value[recalled.temp], nAnswered)
+    MFhigh.col = rep(df.words.temp$high_val[recalled.temp] * 1, nAnswered)
+    nExposures.col = rep(df.words.temp$exposures[recalled.temp], nAnswered)
+    Recalled.col = rep(df.words.temp$recall.ever[recalled.temp] * 1, nAnswered)
+    numChosen.col = rep(df.words.temp$numChosen_high[recalled.temp], nAnswered)
+    #OptionID.col = rep(which(recalled.temp), nAnswered)
+    OptionID.col = rep(1:num.recalled.temp, nAnswered)
+    Trial.col = rep(1:nAnswered, each = num.recalled.temp)
+    Question.col = rep(df.s2.temp$question_ind[!is.na(df.s2.temp$choice_real_ind)], each = num.recalled.temp)
+    
+    temp.mbval = matrix(0, nrow = nAnswered, ncol = num.recalled.temp)
+    temp.mbhigh = matrix(0, nrow = nAnswered, ncol = num.recalled.temp)
+    temp.choice = matrix(0, nrow = nAnswered, ncol = num.recalled.temp)
+    temp.choice2 = matrix(0, nrow = nAnswered, ncol = num.recalled.temp)
+    ind = 1
+    for (q in 1:numRealQuestions) {
+      if (!is.na(df.s2.temp$choice_real_ind[q])) {
+        all_vals = as.numeric.vector(df.s2.temp$all_values[q])
+        mbvals = rank(all_vals, ties.method = 'max')
+        #mbvals = all_vals
+        temp.mbval[ind,] = mbvals[recalled.temp]
+        temp.mbhigh[ind,] = mbvals[recalled.temp] > 13
+        
+        choice = logical(num.recalled.temp)
+        choice[which(df.s2.temp$choice_real_ind[q] == which(recalled.temp))] = TRUE
+        temp.choice[ind,] = choice
+        
+        #choice2 = vector(mode = 'numeric', num.recalled.temp)
+        #choice2[1] = which(df.s2.temp$choice_real_ind[q] == which(recalled.temp))
+        #choice2[1] = OptionID.col[1:num.recalled.temp][choice]
+        #temp.choice2[ind,] = choice2
+        
+        ind = ind + 1
+      }
+    }
+    
+    MBval.col = as.vector(t(temp.mbval))
+    MBhigh.col = as.vector(t(temp.mbhigh))
+    Choice.col = as.vector(t(temp.choice))
+    #Choice2.col = as.vector(t(temp.choice2))
+    
+    df.logit = rbind(df.logit,
+                     data.frame(Subj = Subj.col, Trial = Trial.col, OptionID = OptionID.col, Choice = Choice.col,
+                                MFval = MFval.col, MBval = MBval.col, MFhigh = MFhigh.col, MBhigh = MBhigh.col,
+                                Recall = Recalled.col, Question = Question.col))
+    
+  }
+}
+
+#df.logit = df.logit %>% mutate(MFcent = MFhigh - mean(MFhigh), MBcent = MBhigh - mean(MBhigh), Int = MFcent * MBcent)
+
+m.real = runLogit(df.logit)
+summary(m.real)
 
 ## recall
 nrecall = rowSums(recalled[include_rows,])
@@ -271,6 +361,15 @@ histogram(~ order | value, df.words[df.words$subject %in% include_names & df.wor
 m.order = lmer(order ~ high_value + (high_value | subject) + (high_value | word),
                  data = df.words.filt[df.words.filt$recall == T, ])
 summary(m.order)
+df.s2.subj.filt$order_weights = coef(m.order)$subject$high_valueTRUE
+
+## weights
+if (version == "value1") {
+  df.s2.subj.filt$weights = c(7.79e-02,3.15e-01,2.04e-01,1.17e-01,6.19e-08,1.94e-07,1.68e-01,1.27e-01,9.58e-01,2.50e-01,5.62e-07,1.60e-07,5.84e-01,3.52e-07,2.96e-01,2.94e-07,4.19e-01,2.74e-01,3.86e-08,2.79e-08,1.16e-01,4.21e-07,4.02e-01,2.92e-01,2.48e-02,1.51e-08,4.69e-07,2.69e-01,1.15e-08,6.13e-01,2.51e-01,2.06e-01,5.69e-02,1.86e-07,2.90e-07,4.00e-01,8.97e-08,1.42e-08,2.32e-01,4.33e-01,8.15e-03,1.97e-01,1.41e-07,6.35e-01,2.34e-01,2.36e-01,3.88e-08,3.74e-08,2.56e-08,2.60e-01,1.15e-06,2.34e-01,8.60e-01,5.42e-08,1.74e-01,1.76e-01,2.46e-01,3.32e-01,3.93e-07,4.69e-01,3.03e-02,7.43e-07,2.14e-01,1.11e-07,2.41e-01,5.26e-02,2.10e-01,4.74e-01,1.55e-01,1.00e+00,1.67e-07,4.37e-08,3.19e-07,9.62e-02,2.91e-08,2.62e-01,2.40e-01,2.03e-01,2.76e-01,1.98e-01,8.71e-08,1.04e-06,1.62e-01,1.54e-01,1.16e-01,2.42e-01,1.64e-07,7.93e-08,4.14e-01,9.77e-09,1.22e-01,3.96e-01,2.70e-08,3.83e-01,8.94e-08,2.67e-06,1.62e-01,7.43e-01,3.02e-02,1.72e-08,2.37e-01,2.33e-01,3.64e-01,1.99e-08,1.53e-07,3.34e-03,7.11e-08,1.19e-08,3.58e-01,9.93e-01,1.37e-01,3.07e-01,4.64e-07,8.93e-09,1.00e+00,2.75e-07,1.34e-01,2.76e-01,1.37e-02,5.08e-09,3.69e-01,1.00e+00,1.70e-01)
+}
+
+ggplot(df.s2.subj.filt, aes(high_value, weights)) + geom_point() + geom_smooth(method = 'lm')
+ggplot(df.s2.subj.filt, aes(order_weights, weights)) + geom_point() + geom_smooth(method = 'lm')
 
 # bonuses, modeling -----------------------------------------------------------------
 
@@ -285,7 +384,7 @@ for (subj in 1:nrow(df.demo)) {
     df.words.temp = df.words %>% filter(subject == subj.name)
     
     for (word in 1:numWords) {
-        rewards_tr[ind, word] = df.words.temp$value[word]
+        rewards_tr[ind, word] = ifelse(type == 1, df.words.temp$exposures[word], df.words.temp$value[word])
     }
     ind = ind + 1
   }

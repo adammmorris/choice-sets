@@ -32,4 +32,4 @@ for model = 1:numModels
     [results{model}, optParams{model}] = fitModel([datapath '/sims.mat'], params, priorPDFs, numStarts, numFnEvals);
 end
 
-save([datapath '/output_withrand.mat'], 'results', 'optParams');
+save([datapath '/output.mat'], 'results', 'optParams');

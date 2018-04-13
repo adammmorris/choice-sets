@@ -114,7 +114,7 @@ for whichSubj = 1:numSubjects
             lme = post + .5 * (nFreeParams * log(2*pi) - log(det(hessian)));
         end
         
-        ll = getLikelihood(choice(index), rewards_s1_subj, rewards_s2_subj, recalled_subj, optParams, fixedParams, nSamples);
+        ll = getLikelihood(choice(index), rewards_s1_subj, rewards_s2_subj, recalled_subj, whichSubj, optParams, fixedParams, nSamples);
         bic = nFreeParams * (log(length(index)) - log(2*pi)) - 2 * ll;
         if isnan(lme) || ~isreal(lme) || isinf(lme) % resort to BIC
             lme = -0.5 * bic;
@@ -123,7 +123,7 @@ for whichSubj = 1:numSubjects
         results(whichSubj, :) = [post ll bic lme];
         params(whichSubj, :) = optParams;
     else % If there's no free parameters, just evaluate it at the one place.
-        [post, ll] = getPosterior(choice(index), rewards_s1_subj, rewards_s2_subj, recalled_subj, [], fixedParams, priorPDFs, nSamples);
+        [post, ll] = getPosterior(choice(index), rewards_s1_subj, rewards_s2_subj, recalled_subj, whichSubj, [], fixedParams, priorPDFs, nSamples);
         bic = -2 * ll;
         lme = ll;
         
