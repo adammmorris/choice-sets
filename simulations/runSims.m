@@ -2,9 +2,6 @@
 
 %% Parameters
 numAgents = 120;
-envName = 'wg_v8';
-whichEnv = ['env/' envName '.mat'];
-copyOver = false;
 
 load(whichEnv);
 nWords = envInfo{1};
@@ -24,8 +21,6 @@ rewards_tr = envInfo{3};
 % end
 % 
 
-actualParams = cur_params;
-
 modelNames_all = {'mixture-mf-mb', 'cs-mf-mb'};
 modelParams_all = {
     [], ...
@@ -41,14 +36,4 @@ for m = 1:length(modelNames)
     [results, results_long] = runModel(envInfo, modelParams{m});
     choice = results(:, 3); subjMarkers = getSubjMarkers(results(:,1));
     save(['results/' envName '/' modelNames{m} '.mat'], 'choice', 'rewards_tr', 'subjMarkers', 'actualParams');
-
-    if copyOver
-        save(['fitting/' envName '/sims_' modelNames{m} '/sims.mat'], 'choice', 'rewards_tr', 'subjMarkers', 'actualParams');
-    end
-    
-    df = array2table(results_long, 'VariableNames', {'Subj', 'Trial', 'OptionID', 'Choice', 'MFval', 'MBval', 'Choice2'});
-    writetable(df, ['results/' envName '/' modelNames{m} '.csv']);
-    
-    df2 = array2table(results, 'VariableNames', {'subject', 'trial', 'choice_real_ind', 's1_value', 'rank_value'});
-    writetable(df2, ['results/' envName '/' modelNames{m} '-s2.csv']);
 end
