@@ -20,14 +20,15 @@ whichModels = [1 5];
 
 numWords = 14;
 maxValue = 50;
-numMenus = 500;
+numMenus = 100;
 
 probs_test = zeros(numWords, length(whichModels), numMenus);
 probs_test_diff = zeros(numWords, numMenus);
 menu_s1s = zeros(numWords, numMenus);
 menu_s2s = zeros(numWords, numMenus);
 
-parfor menu = 1:numMenus
+for menu = 1:numMenus
+    disp(menu);
     s1s_test = fastrandsample(ones(1, maxValue) / maxValue, numWords) / maxValue;
     s2s_test = fastrandsample(ones(1, maxValue) / maxValue, numWords) / maxValue;
     
@@ -35,18 +36,23 @@ parfor menu = 1:numMenus
         model = whichModels(i);
         for word = 1:numWords
             probs_test_temp = zeros(numSubjects, 1);
-            for subj = 1:numSubjects
+            parfor subj = 1:numSubjects
                 probs_test_temp(subj) = exp(getLikelihood(word, s1s_test, s2s_test, ...
                     ones(1, numWords), optParams{model}(subj, :), modelParams_all{model}, 0));
             end
             probs_test(word,i,menu) = mean(probs_test_temp);
         end
     end
+    
+    menu_s1s(:, menu) = s1s_test;
+    menu_s2s(:, menu) = s2s_test;
 end
 
 for menu = 1:numMenus
     probs_test_diff(:,menu) = probs_test(:, 2,menu) - probs_test(:, 1,menu);
 end
+
+save('menu_output.mat', 'probs_test', 'probs_test_diff', 'menu_s1s', 'menu_s2s');
 
 % best avg difference?
 hist(max(probs_test_diff))
