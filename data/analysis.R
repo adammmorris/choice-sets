@@ -56,7 +56,7 @@ dodge <- position_dodge(width=0.9)
 # import data -------------------------------------------------------------
 
 versions = c('value1', 'value2', 'freq', 'confounded', 'stripped')
-version = versions[3]
+version = versions[5]
 
 if (version == 'value1') {
   numWords = 14;
@@ -65,6 +65,7 @@ if (version == 'value1') {
   path = 'data/value/v1/real2/'
   pointsPerCent = 10;
   pointsPerWord = 10; # for memory condition
+  numRealQuestions = 9
   type = 0; # 0 is value, 1 is freq, 2 is stripped
 } else if (version == 'value2') {
   numWords = 14;
@@ -73,25 +74,29 @@ if (version == 'value1') {
   path = 'data/value/v2/real1/'
   pointsPerCent = 10;
   pointsPerWord = 10; # for memory condition
+  numRealQuestions = 5
   type = 0;
 } else if (version == 'freq') {
   numWords = 14;
   numTrials = 112;
   minNAs = 4;  
   path = 'data/frequency/v1/real1/'
+  numRealQuestions = 9
   type = 1;
 } else if (version == 'confounded') {
   numWords = 14;
   numTrials = 91;
   minNAs = 4;  
   path = 'data/confounded/v1/real1/'
+  numRealQuestions = 9
   type = 0;
 } else if (version == 'stripped') {
   numWords = 14;
   numTrials = 0;
-  minNAs = 1;  
+  minNAs = 1;
   path = 'data/value/v3/real2/'
   type = 2;
+  numRealQuestions = 1;
 }
 
 
@@ -117,7 +122,7 @@ for (i in 1:nrow(df.words)) {
   df.words$high_value[i] = ifelse(type == 1, df.words$exposures[i] > 8, df.words$value[i] > 5)
   if (type == 2) { # stripped-down version
     valuelist = (df.words %>% filter(subject == df.words$subject[i]))$value
-    df.words$high_value[i] = df.words$value[i] > median(valuelist)
+    df.words$high_value[i] = ifelse(df.words$value[i] == median(valuelist), as.logical(runif(1) > .5), df.words$value[i] > median(valuelist))
   }
 }
 
@@ -130,6 +135,7 @@ df.s1.subj = df.s1 %>% group_by(subject) %>%
 
 ## s2
 df.s2 = df.s2.raw %>% filter(subject %in% subjlist)
+
 df.s2$choice = toupper(df.s2$choice)
 df.s2$scratch = gsub("[.]", ",", toupper(as.character(df.s2$scratch)))
 df.s2$all_values = as.character(df.s2$all_values)
@@ -153,7 +159,7 @@ for (i in 1:nrow(df.s2)) {
   df.s2$rank_value[i] = ifelse(is.na(cind), NA, all_vals_rank[cind])
   df.s2$s1_value[i] = ifelse(is.na(cind), NA, df.words$value[word_rows])
   df.s2$s1_exposures[i] = ifelse(is.na(cind), NA, df.words$exposures[word_rows])
-  df.s2$high_value[i] = ifelse(type == 1, df.s2$s1_exposures[i] > 8, df.s2$s1_value[i] > 5)
+  df.s2$high_value[i] = ifelse(is.na(cind), NA, df.words$high_value[word_rows])#ifelse(type == 1, df.s2$s1_exposures[i] > 8, df.s2$s1_value[i] > 5)
   df.s2$high_rank[i] = ifelse(is.na(cind), NA, df.s2$rank_value[i] > 7)
 }
 
@@ -249,6 +255,18 @@ for (subj in 1:length(subjlist)) {
 
 # check out data ----------------------------------------------------------
 
+
+if (type == 2) {
+  df.s2 = df.s2 %>% filter(question_order > 0)
+  df.s2.subj = df.s2 %>%
+    group_by(subject) %>%
+    summarize(s1_value = mean(s1_value, na.rm = T),
+              high_value = mean(high_value, na.rm = T),
+              rank_value = mean(rank_value, na.rm = T),
+              high_rank = mean(high_rank, na.rm = T))
+}
+
+
 ## stage 2 choices
 df.s2.filt = df.s2 %>% filter(subject %in% include_names)
 df.s2.subj.filt = df.s2.subj %>% filter(subject %in% include_names)
@@ -267,7 +285,6 @@ ggplot(df.s2.subj.filt, aes(x = s1_value)) + geom_histogram(col = 'black', fill 
 t.test(df.s2.subj.filt$s1_value - 5)
 
 # logit test
-numRealQuestions = 5
 df.logit = data.frame(Subj = NULL, Trial = NULL, OptionID = NULL, Choice = NULL, MFval = NULL, MBval = NULL, nExposures = NULL, Recalled = NULL, Question = NULL)
 
 for (subj in 1:nrow(df.demo)) {
@@ -285,7 +302,7 @@ for (subj in 1:nrow(df.demo)) {
     Subj.col = rep(subj, num.recalled.temp * nAnswered)
     
     MFval.col = rep(df.words.temp$value[recalled.temp], nAnswered)
-    MFhigh.col = rep(df.words.temp$high_val[recalled.temp] * 1, nAnswered)
+    MFhigh.col = rep(df.words.temp$high_value[recalled.temp] * 1, nAnswered)
     nExposures.col = rep(df.words.temp$exposures[recalled.temp], nAnswered)
     Recalled.col = rep(df.words.temp$recall.ever[recalled.temp] * 1, nAnswered)
     numChosen.col = rep(df.words.temp$numChosen_high[recalled.temp], nAnswered)
@@ -305,7 +322,7 @@ for (subj in 1:nrow(df.demo)) {
         mbvals = rank(all_vals, ties.method = 'max')
         #mbvals = all_vals
         temp.mbval[ind,] = mbvals[recalled.temp]
-        temp.mbhigh[ind,] = mbvals[recalled.temp] > 13
+        temp.mbhigh[ind,] = mbvals[recalled.temp] > 7
         
         choice = logical(num.recalled.temp)
         choice[which(df.s2.temp$choice_real_ind[q] == which(recalled.temp))] = TRUE
@@ -333,10 +350,18 @@ for (subj in 1:nrow(df.demo)) {
   }
 }
 
-#df.logit = df.logit %>% mutate(MFcent = MFhigh - mean(MFhigh), MBcent = MBhigh - mean(MBhigh), Int = MFcent * MBcent)
+#df.logit = df.logit %>% mutate(MFcent = MFval - mean(MFval), MBcent = MBval - mean(MBval), Int = MFcent * MBcent)
 
 m.real = runLogit(df.logit)
 summary(m.real)
+
+# interaction graph
+
+df.sum = df.logit #%>% filter(Question %in% c(4,5)) %>%
+  group_by(MFhigh,MBhigh) %>% summarize(Choice.mean = mean(Choice)) #%>% mutate(Choice.mean = Choice.mean * ifelse(MFval %in% c(0,10), 2/3, 1))
+
+ggplot(data = df.sum, aes(x = MBhigh, y = Choice.mean, group = MFhigh, colour = MFhigh)) +
+  geom_point(aes(size = 2)) + geom_line()
 
 ## recall
 nrecall = rowSums(recalled[include_rows,])
@@ -393,7 +418,7 @@ for (subj in 1:nrow(df.demo)) {
 write.csv(rewards_tr, paste0(path, 'rewards_s1.csv'), row.names = F)
 write.csv(recalled_ever[include_rows, ] * 1, paste0(path, 'recalled.csv'), row.names = F)
 
-df.modeling = df.s2 %>% filter(subject %in% include_names & !is.na(choice_real_ind)) %>%
+df.modeling = df.s2 %>% filter(subject %in% include_names & !is.na(choice_real_ind) & question_ind %in% c(4,5)) %>%
   mutate(all_values_nocomma = gsub(",", " ", all_values)) %>% 
   dplyr::select(s2_subj_ind, choice_real_ind, all_values_nocomma)
 write.table(df.modeling, paste0(path, 'choices.csv'), row.names = F, col.names = F, sep=",")

@@ -40,11 +40,12 @@ for i = 1:length(whichModels)
     for subj = 1:numSubjects
         index = indices{subj};
         numTrials = length(index);
+        subjParams = [optParams_cur(subj,1:(end-2)) 1 0];
         for trial = 1:numTrials
             curTrial = index(trial);
             curChoice = choice(curTrial);
             trial_results(curTrial, i) = getLikelihood(curChoice,rewards_s1(subj,:),rewards_s2(curTrial,:),recalled(subj,:),...
-                optParams_cur(subj,:),modelParams_all{model},0);
+                subjParams,modelParams_all{model},0);
             
             % get potential predictors
             s1 = rewards_s1(subj, curChoice) / max(rewards_s1(subj, :));
@@ -53,12 +54,12 @@ for i = 1:length(whichModels)
             s1_op = rewards_s1(subj, best_choice) / max(rewards_s1(subj, :));
             factors(curTrial, :) = [s1 s2 s1*s2 s1_op ...
                 exp(trial_results(curTrial, i)) exp(getLikelihood_opt(curChoice,rewards_s1(subj,:),rewards_s2(curTrial,:),recalled(subj,:),...
-                optParams_cur(subj,:),modelParams_all{model},0))];
+                subjParams,modelParams_all{model},0))];
             
             for word = 1:14
                 if recalled(subj,word)
                     trial_results_all(curTrial, word, i) = getLikelihood(word,rewards_s1(subj,:),rewards_s2(curTrial,:),recalled(subj,:),...
-                        optParams_cur(subj,:),modelParams_all{model},0);
+                        subjParams,modelParams_all{model},0);
                 else
                     trial_results_all(curTrial, word, i) = NaN;
                 end
@@ -76,7 +77,7 @@ for i = 1:length(whichModels)
             s1_op = rewards_s1(subj, best_choice) / max(rewards_s1(subj, :));
             factors(curTrial, :) = [s1 s2 s1*s2 s1_op ...
                 exp(trial_results(curTrial, i)) exp(getLikelihood_opt(curChoice,rewards_s1(subj,:),rewards_s2(curTrial,:),recalled(subj,:),...
-                optParams_cur(subj,:),modelParams_all{model},0))];
+                subjParams,modelParams_all{model},0))];
         end
     end
 end

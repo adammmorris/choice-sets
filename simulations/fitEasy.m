@@ -2,7 +2,7 @@ addpath 'utilities';
 numStarts = 10;
 numFnEvals = 200;
 
-datapath = 'fitting/frequency/v1/';
+datapath = 'fitting/value/v2/';
 
 priorPDFs = {@(x) 1/3, @(x) gampdf(x, 4.5, 1), @(x) gampdf(x, 4.5, 1), ...
     @(x) unifpdf(x, 0, 1), @(x) unifpdf(x, 0, 1), @(x) unifpdf(x, 0, 1), @(x) 1/2};
@@ -29,7 +29,7 @@ for model = 1:numModels
     disp(['model ' num2str(model)]);
     params = modelParams{model};
     name = modelNames{model};
-    [results{model}, optParams{model}] = fitModel([datapath '/sims.mat'], params, priorPDFs, numStarts, numFnEvals);
+    [results{model}, optParams{model}] = fitModel([datapath '/sims_45.mat'], params, priorPDFs, numStarts, numFnEvals);
 end
 
-save([datapath '/output.mat'], 'results', 'optParams');
+save([datapath '/output_45.mat'], 'results', 'optParams');

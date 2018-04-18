@@ -1,7 +1,7 @@
 clearvars
 
-datapath = '../data/frequency/v1/real1/';
-savepath = 'fitting/frequency/v1/';
+datapath = '../data/value/v2/real1/';
+savepath = 'fitting/value/v2/';
 
 f = fopen([datapath 'choices.csv']);
 choice_csv = textscan(f, '%f %f %s %*[^\n]', 'Delimiter', ',');
@@ -21,4 +21,4 @@ for j = 1:length(rewards_s2_str)
     rewards_s2(j, :) = str2num(rewards_s2_str{j}(2:(end-1)));
 end
 
-save([savepath 'sims.mat'], 'choice', 'rewards_s2', 'subjMarkers', 'rewards_s1', 'recalled');
+save([savepath 'sims_45.mat'], 'choice', 'rewards_s2', 'subjMarkers', 'rewards_s1', 'recalled');

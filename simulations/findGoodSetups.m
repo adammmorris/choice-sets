@@ -19,8 +19,7 @@ modelParams_all = {[1 -1 0 -1 -1 0 0], [1 -1 0 1 0 0 0], [1 -1 0 0 1 0 0], [1 0 
 whichModels = [1 5];
 
 numWords = 14;
-maxValue = 50;
-numMenus = 100;
+numMenus = 20;
 
 probs_test = zeros(numWords, length(whichModels), numMenus);
 probs_test_diff = zeros(numWords, numMenus);
@@ -29,8 +28,8 @@ menu_s2s = zeros(numWords, numMenus);
 
 for menu = 1:numMenus
     disp(menu);
-    s1s_test = fastrandsample(ones(1, maxValue) / maxValue, numWords) / maxValue;
-    s2s_test = fastrandsample(ones(1, maxValue) / maxValue, numWords) / maxValue;
+    s1s_test = betarnd(1,1,1,numWords);
+    s2s_test = betarnd(1,1,1,numWords);
     
     for i = 1:length(whichModels)
         model = whichModels(i);
@@ -38,7 +37,7 @@ for menu = 1:numMenus
             probs_test_temp = zeros(numSubjects, 1);
             parfor subj = 1:numSubjects
                 probs_test_temp(subj) = exp(getLikelihood(word, s1s_test, s2s_test, ...
-                    ones(1, numWords), optParams{model}(subj, :), modelParams_all{model}, 0));
+                    ones(1, numWords), [optParams{model}(subj, 1:(end-2)) 1 0], modelParams_all{model}, 0));
             end
             probs_test(word,i,menu) = mean(probs_test_temp);
         end
@@ -55,7 +54,12 @@ end
 save('menu_output.mat', 'probs_test', 'probs_test_diff', 'menu_s1s', 'menu_s2s');
 
 % best avg difference?
-hist(max(probs_test_diff))
+hist(max(abs(probs_test_diff)))
+scatter3(menu_s1s(:), menu_s2s(:), probs_test_diff(:))
+xlabel('S1 val')
+ylabel('S2 val')
+zlabel('Average prob(choice)')
+title('CS minus mixture model')
 
 % unique_s1 = unique(s1s_test);
 % unique_s2 = unique(s2s_test);
