@@ -35,6 +35,8 @@ results = zeros(numSubjects, 4); % post ll bic lme
 params = zeros(numSubjects, nFreeParams);
 
 for whichSubj = 1:numSubjects
+    disp(['subj ' num2str(whichSubj)]);
+    
     % Index
     if whichSubj < length(subjMarkers)
         index = subjMarkers(whichSubj):(subjMarkers(whichSubj + 1) - 1);

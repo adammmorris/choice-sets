@@ -16,7 +16,7 @@ modelParams_all = {[1 -1 0 -1 -1 0 0], [1 -1 0 1 0 0 0], [1 -1 0 0 1 0 0], [1 0 
     [-1 -1 -1 -1 -1 0 1], [-1 -1 -1 1 0 0 1], [1 -1 0 -1 -1 0 1], [1 -1 0 1 0 0 1], ...
     [-1 -1 -1 -1 -1 0 2], [-1 1 -1 -1 -1], [-1 -1 -1 -1 -1 -1 0], [-1 -1 -1 0 -1 -1]};
 
-whichModels = 1:13;
+whichModels = 5;
 
 modelNames = modelNames_all(whichModels);
 modelParams = modelParams_all(whichModels);

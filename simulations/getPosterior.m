@@ -1,5 +1,5 @@
-function [logp, logl] = getPosterior(choices, rewards_s1, rewards_s2, recalled, whichSubj, freeParams, fixedParams, priorPDFs, nSamples)
-logl = getLikelihood(choices, rewards_s1, rewards_s2, recalled, whichSubj, freeParams, fixedParams, nSamples);
+function [logp, logl] = getPosterior(choices, rewards_s1, rewards_s2, recalled, freeParams, fixedParams, priorPDFs, nSamples)
+logl = getLikelihood(choices, rewards_s1, rewards_s2, recalled, freeParams, fixedParams, nSamples);
 logp = logl;
 
 whichParams = find(fixedParams == -1);
