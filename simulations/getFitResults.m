@@ -38,7 +38,7 @@ for j = 1:length(modelParams_all)
     whichParams_all{j} = find(modelParams_all{j} == -1);
 end
 
-whichModels = 1:13;
+whichModels = 5;
 
 modelNames = modelNames_all(whichModels);
 whichParams = whichParams_all(whichModels);
