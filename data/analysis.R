@@ -56,7 +56,7 @@ dodge <- position_dodge(width=0.9)
 # import data -------------------------------------------------------------
 
 versions = c('value1', 'value2', 'freq', 'confounded', 'stripped')
-version = versions[2]
+version = versions[1]
 
 if (version == 'value1') {
   numWords = 14;
@@ -399,7 +399,7 @@ ggplot(df.s2.subj.filt, aes(order_weights, weights)) + geom_point() + geom_smoot
 # bonuses, modeling -----------------------------------------------------------------
 
 ## save for modeling
-df.test = df.s2 %>% filter(question_ind %in% c(2,3)) %>% group_by(subject) %>% summarize(anyGood = any(!is.na(choice_real_ind)))
+df.test = df.s2 %>% filter(question_ind %in% c(2,4,5)) %>% group_by(subject) %>% summarize(anyGood = any(!is.na(choice_real_ind)))
 
 rewards_tr = matrix(0, nrow = sum(include_rows), ncol = numWords)
 ind = 1
