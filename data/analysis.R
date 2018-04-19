@@ -56,7 +56,7 @@ dodge <- position_dodge(width=0.9)
 # import data -------------------------------------------------------------
 
 versions = c('value1', 'value2', 'freq', 'confounded', 'stripped')
-version = versions[5]
+version = versions[2]
 
 if (version == 'value1') {
   numWords = 14;
@@ -352,12 +352,12 @@ for (subj in 1:nrow(df.demo)) {
 
 #df.logit = df.logit %>% mutate(MFcent = MFval - mean(MFval), MBcent = MBval - mean(MBval), Int = MFcent * MBcent)
 
-m.real = runLogit(df.logit)
+m.real = runLogit(df.logit %>% filter(Question %in% c(2,3)))
 summary(m.real)
 
 # interaction graph
 
-df.sum = df.logit #%>% filter(Question %in% c(4,5)) %>%
+df.sum = df.logit %>% filter(Question %in% c(2,3)) %>%
   group_by(MFhigh,MBhigh) %>% summarize(Choice.mean = mean(Choice)) #%>% mutate(Choice.mean = Choice.mean * ifelse(MFval %in% c(0,10), 2/3, 1))
 
 ggplot(data = df.sum, aes(x = MBhigh, y = Choice.mean, group = MFhigh, colour = MFhigh)) +
@@ -399,13 +399,14 @@ ggplot(df.s2.subj.filt, aes(order_weights, weights)) + geom_point() + geom_smoot
 # bonuses, modeling -----------------------------------------------------------------
 
 ## save for modeling
+df.test = df.s2 %>% filter(question_ind %in% c(2,3)) %>% group_by(subject) %>% summarize(anyGood = any(!is.na(choice_real_ind)))
 
 rewards_tr = matrix(0, nrow = sum(include_rows), ncol = numWords)
 ind = 1
 for (subj in 1:nrow(df.demo)) {
   subj.name = df.demo$subject[subj]
   
-  if (subj.name %in% include_names) {
+  if (subj.name %in% include_names & df.test$anyGood[df.test$subject == subj.name]) {
     df.words.temp = df.words %>% filter(subject == subj.name)
     
     for (word in 1:numWords) {
@@ -416,9 +417,9 @@ for (subj in 1:nrow(df.demo)) {
 }
 
 write.csv(rewards_tr, paste0(path, 'rewards_s1.csv'), row.names = F)
-write.csv(recalled_ever[include_rows, ] * 1, paste0(path, 'recalled.csv'), row.names = F)
+write.csv(recalled_ever[include_rows & df.test$anyGood, ] * 1, paste0(path, 'recalled.csv'), row.names = F)
 
-df.modeling = df.s2 %>% filter(subject %in% include_names & !is.na(choice_real_ind) & question_ind %in% c(4,5)) %>%
+df.modeling = df.s2 %>% filter(subject %in% include_names & !is.na(choice_real_ind) & question_ind %in% c(2,3)) %>%
   mutate(all_values_nocomma = gsub(",", " ", all_values)) %>% 
   dplyr::select(s2_subj_ind, choice_real_ind, all_values_nocomma)
 write.table(df.modeling, paste0(path, 'choices.csv'), row.names = F, col.names = F, sep=",")
