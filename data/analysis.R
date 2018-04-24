@@ -37,15 +37,11 @@ as.numeric.vector = function(x) {
 
 runLogit = function(df) {
   df$Choice = as.logical(df$Choice)
-  df$OptionID = factor(df$OptionID)
   df = df %>% mutate(Trial_unique = paste(Subj, Trial, sep="_"))
-  df$Trial = factor(df$Trial)
-  df$Trial_unique = factor(df$Trial_unique)
-  df$Subj = factor(df$Subj)
   df.m = mlogit.data(df, choice = "Choice", shape = "long", id.var = "Subj", alt.var = "OptionID", chid.var = "Trial_unique")
   
-  m = mlogit(Choice ~ MFval + MBval | -1, df.m, panel = T,
-             rpar = c(MFval = "n", MBval = "n"), correlation = F, halton = NA, R = 1000, tol = .001)
+  m = mlogit(Choice ~ MFcent + MBcent + Int | -1, df.m, panel = T,
+             rpar = c(MFcent = "n", MBcent = "n", Int = "n"), correlation = F, halton = NA, R = 1000, tol = .001)
   return(m)
 }
 
@@ -56,7 +52,7 @@ dodge <- position_dodge(width=0.9)
 # import data -------------------------------------------------------------
 
 versions = c('value1', 'value2', 'freq', 'confounded', 'stripped')
-version = versions[1]
+version = versions[5]
 
 if (version == 'value1') {
   numWords = 14;
@@ -94,7 +90,7 @@ if (version == 'value1') {
   numWords = 14;
   numTrials = 0;
   minNAs = 1;
-  path = 'data/value/v3/real2/'
+  path = 'data/value/v3/real3/'
   type = 2;
   numRealQuestions = 1;
 }
@@ -322,7 +318,7 @@ for (subj in 1:nrow(df.demo)) {
         mbvals = rank(all_vals, ties.method = 'max')
         #mbvals = all_vals
         temp.mbval[ind,] = mbvals[recalled.temp]
-        temp.mbhigh[ind,] = mbvals[recalled.temp] > 7
+        temp.mbhigh[ind,] = mbvals[recalled.temp] > 9
         
         choice = logical(num.recalled.temp)
         choice[which(df.s2.temp$choice_real_ind[q] == which(recalled.temp))] = TRUE
@@ -350,17 +346,17 @@ for (subj in 1:nrow(df.demo)) {
   }
 }
 
-#df.logit = df.logit %>% mutate(MFcent = MFval - mean(MFval), MBcent = MBval - mean(MBval), Int = MFcent * MBcent)
+df.logit = df.logit %>% mutate(MFcent = MFhigh - mean(MFhigh), MBcent = MBval - mean(MBval), Int = MFcent * MBcent)
 
-m.real = runLogit(df.logit %>% filter(Question %in% c(2,3)))
+m.real = runLogit(df.logit)
 summary(m.real)
 
 # interaction graph
 
-df.sum = df.logit %>% filter(Question %in% c(2,3)) %>%
-  group_by(MFhigh,MBhigh) %>% summarize(Choice.mean = mean(Choice)) #%>% mutate(Choice.mean = Choice.mean * ifelse(MFval %in% c(0,10), 2/3, 1))
+df.sum = df.logit %>%
+  group_by(MFhigh,MBval) %>% summarize(Choice.mean = mean(Choice)) #%>% mutate(Choice.mean = Choice.mean * ifelse(MFval %in% c(0,10), 2/3, 1))
 
-ggplot(data = df.sum, aes(x = MBhigh, y = Choice.mean, group = MFhigh, colour = MFhigh)) +
+ggplot(data = df.sum, aes(x = MBval, y = Choice.mean, group = MFhigh, colour = MFhigh)) +
   geom_point(aes(size = 2)) + geom_line()
 
 ## recall

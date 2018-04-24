@@ -38,7 +38,7 @@ for j = 1:length(modelParams_all)
     whichParams_all{j} = find(modelParams_all{j} == -1);
 end
 
-whichModels = 5;
+whichModels = [1:4 6:8 10:12];
 
 modelNames = modelNames_all(whichModels);
 whichParams = whichParams_all(whichModels);
@@ -54,6 +54,6 @@ for i = 1:numModels
 end
 
 %% Model comparison
-compareModels_bayes(optParams(whichModels), details, 5, numChoices, LLs_chance);
-hist(optParams{5}(:,4))
-sprintf('%.2d,', paramEstimates{5}(:,7))
+compareModels_bayes(optParams(whichModels), details, 5, LLs_chance);
+%hist(optParams{5}(:,4))
+%sprintf('%.2d,', paramEstimates{5}(:,7))

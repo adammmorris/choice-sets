@@ -41,6 +41,7 @@ for i = 1:length(whichModels)
         index = indices{subj};
         numTrials = length(index);
         subjParams = [optParams_cur(subj,1:(end-2)) 1 0];
+        %subjParams = optParams_cur(subj,:);
         for trial = 1:numTrials
             curTrial = index(trial);
             curChoice = choice(curTrial);
@@ -149,7 +150,8 @@ mesh(unique(factors(:,1)), unique(factors(:,2)), probs(:,:,1)')
 xlabel('S1 val')
 ylabel('S2 val')
 zlabel('Average prob(choice)')
-title('Negative-MF CS model')
+zlim([0, .5])
+title('Mixture model')
 
 
 mesh(unique(factors(:,1)), unique(factors(:,2)), probs_diff')

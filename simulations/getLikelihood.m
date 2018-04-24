@@ -112,7 +112,7 @@ elseif beta == 0 % randcs
 else
     if nSamples == 0 % do exact calculation
         for trial = 1:numTrials
-            disp(['trial ' num2str(trial)]);
+            %disp(['trial ' num2str(trial)]);
             maxRe_s2 = max(rewards_s2(trial, :));
             availWords = find(recalled);
             numAvailWords = length(availWords);

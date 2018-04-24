@@ -19,7 +19,7 @@ modelParams_all = {[1 -1 0 -1 -1 0 0], [1 -1 0 1 0 0 0], [1 -1 0 0 1 0 0], [1 0 
 whichModels = [1 5];
 
 numWords = 14;
-numMenus = 20;
+numMenus = 1;
 
 probs_test = zeros(numWords, length(whichModels), numMenus);
 probs_test_diff = zeros(numWords, numMenus);
@@ -28,8 +28,10 @@ menu_s2s = zeros(numWords, numMenus);
 
 for menu = 1:numMenus
     disp(menu);
-    s1s_test = betarnd(1,1,1,numWords);
-    s2s_test = betarnd(1,1,1,numWords);
+    %s1s_test = betarnd(1,1,1,numWords);
+    %s2s_test = betarnd(1,1,1,numWords);
+    s1s_test = [10, 5, zeros(1, 12)];
+    s2s_test = [0, 5, 10, zeros(1,11)];
     
     for i = 1:length(whichModels)
         model = whichModels(i);
