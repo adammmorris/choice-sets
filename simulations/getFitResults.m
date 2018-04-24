@@ -2,8 +2,8 @@
 % For a given dataset, get all the model fitting results, and compare
 % models.
 
-datapath = 'fitting/value/v2/output.mat';
-simspath = 'fitting/value/v2/sims.mat';
+datapath = 'fitting/value/v3/output.mat';
+simspath = 'fitting/value/v3/sims.mat';
 load(datapath);
 load(simspath);
 
@@ -38,7 +38,7 @@ for j = 1:length(modelParams_all)
     whichParams_all{j} = find(modelParams_all{j} == -1);
 end
 
-whichModels = [1:4 6:8 10:12];
+whichModels = 1:13;
 
 modelNames = modelNames_all(whichModels);
 whichParams = whichParams_all(whichModels);
