@@ -12,7 +12,9 @@ theme_update(panel.grid.major = element_blank(), panel.grid.minor = element_blan
              axis.text=element_text(size=20, colour = "black"), axis.title=element_text(size=18, face = "bold"), axis.title.x = element_text(vjust = 0),
              legend.title = element_text(size = 24, face = "bold"), legend.text = element_text(size = 20), plot.title = element_text(size = 26, face = "bold", vjust = 1))
 
+
 setwd("~/Me/Psychology/Projects/choicesets/git")
+#setwd("C:/Users/Jphil/Dropbox/choiceSets/choice-sets")
 
 getIndex = function(x, list) {
   y = numeric(length(x))
@@ -45,7 +47,7 @@ runLogit = function(df) {
   return(m)
 }
 
-se = function(x) {return(sd(x) / sqrt(length(x)))}
+se = function(x) {return(sd(x, na.rm = T) / sqrt(length(x)))}
 dodge <- position_dodge(width=0.9)
 
 
@@ -431,3 +433,101 @@ write.table(df.demo %>% filter(id >= 150) %>% select(WorkerID = subject, Bonus =
 
 ## save
 save.image(paste0(path, 'analysis.rdata'))
+
+# jphil’s stuff -----------------------------------------------------------
+
+
+
+## word order raster plot:
+cor.test(df.words$order[df.words$recall==TRUE],df.words$value[df.words$recall==TRUE])
+plot <- df.words %>%
+        filter(recall) %>%
+        mutate(high_val = factor(c("Low Past Value","High Past Value")[as.factor(high_val)])) %>%
+        group_by(order,value,high_val) %>%
+        summarise(count = table(value)[1]) %>%
+        ggplot(aes(x=order,y=value,fill=count)) +
+          geom_tile()+
+          scale_fill_continuous(low = 'white',high = 'red') +
+          facet_wrap(~high_val, scales="free_y",ncol=1) +
+          theme_bw() +
+          theme(
+            plot.background = element_blank()
+            ,panel.grid.major = element_blank()
+            ,panel.grid.minor = element_blank()
+            ,legend.title=element_blank()
+            #,legend.position=c(.1,.9)
+            #,legend.text=element_text(size=rel(1.4))
+            ,axis.text.y=element_text(size=rel(1.5))
+            ,axis.text.x=element_text(size=rel(1.5))
+            ,axis.title.y=element_text(vjust=.9)
+            ,axis.ticks = element_blank()
+            ,strip.text=element_text(size=rel(1.5))
+            ,axis.title=element_text(size=rel(1.5))    
+            )
+plot  
+  
+
+## word order mean position plot
+
+orderD <- df.words %>%
+  filter(recall) %>%
+  mutate(high_val = factor(c("Low Past Value","High Past Value")[as.factor(high_val)])) %>%
+  group_by(value,high_val,subject) %>%
+  summarise(meanOrders = mean(order,na.rm=T)) %>%
+  group_by(value,high_val) %>%
+  summarise(meanOrder = mean(meanOrders,na.rm=T),
+            seOrder = se(meanOrders),
+            minOrder = meanOrder - seOrder,
+            maxOrder = meanOrder + seOrder) %>%
+  arrange(order(high_val))
+  
+
+plot2 <- ggplot(orderD,aes(x=meanOrder,y=value)) +
+          geom_errorbarh(xmin=orderD$minOrder, xmax=orderD$maxOrder, height=.2) +
+          geom_point(size=3,color="Red") +
+          coord_cartesian(xlim=c(0,15)) +
+          facet_wrap(~high_val, scales="free_y",ncol=1) +
+          theme_bw() +
+          theme(
+            plot.background = element_blank()
+            ,panel.grid.major = element_blank()
+            ,panel.grid.minor = element_blank()
+            ,legend.title=element_blank()
+            #,legend.position=c(.1,.9)
+            #,legend.text=element_text(size=rel(1.4))
+            ,axis.text.y=element_text(size=rel(1.5))
+            ,axis.text.x=element_text(size=rel(1.5))
+            ,axis.title.y=element_text(vjust=.9)
+            ,axis.ticks = element_blank()
+            ,strip.text=element_text(size=rel(1.5))
+            ,axis.title=element_text(size=rel(1.5))    
+            )
+plot2
+
+## Graph for simulations - here the data are set so that there are 500 words, and a choice set size of 10, meaning 2% of the 
+
+jphilPalette <- c("darkorange3","lightblue","darkgreen","azure4")
+
+d.sims = read.csv("data/modelSim.csv") %>% gather(model,earnings,-R) %>%
+          mutate(model = recode(model, CS ="Choice Set", MB = "Full Planning", MF = "No Planning"),
+                 model = factor(model, levels=c("No Planning","Choice Set","Full Planning")),
+                 R = factor(R),
+                 earnings = (earnings/max(earnings))*100) %>%
+          filter(R!=1) %>%
+          ggplot(aes(x=R,y=earnings,fill=model)) +
+                 geom_bar(position="dodge",stat="identity") +
+                 #geom_line(aes(color=model)) +
+                 scale_fill_manual(values=grey.colors(3,start=.9,end=.3)) +
+                 theme_bw() +
+                 theme(
+                    plot.background = element_blank()
+                   ,panel.grid.major = element_blank()
+                   ,panel.grid.minor = element_blank()
+                   ,legend.title=element_blank()
+                   ,legend.text=element_text(size=rel(1.4))
+                   ,axis.title=element_blank()
+                   ,axis.text.y=element_text(size=rel(1.5))
+                   ,axis.text.x=element_text(size=rel(1.5))
+                   ,axis.ticks = element_blank()
+                 )
+d.sims
