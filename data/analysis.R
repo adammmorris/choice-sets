@@ -92,9 +92,11 @@ if (version == 'value1') {
   numWords = 14;
   numTrials = 0;
   minNAs = 1;
-  path = 'data/value/v3/real3/'
+  path = 'data/value/v3/pilot5/'
   type = 2;
   numRealQuestions = 1;
+  pointsPerCent = 1;
+  pointsPerWord = 1;
 }
 
 
@@ -261,7 +263,8 @@ if (type == 2) {
     summarize(s1_value = mean(s1_value, na.rm = T),
               high_value = mean(high_value, na.rm = T),
               rank_value = mean(rank_value, na.rm = T),
-              high_rank = mean(high_rank, na.rm = T))
+              high_rank = mean(high_rank, na.rm = T),
+              s2_bonus = mean(bonus_value, na.rm = T))
 }
 
 
@@ -356,9 +359,9 @@ summary(m.real)
 # interaction graph
 
 df.sum = df.logit %>%
-  group_by(MFhigh,MBval) %>% summarize(Choice.mean = mean(Choice)) #%>% mutate(Choice.mean = Choice.mean * ifelse(MFval %in% c(0,10), 2/3, 1))
+  group_by(MFhigh,MBhigh) %>% summarize(Choice.mean = mean(Choice))
 
-ggplot(data = df.sum, aes(x = MBval, y = Choice.mean, group = MFhigh, colour = MFhigh)) +
+ggplot(data = df.sum, aes(x = MBhigh, y = Choice.mean, group = MFhigh, colour = MFhigh)) +
   geom_point(aes(size = 2)) + geom_line()
 
 ## recall
@@ -397,8 +400,7 @@ ggplot(df.s2.subj.filt, aes(order_weights, weights)) + geom_point() + geom_smoot
 # bonuses, modeling -----------------------------------------------------------------
 
 ## save for modeling
-qlist = c(2,4,5)
-df.test = df.s2 %>% filter(question_ind %in% qlist) %>% group_by(subject) %>% summarize(anyGood = any(!is.na(choice_real_ind)))
+df.test = df.s2 %>% group_by(subject) %>% summarize(anyGood = any(!is.na(choice_real_ind)))
 
 rewards_tr = matrix(0, nrow = sum(include_rows), ncol = numWords)
 ind = 1
@@ -418,17 +420,22 @@ for (subj in 1:nrow(df.demo)) {
 write.csv(rewards_tr, paste0(path, 'rewards_s1.csv'), row.names = F)
 write.csv(recalled_ever[include_rows & df.test$anyGood, ] * 1, paste0(path, 'recalled.csv'), row.names = F)
 
-df.modeling = df.s2 %>% filter(subject %in% include_names & !is.na(choice_real_ind) & question_ind %in% qlist) %>%
+df.modeling = df.s2 %>% filter(subject %in% include_names & !is.na(choice_real_ind)) %>%
   mutate(all_values_nocomma = gsub(",", " ", all_values)) %>% 
   dplyr::select(s2_subj_ind, choice_real_ind, all_values_nocomma)
 write.table(df.modeling, paste0(path, 'choices.csv'), row.names = F, col.names = F, sep=",")
 
 ## bonuses
-nrecall_bonus = rowSums(recalled & recalled_val)
+if (type == 2) {
+  recalled_total = recalled
+} else {
+  recalled_total = recalled & recalled_val
+}
+nrecall_bonus = rowSums(recalled_total)
 df.s2.subj = df.s2.subj %>% mutate(mem_bonus = nrecall_bonus * pointsPerWord)
 df.demo = df.demo %>% mutate(s2_bonus = I(df.s2.subj$s2_bonus), mem_bonus = I(df.s2.subj$mem_bonus),
                              bonus = round((s1_bonus + s2_bonus + mem_bonus) / (pointsPerCent * 100), 2))
-write.table(df.demo %>% filter(id >= 150) %>% select(WorkerID = subject, Bonus = bonus),
+write.table(df.demo %>% select(WorkerID = subject, Bonus = bonus),
             paste0(path, 'Bonuses.csv'), row.names = FALSE, col.names = FALSE, sep = ",")
 
 ## save
