@@ -2,7 +2,7 @@ addpath 'utilities';
 numStarts = 10;
 numFnEvals = 200;
 
-datapath = 'fitting/value/v1/';
+datapath = 'fitting/value/v3_2/';
 
 priorPDFs = {@(x) 1/3, @(x) gampdf(x, 4.5, 1), @(x) gampdf(x, 4.5, 1), ...
     @(x) unifpdf(x, 0, 1), @(x) unifpdf(x, 0, 1), @(x) unifpdf(x, 0, 1), @(x) 1/2};
@@ -16,7 +16,7 @@ modelParams_all = {[1 -1 0 -1 -1 0 0], [1 -1 0 1 0 0 0], [1 -1 0 0 1 0 0], [1 0 
     [-1 -1 -1 -1 -1 0 1], [-1 -1 -1 1 0 0 1], [1 -1 0 -1 -1 0 1], [1 -1 0 1 0 0 1], ...
     [-1 -1 -1 -1 -1 0 2], [-1 1 -1 -1 -1], [-1 -1 -1 -1 -1 -1 0], [-1 -1 -1 0 -1 -1]};
 
-whichModels = 5;
+whichModels = [1 5 6];
 
 modelNames = modelNames_all(whichModels);
 modelParams = modelParams_all(whichModels);
@@ -29,7 +29,7 @@ for model = 1:numModels
     disp(['model ' num2str(model)]);
     params = modelParams{model};
     name = modelNames{model};
-    [results{model}, optParams{model}] = fitModel([datapath '/sims_45.mat'], params, priorPDFs, numStarts, numFnEvals);
+    [results{model}, optParams{model}] = fitModel([datapath '/sims.mat'], params, priorPDFs, numStarts, numFnEvals);
 end
 
-save([datapath '/output_45.mat'], 'results', 'optParams');
+save([datapath '/output.mat'], 'results', 'optParams');

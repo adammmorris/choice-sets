@@ -10,7 +10,7 @@
 % subject made (that contributed to the likelihood)
 % LLs_chance: log-likelihoods under chance
 
-function [pseudoR2s, paramPercentiles, globalLRtests, indivLRtests, AICs, BICs, BMS] = compareModels_bayes(params, details, preferredModel, nChoices, LLs_chance)
+function [pseudoR2s, paramPercentiles, globalLRtests, indivLRtests, AICs, BICs, BMS] = compareModels_bayes(params, details, preferredModel, LLs_chance)
 
 % Get # of subjects, models, & parameters per model
 numModels = length(params);
