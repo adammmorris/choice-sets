@@ -32,15 +32,16 @@ beta = params(2);
 epsilon = params(3); % if doSoftmax, this is beta2
 w_MF = params(4);
 w_MB = params(5);
+%w_MB = 1 - w_MF;
 w_poss = params(6);
 negMF = params(7);
 
 doSoftmax = true;
 
-wSum = w_MF + w_MB + w_poss;
-if beta > 0 && abs(wSum - 1) > .01
-    error('Weights do not sum to 1.');
-end
+%wSum = w_MF + w_MB + w_poss;
+%if beta > 0 && abs(wSum - 1) > .01
+%    error('Weights do not sum to 1.');
+%end
 
 % for negative MF
 if negMF == 1

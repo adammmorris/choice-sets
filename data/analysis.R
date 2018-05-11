@@ -42,8 +42,8 @@ runLogit = function(df) {
   df = df %>% mutate(Trial_unique = paste(Subj, Trial, sep="_"))
   df.m = mlogit.data(df, choice = "Choice", shape = "long", id.var = "Subj", alt.var = "OptionID", chid.var = "Trial_unique")
   
-  m = mlogit(Choice ~ MFcent + MBcent + Int | -1, df.m, panel = T,
-             rpar = c(MFcent = "n", MBcent = "n", Int = "n"), correlation = F, halton = NA, R = 1000, tol = .001)
+  m = mlogit(Choice ~ MFcent + MBcent | -1, df.m)#, panel = T,
+             #rpar = c(MFcent = "n", MBcent = "n", Int = "n"), correlation = F, halton = NA, R = 1000, tol = .001)
   return(m)
 }
 
@@ -92,7 +92,7 @@ if (version == 'value1') {
   numWords = 14;
   numTrials = 0;
   minNAs = 1;
-  path = 'data/value/v3/pilot5/'
+  path = 'data/value/v3/real3/'
   type = 2;
   numRealQuestions = 1;
   pointsPerCent = 1;
@@ -257,7 +257,7 @@ for (subj in 1:length(subjlist)) {
 
 
 if (type == 2) {
-  df.s2 = df.s2 %>% filter(question_order > 0)
+  df.s2 = df.s2 %>% filter(question_order == 1)
   df.s2.subj = df.s2 %>%
     group_by(subject) %>%
     summarize(s1_value = mean(s1_value, na.rm = T),
@@ -285,13 +285,16 @@ t.test(df.s2.subj.filt$high_value - .5)
 ggplot(df.s2.subj.filt, aes(x = s1_value)) + geom_histogram(col = 'black', fill = 'blue')
 t.test(df.s2.subj.filt$s1_value - 5)
 
+model.multinom = multinom(choice_real ~ rank_value * s1_value, data = df.s2.filt %>% mutate(choice_real = factor(choice_real)))
+summary(model.multinom)
+
 # logit test
 df.logit = data.frame(Subj = NULL, Trial = NULL, OptionID = NULL, Choice = NULL, MFval = NULL, MBval = NULL, nExposures = NULL, Recalled = NULL, Question = NULL)
 
 for (subj in 1:nrow(df.demo)) {
   subj.name = df.demo$subject[subj]
-  recalled.temp = recalled_ever[subj, ]
-  #recalled.temp = !logical(numWords)
+  #recalled.temp = recalled_ever[subj, ]
+  recalled.temp = !logical(numWords)
   num.recalled.temp = sum(recalled.temp)
   
   df.words.temp = df.words %>% filter(subject == subj.name)
@@ -307,7 +310,7 @@ for (subj in 1:nrow(df.demo)) {
     nExposures.col = rep(df.words.temp$exposures[recalled.temp], nAnswered)
     Recalled.col = rep(df.words.temp$recall.ever[recalled.temp] * 1, nAnswered)
     numChosen.col = rep(df.words.temp$numChosen_high[recalled.temp], nAnswered)
-    #OptionID.col = rep(which(recalled.temp), nAnswered)
+    OptionID_real.col = rep(which(recalled.temp), nAnswered)
     OptionID.col = rep(1:num.recalled.temp, nAnswered)
     Trial.col = rep(1:nAnswered, each = num.recalled.temp)
     Question.col = rep(df.s2.temp$question_ind[!is.na(df.s2.temp$choice_real_ind)], each = num.recalled.temp)
@@ -323,7 +326,7 @@ for (subj in 1:nrow(df.demo)) {
         mbvals = rank(all_vals, ties.method = 'max')
         #mbvals = all_vals
         temp.mbval[ind,] = mbvals[recalled.temp]
-        temp.mbhigh[ind,] = mbvals[recalled.temp] > 9
+        temp.mbhigh[ind,] = mbvals[recalled.temp] > 7
         
         choice = logical(num.recalled.temp)
         choice[which(df.s2.temp$choice_real_ind[q] == which(recalled.temp))] = TRUE
@@ -346,12 +349,12 @@ for (subj in 1:nrow(df.demo)) {
     df.logit = rbind(df.logit,
                      data.frame(Subj = Subj.col, Trial = Trial.col, OptionID = OptionID.col, Choice = Choice.col,
                                 MFval = MFval.col, MBval = MBval.col, MFhigh = MFhigh.col, MBhigh = MBhigh.col,
-                                Recall = Recalled.col, Question = Question.col))
+                                Recall = Recalled.col, Question = Question.col, OptionID_real = OptionID_real.col))
     
   }
 }
 
-df.logit = df.logit %>% mutate(MFcent = MFhigh - mean(MFhigh), MBcent = MBval - mean(MBval), Int = MFcent * MBcent)
+df.logit = df.logit %>% mutate(MFcent = MFhigh, MBcent = MBval, Int = MFcent * MBcent)
 
 m.real = runLogit(df.logit)
 summary(m.real)
@@ -359,9 +362,15 @@ summary(m.real)
 # interaction graph
 
 df.sum = df.logit %>%
-  group_by(MFhigh,MBhigh) %>% summarize(Choice.mean = mean(Choice))
-
+  group_by(MFhigh,MBhigh,Subj) %>% summarize(Choice = any(Choice)) %>% group_by(MFhigh,MBhigh) %>%
+  summarize(Choice.mean = mean(Choice), Choice.se = sqrt(Choice.mean * (1 - Choice.mean) / n()))
+df.sum$Choice.mean = df.sum$Choice.mean - c(2 / 14, 5 / 14, 4 / 14, 3 / 14)
 ggplot(data = df.sum, aes(x = MBhigh, y = Choice.mean, group = MFhigh, colour = MFhigh)) +
+  geom_point(aes(size = 2)) + geom_line() + geom_errorbar(aes(ymin=Choice.mean - Choice.se, ymax = Choice.mean + Choice.se), width = .2)
+
+df.sum = df.s2.filt %>% group_by(high_value, high_rank) %>% summarize(pctChoice = n() / nrow(df.s2.filt))
+
+ggplot(data = df.sum, aes(x = high_rank, y = pctChoice, group = high_value, colour = high_value)) +
   geom_point(aes(size = 2)) + geom_line()
 
 ## recall

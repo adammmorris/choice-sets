@@ -2,8 +2,8 @@
 % For a given dataset, get all the model fitting results, and compare
 % models.
 
-datapath = 'fitting/value/v3_2/output.mat';
-simspath = 'fitting/value/v3_2/sims.mat';
+datapath = 'fitting/value/v3/output_sep.mat';
+simspath = 'fitting/value/v3/sims.mat';
 load(datapath);
 load(simspath);
 
@@ -28,8 +28,8 @@ modelNames_all = {'mixture-mf-mb', 'mixture-mf', 'mixture-mb', 'random', ...
     'cs-mf-mb', 'cs-mf', 'cs-mb', 'cs-rand', ...
     'cs-amf-mb', 'cs-amf', 'mixture-amf-mb', 'mixture-amf', ...
     'cs-rmf-mb', 'cs-free', 'cs-mf-mb-poss', 'cs-mb-poss'};
-modelParams_all = {[1 -1 0 -1 -1 0 0], [1 -1 0 1 0 0 0], [1 -1 0 0 1 0 0], [1 0 0 0 0 0 0], ...
-    [-1 -1 -1 -1 -1 0 0], [-1 -1 -1 1 0 0 0], [-1 -1 -1 0 1 0 0], [-1 0 -1 0 0 0 0], ...
+modelParams_all = {[1 -1 0 -1 0 0 0], [1 -1 0 1 0 0 0], [1 -1 0 0 1 0 0], [1 0 0 0 0 0 0], ...
+    [3 -1 3 -1 0 0 0], [3 -1 3 1 0 0 0], [-1 -1 -1 0 1 0 0], [-1 0 -1 0 0 0 0], ...
     [-1 -1 -1 -1 -1 0 1], [-1 -1 -1 1 0 0 1], [1 -1 0 -1 -1 0 1], [1 -1 0 1 0 0 1], ...
     [-1 -1 -1 -1 -1 0 2], [-1 1 -1 -1 -1], [-1 -1 -1 -1 -1 -1 0], [-1 -1 -1 0 -1 -1]};
 
@@ -54,6 +54,6 @@ for i = 1:numModels
 end
 
 %% Model comparison
-compareModels_bayes(optParams, details, 2, LLs_chance);
-%hist(optParams{5}(:,4))
+compareModels_bayes(optParams([1 2 3]), details(:,[1 2 3],:), 2, LLs_chance);
+%hist(optParams{2}(:,4))
 %sprintf('%.2d,', paramEstimates{5}(:,7))
