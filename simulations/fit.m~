@@ -1,4 +1,4 @@
-function [results, params] = fitModel(dataPath, fixedParams, priorPDFs, numStarts, nFnEvals)
+function [results, params] = fit(dataPath, fixedParams, priorPDFs, numStarts, nFnEvals)
 
 %% Set up
 load(dataPath);
@@ -7,8 +7,9 @@ numSubjects = length(subjMarkers);
 nSamples = 0;
 
 % Params
-% K, beta1, beta2, w_MF, w_MB, w_poss, negMF
-K_PARAM_IND = [true false false false false false false];
+% K, beta1, beta2, w_MF, w_MB, w_poss, negMF, sep
+K_PARAM_IND = false(length(fixedParams), 1);
+K_PARAM_IND(1) = true;
 
 freeParams = fixedParams == -1;
 freeParams_noK = freeParams;
@@ -16,7 +17,12 @@ freeParams_noK(K_PARAM_IND) = false;
 nFreeParams = sum(freeParams);
 nContFreeParams = sum(freeParams_noK);
 
-bounds = [2 0 0 0 0 0 0; 4 10 10 10 10 1 1];
+if fixedParams(end) == 1 % sep
+    bounds = [2 0 0 0 0 0 0 0; 4 10 10 10 10 1 1 1];
+else % not sep
+    bounds = [2 0 0 0 0 0 0 0; 4 10 10 1 1 1 1 1];
+end
+    
 WEIGHT_INDS = [false false false false false true false];
 
 A_all = zeros(1, length(fixedParams));
@@ -73,7 +79,7 @@ for whichSubj = 1:numSubjects
             
             for nToEval_ind = 1:nDiscrete
                 if nContFreeParams > 0 % If there's other continuous parameters to optimize over..
-                    f = @(params) -getPosterior(choice(index), rewards_s1_subj, rewards_s2_subj, recalled_subj, [krange(nToEval_ind) params], fixedParams, priorPDFs, nSamples);
+                    f = @(params) -posterior(choice(index), rewards_s1_subj, rewards_s2_subj, recalled_subj, [krange(nToEval_ind) params], fixedParams, priorPDFs, nSamples);
                     logposts_starts = zeros(numStarts, 1);
                     params_starts = zeros(numStarts, nContFreeParams);
                     

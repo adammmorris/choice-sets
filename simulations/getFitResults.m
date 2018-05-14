@@ -2,8 +2,8 @@
 % For a given dataset, get all the model fitting results, and compare
 % models.
 
-datapath = 'fitting/value/v2/output_sep.mat';
-simspath = 'fitting/value/v2/sims.mat';
+datapath = 'fitting/value/v3_2/output_test.mat';
+simspath = 'fitting/value/v3_2/sims.mat';
 load(datapath);
 load(simspath);
 
@@ -24,36 +24,17 @@ for subj_ind = 1:length(subjlist)
     LLs_chance(subj_ind) = log(1 / sum(recalled(subj, :))) * length(index);
 end
 
-modelNames_all = {'mixture-mf-mb', 'mixture-mf', 'mixture-mb', 'random', ...
-    'cs-mf-mb', 'cs-mf', 'cs-mb', 'cs-rand', ...
-    'cs-amf-mb', 'cs-amf', 'mixture-amf-mb', 'mixture-amf', ...
-    'cs-rmf-mb', 'cs-free', 'cs-mf-mb-poss', 'cs-mb-poss'};
-modelParams_all = {[1 -1 0 -1 0 0 0], [1 -1 0 1 0 0 0], [1 -1 0 0 1 0 0], [1 0 0 0 0 0 0], ...
-    [3 -1 3 -1 0 0 0], [3 -1 3 1 0 0 0], [-1 -1 -1 0 1 0 0], [-1 0 -1 0 0 0 0], ...
-    [-1 -1 -1 -1 -1 0 1], [-1 -1 -1 1 0 0 1], [1 -1 0 -1 -1 0 1], [1 -1 0 1 0 0 1], ...
-    [-1 -1 -1 -1 -1 0 2], [-1 1 -1 -1 -1], [-1 -1 -1 -1 -1 -1 0], [-1 -1 -1 0 -1 -1]};
-
-whichParams_all = cell(length(modelParams_all), 1);
-for j = 1:length(modelParams_all)
-    whichParams_all{j} = find(modelParams_all{j} == -1);
-end
-
-whichModels = [1 5 6];
-
-modelNames = modelNames_all(whichModels);
-whichParams = whichParams_all(whichModels);
-numModels = length(modelNames);
+whichModels = 1:6;
+numModels = length(whichModels);
 
 details = zeros(numSubjects, numModels, 4);
 for i = 1:numModels
     model = whichModels(i);
-    details(:, i, 1) = results{i}(:, 1);
-    details(:, i, 2) = results{i}(:, 2);
-    details(:, i, 3) = results{i}(:, 3);
-    details(:, i, 4) = results{i}(:, 4);
+    details(:, i, 1) = results{model}(:, 1);
+    details(:, i, 2) = results{model}(:, 2);
+    details(:, i, 3) = results{model}(:, 3);
+    details(:, i, 4) = results{model}(:, 4);
 end
 
 %% Model comparison
-compareModels_bayes(optParams([1 2 3]), details(:,[1 2 3],:), 2, LLs_chance);
-%hist(optParams{2}(:,4))
-%sprintf('%.2d,', paramEstimates{5}(:,7))
+compareModels_bayes(optParams(whichModels), details, 2, LLs_chance);
