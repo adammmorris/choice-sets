@@ -15,13 +15,10 @@ freeParams_noK(K_PARAM_IND) = false;
 nFreeParams = sum(freeParams);
 nContFreeParams = sum(freeParams_noK);
 
-if fixedParams(end) == 1 % sep
-    bounds = [2 0 0 0 0 0 0 0; 4 10 10 10 10 1 1 1];
-else % not sep
-    bounds = [2 0 0 0 0 0 0 0; 4 10 10 1 1 1 1 1];
-end
+bounds = [2 0 0 0 0 0 0; 4 10 10 1 1 1 1];
     
 WEIGHT_INDS = false(length(fixedParams), 1);
+%WEIGHT_INDS = [false false false true true true false];
 
 A_all = zeros(1, length(fixedParams));
 A_all(WEIGHT_INDS) = 1;

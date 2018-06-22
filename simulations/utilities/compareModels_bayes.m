@@ -49,7 +49,7 @@ for thisModel = 1:numModels
 end
 
 % Get population-level negLLs
-LLs_global = sum(LLs);
+LLs_global = sum(LLs, 1);
 
 % Compare our preferred model to other models using global likelihood ratio
 %   tests
@@ -73,7 +73,7 @@ end
 
 % Get global AICs
 AICs = 2*(numParams)*numSubjects - 2*(LLs_global);
-BICs = sum(BICs);
+BICs = sum(BICs, 1);
 
 % Do Bayesian model selection
 BMS = cell(3,1); % first is model probabilities, second is expected posterior, third is protected exceedance probabilities
@@ -97,5 +97,5 @@ disp(''); % newline
 % Table #2: for each model..
 format short g;
 disp('       post       LL       globalLR       indivLR       AICs       BICs      ModelProbs     ExceedanceProbs');
-disp([sum(posts)' LLs_global' globalLRtests(3,:)' sum(indivLRtests < .05)' AICs' BICs' BMS{2}' BMS{3}']);
+disp([sum(posts, 1)' LLs_global' sum(indivLRtests < .05, 1)' AICs' BICs' BMS{2}' BMS{3}']);
 end

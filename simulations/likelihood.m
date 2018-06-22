@@ -16,10 +16,16 @@
 function [LL] = likelihood(choices, rewards_s1, rewards_s2, recalled, freeParams, fixedParams)
 
 %% Load env info
-numWords = 14;
-maxRe_s1 = max(rewards_s1);
+numWords = 12;
 
 numTrials = length(choices);
+if size(rewards_s1,1) == 1
+    rewards_s1 = repmat(rewards_s1, numTrials, 1);
+end
+
+if size(recalled,1) == 1
+    recalled = repmat(recalled, numTrials, 1);
+end
 
 poss = ones(numWords, 1) * -1;
 
@@ -30,17 +36,12 @@ params(fixedParams ~= -1) = fixedParams(fixedParams ~= -1);
 nToEval = params(1);
 beta = params(2);
 epsilon = params(3); % if doSoftmax, this is beta2
+%epsilon = beta;
 w_MF = params(4);
+w_MB = 1 - w_MF;
+%w_MB = params(5);
 w_poss = params(6);
 negMF = params(7);
-sep = params(8);
-
-if sep
-    w_MB = params(5);
-else
-    w_MB = 1 - w_MF;
-end
-
 
 doSoftmax = true;
 
@@ -51,7 +52,7 @@ doSoftmax = true;
 
 % for negative MF
 if negMF == 1
-    rewards_s1 = maxRe_s1 - rewards_s1;
+    rewards_s1 = max(max(rewards_s1)) - rewards_s1;
 elseif negMF == 2
     rewards_s1 = rewards_s1(randperm(length(rewards_s1)));
 end
@@ -61,27 +62,28 @@ likelihood = zeros(numTrials, 1);
 
 if nToEval == 1 % any non-choice-set
     for trial = 1:numTrials
+        maxRe_s1 = max(rewards_s1(trial, :));
         maxRe_s2 = max(rewards_s2(trial, :));
         
-        availWords = find(recalled);
+        availWords = find(recalled(trial,:));
         numAvailWords = length(availWords);
         word = find(availWords == choices(trial));
         
         probs_num = exp(beta * ...
             (rewards_s2(trial, availWords) * w_MB / maxRe_s2 + ...
-            rewards_s1(availWords) * w_MF / maxRe_s1));
+            rewards_s1(trial, availWords) * w_MF / maxRe_s1));
         probs = probs_num / sum(probs_num);
         
-        probs = (1 - epsilon) * probs + epsilon * (1 / numAvailWords);
+        %probs = (1 - epsilon) * probs + epsilon * (1 / numAvailWords);
         
         likelihood(trial) = log(probs(word));
     end
-elseif beta == 0 % randcs
-    availWords = find(recalled);
-    numAvailWords = length(availWords);
-    
+elseif beta == 0 % randcs  
     for trial = 1:numTrials
+        availWords = find(recalled(trial,:));
+        numAvailWords = length(availWords);
         word = find(availWords == choices(trial));
+        maxRe_s1 = max(rewards_s1(trial, :));
         maxRe_s2 = max(rewards_s2(trial, :));
         
         prob = 0;
@@ -119,8 +121,9 @@ elseif beta == 0 % randcs
 else
     for trial = 1:numTrials
         %disp(['trial ' num2str(trial)]);
+        maxRe_s1 = max(rewards_s1(trial, :));
         maxRe_s2 = max(rewards_s2(trial, :));
-        availWords = find(recalled);
+        availWords = find(recalled(trial,:));
         numAvailWords = length(availWords);
         
         word = find(availWords == choices(trial));
@@ -140,7 +143,7 @@ else
 %         end
         weights_num = exp(beta * ...
                  (rewards_s2(trial, availWords) * w_MB / maxRe_s2 + ...
-                 rewards_s1(availWords) * w_MF / maxRe_s1));
+                 rewards_s1(trial, availWords) * w_MF / maxRe_s1));
         weights = weights_num / sum(weights_num);
         
         prob = 0;

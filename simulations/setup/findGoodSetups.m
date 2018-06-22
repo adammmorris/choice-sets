@@ -1,11 +1,13 @@
 %% Searches through possible s1/s2 combinations, looking for biggest model sensitivity
 
-addpath 'utilities';
-datapath = 'fitting/value/v2/output.mat';
-simspath = 'fitting/value/v2/sims.mat';
-load(datapath);
-load(simspath);
-numSubjects = length(subjMarkers);
+addpath '..';
+addpath '../utilities';
+%datapath = '../fitting/value/v2/output.mat';
+%simspath = '../fitting/value/v2/sims.mat';
+%load(datapath);
+%load(simspath);
+%numSubjects = length(subjMarkers);
+numSubjects = 100;
 
 modelNames_all = {'mixture-mf-mb', 'mixture-mf', 'mixture-mb', 'random', ...
     'cs-mf-mb', 'cs-mf', 'cs-mb', 'cs-rand', ...
@@ -16,10 +18,10 @@ modelParams_all = {[1 -1 0 -1 -1 0 0], [1 -1 0 1 0 0 0], [1 -1 0 0 1 0 0], [1 0 
     [-1 -1 -1 -1 -1 0 1], [-1 -1 -1 1 0 0 1], [1 -1 0 -1 -1 0 1], [1 -1 0 1 0 0 1], ...
     [-1 -1 -1 -1 -1 0 2]};
 
-whichModels = [1 5];
+whichModels = [1 6];
 
-numWords = 14;
-numMenus = 1;
+numWords = 12;
+numMenus = 20;
 
 probs_test = zeros(numWords, length(whichModels), numMenus);
 probs_test_diff = zeros(numWords, numMenus);
@@ -28,18 +30,18 @@ menu_s2s = zeros(numWords, numMenus);
 
 for menu = 1:numMenus
     disp(menu);
-    %s1s_test = betarnd(1,1,1,numWords);
-    %s2s_test = betarnd(1,1,1,numWords);
-    s1s_test = [10, 5, zeros(1, 12)];
-    s2s_test = [0, 5, 10, zeros(1,11)];
+    s1s_test = betarnd(rand() * 5, rand() * 5,1,numWords);
+    s2s_test = betarnd(rand() * 5, rand() * 5,1,numWords);
+    %s1s_test = [10, 5, zeros(1, 12)];
+    %s2s_test = [0, 5, 10, zeros(1,11)];
     
     for i = 1:length(whichModels)
         model = whichModels(i);
         for word = 1:numWords
             probs_test_temp = zeros(numSubjects, 1);
             parfor subj = 1:numSubjects
-                probs_test_temp(subj) = exp(getLikelihood(word, s1s_test, s2s_test, ...
-                    ones(1, numWords), [optParams{model}(subj, 1:(end-2)) 1 0], modelParams_all{model}, 0));
+                probs_test_temp(subj) = exp(likelihood(word, s1s_test, s2s_test, ...
+                    ones(1, numWords), [3 betarnd(4.5, 1) betarnd(4.5, 1)], modelParams_all{model}));
             end
             probs_test(word,i,menu) = mean(probs_test_temp);
         end

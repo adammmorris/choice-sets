@@ -7,6 +7,7 @@ require(lmerTest)
 require(mlogit)
 require(lattice)
 require(stringdist)
+require(ggstatsplot)
 
 theme_update(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour = "black"),
              axis.text=element_text(size=20, colour = "black"), axis.title=element_text(size=18, face = "bold"), axis.title.x = element_text(vjust = 0),
@@ -37,24 +38,14 @@ as.numeric.vector = function(x) {
   return(as.numeric(strsplit(substr(x,2,nchar(x)-1), split=",")[[1]]))
 }
 
-runLogit = function(df) {
-  df$Choice = as.logical(df$Choice)
-  df = df %>% mutate(Trial_unique = paste(Subj, Trial, sep="_"))
-  df.m = mlogit.data(df, choice = "Choice", shape = "long", id.var = "Subj", alt.var = "OptionID", chid.var = "Trial_unique")
-  
-  m = mlogit(Choice ~ MFcent + MBcent | -1, df.m)#, panel = T,
-             #rpar = c(MFcent = "n", MBcent = "n", Int = "n"), correlation = F, halton = NA, R = 1000, tol = .001)
-  return(m)
-}
-
 se = function(x) {return(sd(x, na.rm = T) / sqrt(length(x)))}
 dodge <- position_dodge(width=0.9)
 
 
 # import data -------------------------------------------------------------
 
-versions = c('value1', 'value2', 'freq', 'confounded', 'stripped')
-version = versions[5]
+versions = c('value1', 'value2', 'freq', 'confounded', 'stripped', 'value4')
+version = versions[6]
 
 if (version == 'value1') {
   numWords = 14;
@@ -64,7 +55,8 @@ if (version == 'value1') {
   pointsPerCent = 10;
   pointsPerWord = 10; # for memory condition
   numRealQuestions = 9
-  type = 0; # 0 is value, 1 is freq, 2 is stripped
+  type = 0; # 0 is value, 1 is freq, 2 is stripped 
+  maxRepeats = 2;
 } else if (version == 'value2') {
   numWords = 14;
   numTrials = 112;
@@ -74,6 +66,8 @@ if (version == 'value1') {
   pointsPerWord = 10; # for memory condition
   numRealQuestions = 5
   type = 0;
+  maxRepeats = 2;
+  numQuestions = 6;
 } else if (version == 'freq') {
   numWords = 14;
   numTrials = 112;
@@ -81,6 +75,7 @@ if (version == 'value1') {
   path = 'data/frequency/v1/real1/'
   numRealQuestions = 9
   type = 1;
+  maxRepeats = 2;
 } else if (version == 'confounded') {
   numWords = 14;
   numTrials = 91;
@@ -88,17 +83,32 @@ if (version == 'value1') {
   path = 'data/confounded/v1/real1/'
   numRealQuestions = 9
   type = 0;
+  maxRepeats = 2;
 } else if (version == 'stripped') {
-  numWords = 14;
+  numWords = 12;
   numTrials = 0;
+  numQuestions = 3;
   minNAs = 1;
-  path = 'data/value/v3/real3/'
+  path = 'data/value/v3/real4/'
   type = 2;
   numRealQuestions = 1;
   pointsPerCent = 1;
   pointsPerWord = 1;
+  maxRepeats = 0;
+} else if (version == 'value4') {
+  numWords = 12;
+  numTrials = 120;
+  minNAs = 1;
+  path = 'data/value/v4/pilot1/'
+  pointsPerCent_s1 = 10;
+  pointsPerCent_s2 = 1;
+  pointsPerWord = 3; # for memory condition
+  allBonus = 25;
+  numRealQuestions = 1;
+  type = 0;
+  maxRepeats = 2;
+  numQuestions = 2;
 }
-
 
 # Load data
 df.demo = read.csv(paste0(path, 'demo.csv'), stringsAsFactors = F) %>% arrange(subject) %>% mutate(total_time_real = total_time / 60000)
@@ -175,6 +185,7 @@ df.s2.subj = df.s2 %>% filter(subject %in% df.demo$subject) %>%
             comp_check_rt = mean(comp_check_rt) / 1000,
             numNAs = sum(is.na(choice_real)),
             numRepeats = sum(choice_real == lag(choice_real), na.rm = T),
+            numTrials = n(),
             s1_value = mean(s1_value, na.rm = T),
             high_value = mean(high_value, na.rm = T),
             rank_value = mean(rank_value, na.rm = T),
@@ -239,8 +250,8 @@ for (subj in 1:length(subjlist)) {
   df.s2.subj.temp = df.s2.subj %>% filter(subject == subj.name)
   df.demo.temp = df.demo %>% filter(subject == subj.name)
 
-  exclude = df.demo.temp$write_down == 'Yes' || df.s2.subj.temp$comp_check_pass < .5 || df.s2.subj.temp$numRepeats > 2 ||
-    df.s2.subj.temp$numNAs > minNAs || sum(recalled[subj,]) < 5
+  exclude = df.demo.temp$write_down == 'Yes' || df.s2.subj.temp$comp_check_pass < .5 || df.s2.subj.temp$numRepeats > maxRepeats ||
+    df.s2.subj.temp$numNAs > minNAs || sum(recalled[subj,]) < 5 || df.s2.subj.temp$numTrials != numQuestions
   if (type != 2) {
     exclude = exclude || df.s1.subj.temp$numTrials != numTrials || df.s1.subj.temp$pctCorrect_words < .75 ||
       df.s1.subj.temp$pctCorrect_val < .75
@@ -285,16 +296,13 @@ t.test(df.s2.subj.filt$high_value - .5)
 ggplot(df.s2.subj.filt, aes(x = s1_value)) + geom_histogram(col = 'black', fill = 'blue')
 t.test(df.s2.subj.filt$s1_value - 5)
 
-model.multinom = multinom(choice_real ~ rank_value * s1_value, data = df.s2.filt %>% mutate(choice_real = factor(choice_real)))
-summary(model.multinom)
-
 # logit test
 df.logit = data.frame(Subj = NULL, Trial = NULL, OptionID = NULL, Choice = NULL, MFval = NULL, MBval = NULL, nExposures = NULL, Recalled = NULL, Question = NULL)
 
 for (subj in 1:nrow(df.demo)) {
   subj.name = df.demo$subject[subj]
-  #recalled.temp = recalled_ever[subj, ]
-  recalled.temp = !logical(numWords)
+  recalled.temp = recalled_ever[subj, ]
+  #recalled.temp = !logical(numWords)
   num.recalled.temp = sum(recalled.temp)
   
   df.words.temp = df.words %>% filter(subject == subj.name)
@@ -326,7 +334,7 @@ for (subj in 1:nrow(df.demo)) {
         mbvals = rank(all_vals, ties.method = 'max')
         #mbvals = all_vals
         temp.mbval[ind,] = mbvals[recalled.temp]
-        temp.mbhigh[ind,] = mbvals[recalled.temp] > 7
+        temp.mbhigh[ind,] = mbvals[recalled.temp] > 10
         
         choice = logical(num.recalled.temp)
         choice[which(df.s2.temp$choice_real_ind[q] == which(recalled.temp))] = TRUE
@@ -348,37 +356,47 @@ for (subj in 1:nrow(df.demo)) {
     
     df.logit = rbind(df.logit,
                      data.frame(Subj = Subj.col, Trial = Trial.col, OptionID = OptionID.col, Choice = Choice.col,
-                                MFval = MFval.col, MBval = MBval.col, MFhigh = MFhigh.col, MBhigh = MBhigh.col,
-                                Recall = Recalled.col, Question = Question.col, OptionID_real = OptionID_real.col))
+                                MFval = MFval.col, MBval = MBval.col, MFhigh = MFhigh.col, MBhigh = MBhigh.col))
+                                #Recall = Recalled.col, Question = Question.col, OptionID_real = OptionID_real.col))
     
   }
 }
 
-df.logit = df.logit %>% mutate(MFcent = MFhigh, MBcent = MBval, Int = MFcent * MBcent)
+df.logit = df.logit %>% mutate(MFcent = MFhigh - mean(MFhigh), MBcent = MBhigh - mean(MBhigh), Int = MFcent * MBcent,
+                               Choice = as.logical(Choice), Trial_unique = paste(Subj, Trial, sep="_"))
 
-m.real = runLogit(df.logit)
-summary(m.real)
+df.logit2 = mlogit.data(df.logit, choice = "Choice", shape = "long", id.var = "Subj", alt.var = "OptionID", chid.var = "Trial_unique")
+
+m = mlogit(Choice ~ MFcent + MBcent + Int | -1, df.logit2)#, panel = T,
+  #rpar = c(MFcent = "n", MBcent = "n", Int = "n"), correlation = F, halton = NA, R = 1000, tol = .001)
+
+summary(m)
 
 # interaction graph
 
-df.sum = df.logit %>%
-  group_by(MFhigh,MBhigh,Subj) %>% summarize(Choice = any(Choice)) %>% group_by(MFhigh,MBhigh) %>%
+df.graph = df.logit %>% mutate(MFhigh = factor(MFhigh), MBhigh = factor(MBhigh)) %>%
+  group_by(MFhigh,MBhigh,Subj) %>% summarize(Choice = any(Choice)) %>%
+  group_by(MFhigh,MBhigh) %>%
   summarize(Choice.mean = mean(Choice), Choice.se = sqrt(Choice.mean * (1 - Choice.mean) / n()))
-df.sum$Choice.mean = df.sum$Choice.mean - c(2 / 14, 5 / 14, 4 / 14, 3 / 14)
-ggplot(data = df.sum, aes(x = MBhigh, y = Choice.mean, group = MFhigh, colour = MFhigh)) +
-  geom_point(aes(size = 2)) + geom_line() + geom_errorbar(aes(ymin=Choice.mean - Choice.se, ymax = Choice.mean + Choice.se), width = .2)
+ggplot(data = df.graph, aes(x = MBhigh, y = Choice.mean, group = MFhigh, colour = MFhigh)) +
+  geom_point(aes(size = 2)) + geom_line() +
+  geom_errorbar(aes(ymin=Choice.mean - Choice.se, ymax = Choice.mean + Choice.se), width = .2) +
+  guides(size = FALSE)
 
-df.sum = df.s2.filt %>% group_by(high_value, high_rank) %>% summarize(pctChoice = n() / nrow(df.s2.filt))
-
-ggplot(data = df.sum, aes(x = high_rank, y = pctChoice, group = high_value, colour = high_value)) +
-  geom_point(aes(size = 2)) + geom_line()
+df.graph.all = df.logit %>%
+  group_by(MFval,MBval,Subj) %>% summarize(Choice = any(Choice)) %>%
+  group_by(MFval,MBval) %>%
+  summarize(Choice.mean = mean(Choice), Choice.se = sqrt(Choice.mean * (1 - Choice.mean) / n())) %>%
+  mutate(Choice.mean = round(Choice.mean, 2))
 
 ## recall
 nrecall = rowSums(recalled[include_rows,])
 mean(nrecall)
 
+df.words.filt = df.words %>% filter(subject %in% include_names)
+
 # plot split by value
-df.words.byvalue = df.words %>% filter(subject %in% include_names) %>% group_by(high_value, subject) %>% summarize(recall = mean(recall, na.rm = T)) %>%
+df.words.byvalue = df.words.filt %>% group_by(high_value, subject) %>% summarize(recall = mean(recall, na.rm = T)) %>%
   group_by(high_value) %>% summarize(recall.mean = mean(recall, na.rm = T), recall.se = se(recall))
 ggplot(df.words.byvalue, aes(x = high_value, y = recall.mean)) +
   geom_bar(stat = "identity", position = dodge) +
@@ -386,14 +404,15 @@ ggplot(df.words.byvalue, aes(x = high_value, y = recall.mean)) +
   xlab('') + ylab('') + guides(fill = F)
 
 # did value influence recall?
-m.recall = glmer(recall ~ high_value + (0 + high_value | subject) + (1 | subject) + (1 | word),
-                 data = df.words %>% filter(subject %in% include_names), family = binomial)
+#m.recall = glmer(recall ~ high_value + (0 + high_value | subject) + (1 | subject) + (1 | word),
+#                 data = df.words %>% filter(subject %in% include_names), family = binomial)
+m.recall = glmer(recall ~ high_value + (1 | word),
+                 data = df.words.filt, family = binomial)
 summary(m.recall)
 
 ## order effects
-df.words.filt = df.words %>% filter(subject %in% include_names)
 histogram(~ order | value, df.words[df.words$subject %in% include_names & df.words$recall == T, ])
-m.order = lmer(order ~ high_value + (high_value | subject) + (high_value | word),
+m.order = lmer(order ~ high_value + (1 | subject) + (1 | word),
                  data = df.words.filt[df.words.filt$recall == T, ])
 summary(m.order)
 df.s2.subj.filt$order_weights = coef(m.order)$subject$high_valueTRUE
@@ -458,7 +477,7 @@ save.image(paste0(path, 'analysis.rdata'))
 cor.test(df.words$order[df.words$recall==TRUE],df.words$value[df.words$recall==TRUE])
 plot <- df.words %>%
         filter(recall) %>%
-        mutate(high_val = factor(c("Low Past Value","High Past Value")[as.factor(high_val)])) %>%
+        mutate(high_val = factor(c("Low Past Value","High Past Value")[as.factor(high_value)])) %>%
         group_by(order,value,high_val) %>%
         summarise(count = table(value)[1]) %>%
         ggplot(aes(x=order,y=value,fill=count)) +
@@ -487,7 +506,7 @@ plot
 
 orderD <- df.words %>%
   filter(recall) %>%
-  mutate(high_val = factor(c("Low Past Value","High Past Value")[as.factor(high_val)])) %>%
+  mutate(high_val = factor(c("Low Past Value","High Past Value")[as.factor(high_value)])) %>%
   group_by(value,high_val,subject) %>%
   summarise(meanOrders = mean(order,na.rm=T)) %>%
   group_by(value,high_val) %>%
@@ -547,3 +566,10 @@ d.sims = read.csv("data/modelSim.csv") %>% gather(model,earnings,-R) %>%
                    ,axis.ticks = element_blank()
                  )
 d.sims
+
+s1 = c(20, 9, 4, 13, 15, 2, 24, 12, 1, 18, 25, 19)
+s2 = c(14, 16, 4, 9, 5, 12, 15, 20, 19, 21, 1, 11)
+
+ggplot(df.graph.all, aes(x = MBval, y = MFval, color = Choice.mean)) +
+  geom_point(size = 10) +
+  geom_text(aes(label = Choice.mean), hjust = .5, vjust = 3)
