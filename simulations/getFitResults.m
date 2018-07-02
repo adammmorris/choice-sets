@@ -2,7 +2,7 @@
 % For a given dataset, get all the model fitting results, and compare
 % models.
 
-datapath = 'fitting/value/v4/output_16.mat';
+datapath = 'fitting/value/v4/output_fixed.mat';
 simspath = 'fitting/value/v4/sims.mat';
 load(datapath);
 load(simspath);
@@ -24,7 +24,7 @@ for subj_ind = 1:length(subjlist)
     LLs_chance(subj_ind) = log(1 / sum(recalled(subj, :))) * length(index);
 end
 
-whichModels = 1:8;
+whichModels = 1;
 numModels = length(whichModels);
 
 details = zeros(numSubjects, numModels, 4);

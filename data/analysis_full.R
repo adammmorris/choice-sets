@@ -10,6 +10,7 @@ require(stringdist)
 require(ggstatsplot)
 require(plotly)
 require(rsm)
+require(rje)
 
 theme_update(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour = "black"),
              axis.text=element_text(size=20, colour = "black"), axis.title=element_text(size=18, face = "bold"), axis.title.x = element_text(vjust = 0),
@@ -49,7 +50,7 @@ dodge <- position_dodge(width=0.9)
 numWords = 12;
 numTrials = 96;
 minNAs = 1;
-path = 'data/value/v4/real1/'
+path = 'data/value/v4/real2/'
 pointsPerCent_s1 = 10;
 pointsPerCent_s2 = 1;
 pointsPerWord = 3; # for memory condition
@@ -77,6 +78,7 @@ df.s2 = df.s2.raw %>% filter(subject %in% subjlist)
 df.s2$choice = toupper(df.s2$choice)
 df.s2$scratch = gsub("[.]", ",", toupper(as.character(df.s2$scratch)))
 df.s2$all_values = as.character(df.s2$all_values)
+df.s2$comp_check_pass = as.numeric(df.s2$comp_check_pass)
 
 for (i in 1:nrow(df.s2)) {
   subj.name = df.s2$subject[i]
@@ -162,10 +164,10 @@ for (subj in 1:length(subjlist)) {
   df.s2.subj.temp = df.s2.excl %>% filter(subject == subj.name)
   df.demo.temp = df.demo %>% filter(subject == subj.name)
   
-  exclude = df.demo.temp$write_down == 'Yes' || df.s2.subj.temp$comp_check_pass < 1 ||
+  exclude = df.demo.temp$write_down == 'Yes' || #df.s2.subj.temp$comp_check_pass < 1 ||
     df.s2.subj.temp$numNAs > minNAs || sum(recalled[subj,]) < 5 || df.s2.subj.temp$numTrials != numQuestions ||
-    df.s1.subj.temp$numTrials != numTrials || df.s1.subj.temp$pctCorrect_words < .75 || df.s1.subj.temp$pctCorrect_val < .75 ||
-    df.s1.subj.temp$pctCorrect_choice < .75 #|| df.s2$cond[df.s2$subject == subj.name] == 'reversed'
+    df.s1.subj.temp$numTrials != numTrials || df.s1.subj.temp$pctCorrect_words < .75 || df.s1.subj.temp$pctCorrect_val < .75 #||
+    #df.s1.subj.temp$pctCorrect_choice < .75 #|| df.s2$cond[df.s2$subject == subj.name] == 'normal'
   if (exclude) {
     include_rows[subj] = FALSE
   } else {
@@ -236,10 +238,10 @@ gghistostats(df.s2.filt, rank_s2value, test.value = 6.5, centrality.para = 'mean
 # s1 high value
 ggpiestats(data = df.s2.filt, main = high_s1value)
 ggpiestats(df.s2.filt, high_s1value_indiv)
-gghistostats(df.s2.filt, rank_s1value, test.value = 6.5, centrality.para = 'median', type = 'np')
+gghistostats(df.s2.filt, rank_s1value, test.value = 6.5, centrality.para = 'median', type = 'p')
 grouped_ggpiestats(cond, data = df.s2.filt, main = high_s1value)
 
-wilcox.test(df.s2.filt$rank_s1value, mu = 6.5)
+wilcox.test(df.s2.filt$rank_s1value, mu = 7)
 
 # logit test
 df.logit = data.frame(Subj = NULL, Trial = NULL, OptionID = NULL, Choice = NULL, MFval = NULL, MBval = NULL, nExposures = NULL, Recalled = NULL, Question = NULL)
@@ -317,18 +319,23 @@ for (i in 1:nrow(df.logit)) {
   }
 }
 
-df.logit = df.logit %>% mutate(Trial_unique = paste(Subj, Trial, sep="_"))
+df.logit = df.logit %>% mutate(Trial_unique = paste(Subj, Trial, sep="_"),
+                               Total = 1.5 * MFval / 15 + 10 * MBval / 22,
+                               MFhigh = factor(MFhigh, c(1,0), c('high', 'low')),
+                               Condition = factor(Condition, c('normal', 'reversed'), c('normal', 'reversed')))
 
-df.logit2 = mlogit.data(df.logit %>% filter(Condition == 'normal'), choice = "Choice", shape = "long", id.var = "Subj", alt.var = "OptionID", chid.var = "Trial_unique")
+df.logit2 = mlogit.data(df.logit, choice = "Choice", shape = "long", id.var = "Subj", alt.var = "OptionID", chid.var = "Trial_unique")
 
 m = mlogit(Choice ~ MFval * MBval | -1, df.logit2)#, panel = T,
 #rpar = c(MFcent = "n", MBcent = "n", Int = "n"), correlation = F, halton = NA, R = 1000, tol = .001)
-
 summary(m)
+
+m2 = mlogit(Choice ~ Total | -1, df.logit2)
+summary(m2)
 
 # interaction graph
 
-df.graph = df.logit %>% mutate(MFhigh = factor(MFhigh), MBhigh = MBval) %>%
+df.graph = df.logit %>% mutate(MFhigh = MFhigh, MBhigh = MBval) %>%
   group_by(Condition, MFhigh,MBhigh,Subj) %>% summarize(Choice = any(Choice)) %>%
   group_by(Condition, MFhigh,MBhigh) %>%
   summarize(Choice.mean = mean(Choice), Choice.se = sqrt(Choice.mean * (1 - Choice.mean) / n()))
@@ -337,9 +344,9 @@ ggplot(data = df.graph, aes(x = MBhigh, y = Choice.mean, group = MFhigh, colour 
   #geom_smooth(method='lm', formula = y ~ poly(x,3)) +
   #geom_smooth() +
   geom_errorbar(aes(ymin=Choice.mean - Choice.se, ymax = Choice.mean + Choice.se), width = .2) +
-  guides(size = FALSE) + facet_wrap(~ Condition)
+  guides(size = FALSE) #+ facet_wrap(~ Condition)
 
-plot_ly(df.graph, x = ~MFval, y = ~MBval, z = ~Choice.mean, marker = list(color = ~Choice.mean))
+plot_ly(df.graph %>% filter(Condition == 'reversed'), x = ~MFhigh, y = ~MBhigh, z = ~Choice.mean, marker = list(color = ~Choice.mean))
 
 df.graph.all = df.logit %>%
   group_by(MFval,MBval,Subj) %>% summarize(Choice = any(Choice)) %>%
@@ -377,15 +384,14 @@ getProb = function(word_ind, x1, b1, x2, b2, k) {
   
   return(prob)
 }
-
 getProb.mix = function(word_ind, x1, b1, x2, b2) {
   probs = exp(b1 * x1 / max(x1) + b2 * x2 / max(x2)) / sum(exp(b1 * x1 / max(x1) + b2 * x2 / max(x2)))
   return(probs[word_ind])
 }
 
 b1 = 1
-b2 = 5
-k = 5
+b2 = 10
+k = 4
 # s1 = c(1,  1,  3,  3,  3,  4,  6,  6,  7,  10, 14, 15)
 # s2 = c(12, 22, 21, 12, 14, 18, 15, 9, 11,  7,  5,  6)
 
@@ -404,12 +410,12 @@ df.real = df.logit %>%
 
 df.graph2 = data.frame()
 for (word_ind in 1:numWords) {
-  df.graph2 = rbind(df.graph2, data.frame(MFval = s1[word_ind], MFhigh = s1[word_ind] > median(s1), MBval = s2[word_ind],
+  df.graph2 = rbind(df.graph2, data.frame(MFval = s1[word_ind], MFhigh = factor(s1[word_ind] > median(s1), c(T,F), c('high', 'low')), MBval = s2[word_ind],
                                           Choice.cs = getProb(word_ind, s1, b1, s2, b2, k), Choice.mix = getProb.mix(word_ind, s1, b1, s2, b2),
                                           Real = df.real$Choice.mean[df.real$MFval == s1[word_ind] & df.real$MBval == s2[word_ind]],
                                           Real.se = df.real$Choice.se[df.real$MFval == s1[word_ind] & df.real$MBval == s2[word_ind]],
                                           Cond = df.real$Condition[df.real$MFval == s1[word_ind] & df.real$MBval == s2[word_ind]]))
-  df.graph2 = rbind(df.graph2, data.frame(MFval = s1_rev[word_ind], MFhigh = s1_rev[word_ind] > median(s1_rev), MBval = s2[word_ind],
+  df.graph2 = rbind(df.graph2, data.frame(MFval = s1_rev[word_ind], MFhigh = factor(s1_rev[word_ind] > median(s1_rev), c(T,F), c('high', 'low')), MBval = s2[word_ind],
                                            Choice.cs = getProb(word_ind, s1_rev, b1, s2, b2, k), Choice.mix = getProb.mix(word_ind, s1_rev, b1, s2, b2),
                                            Real = df.real$Choice.mean[df.real$MFval == s1_rev[word_ind] & df.real$MBval == s2[word_ind]],
                                           Real.se = df.real$Choice.se[df.real$MFval == s1_rev[word_ind] & df.real$MBval == s2[word_ind]],
@@ -418,42 +424,74 @@ for (word_ind in 1:numWords) {
 
 df.graph2 = df.graph2 %>% mutate(Total = b1 * MFval / max(s1) + b2 * MBval / max(s2))
 
-ggplot(data = df.graph2, aes(x = Total, y = Choice.cs)) + geom_point(size = 2) + geom_line()
-  #geom_smooth(aes(y = Choice.cs)) + geom_smooth(aes(y = Choice.mix))
-summary(lm(Real ~ Diff * Total, data = df.graph2))
-
-test = lm(Choice.cs ~ poly(MFval, MBval, degree = 3), data = df.graph2)
-persp(test, MBval ~ MFval)
-contour(test, MBval ~ MFval)
-
-test2 = loess(Choice.cs ~ MFval * MBval, data = df.graph2, span = .75)
-test2.pred = predict(test2, newdata = expand.grid(list(MFval = 1:15, MBval = 5:22)))
-persp(test2.pred)
-
-plot_ly(df.graph2, x = ~MFval, y = ~MBval, z = ~Real, marker = list(color = ~Choice.mix)) %>% add_mesh()
-
-df.graph2 = df.graph2 %>% mutate(color1 = ifelse(MFhigh, '#002bff', '#bbc7ff'), color2 = ifelse(MFhigh, '#ff0040', '#ffacc1'),
-                                 color3 = ifelse(MFhigh, '#00a303', '#84ce85'))
-ggplot(data = df.graph2 %>% mutate(Cond = factor(Cond)), aes(x = Total)) +
-  #geom_smooth(aes(y = Real, color = color1), se = F, span = 1, size = 3, linetype = 'longdash') +
-  #geom_smooth(aes(y = Choice.cs, color = color2), se = F, span = 1, size = 1, linetype = 'longdash') +
-  #geom_smooth(aes(y = Choice.mix, color = color3), se = F, span = 1, size = 1, linetype = 'longdash') +
-  #geom_point(aes(y = Real, size = 2), shape = 16) + geom_line(aes(y = Real)) +
-  geom_point(aes(y = Choice.mix, size = 2), shape = 16) + geom_line(aes(y = Choice.mix)) +
+ggplot(data = df.graph2 %>% mutate(Cond = factor(Cond)), aes(x = MBval)) +
+  #geom_point(aes(y = Choice.mix, size = 2), shape = 16) + geom_line(aes(y = Choice.mix)) +
   #geom_point(aes(y = Choice.cs, size = 2), shape = 16) + geom_line(aes(y = Choice.cs)) +
-  #geom_errorbar(aes(ymin=Real - Real.se, ymax = Real + Real.se), width = .2) +
-  #geom_smooth(method='lm', formula = y ~ poly(x,3)) +
+  geom_point(aes(y = Real, size = 2), shape = 16) + geom_line(aes(y = Real)) +
+  geom_errorbar(aes(ymin=Real - Real.se, ymax = Real + Real.se), width = .2) +
+  #geom_smooth(method='lm', aes(y = Real), formula = y ~ exp(x)) +
   guides(size = FALSE) + facet_wrap(~ Cond)
 
-test.cs = lm(Choice.cs ~ poly(Total,2) * Cond, data = df.graph2)
+#df.test = df.logit %>% group_by(Condition, Total, Subj) %>% summarize(Choice = any(Choice)) %>% group_by(Condition, Total) %>% summarize(Choice = mean(Choice))
+test.cs = lm(Choice.mix ~ exp(Total) * Cond, data = df.graph2)
 summary(test.cs)
 
-plot_ly(df.graph2, x = ~MBval, y = ~MFval, z = ~Choice.mix, marker = list(color = ~Choice.mix)) #%>% layout(scene = list(zaxis = list(range=c(0,.6))))
+# df.test = df.s2.filt %>% mutate(Total = s1_value / 15 + 10 * s2_value / 22)
+# grouped_gghistostats(cond, data = df.test, x = Total)
+# t.test(df.test$Total[df.test$cond == 'normal'], df.test$Total[df.test$cond == 'reversed'])
 
-df.graph2 = df.graph2 %>% mutate(Choice.cs.log = log(Choice.cs), Choice.mix.log = log(Choice.mix), Real.log = log(Real))
-ggscatterstats(df.graph2, Choice.mix, Real, type = 'np')
+test.cs = lm(Real ~ exp(MBval), data = df.graph2 %>% filter(Cond == 'reversed'))
+#test.cs = lm(Real ~ poly(MBval,2) * Cond, data = df.graph2)
+summary(test.cs)
 
-df.graph.collapsed = df.graph2 %>% summarize(RMSE.cs = sqrt(mean((Choice.cs - Real) ^ 2)), RMSE.mix = sqrt(mean((Choice.mix - Real) ^ 2)))
+fn = function(formula, data, indices) {
+  return(summary(lm(formula, data = data[indices,]))$r.squared)
+}
+
+bs = boot(df.graph2 %>% filter(Cond == 'reversed'), fn, R = 100, formula = Real ~ exp(Total))
+cs1 = boot.ci(bs, type = 'bca') # .3066, .7606 vs #.811, .96
+
+grouped_ggscatterstats(Cond, data = df.graph2, x = Choice.cs, y = Real)
+
+
+fn = function(x, df) {
+  ss = 0
+  denom = sum(exp(x[1] * df$MFval / 15 + x[2] * df$MBval / 22))
+  for (i in 1:nrow(df)) {
+    ss = ss + (df$Real[i] - (exp(x[1] * df$MFval[i] / 15 + x[2] * df$MBval[i] / 22) / denom)) ^ 2
+  }
+  return(ss)
+}
+fn.cs = function(x, df) {
+  ss = 0
+  for (i in 1:nrow(df)) {
+    ss = ss + (df$Real[i] - getProb(i,df$MFval, x[1], df$MBval, x[2], 4)) ^ 2
+  }
+  return(ss)
+}
+optim(c(1,1), function(x) {fn.cs(x, df.graph2 %>% filter(Cond == 'normal')) + fn.cs(x, df.graph2 %>% filter(Cond == 'reversed'))},
+      method = 'L-BFGS-B', lower = c(0,0), upper = c(10,10))
+
+#ggplot(data = df.graph2, aes(x = Total, y = Choice.cs)) + geom_point(size = 2) + geom_line()
+#geom_smooth(aes(y = Choice.cs)) + geom_smooth(aes(y = Choice.mix))
+#summary(lm(Real ~ Diff * Total, data = df.graph2))
+
+# test = lm(Choice.cs ~ poly(MFval, MBval, degree = 3), data = df.graph2)
+# persp(test, MBval ~ MFval)
+# contour(test, MBval ~ MFval)
+# 
+# test2 = loess(Choice.cs ~ MFval * MBval, data = df.graph2, span = .75)
+# test2.pred = predict(test2, newdata = expand.grid(list(MFval = 1:15, MBval = 5:22)))
+# persp(test2.pred)
+# 
+# plot_ly(df.graph2 %>% filter(Cond == 'normal'), x = ~MFval, y = ~MBval, z = ~Real, marker = list(color = ~Real))
+# 
+# df.graph2 = df.graph2 %>% mutate(color1 = ifelse(MFhigh, '#002bff', '#bbc7ff'), color2 = ifelse(MFhigh, '#ff0040', '#ffacc1'),
+#                                  color3 = ifelse(MFhigh, '#00a303', '#84ce85'))
+# 
+# plot_ly(df.graph2, x = ~MBval, y = ~MFval, z = ~Choice.mix, marker = list(color = ~Choice.mix)) #%>% layout(scene = list(zaxis = list(range=c(0,.6))))
+
+# df.graph.collapsed = df.graph2 %>% summarize(RMSE.cs = sqrt(mean((Choice.cs - Real) ^ 2)), RMSE.mix = sqrt(mean((Choice.mix - Real) ^ 2)))
 
 # recall effects ----------------------------------------------------------
 
@@ -542,7 +580,7 @@ df.s2.subj = df.s2 %>% filter(question_order == 0) %>%
          mem_bonus = nrecall_bonus * pointsPerWord + allBonus * (nrecall_bonus == numWords))
 df.demo = df.demo %>% mutate(s2_bonus = I(df.s2.subj$s2_bonus), mem_bonus = I(df.s2.subj$mem_bonus),
                              bonus = round((s1_bonus / pointsPerCent_s1 + s2_bonus / pointsPerCent_s2  + mem_bonus) / 100, 2))
-write.table(df.demo %>% select(WorkerID = subject, Bonus = bonus),
+write.table(df.demo %>% dplyr::select(WorkerID = subject, Bonus = bonus),
             paste0(path, 'Bonuses.csv'), row.names = FALSE, col.names = FALSE, sep = ",")
 
 ## save

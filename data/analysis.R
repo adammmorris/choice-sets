@@ -45,7 +45,7 @@ dodge <- position_dodge(width=0.9)
 # import data -------------------------------------------------------------
 
 versions = c('value1', 'value2', 'freq', 'confounded', 'stripped', 'value4')
-version = versions[6]
+version = versions[4]
 
 if (version == 'value1') {
   numWords = 14;
@@ -76,6 +76,7 @@ if (version == 'value1') {
   numRealQuestions = 9
   type = 1;
   maxRepeats = 2;
+  numQuestions = 10;
 } else if (version == 'confounded') {
   numWords = 14;
   numTrials = 91;
@@ -251,7 +252,7 @@ for (subj in 1:length(subjlist)) {
   df.demo.temp = df.demo %>% filter(subject == subj.name)
 
   exclude = df.demo.temp$write_down == 'Yes' || df.s2.subj.temp$comp_check_pass < .5 || df.s2.subj.temp$numRepeats > maxRepeats ||
-    df.s2.subj.temp$numNAs > minNAs || sum(recalled[subj,]) < 5 || df.s2.subj.temp$numTrials != numQuestions
+    df.s2.subj.temp$numNAs > minNAs || sum(recalled[subj,]) < 5
   if (type != 2) {
     exclude = exclude || df.s1.subj.temp$numTrials != numTrials || df.s1.subj.temp$pctCorrect_words < .75 ||
       df.s1.subj.temp$pctCorrect_val < .75

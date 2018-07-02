@@ -16,7 +16,7 @@ modelParams_all = {[1 -1 0 -1 0 0 0], [1 -1 0 1 0 0 0], [1 -1 0 0 1 0 0], [1 0 0
     [-1 -1 -1 -1 0 0 1], [-1 -1 -1 1 0 0 1], [-1 -1 0 -1 0 0 1], [1 -1 0 1 0 0 1], ...
     [-1 -1 -1 -1 0 0 2]};
 
-whichModels = [1 6];
+whichModels = [1];
 
 modelNames = modelNames_all(whichModels);
 modelParams = modelParams_all(whichModels);
@@ -34,4 +34,4 @@ for model = 1:numModels
     [results{model}, optParams{model}, hessians{model}] = fit_fixed([datapath '/sims.mat'], params, priorPDFs, numStarts, numFnEvals);
 end
 
-save([datapath '/output_16.mat'], 'results', 'optParams', 'hessians');
+save([datapath '/output_fixed.mat'], 'results', 'optParams', 'hessians');
