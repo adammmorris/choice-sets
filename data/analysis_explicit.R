@@ -276,7 +276,7 @@ wilcox.test(df.s2.filt$rank_s1value, mu = 7)
 
 # stats
 grouped_gghistostats(in.cs, data = df.words.filt, x = s1_value)
-m.s1 = glmer(in.cs~s2_value+(s2_value|subject), data = df.words.filt %>% filter(cond == 'memory'), family='binomial')
+m.s1 = glmer(in.cs~s1_value*cond+(s1_value|subject), data = df.words.filt, family='binomial')
 summary(m.s1)
 
 # .032, .045
@@ -285,14 +285,14 @@ summary(m.s1)
 df.graph.s1 = df.words.filt %>% group_by(cond, s1_value) %>%
   summarize(in.cs = mean(in.cs), in.cs.se = sqrt(in.cs * (1-in.cs) / n()),
             chosen = mean(chosen, na.rm = T), chosen.se = sqrt(chosen * (1-chosen) / n()))
-ggplot(df.graph.s1 %>% filter(cond == 'memory'), aes(x = s1_value, y = in.cs)) +
+ggplot(df.graph.s1, aes(x = s1_value, y = in.cs)) +
   geom_point(size = 5) + geom_line() +
   geom_errorbar(aes(ymin = in.cs - in.cs.se, ymax = in.cs+in.cs.se), width = .2) +
-  geom_smooth(method='lm')#+
+  geom_smooth(method='lm')+
   #xlab('Stage 1 value') + ylab('Prob. in choice set') +
   #scale_y_continuous(breaks = c(0,.4), limits = c(0,.4)) +
   #scale_x_continuous(breaks = c(1,12))
-  #facet_wrap(~cond)
+  facet_wrap(~cond)
 ggplot(df.graph.s1 %>% filter(cond == 'choice-set'), aes(x = s1_value, y = chosen)) +
   geom_point(size = 5) + geom_line() +
   geom_errorbar(aes(ymin = chosen - chosen.se, ymax = chosen+chosen.se), width = .2) +
@@ -305,14 +305,14 @@ ggplot(df.graph.s1 %>% filter(cond == 'choice-set'), aes(x = s1_value, y = chose
 df.graph.s2 = df.words.filt %>% group_by(cond, s2_value) %>%
   summarize(in.cs = mean(in.cs), in.cs.se = sqrt(in.cs * (1-in.cs) / n()),
             chosen = mean(chosen, na.rm = T), chosen.se = sqrt(chosen * (1-chosen) / n()))
-ggplot(df.graph.s2 %>% filter(cond == 'memory'), aes(x = s2_value, y = in.cs)) +
+ggplot(df.graph.s2, aes(x = s2_value, y = in.cs)) +
   geom_point(size = 5) + geom_line() +
   geom_errorbar(aes(ymin = in.cs - in.cs.se, ymax = in.cs+in.cs.se), width = .2) +
-  geom_smooth(method='lm')
+  geom_smooth(method='lm')+
   #xlab('Stage 2 value') + ylab('Prob. in choice set') +
   #scale_y_continuous(breaks = c(0,1), limits = c(0,1)) +
   #scale_x_continuous(breaks = c(1,26))# +
-  #facet_wrap(~cond)
+  facet_wrap(~cond)
 ggplot(df.graph.s2 %>% filter(cond == 'choice-set'), aes(x = s2_value, y = chosen)) +
   geom_point(size = 5) + geom_line() +
   geom_errorbar(aes(ymin = chosen - chosen.se, ymax = chosen+chosen.se), width = .2) +
