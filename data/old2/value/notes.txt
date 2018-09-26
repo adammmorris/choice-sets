@@ -1,0 +1,6 @@
+v1 is the original (used to be called v3), got the interaction, had 9 questions
+v2 is the replication, didn't get interaction, had 5 questions
+v3 is Jonathan's stripped-down version
+v4 is the version of v1/v2 that failed.
+v5 is Jonathan's explicit-choice-set-question idea.
+v6 is the preference reversal.
