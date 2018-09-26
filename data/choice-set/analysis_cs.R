@@ -17,8 +17,7 @@ theme_update(panel.grid.major = element_blank(), panel.grid.minor = element_blan
              legend.title = element_text(size = 24, face = "bold"), legend.text = element_text(size = 20), plot.title = element_text(size = 26, face = "bold", vjust = 1))
 
 
-setwd("~/Me/Psychology/Projects/choicesets/git")
-#setwd("C:/Users/Jphil/Dropbox/choiceSets/choice-sets")
+setwd("~/Me/Psychology/Projects/choicesets/git/data/choice-set")
 
 getIndex = function(x, list) {
   y = numeric(length(x))
@@ -55,7 +54,7 @@ dodge <- position_dodge(width=0.9)
 numWords = 12;
 numTrials = 132;
 minNAs = 1;
-path = 'data/value/v7_conf/real3/'
+path = 'months_confounded/real3/'
 pointsPerCent_s1 = 5;
 pointsPerCent_s2 = 1;
 pointsPerWord = 3; # for memory condition
@@ -311,33 +310,6 @@ df.demo.filt = df.demo %>% filter(subject %in% include_names)
 
 # check out data ----------------------------------------------------------
 
-# s2 rank value
-ggpiestats(df.s2.filt, high_s2value)
-ggpiestats(df.s2.filt, high_s2value_indiv)
-gghistostats(df.s2.filt, rank_s2value, test.value = 6.5, centrality.para = 'mean', type = 'np')
-
-# s1 high value
-ggpiestats(data = df.s2.filt, main = high_s1value)
-ggpiestats(df.s2.filt, high_s1value_indiv)
-gghistostats(df.s2.filt, rank_s1value, test.value = 6.5, centrality.para = 'median', type = 'p')
-grouped_ggpiestats(cond, data = df.s2.filt, main = high_s1value)
-
-wilcox.test(df.s2.filt$rank_s1value, mu = 7)
-
-df.cs = df.words.filt %>% group_by(subject) %>% summarize(cs.size = sum(in.cs))
-
-# stats
-grouped_gghistostats(in.cs, data = df.words.filt, x = s1_value)
-m.s1 = glmer(in.cs~s1_value+I(s1_value^2)+(s1_value+I(s1_value^2)|subject),#(1|subject)+(0+s1_value|subject)+(0+I(s1_value^2)|subject),
-             data = df.words.filt %>% filter(!(s1_value %in% c(1,12))) %>% mutate(s1_value = s1_value - mean(s1_value)),
-             family='binomial')
-summary(m.s1)
-
-m.s1 = glmer(in.cs~s1_value+(s1_value|subject),
-             data = df.words.filt,
-             family='binomial')
-summary(m.s1)
-
 ## plots!
 # effect of stage 1 value on...
 df.graph.s1 = df.words.filt %>% group_by(cond, s1_value) %>%
@@ -385,25 +357,26 @@ ggplot(df.graph.s2 %>% filter(cond == 'choice-set'), aes(x = s2_value, y = chose
   #scale_x_continuous(breaks = c(1,12)) +
   #facet_wrap(~cond)
 
-m.s2 = lm(in.cs ~ word_ind, data = df.graph.s2)
-df.graph.s2$residuals = resid(m.s2) 
-ggplot(df.graph.s2, aes(x = s2_value, y = residuals)) +
-  geom_point(size = 5, aes(color = word_ind)) + geom_line() +
-  #geom_errorbar(aes(ymin = residuals - in.cs.se, ymax = in.cs+in.cs.se), width = .2) +
-  geom_smooth(method='lm', color = 'black')+
-  #xlab('Stage 2 value') + ylab('Prob. in choice set') +
-  #scale_y_continuous(breaks = c(0,1), limits = c(0,1)) +
-  #scale_x_continuous(breaks = c(1,26))# +
-  facet_wrap(~cond)
 
-#hist(df.s2.filt$rank_s2value_indiv - df.s2.filt$rank_s2value_indiv_mean)
+## stats!
+# s1 -> cs
+m.s1.cs = glmer(in.cs~s1_value+(s1_value|subject),
+                data = df.words.filt,
+                family='binomial')
+summary(m.s1.cs)
 
-# spline regression
-# require(segmented)
-# test = segmented(lm(in.cs ~ s1_value, data = df.graph.s1), ~s1_value)
-# summary(test)
+# m.s1 = glmer(in.cs~s1_value+I(s1_value^2)+(s1_value+I(s1_value^2)|subject),#(1|subject)+(0+s1_value|subject)+(0+I(s1_value^2)|subject),
+#              data = df.words.filt %>% filter(!(s1_value %in% c(1,12))) %>% mutate(s1_value = s1_value - mean(s1_value)),
+#              family='binomial')
+# summary(m.s1)
 
-# logit
+# s2 -> cs
+m.s2.cs = glmer(in.cs~s2_value+(s2_value|subject),
+                data = df.words.filt,
+                family='binomial')
+summary(m.s2.cs)
+
+# for selection tests, we need logit
 df.logit = data.frame(Subj = NULL, Trial = NULL, OptionID = NULL, Choice = NULL, MFval = NULL, MBval = NULL, nExposures = NULL, Recalled = NULL, Question = NULL)
 
 for (subj in 1:nrow(df.demo.filt)) {
@@ -451,9 +424,24 @@ for (subj in 1:nrow(df.demo.filt)) {
 df.logit = df.logit %>% mutate(Trial_unique = paste(Subj, Trial, sep="_"))
 df.logit2 = mlogit.data(df.logit, choice = "Choice", shape = "long", id.var = "Subj", alt.var = "OptionID", chid.var = "Trial_unique")
 
-m.s2 = mlogit(Choice ~ MFval | -1, df.logit2)#, panel = T,
-#rpar = c(MFcent = "n", MBcent = "n", Int = "n"), correlation = F, halton = NA, R = 1000, tol = .001)
-summary(m.s2)
+m.selection = mlogit(Choice ~ MFval + MBval | -1, df.logit2, panel = T,
+  rpar = c(MFval = "n", MBval = "n"), correlation = F, halton = NA, R = 1000, tol = .001)
+summary(m.selection)
+
+# # s2 rank value
+# ggpiestats(df.s2.filt, high_s2value)
+# ggpiestats(df.s2.filt, high_s2value_indiv)
+# gghistostats(df.s2.filt, rank_s2value, test.value = 6.5, centrality.para = 'mean', type = 'np')
+# 
+# # s1 high value
+# ggpiestats(data = df.s2.filt, main = high_s1value)
+# ggpiestats(df.s2.filt, high_s1value_indiv)
+# gghistostats(df.s2.filt, rank_s1value, test.value = 6.5, centrality.para = 'median', type = 'p')
+# grouped_ggpiestats(cond, data = df.s2.filt, main = high_s1value)
+# 
+# wilcox.test(df.s2.filt$rank_s1value, mu = 7)
+# 
+# df.cs = df.words.filt %>% group_by(subject) %>% summarize(cs.size = sum(in.cs))
 
 # bonuses, modeling -----------------------------------------------------------------
 
