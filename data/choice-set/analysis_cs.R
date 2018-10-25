@@ -54,7 +54,7 @@ dodge <- position_dodge(width=0.9)
 numWords = 12;
 numTrials = 132;
 minNAs = 1;
-path = 'months_confounded/real3/'
+path = 'months_confounded_time/pilot1/'
 pointsPerCent_s1 = 5;
 pointsPerCent_s2 = 1;
 pointsPerWord = 3; # for memory condition
@@ -325,7 +325,7 @@ ggplot(df.graph.s1, aes(x = s1_value, y = in.cs)) +
   #scale_x_continuous(breaks = c(1,12))
   facet_wrap(~cond)
 # selection out of choice set
-ggplot(df.graph.s1 %>% filter(cond == 'choice-set'), aes(x = s1_value, y = chosen)) +
+ggplot(df.graph.s1, aes(x = s1_value, y = chosen)) +
   geom_point(size = 5) + geom_line() +
   geom_errorbar(aes(ymin = chosen - chosen.se, ymax = chosen+chosen.se), width = .2) +
   geom_smooth(method='lm')+
@@ -340,7 +340,7 @@ df.graph.s2 = df.words.filt %>% group_by(cond, word_ind, s2_value) %>%
             chosen = mean(chosen, na.rm = T), chosen.se = sqrt(chosen * (1-chosen) / n()))
 # choice sets
 ggplot(df.graph.s2, aes(x = s2_value, y = in.cs)) +
-  geom_point(size = 5, aes(color = word_ind)) + geom_line() +
+  geom_point(size = 5) + geom_line() +
   geom_errorbar(aes(ymin = in.cs - in.cs.se, ymax = in.cs+in.cs.se), width = .2) +
   geom_smooth(method='lm', color = 'black')+
   #xlab('Stage 2 value') + ylab('Prob. in choice set') +
@@ -348,7 +348,7 @@ ggplot(df.graph.s2, aes(x = s2_value, y = in.cs)) +
   #scale_x_continuous(breaks = c(1,26))# +
   facet_wrap(~cond)
 # selection out of choice set
-ggplot(df.graph.s2 %>% filter(cond == 'choice-set'), aes(x = s2_value, y = chosen)) +
+ggplot(df.graph.s2, aes(x = s2_value, y = chosen)) +
   geom_point(size = 5) + geom_line() +
   geom_errorbar(aes(ymin = chosen - chosen.se, ymax = chosen+chosen.se), width = .2) +
   geom_smooth(method='lm') #+
@@ -436,7 +436,7 @@ summary(m.selection)
 # # s1 high value
 # ggpiestats(data = df.s2.filt, main = high_s1value)
 # ggpiestats(df.s2.filt, high_s1value_indiv)
-# gghistostats(df.s2.filt, rank_s1value, test.value = 6.5, centrality.para = 'median', type = 'p')
+gghistostats(df.s2.filt, rank_s1value, test.value = 6.5, centrality.para = 'median', type = 'p')
 # grouped_ggpiestats(cond, data = df.s2.filt, main = high_s1value)
 # 
 # wilcox.test(df.s2.filt$rank_s1value, mu = 7)
@@ -473,11 +473,18 @@ write.table(df.modeling, paste0(path, 'choices.csv'), row.names = F, col.names =
 
 ## bonuses
 test = df.s2 %>% group_by(subject) %>% summarize(num0 = sum(question_order == 0), num1 = sum(question_order == 2))
-df.s2.subj = df.s2 %>% filter(question_order == 0 & id != '25838') %>%
+df.s2.subj = df.s2 %>% filter(question_order == 0) %>%
   mutate(s2_bonus = ifelse(is.na(s2_value), 0, s2_value),
          mem_bonus = 0)
 df.demo = df.demo %>% mutate(s2_bonus = I(df.s2.subj$s2_bonus), mem_bonus = I(df.s2.subj$mem_bonus),
                              bonus = round((s1_bonus / pointsPerCent_s1 + s2_bonus / pointsPerCent_s2  + mem_bonus) / 100, 2))
+df.demo = df.demo %>% mutate(s2_bonus = I(df.s2.subj$s2_bonus), mem_bonus = I(df.s2.subj$mem_bonus),
+                             w1_bonus = match(substr(tr_resp2,1,1), letters), w1_bonus = ifelse(is.na(w1_bonus), 0, w1_bonus),
+                             w2_bonus = match(substrRight(tr_resp_correct,1), letters), w2_bonus = ifelse(is.na(w2_bonus), 0, w2_bonus),
+                             bonus = round((s1_bonus / pointsPerCent_s1 + s2_bonus / pointsPerCent_s2 + w1_bonus + w2_bonus + mem_bonus) / 100, 2))
+substrRight <- function(x, n){
+  substr(x, nchar(x)-n+1, nchar(x))
+}
 write.table(df.demo %>% dplyr::select(WorkerID = subject, Bonus = bonus),
             paste0(path, 'Bonuses.csv'), row.names = FALSE, col.names = FALSE, sep = ",")
 

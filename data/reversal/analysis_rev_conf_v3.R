@@ -50,7 +50,7 @@ dodge <- position_dodge(width=0.9)
 numWords = c(11,4);
 numTrials = c(110,36);
 minNAs = 1;
-path = 'confounded/v3/pilot1/'
+path = 'confounded/v3/real1/'
 pointsPerCent_s1 = 5;
 pointsPerCent_s2 = 1;
 pointsPerWord = 3; # for memory condition
@@ -140,7 +140,6 @@ df.s2.excl = df.s2 %>% filter(subject %in% subjlist) %>%
 
 recalled = matrix(F, nrow = nrow(df.s2.excl), ncol = numWords)
 recalled_ever = matrix(F, nrow = nrow(df.s2.excl), ncol = numWords)
-recalled_val = matrix(F, nrow = nrow(df.s2.excl), ncol = numWords)
 df.words$recall = NULL
 df.words$recall.ever = NULL
 df.words$order = NULL
@@ -165,11 +164,6 @@ for (i in 1:nrow(df.s2.excl)) {
       
       df.words$recall[df.words$subject == subj.name & df.words$word == wordlist[j]] = recalled[i,j]
       
-      if (recalled[i,j]) {
-        true_val = df.words.temp$s1_value[df.words.temp$word_ind == (j - 1)]
-        recalled_val[i,j] = abs(val_temp[which_word] - true_val) <= 1
-      }
-      
       recalled_ever[i,j] = recalled[i,j] | any(na.omit(df.s2.temp$choice_real_ind) == j)
       df.words$recall.ever[df.words$subject == subj.name & df.words$word == wordlist[j]] = recalled_ever[i,j]
       
@@ -193,7 +187,7 @@ for (subj in 1:length(subjlist)) {
   exclude = df.demo.temp$write_down == 'Yes' || df.s2.subj.temp$comp_check_pass < 1 ||
     df.s2.subj.temp$numNAs > minNAs || df.s2.subj.temp$numTrials != numQuestions ||
     df.s1.subj.temp$numTrials != ifelse(df.s2.subj.temp$cond == 'large', numTrials[1], numTrials[2]) ||
-    df.s1.subj.temp$pctCorrect_choice < .7 || any(!recalled.subj[c(1,2,3,4)]) #|| !any(recalled.subj[5:12])
+    df.s1.subj.temp$pctCorrect_choice < .7 || any(!recalled.subj[c(1,2,3)]) #|| !any(recalled.subj[5:12])
   if (exclude) {
     include_rows[subj] = FALSE
   } else {
@@ -246,7 +240,7 @@ df.s2 = df.s2 %>% mutate(s2_subj_ind = as.numeric(as.factor(subject)), # just fo
                          bonus_value = ifelse(is.na(choice_real_ind), 0, s2_value))
 
 df.s2.filt = df.s2 %>% filter(subject %in% include_names & question_order == 0) %>%
-  mutate(choice_type = factor(choice_real_ind, c(1,3,2,4,5:12), c('high_s1', 'mid_s1', 'low_s1', 'high_s2', rep('distractor', 8))))
+  mutate(choice_type = factor(choice_real_ind, c(1,2,3,4:11), c('high_s1', 'low_s1', 'high_s2', rep('distractor', 8))))
 
 df.words.filt = df.words %>% filter(subject %in% include_names)
 df.demo.filt = df.demo %>% filter(subject %in% include_names)
@@ -267,7 +261,7 @@ wilcox.test(df.s2.filt$rank_s1value, mu = 7)
 # it's (1,3,2,...) b/c I accidentally put low_s1 before mid_s1 in the javascript
 df.graph = df.s2.filt %>%
   group_by(cond) %>% summarize(high_s1 = mean(choice_type == 'high_s1'), high_s1.se = sqrt(high_s1 * (1-high_s1) / n()),
-                               mid_s1 = mean(choice_type == 'mid_s1'), mid_s1.se = sqrt(mid_s1 * (1-mid_s1) / n()),
+                               #mid_s1 = mean(choice_type == 'mid_s1'), mid_s1.se = sqrt(mid_s1 * (1-mid_s1) / n()),
                                low_s1 = mean(choice_type == 'low_s1'), low_s1.se = sqrt(low_s1 * (1-low_s1) / n()),
                                high_s2 = mean(choice_type == 'high_s2'), high_s2.se = sqrt(high_s2 * (1-high_s2) / n()),
                                distractor = mean(choice_type == 'distractor'), distractor.se = sqrt(distractor * (1-distractor) / n()))
@@ -275,19 +269,19 @@ df.graph$distractor = df.graph$distractor / ifelse(df.graph$cond == 'large', 8, 
 
 df.graph2 = data.frame(choice = NULL, type = NULL, cond = NULL)
 df.graph2 = rbind(df.graph2, data.frame(choice = df.graph$high_s1[1], se = df.graph$high_s1.se[1], type = 'high_s1', cond = 'small'))
-df.graph2 = rbind(df.graph2, data.frame(choice = df.graph$mid_s1[1], se = df.graph$mid_s1.se[1], type = 'mid_s1', cond = 'small'))
+#df.graph2 = rbind(df.graph2, data.frame(choice = df.graph$mid_s1[1], se = df.graph$mid_s1.se[1], type = 'mid_s1', cond = 'small'))
 df.graph2 = rbind(df.graph2, data.frame(choice = df.graph$low_s1[1], se = df.graph$low_s1.se[1], type = 'low_s1', cond = 'small'))
 df.graph2 = rbind(df.graph2, data.frame(choice = df.graph$high_s2[1], se = df.graph$high_s2.se[1], type = 'high_s2', cond = 'small'))
 df.graph2 = rbind(df.graph2, data.frame(choice = df.graph$distractor[1], se = df.graph$distractor.se[1], type = 'distractor', cond = 'small'))
 df.graph2 = rbind(df.graph2, data.frame(choice = df.graph$high_s1[2], se = df.graph$high_s1.se[2], type = 'high_s1', cond = 'large'))
-df.graph2 = rbind(df.graph2, data.frame(choice = df.graph$mid_s1[2], se = df.graph$mid_s1.se[2], type = 'mid_s1', cond = 'large'))
+#df.graph2 = rbind(df.graph2, data.frame(choice = df.graph$mid_s1[2], se = df.graph$mid_s1.se[2], type = 'mid_s1', cond = 'large'))
 df.graph2 = rbind(df.graph2, data.frame(choice = df.graph$low_s1[2], se = df.graph$low_s1.se[2], type = 'low_s1', cond = 'large'))
 df.graph2 = rbind(df.graph2, data.frame(choice = df.graph$high_s2[2], se = df.graph$high_s2.se[2], type = 'high_s2', cond = 'large'))
 df.graph2 = rbind(df.graph2, data.frame(choice = df.graph$distractor[2], se = df.graph$distractor.se[2], type = 'distractor', cond = 'large'))
 
 ggplot(df.graph2 %>% mutate(type = factor(type,
-                                          c('high_s1', 'mid_s1', 'low_s1', 'high_s2', 'distractor'),
-                                          c('High S1', 'Mid S1', 'Low S1', 'High S2', 'Distractor'))),
+                                          c('high_s1', 'low_s1', 'high_s2', 'distractor'),
+                                          c('High S1', 'Low S1', 'High S2', 'Distractor'))),
        aes(x = type, y = choice, fill = cond, group = cond)) +
   geom_bar(stat = 'identity', position = position_dodge()) +
   geom_errorbar(aes(ymin = choice - se, ymax = choice + se), width = .2,
@@ -298,44 +292,80 @@ ggplot(df.graph2 %>% mutate(type = factor(type,
 
 fn = function(df.in, ind) {
   df = df.in[ind,] %>%
-    summarize(high_s1 = mean(choice_type == 'high_s1'), mid_s1 = mean(choice_type == 'mid_s1'), low_s1 = mean(choice_type == 'low_s1'),
+    summarize(high_s1 = mean(choice_type == 'high_s1'), low_s1 = mean(choice_type == 'low_s1'),
               high_s2 = mean(choice_type == 'high_s2'), distractor = mean(choice_type == 'distractor')) %>%
     mutate(distractor = distractor / (8*(cond == 'large') + 1*(cond == 'small'))) %>%
-    select(high_s1, mid_s1, low_s1, high_s2, distractor, cond)
+    select(high_s1, low_s1, high_s2, distractor, cond)
   
-  # df[df == 0] = 1 / nrow(df.in)
-  # lod.high_s1 = log(df$high_s1[2] / (1 - df$high_s1[2])) - log(df$high_s1[1] / (1 - df$high_s1[1]))
+  df[df == 0] = 1 / nrow(df.in)
+  lod.high_s1 = log(df$high_s1[2] / (1 - df$high_s1[2])) - log(df$high_s1[1] / (1 - df$high_s1[1]))
   # lod.mid_s1 = log(df$mid_s1[2] / (1 - df$mid_s1[2])) - log(df$mid_s1[1] / (1 - df$mid_s1[1]))
-  # lod.low_s1 = log(df$low_s1[2] / (1 - df$low_s1[2])) - log(df$low_s1[1] / (1 - df$low_s1[1]))
-  # lod.high_s2 = log(df$high_s2[2] / (1 - df$high_s2[2])) - log(df$high_s2[1] / (1 - df$high_s2[1]))
+  lod.low_s1 = log(df$low_s1[2] / (1 - df$low_s1[2])) - log(df$low_s1[1] / (1 - df$low_s1[1]))
+  lod.high_s2 = log(df$high_s2[2] / (1 - df$high_s2[2])) - log(df$high_s2[1] / (1 - df$high_s2[1]))
   # lod.distractor = log(df$distractor[2] / (1 - df$distractor[2])) - log(df$distractor[1] / (1 - df$distractor[1]))
   
-  m_highS1 = glm(chose_highS1 ~ cond, data = df, family = 'binomial')
-  m_lowS1 = glm(chose_lowS1 ~ cond, data = df, family = 'binomial')
+  #m_highS1 = glm(chose_highS1 ~ cond, data = df, family = 'binomial')
+  #m_lowS1 = glm(chose_lowS1 ~ cond, data = df, family = 'binomial')
   
-  stat = lod.high_s1 - lod.high_s2
+  stat = lod.high_s1 - lod.low_s1
   #stat = (df$high_s1[2] - df$high_s1[1]) - (df$low_s1[2] - df$low_s1[1])
   
-  #while (is.infinite(stat)) {
-  #  stat = fn(df.in, sample(nrow(df.in), nrow(df.in), replace = T))
-  #}
+  while (is.infinite(stat)) {
+    stat = fn(df.in, sample(nrow(df.in), nrow(df.in), replace = T))
+  }
   
   return(stat)
 }
 
-bs = boot(df.s2.filt %>%
-       mutate(choice_type = factor(choice_real_ind, c(1,3,2,4,5:12), c('high_s1', 'mid_s1', 'low_s1', 'high_s2', rep('distractor', 8)))) %>%
-       group_by(cond),
-     fn, 1000)
-bs
-bs.ci = boot.ci(bs)
-bs.ci
+getCI = function(df, stat.fn) {
+  bs = boot(df, stat.fn, 1000)
+  bs.ci = boot.ci(bs)
+  return(bs.ci$bca[c(4,5)])
+}
 
-# high_s1, small: .06 - .24; large: .16 - .44 (**)
-# high_s2, small: .61 - .84; large: .07 - .31 (**)
-# low_s1, small: .039 - .18; large: .14 - .4 (**)
-# high_s1 * high_s2: .47 - 1.0
-# low_s1 * high_s2: .44 - .94
+getCI(df.s2.filt %>% group_by(cond), fn)
+
+stat = vector(mode = 'integer', length = 10000)
+for (i in 1:10000) {
+  df.s2.filt.temp = df.s2.filt
+  df.s2.filt.temp$cond = sample(df.s2.filt$cond)
+  stat[i] = fn(df.s2.filt.temp %>% group_by(cond), 1:nrow(df.s2.filt.temp))
+}
+
+true.stat = fn(df.s2.filt %>% group_by(cond), 1:nrow(df.s2.filt))
+quantile(stat, .95)
+pctile = ecdf(stat)
+pctile(true.stat)
+
+# power analysis
+n_power_bs = 100
+power_ss = 200
+sig = logical(n_power_bs)
+cis = matrix(nrow = n_power_bs, ncol = 2)
+pctiles = matrix(nrow = n_power_bs, ncol = 1)
+
+getPerm = function(df, stat.fn) {
+  stat = vector(mode = 'integer', length = 1000)
+  for (i in 1:1000) {
+    df.temp = df
+    df.temp$cond = sample(df$cond)
+    stat[i] = stat.fn(df.temp %>% group_by(cond), 1:nrow(df.temp))
+  }
+  
+  true.stat = stat.fn(df %>% group_by(cond), 1:nrow(df))
+  pctile = ecdf(stat)
+  return(pctile(true.stat))
+}
+
+for (i in 1:n_power_bs) {
+  ind = sample(1:nrow(df.s2.filt), power_ss, replace = T)
+  pct = getPerm(df.s2.filt[ind,] %>% group_by(cond), fn)
+  sig[i] = pct > .95
+  pctiles[i,] = pct
+}
+mean(sig)
+
+# single logistic regressions
 
 df.analysis = df.s2.filt %>%
   mutate(chose_highS1 = choice_type == 'high_s1', chose_lowS1 = choice_type == 'low_s1', 
@@ -348,6 +378,47 @@ m_lowS1 = glm(chose_lowS1 ~ cond, data = df.analysis, family = 'binomial')
 summary(m_lowS1)
 m_lowS1_null = glm(chose_lowS1 ~ 1, data = df.analysis, family = 'binomial')
 summary(m_lowS1)
+
+
+# distractor-analysis -----------------------------------------------------
+
+df.s2.filt.distr = df.s2 %>% filter(subject %in% include_names & question_order == 0) %>%
+  mutate(choice_type = factor(choice_real_ind, c(1,2,3,4:7,8:11), c('high_s1', 'low_s1', 'high_s2', rep('distractor_lo', 4), rep('distractor_hi', 4))))
+
+# it's (1,3,2,...) b/c I accidentally put low_s1 before mid_s1 in the javascript
+df.graph = df.s2.filt.distr %>%
+  group_by(cond) %>% summarize(high_s1 = mean(choice_type == 'high_s1'), high_s1.se = sqrt(high_s1 * (1-high_s1) / n()),
+                               low_s1 = mean(choice_type == 'low_s1'), low_s1.se = sqrt(low_s1 * (1-low_s1) / n()),
+                               high_s2 = mean(choice_type == 'high_s2'), high_s2.se = sqrt(high_s2 * (1-high_s2) / n()),
+                               distractor_hi = mean(choice_type == 'distractor_hi'), distractor_hi.se = sqrt(distractor_hi * (1-distractor_hi) / n()),
+                               distractor_lo = mean(choice_type == 'distractor_lo'), distractor_lo.se = sqrt(distractor_lo * (1-distractor_lo) / n()))
+#df.graph$distractor = df.graph$distractor / ifelse(df.graph$cond == 'large', 4, 1)
+
+df.graph2 = data.frame(choice = NULL, type = NULL, cond = NULL)
+df.graph2 = rbind(df.graph2, data.frame(choice = df.graph$high_s1[1], se = df.graph$high_s1.se[1], type = 'high_s1', cond = 'small'))
+#df.graph2 = rbind(df.graph2, data.frame(choice = df.graph$mid_s1[1], se = df.graph$mid_s1.se[1], type = 'mid_s1', cond = 'small'))
+df.graph2 = rbind(df.graph2, data.frame(choice = df.graph$low_s1[1], se = df.graph$low_s1.se[1], type = 'low_s1', cond = 'small'))
+df.graph2 = rbind(df.graph2, data.frame(choice = df.graph$high_s2[1], se = df.graph$high_s2.se[1], type = 'high_s2', cond = 'small'))
+df.graph2 = rbind(df.graph2, data.frame(choice = df.graph$distractor_hi[1], se = df.graph$distractor_hi.se[1], type = 'distractor_hi', cond = 'small'))
+df.graph2 = rbind(df.graph2, data.frame(choice = df.graph$distractor_lo[1], se = df.graph$distractor_lo.se[1], type = 'distractor_lo', cond = 'small'))
+df.graph2 = rbind(df.graph2, data.frame(choice = df.graph$high_s1[2], se = df.graph$high_s1.se[2], type = 'high_s1', cond = 'large'))
+#df.graph2 = rbind(df.graph2, data.frame(choice = df.graph$mid_s1[2], se = df.graph$mid_s1.se[2], type = 'mid_s1', cond = 'large'))
+df.graph2 = rbind(df.graph2, data.frame(choice = df.graph$low_s1[2], se = df.graph$low_s1.se[2], type = 'low_s1', cond = 'large'))
+df.graph2 = rbind(df.graph2, data.frame(choice = df.graph$high_s2[2], se = df.graph$high_s2.se[2], type = 'high_s2', cond = 'large'))
+df.graph2 = rbind(df.graph2, data.frame(choice = df.graph$distractor_hi[2], se = df.graph$distractor_hi.se[2], type = 'distractor_hi', cond = 'large'))
+df.graph2 = rbind(df.graph2, data.frame(choice = df.graph$distractor_lo[2], se = df.graph$distractor_lo.se[2], type = 'distractor_lo', cond = 'large'))
+
+ggplot(df.graph2 %>% mutate(type = factor(type,
+                                          c('high_s1', 'low_s1', 'high_s2', 'distractor_hi', 'distractor_lo'),
+                                          c('High S1', 'Low S1', 'High S2', 'Distractor High', 'Distractor Low'))),
+       aes(x = type, y = choice, fill = cond, group = cond)) +
+  geom_bar(stat = 'identity', position = position_dodge()) +
+  geom_errorbar(aes(ymin = choice - se, ymax = choice + se), width = .2,
+                position = position_dodge(.9)) +
+  xlab('Option') +
+  ylab('Prob. of choosing option') +
+  guides(fill = guide_legend(title = "Condition"))
+
 
 # recall ------------------------------------------------------------------
 df.recall = df.words.filt %>%
@@ -376,15 +447,14 @@ ggplot(df.recall, aes(x = word, y = prob.recall, fill = word_type, group = word_
 
 # chi-squared
 df.graph.counts = df.s2.filt %>%
-  mutate(choice_type = factor(choice_real_ind, c(1,3,2,4,5:12), c('high_s1', 'mid_s1', 'low_s1', 'high_s2', rep('distractor', 8)))) %>%
+  mutate(choice_type = factor(choice_real_ind, c(1,2,3,4:11), c('high_s1', 'low_s1', 'high_s2', rep('distractor', 8)))) %>%
   group_by(cond) %>% summarize(high_s1 = sum(choice_type == 'high_s1'),
-                               mid_s1 = sum(choice_type == 'mid_s1'),
                                low_s1 = sum(choice_type == 'low_s1'),
                                high_s2 = sum(choice_type == 'high_s2'),
                                distractor = sum(choice_type == 'distractor'))
 
 df.graph.counts.1 = df.graph.counts %>%
-  mutate(other = low_s1 + high_s2 + distractor) %>% select(high_s1, low_s1) %>%
+  mutate(other = high_s1 + low_s1 + distractor) %>% select(high_s1, low_s1) %>%
   data.matrix
 chisq.test(df.graph.counts.1)
 
@@ -445,43 +515,32 @@ summary(m)
 
 # bonuses, modeling -----------------------------------------------------------------
 
-## save for modeling
-df.test = df.s2 %>% group_by(subject) %>% summarize(anyGood = any(!is.na(choice_real_ind)))
-
-rewards_tr = matrix(0, nrow = sum(include_rows), ncol = numWords)
-ind = 1
-for (subj in 1:nrow(df.demo)) {
-  subj.name = df.demo$subject[subj]
+## bonuses
+recalled_total = recalled
+nrecall_bonus = rowSums(recalled_total)
+df.s2.subj = df.s2 %>% filter(question_order == 0) %>%
+  mutate(s2_bonus = ifelse(is.na(s2_value), 0, s2_value))
+for (i in 1:nrow(df.s2.subj)) {
+  nrecall_bonus = (df.words %>% filter(subject == df.s2.subj$subject[i]) %>% mutate(nrecall = sum(recall)))$nrecall[1]
+  numWords.temp = ifelse(df.s2.subj$cond[i] == 'large', numWords[1], numWords[2])
+  if (length(nrecall_bonus) > 0 && !is.na(nrecall_bonus)) {
+    df.s2.subj$mem_bonus[i] = nrecall_bonus * pointsPerWord +
+      allBonus * (nrecall_bonus == numWords.temp)
+  } else {
+    df.s2.subj$mem_bonus[i] = 0
+  }
   
-  if (subj.name %in% include_names & df.test$anyGood[df.test$subject == subj.name]) {
-    df.words.temp = df.words %>% filter(subject == subj.name)
-    
-    for (word in 1:numWords) {
-      rewards_tr[ind, word] = df.words.temp$s1_value[word]
-    }
-    ind = ind + 1
+  s1_bonus = (df.demo %>% filter(subject == df.s2.subj$subject[i]))$s1_bonus
+  if (length(s1_bonus) > 0 && !is.na(s1_bonus)) {
+    df.s2.subj$s1_bonus[i] = s1_bonus
+  } else {
+    df.s2.subj$s1_bonus[i] = 0 
   }
 }
 
-write.csv(rewards_tr, paste0(path, 'rewards_s1.csv'), row.names = F)
-write.csv(recalled_ever[include_rows & df.test$anyGood, ] * 1, paste0(path, 'recalled.csv'), row.names = F)
-
-df.modeling = df.s2 %>% filter(subject %in% include_names & !is.na(choice_real_ind)) %>%
-  mutate(all_values_nocomma = gsub(",", " ", all_values)) %>% 
-  dplyr::select(s2_subj_ind, choice_real_ind, all_values_nocomma)
-write.table(df.modeling, paste0(path, 'choices.csv'), row.names = F, col.names = F, sep=",")
-
-## bonuses
-recalled_total = recalled & recalled_val
-nrecall_bonus = rowSums(recalled_total)
-df.s2.subj = df.s2 %>% filter(question_order == 0) %>%
-  mutate(numWords.temp = ifelse(cond == 'large', numWords[1], numWords[2]),
-         s2_bonus = ifelse(is.na(s2_value), 0, s2_value),
-         mem_bonus = nrecall_bonus * pointsPerWord +
-           allBonus * (nrecall_bonus == numWords.temp))
-df.demo = df.demo %>% mutate(s2_bonus = I(df.s2.subj$s2_bonus), mem_bonus = I(df.s2.subj$mem_bonus),
-                             bonus = round((s1_bonus / pointsPerCent_s1 + s2_bonus / pointsPerCent_s2  + mem_bonus) / 100, 2))
-write.table(df.demo %>% dplyr::select(WorkerID = subject, Bonus = bonus),
+df.s2.subj = df.s2.subj %>%
+  mutate(bonus = round((s1_bonus / pointsPerCent_s1 + s2_bonus / pointsPerCent_s2  + mem_bonus) / 100, 2))
+write.table(df.s2.subj %>% dplyr::select(WorkerID = subject, Bonus = bonus),
             paste0(path, 'Bonuses.csv'), row.names = FALSE, col.names = FALSE, sep = ",")
 
 ## save

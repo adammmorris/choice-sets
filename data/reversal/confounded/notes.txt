@@ -1,0 +1,3 @@
+v1: 12 words, not pre-tested, distractors +/-1 (and mistakenly off by 1).
+v2: 12 words, pre-tested, distractors +/-2 (with no distractor on center).
+v3: 12 words, pre-tested, distractors spread out (w/ ones outside of high-s1 and low-s1)
