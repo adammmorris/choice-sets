@@ -50,7 +50,7 @@ dodge <- position_dodge(width=0.9)
 numWords = c(11,4);
 numTrials = c(110,36);
 minNAs = 1;
-path = 'confounded/v3/real1/'
+path = 'confounded/v3/real2/'
 pointsPerCent_s1 = 5;
 pointsPerCent_s2 = 1;
 pointsPerWord = 3; # for memory condition
@@ -150,26 +150,28 @@ for (i in 1:nrow(df.s2.excl)) {
   df.s2.temp = df.s2 %>% filter(subject == subj.name)
   df.s2.temp.mem = df.s2.temp %>% filter(question == 'Memory')
   
-  words_temp = trimws(as.string.vector(df.s2.temp.mem$choice))
-  val_temp = as.numeric(trimws(as.string.vector(df.s2.temp.mem$scratch)))
-  val_temp[is.na(val_temp)] = -99
-  
-  wordlist = df.words.temp$word
-  numWords_temp = ifelse(df.s2.temp.mem$cond == 'large', numWords[1], numWords[2])
-  
-  if (length(wordlist) == numWords_temp) {
-    for (j in 1:numWords_temp) {
-      which_word = amatch(wordlist[j], words_temp, maxDist = 2, nomatch = 0)
-      recalled[i,j] = which_word > 0
-      
-      df.words$recall[df.words$subject == subj.name & df.words$word == wordlist[j]] = recalled[i,j]
-      
-      recalled_ever[i,j] = recalled[i,j] | any(na.omit(df.s2.temp$choice_real_ind) == j)
-      df.words$recall.ever[df.words$subject == subj.name & df.words$word == wordlist[j]] = recalled_ever[i,j]
-      
-      df.words$order[df.words$subject == subj.name & df.words$word == wordlist[j]] = which_word
-    }
+  if (length(df.s2.temp.mem$choice) > 0) {
+    words_temp = trimws(as.string.vector(df.s2.temp.mem$choice))
+  } else {
+    words_temp = ""
   }
+    
+    wordlist = df.words.temp$word
+    numWords_temp = ifelse(df.s2.temp$cond == 'large', numWords[1], numWords[2])
+    
+    if (length(wordlist) == numWords_temp) {
+      for (j in 1:numWords_temp) {
+        which_word = amatch(wordlist[j], words_temp, maxDist = 2, nomatch = 0)
+        recalled[i,j] = which_word > 0
+        
+        df.words$recall[df.words$subject == subj.name & df.words$word == wordlist[j]] = recalled[i,j]
+        
+        recalled_ever[i,j] = recalled[i,j] | any(na.omit(df.s2.temp$choice_real_ind) == j)
+        df.words$recall.ever[df.words$subject == subj.name & df.words$word == wordlist[j]] = recalled_ever[i,j]
+        
+        df.words$order[df.words$subject == subj.name & df.words$word == wordlist[j]] = which_word
+      }
+    }
 }
 
 # exclusion
@@ -234,7 +236,11 @@ for (i in 1:nrow(df.s2)) {
   
   s2_valuelist = (df.words %>% filter(subject == subj.name))$s2_value
   df.s2$median_value[i] = median(s2_valuelist)
+  
+  df.words$chosen[word_rows] = 1
 }
+
+df.words$chosen[is.na(df.words$chosen)] = 0
 
 df.s2 = df.s2 %>% mutate(s2_subj_ind = as.numeric(as.factor(subject)), # just for modeling
                          bonus_value = ifelse(is.na(choice_real_ind), 0, s2_value))
@@ -265,7 +271,7 @@ df.graph = df.s2.filt %>%
                                low_s1 = mean(choice_type == 'low_s1'), low_s1.se = sqrt(low_s1 * (1-low_s1) / n()),
                                high_s2 = mean(choice_type == 'high_s2'), high_s2.se = sqrt(high_s2 * (1-high_s2) / n()),
                                distractor = mean(choice_type == 'distractor'), distractor.se = sqrt(distractor * (1-distractor) / n()))
-df.graph$distractor = df.graph$distractor / ifelse(df.graph$cond == 'large', 8, 1)
+#df.graph$distractor = df.graph$distractor / ifelse(df.graph$cond == 'large', 8, 1)
 
 df.graph2 = data.frame(choice = NULL, type = NULL, cond = NULL)
 df.graph2 = rbind(df.graph2, data.frame(choice = df.graph$high_s1[1], se = df.graph$high_s1.se[1], type = 'high_s1', cond = 'small'))
@@ -325,10 +331,15 @@ getCI = function(df, stat.fn) {
 
 getCI(df.s2.filt %>% group_by(cond), fn)
 
-stat = vector(mode = 'integer', length = 10000)
-for (i in 1:10000) {
+stat = vector(mode = 'integer', length = 1000)
+for (i in 1:1000) {
   df.s2.filt.temp = df.s2.filt
   df.s2.filt.temp$cond = sample(df.s2.filt$cond)
+  for (i in 1:nrow(df.s2.filt.temp)) {
+    if (df.s2.filt.temp$choice_type[i] %in% c('high_s1', 'low_s1')) {
+      df.s2.filt.temp$choice_type[i] = ifelse(runif(1) < .5, 'high_s1', 'low_s1')
+    }
+  }
   stat[i] = fn(df.s2.filt.temp %>% group_by(cond), 1:nrow(df.s2.filt.temp))
 }
 
@@ -383,7 +394,7 @@ summary(m_lowS1)
 # distractor-analysis -----------------------------------------------------
 
 df.s2.filt.distr = df.s2 %>% filter(subject %in% include_names & question_order == 0) %>%
-  mutate(choice_type = factor(choice_real_ind, c(1,2,3,4:7,8:11), c('high_s1', 'low_s1', 'high_s2', rep('distractor_lo', 4), rep('distractor_hi', 4))))
+  mutate(choice_type = factor(choice_real_ind, c(1,2,3,4,11,5:10), c('high_s1', 'low_s1', 'high_s2', rep('distractor_lo', 1), rep('distractor_hi', 1), rep('distractor', 6))))
 
 # it's (1,3,2,...) b/c I accidentally put low_s1 before mid_s1 in the javascript
 df.graph = df.s2.filt.distr %>%
@@ -445,74 +456,6 @@ ggplot(df.recall, aes(x = word, y = prob.recall, fill = word_type, group = word_
   ylab('Prob. of recalling option') +
   theme(axis.text.x = element_text(angle=90, hjust = 1, vjust = 0.5))
 
-# chi-squared
-df.graph.counts = df.s2.filt %>%
-  mutate(choice_type = factor(choice_real_ind, c(1,2,3,4:11), c('high_s1', 'low_s1', 'high_s2', rep('distractor', 8)))) %>%
-  group_by(cond) %>% summarize(high_s1 = sum(choice_type == 'high_s1'),
-                               low_s1 = sum(choice_type == 'low_s1'),
-                               high_s2 = sum(choice_type == 'high_s2'),
-                               distractor = sum(choice_type == 'distractor'))
-
-df.graph.counts.1 = df.graph.counts %>%
-  mutate(other = high_s1 + low_s1 + distractor) %>% select(high_s1, low_s1) %>%
-  data.matrix
-chisq.test(df.graph.counts.1)
-
-# logit -------------------------------------------------------------------
-
-
-df.logit = data.frame(Subj = NULL, Trial = NULL, OptionID = NULL, Choice = NULL, MFval = NULL, MBval = NULL, nExposures = NULL, Recalled = NULL, Question = NULL)
-
-for (subj in 1:nrow(df.demo.filt)) {
-  subj.name = df.demo.filt$subject[subj]
-  recalled.temp = recalled_ever.filt[subj, ]
-  #num.recalled.temp = sum(recalled.temp)
-  num.recalled.temp = 5
-  
-  df.words.temp = df.words.filt %>% filter(subject == subj.name)
-  df.s2.temp = df.s2.filt %>% filter(subject == subj.name) %>% arrange(question_order)
-
-  nAnswered = 1
-  
-  Subj.col = rep(subj, num.recalled.temp * nAnswered)
-  Condition.col = rep(df.s2.temp$cond, num.recalled.temp * nAnswered)
-  
-  OptionID_real.col = rep(which(recalled.temp), nAnswered)
-  OptionID.col = rep(1:num.recalled.temp, nAnswered)
-  Trial.col = rep(1:nAnswered, each = num.recalled.temp)
-  Question.col = rep(df.s2.temp$question_ind[!is.na(df.s2.temp$choice_real_ind)], each = num.recalled.temp)
-  
-  temp.choice = matrix(0, nrow = nAnswered, ncol = num.recalled.temp)
-  ind = 1
-  for (q in 1:numRealQuestions) {
-    if (!is.na(df.s2.temp$choice_real_ind[q])) {
-      #choice = logical(num.recalled.temp)
-      #choice[which(df.s2.temp$choice_real_ind[q] == which(recalled.temp))] = TRUE
-      choice = logical()
-      temp.choice[ind,] = choice
-      
-      ind = ind + 1
-    }
-  }
-    
-  Choice.col = as.vector(t(temp.choice))
-  
-  df.logit = rbind(df.logit,
-                   data.frame(Subj = Subj.col, Trial = Trial.col, OptionID = OptionID_real.col, Choice = Choice.col,
-                              Condition = Condition.col))
-}
-
-df.logit = df.logit %>% mutate(Trial_unique = paste(Subj, Trial, sep="_"),
-                               high_s1 = as.numeric(OptionID == 1),
-                               mid_s1 = as.numeric(OptionID == 3),
-                               low_s2 = as.numeric(OptionID == 2),
-                               high_s2 = as.numeric(OptionID == 4),
-                               distractor = as.numeric(OptionID > 4))
-df.logit2 = mlogit.data(df.logit, choice = "Choice", shape = "long", id.var = "Subj", alt.var = "OptionID", chid.var = "Trial_unique")
-
-m = mlogit(Choice ~ 1, data = df.logit2)
-summary(m)
-
 # bonuses, modeling -----------------------------------------------------------------
 
 ## bonuses
@@ -545,3 +488,56 @@ write.table(df.s2.subj %>% dplyr::select(WorkerID = subject, Bonus = bonus),
 
 ## save
 save.image(paste0(path, 'analysis.rdata'))
+
+
+# order effects ----------------------------------------------------------
+
+
+histogram(~ order | s1_value, df.words.filt[df.words.filt$recall == T, ])
+m.order = lmer(order ~ s1_value + s2_value + (s1_value + s2_value | subject),
+               data = df.words.filt %>% filter(recall & !chosen & cond == 'large') %>% mutate(subject = factor(subject))) #& df.words.filt$subject %in% subj.notfirst, ])
+summary(m.order)
+
+
+## word order raster plot:
+cor.test(df.words.filt$order[df.words.filt$recall==TRUE],df.words.filt$s1_value[df.words.filt$recall==TRUE])
+plot <- df.words.filt %>%
+  filter(recall & cond == 'large' & !chosen) %>%
+  mutate(value = s1_value, high_value = factor(c("Low Past Value","High Past Value")[as.factor(high_s1value)])) %>%
+  group_by(order,value) %>%
+  summarise(count = table(value)[1]) %>%
+  ggplot(aes(x=order,y=value,fill=count)) +
+  geom_tile()+
+  scale_fill_continuous(low = 'white',high = 'red') +
+  #facet_wrap(~high_value, scales="free_y",ncol=1) +
+  theme_bw() +
+  theme(
+    plot.background = element_blank()
+    ,panel.grid.major = element_blank()
+    ,panel.grid.minor = element_blank()
+    ,legend.title=element_blank()
+    #,legend.position=c(.1,.9)
+    #,legend.text=element_text(size=rel(1.4))
+    ,axis.text.y=element_text(size=rel(1.5))
+    ,axis.text.x=element_text(size=rel(1.5))
+    ,axis.title.y=element_text(vjust=.9)
+    ,axis.ticks = element_blank()
+    ,strip.text=element_text(size=rel(1.5))
+    ,axis.title=element_text(size=rel(1.5))    
+  )
+plot
+
+
+## word order mean position plot
+
+orderD <- df.words %>%
+  filter(recall) %>%
+  mutate(value = s1_value, high_val = factor(c("Low Past Value","High Past Value")[as.factor(high_s1value)])) %>%
+  group_by(value,high_val,subject) %>%
+  summarise(meanOrders = mean(order,na.rm=T)) %>%
+  group_by(value,high_val) %>%
+  summarise(meanOrder = mean(meanOrders,na.rm=T),
+            seOrder = se(meanOrders),
+            minOrder = meanOrder - seOrder,
+            maxOrder = meanOrder + seOrder) %>%
+  arrange(order(high_val))
