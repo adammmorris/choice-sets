@@ -235,6 +235,7 @@ df.cs = df.words.filt %>% group_by(cond, subject) %>% summarize(cs.size = sum(in
 
 ggplot(df.cs, aes(x = cond, y = cs.size.m)) +
   geom_point(size = 5) + geom_smooth(method = 'lm') +
+  labs(x="Time alloted (s)", y="Consideration set size") +
   geom_errorbar(aes(ymin = cs.size.m - cs.size.se, ymax = cs.size.m + cs.size.se), width = .2)
 
 # plot all months

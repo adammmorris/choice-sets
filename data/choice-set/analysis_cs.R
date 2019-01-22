@@ -51,14 +51,14 @@ dodge <- position_dodge(width=0.9)
 
 # import data -------------------------------------------------------------
 
+path = 'months_confounded/real1/'
+cs.flipped = F
+
 numWords = 12;
 numTrials = 132;
 minNAs = 1;
-path = 'months_confounded_time/pilot1/'
 pointsPerCent_s1 = 5;
 pointsPerCent_s2 = 1;
-pointsPerWord = 3; # for memory condition
-allBonus = 25;
 numRealQuestions = 1;
 type = 0;
 maxRepeats = 2;
@@ -67,7 +67,7 @@ numQuestions = 2;
 # Load data
 df.demo = read.csv(paste0(path, 'demo.csv'), stringsAsFactors = F) %>% arrange(subject) %>% mutate(total_time_real = total_time / 60000)
 df.words.raw = read.csv(paste0(path, 'words.csv'), stringsAsFactors = F) %>% arrange(subject, word_ind)
-df.s1.raw = read.csv(paste0(path, 's1.csv'), stringsAsFactors = F) %>% arrange(subject);
+df.s1.raw = read.csv(paste0(path, 's1.csv'), stringsAsFactors = F) %>% arrange(subject)
 df.s2.raw = read.csv(paste0(path, 's2.csv'), stringsAsFactors = F) %>% arrange(subject, question_order)
 
 subjlist = df.demo$subject
@@ -112,81 +112,46 @@ df.s2.excl = df.s2 %>% filter(subject %in% subjlist) %>%
             numTrials = n(),
             cond = cond[1])
 
-# recall
-recalled = matrix(F, nrow = nrow(df.s2.excl), ncol = numWords)
-recalled_ever = matrix(F, nrow = nrow(df.s2.excl), ncol = numWords)
-recalled_val = matrix(F, nrow = nrow(df.s2.excl), ncol = numWords)
-df.words$recall = NULL
-df.words$recall.ever = NULL
-df.words$order = NULL
-
-for (i in 1:nrow(df.s2.excl)) {
-  if (df.s2.excl$cond[i] == 'memory') {
-    subj.name = df.s2.excl$subject[i]
-    df.words.temp = df.words %>% filter(subject == subj.name)
-    df.s2.temp = df.s2 %>% filter(subject == subj.name)
-    df.s2.temp.mem = df.s2.temp %>% filter(question == 'Memory')
-    
-    words_temp = trimws(as.string.vector(df.s2.temp.mem$choice))
-    val_temp = as.numeric(trimws(as.string.vector(df.s2.temp.mem$scratch)))
-    val_temp[is.na(val_temp)] = -99
-    
-    wordlist = df.words.temp$word
-    
-    if (length(wordlist) == numWords) {
-      for (j in 1:numWords) {
-        which_word = amatch(wordlist[j], words_temp, maxDist = 2, nomatch = 0)
-        recalled[i,j] = which_word > 0
-        
-        df.words$recall[df.words$subject == subj.name & df.words$word == wordlist[j]] = recalled[i,j]
-        
-        if (recalled[i,j]) {
-          true_val = df.words.temp$s1_value[df.words.temp$word_ind == (j - 1)]
-          recalled_val[i,j] = abs(val_temp[which_word] - true_val) <= 1
-        }
-        
-        recalled_ever[i,j] = recalled[i,j] | any(na.omit(df.s2.temp$choice_real_ind) == j)
-        df.words$recall.ever[df.words$subject == subj.name & df.words$word == wordlist[j]] = recalled_ever[i,j]
-        
-        df.words$order[df.words$subject == subj.name & df.words$word == wordlist[j]] = which_word
-      }
-    }
-  }
-}
+# df.words
 
 for (i in 1:nrow(df.words)) {
   subj = df.words$subject[i]
   choice = (df.s2 %>% filter(subject == subj, question_order == 0))$choice_real
   df.s2.temp = df.s2 %>% filter(subject == subj)
   
-  if (T) {
-    # which words were in cs
-    cs = (df.s2.temp %>% filter(question == 'choice-set'))$choice
-    if (length(cs) > 0) {
-      cs = as.string.vector.noquotes(gsub('\"', '', cs))
-      for (j in 1:length(cs)) {
-        cs.split = strsplit(cs[j], ":")[[1]]
-        word = cs.split[1]
-        val = cs.split[2]
-        
-        if (length(choice) > 0) {
-          df.words$in.cs[df.words$word == word & df.words$subject == subj] = ifelse(val == "1" | word == choice, T, ifelse(val == "0", F, NA))
-        } else {
-          df.words$in.cs[df.words$word == word & df.words$subject == subj] = NA
-        }
+  
+  # which words were in cs
+  cs = (df.s2.temp %>% filter(question == 'choice-set'))$choice
+  cs.order = (df.s2.temp %>% filter(question == 'choice-set'))$scratch
+  if (length(cs) > 0) {
+    cs = as.string.vector.noquotes(gsub('\"', '', cs))
+    cs.order = as.string.vector.noquotes(gsub('\"', '', cs.order))
+    for (j in 1:length(cs)) {
+      cs.split = strsplit(cs[j], ":")[[1]]
+      word = cs.split[1]
+      val = cs.split[2]
+      word_rows = df.words$word == word & df.words$subject == subj
+      
+      # in later versions, "1" means no and "0" means yes
+      val = ifelse(cs.flipped, ifelse(val == "1", "0", ifelse(val == "0", "1", val)), val)
+      
+      cs.order.split = strsplit(cs.order[j], ":")[[1]]
+      order.val = as.numeric(ifelse(val == "1", cs.order.split[2], NA))
+      
+      if (length(choice) > 0) {
+        df.words$in.cs[word_rows] = ifelse(val == "1" | word == choice, T, ifelse(val == "0", F, NA))
+        df.words$cs.order[word_rows] = order.val
+      } else {
+        df.words$in.cs[word_rows] = NA
       }
-    } else {
-      df.words$in.cs[df.words$word == word & df.words$subject == subj] = NA
     }
   } else {
-    df.words$in.cs[i] = df.words$recall.ever[i]
+    df.words$in.cs[word_rows] = NA
   }
 }
 
 # s1
-df.s1 = df.s1.raw %>% filter(subject %in% subjlist) %>%
-  mutate(word_chosen = ifelse(choice, alt, word))
-
+df.s1 = df.s1.raw %>% filter(subject %in% subjlist) %>% mutate(choice = as.numeric(choice))
 #newSubj = T
 
 for (i in 1:nrow(df.s1)) {
@@ -203,6 +168,8 @@ for (i in 1:nrow(df.s1)) {
   v1 = df.words$s1_value[df.words$subject == subj & df.words$word == df.s1$word[i]]
   v2 = df.words$s1_value[df.words$subject == subj & df.words$word == df.s1$alt[i]]
   choice = df.s1$choice[i]
+  
+  df.s1$word_chosen[i] = ifelse(choice, df.s1$alt[i], df.s1$word[i])
   
   #df.s1$correct_word[i] = ain(toupper(df.s1$resp[i]), df.s1$word[i], maxDist = 2) & ain(toupper(df.s1$resp3[i]), df.s1$alt[i], maxDist = 2)
   #df.s1$correct_val[i] = df.s1$resp2[i] == df.s1$value[i] & df.s1$resp4[i] == df.s1$value2[i]
@@ -240,7 +207,7 @@ for (subj in 1:length(subjlist)) {
   exclude = df.demo.temp$write_down == 'Yes' || df.s2.subj.temp$comp_check_pass < 1 ||
     df.s2.subj.temp$numNAs > minNAs || df.s2.subj.temp$numTrials != numQuestions ||
     df.s1.subj.temp$numTrials != numTrials ||
-    df.s1.temp$pctCorrect_choice < .7 #|| sum(df.words.temp$in.cs) < 2 || #df.demo.temp$use_s1 == 'Yes'
+    df.s1.temp$pctCorrect_choice < .7
   if (exclude) {
     include_rows[subj] = FALSE
   } else {
@@ -257,6 +224,7 @@ for (subj in 1:length(subjlist)) {
 
 for (i in 1:nrow(df.words)) {
   subj = df.words$subject[i]
+  word = df.words$word[i]
   
   s1_valuelist = (df.words %>% filter(subject == subj))$s1_value
   s1_valuelist_rank = rank(s1_valuelist, ties.method = 'max')
@@ -271,9 +239,19 @@ for (i in 1:nrow(df.words)) {
   df.words$rank_s2value[i] = s2_valuelist_rank[df.words$word_ind[i] + 1]
   df.words$rank_s2value_indiv[i] = ifelse(df.words$in.cs[i], s2_valuelist_indiv_rank[df.words$s2_value[i] == s2_valuelist_indiv], NA)
   df.words$rank_s2value_indiv_mean[i] = mean(s2_valuelist_indiv_rank)
+  
+  # df.s1.temp = df.s1 %>% filter(subject == subj & trial > 128)
+  # df.words$last_seen3[i] = word %in% df.s1.temp$word | word %in% df.s1.temp$alt
+  # df.s1.temp = df.s1 %>% filter(subject == subj & trial > 130)
+  # df.words$last_seen1[i] = word %in% df.s1.temp$word | word %in% df.s1.temp$alt
+  
+  df.s1.temp = df.s1 %>% filter(subject == subj)
+  df.words$last_seen[i] = max(c(which(word == df.s1.temp$word), which(word == df.s1.temp$alt)))
+  df.words$last_chosen[i] = max(which(word == df.s1.temp$word_chosen))
+  df.words$num_chosen[i] = sum(word == df.s1.temp$word_chosen)
 }
 
-df.words = df.words %>% mutate(chosen = ifelse(in.cs, 0, NA))
+df.words = df.words %>% mutate(chosen = ifelse(in.cs, 0, NA), chosen_noNA = 0)
 
 ## s2
 for (i in 1:nrow(df.s2)) {
@@ -299,6 +277,7 @@ for (i in 1:nrow(df.s2)) {
   df.s2$median_value[i] = median(s2_valuelist)
   
   df.words$chosen[word_rows] = 1
+  df.words$chosen_noNA[word_rows] = 1
 }
 
 df.s2 = df.s2 %>% mutate(s2_subj_ind = as.numeric(as.factor(subject)), # just for modeling
@@ -312,18 +291,23 @@ df.demo.filt = df.demo %>% filter(subject %in% include_names)
 
 ## plots!
 # effect of stage 1 value on...
-df.graph.s1 = df.words.filt %>% group_by(cond, s1_value) %>%
-  summarize(in.cs = mean(in.cs), in.cs.se = sqrt(in.cs * (1-in.cs) / n()),
+df.graph.s1 = df.words.filt %>% mutate(high_s1value = factor(high_s1value, c(F,T), c('Low', 'High')),
+                                      often = factor(num_chosen > 10, c(F,T), c('Rare', 'Often'))) %>%
+  group_by(high_s1value) %>% #filter(s1_value >= 4) %>%
+  summarize(in.cs = mean(in.cs, na.rm = T), in.cs.se = sqrt(in.cs * (1-in.cs) / n()),
+            cs.order.m = mean(cs.order, na.rm = T), cs.order.se = sd(cs.order, na.rm = T) / sqrt(length(cs.order[!is.na(cs.order)])),
             chosen = mean(chosen, na.rm = T), chosen.se = sqrt(chosen * (1-chosen) / n()))
 # choice sets
-ggplot(df.graph.s1, aes(x = s1_value, y = in.cs)) +
-  geom_point(size = 5) + geom_line() +
+ggplot(df.graph.s1, aes(x = high_s1value, y = in.cs)) +
+  geom_point(size = 5) + #geom_line() +
   geom_errorbar(aes(ymin = in.cs - in.cs.se, ymax = in.cs+in.cs.se), width = .2) +
-  geom_smooth(method='lm')+
-  #xlab('Stage 1 value') + ylab('Prob. in choice set') +
-  #scale_y_continuous(breaks = c(.3,.5), limits = c(.3,.5)) + 
-  #scale_x_continuous(breaks = c(1,12))
-  facet_wrap(~cond)
+  #geom_smooth(method='lm') +
+  xlab('Stage 1 value') + ylab('Prob. in\nconsideration set') +
+  scale_y_continuous(breaks = c(.3,.4), limits = c(.3,.41)) + 
+  #scale_x_continuous(breaks = c(1,12)) +
+  theme(axis.title = element_text(size = 24))# +
+  #ylim(.3, .4)
+  #facet_wrap(~cond)
 # selection out of choice set
 ggplot(df.graph.s1, aes(x = s1_value, y = chosen)) +
   geom_point(size = 5) + geom_line() +
@@ -334,19 +318,36 @@ ggplot(df.graph.s1, aes(x = s1_value, y = chosen)) +
   #scale_x_continuous(breaks = c(1,12))# +
   #facet_wrap(~cond)
 
+# 2x2
+df.graph.s1 = df.words.filt %>% #mutate(#high_s1value = factor(high_s1value, c(F,T), c('Low', 'High')),
+  #often = factor(num_chosen > 10, c(F,T), c('Rare', 'Often'))) %>%
+  mutate(s1value.fac = cut(s1_value, 2, c('Low', 'High')), chosen.fac = cut(num_chosen, 12, 1:12)) %>%
+  group_by(s1value.fac, chosen.fac) %>% #filter(s1_value >= 4) %>%
+  summarize(in.cs = mean(in.cs, na.rm = T), in.cs.se = sqrt(in.cs * (1-in.cs) / n()),
+            cs.order.m = mean(cs.order, na.rm = T), cs.order.se = sd(cs.order, na.rm = T) / sqrt(length(cs.order[!is.na(cs.order)])),
+            chosen = mean(chosen, na.rm = T), chosen.se = sqrt(chosen * (1-chosen) / n()))
+ggplot(df.graph.s1, aes(x = chosen.fac, y = in.cs, group = s1value.fac, color = s1value.fac)) +
+  geom_point(size = 5) + geom_line() +
+  geom_errorbar(aes(ymin = in.cs - in.cs.se, ymax = in.cs+in.cs.se), width = .2) +
+  #geom_smooth(method='lm') +
+  #xlab('Stage 1 value') + ylab('Prob. in\nconsideration set') +
+  #scale_y_continuous(breaks = c(.3,.4), limits = c(.3,.41)) + 
+  #scale_x_continuous(breaks = c(1,12)) +
+  theme(axis.title = element_text(size = 24))
+
+
 # effect of stage 2 value on...
 df.graph.s2 = df.words.filt %>% group_by(cond, word_ind, s2_value) %>%
-  summarize(in.cs = mean(in.cs), in.cs.se = sqrt(in.cs * (1-in.cs) / n()),
+  summarize(in.cs = mean(in.cs, na.rm = T), in.cs.se = sqrt(in.cs * (1-in.cs) / n()),
             chosen = mean(chosen, na.rm = T), chosen.se = sqrt(chosen * (1-chosen) / n()))
 # choice sets
 ggplot(df.graph.s2, aes(x = s2_value, y = in.cs)) +
   geom_point(size = 5) + geom_line() +
   geom_errorbar(aes(ymin = in.cs - in.cs.se, ymax = in.cs+in.cs.se), width = .2) +
-  geom_smooth(method='lm', color = 'black')+
+  geom_smooth(method='lm', color = 'black')
   #xlab('Stage 2 value') + ylab('Prob. in choice set') +
   #scale_y_continuous(breaks = c(0,1), limits = c(0,1)) +
   #scale_x_continuous(breaks = c(1,26))# +
-  facet_wrap(~cond)
 # selection out of choice set
 ggplot(df.graph.s2, aes(x = s2_value, y = chosen)) +
   geom_point(size = 5) + geom_line() +
@@ -359,10 +360,20 @@ ggplot(df.graph.s2, aes(x = s2_value, y = chosen)) +
 
 
 ## stats!
+
+m.s1.cs = glmer(in.cs~s1_value*num_chosen+(1+s1_value*num_chosen||subject)+(1+s1_value*num_chosen||word_ind),
+                data = df.words.filt %>% mutate(subject = factor(subject)),
+                family='binomial')
+summary(m.s1.cs)
+
 # s1 -> cs
-m.s1.cs = glmer(in.cs~s1_value+(s1_value|subject),
+m.s1.cs = glmer(in.cs~s1_value+(1+s1_value||subject),
                 data = df.words.filt,
                 family='binomial')
+summary(m.s1.cs)
+
+m.s1.cs = lmer(cs.order~s1_value+(1+s1_value||subject),
+                data = df.words.filt)
 summary(m.s1.cs)
 
 # m.s1 = glmer(in.cs~s1_value+I(s1_value^2)+(s1_value+I(s1_value^2)|subject),#(1|subject)+(0+s1_value|subject)+(0+I(s1_value^2)|subject),
@@ -476,15 +487,15 @@ test = df.s2 %>% group_by(subject) %>% summarize(num0 = sum(question_order == 0)
 df.s2.subj = df.s2 %>% filter(question_order == 0) %>%
   mutate(s2_bonus = ifelse(is.na(s2_value), 0, s2_value),
          mem_bonus = 0)
+substrRight <- function(x, n){
+  substr(x, nchar(x)-n+1, nchar(x))
+}
 df.demo = df.demo %>% mutate(s2_bonus = I(df.s2.subj$s2_bonus), mem_bonus = I(df.s2.subj$mem_bonus),
                              bonus = round((s1_bonus / pointsPerCent_s1 + s2_bonus / pointsPerCent_s2  + mem_bonus) / 100, 2))
 df.demo = df.demo %>% mutate(s2_bonus = I(df.s2.subj$s2_bonus), mem_bonus = I(df.s2.subj$mem_bonus),
                              w1_bonus = match(substr(tr_resp2,1,1), letters), w1_bonus = ifelse(is.na(w1_bonus), 0, w1_bonus),
                              w2_bonus = match(substrRight(tr_resp_correct,1), letters), w2_bonus = ifelse(is.na(w2_bonus), 0, w2_bonus),
                              bonus = round((s1_bonus / pointsPerCent_s1 + s2_bonus / pointsPerCent_s2 + w1_bonus + w2_bonus + mem_bonus) / 100, 2))
-substrRight <- function(x, n){
-  substr(x, nchar(x)-n+1, nchar(x))
-}
 write.table(df.demo %>% dplyr::select(WorkerID = subject, Bonus = bonus),
             paste0(path, 'Bonuses.csv'), row.names = FALSE, col.names = FALSE, sep = ",")
 

@@ -51,7 +51,7 @@ subjlist = df.demo$subject
 
 # drop anyone who didn't finish
 df.s1 = df.s1.raw %>% filter(subject %in% subjlist) %>% mutate(correct_word = ain(toupper(resp), word, maxDist = 2), correct_val = resp2 == value)
-df.s2 = df.s2.raw %>% filter(subject %in% subjlist)
+#df.s2 = df.s2.raw %>% filter(subject %in% subjlist)
 df.words = df.words.raw %>% mutate(doubled = ifelse(is.na(lead(word)), FALSE, word == lead(word) & subject == lead(subject))) %>%
   filter(doubled == FALSE & subject %in% subjlist) %>%
   mutate(high_val = value > 5, numChosen = 0)

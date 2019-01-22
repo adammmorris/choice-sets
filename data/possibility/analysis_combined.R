@@ -296,10 +296,10 @@ summary(m.recall)
 df.poss.graph = df.poss.collapsed.filt %>% group_by(cond, s1_value) %>%
   summarize(choice.mean = mean(choice), choice.se = se(choice))
 
-ggplot(df.poss.graph, aes(x = s1_value, y = choice.mean, group = cond, fill = cond)) +
+ggplot(df.poss.graph %>% filter(s1_value != 'absent'), aes(x = s1_value, y = choice.mean, group = cond, fill = cond)) +
   geom_bar(stat = "identity", position = dodge) +
   geom_errorbar(aes(ymax = choice.mean + choice.se, ymin = choice.mean - choice.se), width = .5, position = dodge) +
-  xlab('') + ylab('')
+  xlab('Stage 1 value') + ylab('% judged impossible') + ylim(0,0.15) + labs(fill="Condition")
 
 histogram(~ df.poss.subj.filt$val | df.poss.subj.filt$cond)
 
